@@ -1,0 +1,1410 @@
+{
+  "falco_amurensis": {
+    "species_id": "falco_amurensis",
+    "scientific_name": "Falco amurensis",
+    "targets": [
+      {
+        "lat": -25.3857,
+        "lon": 30.2497,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #1 (16 records)"
+      },
+      {
+        "lat": 15.4928,
+        "lon": 73.8322,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #2 (4 records)"
+      },
+      {
+        "lat": -28.6575,
+        "lon": 30.2183,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #3 (4 records)"
+      },
+      {
+        "lat": 11.1131,
+        "lon": 76.0356,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #4 (3 records)"
+      },
+      {
+        "lat": 12.798,
+        "lon": 99.5654,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #5 (2 records)"
+      },
+      {
+        "lat": -1.4684,
+        "lon": 35.041,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #6 (2 records)"
+      },
+      {
+        "lat": -2.8329,
+        "lon": 38.2913,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #7 (2 records)"
+      },
+      {
+        "lat": -18.1246,
+        "lon": 21.6246,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #8 (2 records)"
+      },
+      {
+        "lat": -18.0829,
+        "lon": 24.6662,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #9 (2 records)"
+      },
+      {
+        "lat": -27.6662,
+        "lon": 26.5829,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #10 (2 records)"
+      }
+    ],
+    "count": 10,
+    "updated_at": "2026-10-24T10:16:23.257Z"
+  },
+  "limosa_lapponica": {
+    "species_id": "limosa_lapponica",
+    "scientific_name": "Limosa lapponica",
+    "targets": [
+      {
+        "lat": 56.9177,
+        "lon": 11.8099,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #1 (15 records)"
+      },
+      {
+        "lat": 63.6842,
+        "lon": 9.5617,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #2 (5 records)"
+      },
+      {
+        "lat": -44.2754,
+        "lon": 171.9846,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #3 (4 records)"
+      },
+      {
+        "lat": 60.5756,
+        "lon": 4.9587,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #4 (3 records)"
+      },
+      {
+        "lat": 56.2215,
+        "lon": 12.7826,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #5 (2 records)"
+      },
+      {
+        "lat": 62.7978,
+        "lon": 6.5357,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #6 (2 records)"
+      },
+      {
+        "lat": -37.876,
+        "lon": 144.8133,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #7 (2 records)"
+      },
+      {
+        "lat": 57.5428,
+        "lon": 10.4294,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #8 (2 records)"
+      },
+      {
+        "lat": 36.7818,
+        "lon": -6.3645,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #9 (1 records)"
+      },
+      {
+        "lat": -41.7483,
+        "lon": 171.6162,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #10 (1 records)"
+      }
+    ],
+    "count": 10,
+    "updated_at": "2026-10-24T10:16:23.260Z"
+  },
+  "sterna_paradisaea": {
+    "species_id": "sterna_paradisaea",
+    "scientific_name": "Sterna paradisaea",
+    "targets": [
+      {
+        "lat": 45.4236,
+        "lon": -84.9878,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #1 (29 records)"
+      },
+      {
+        "lat": -20.1975,
+        "lon": -70.3655,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #2 (4 records)"
+      },
+      {
+        "lat": 51.65,
+        "lon": 3.75,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #3 (2 records)"
+      },
+      {
+        "lat": -34.4592,
+        "lon": 20.39,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #4 (2 records)"
+      },
+      {
+        "lat": -33.6246,
+        "lon": 26.8746,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #5 (1 records)"
+      },
+      {
+        "lat": 60.2081,
+        "lon": 24.9647,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #6 (1 records)"
+      },
+      {
+        "lat": -54.4995,
+        "lon": 158.9367,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #7 (1 records)"
+      },
+      {
+        "lat": 55.2619,
+        "lon": -1.5712,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #8 (1 records)"
+      },
+      {
+        "lat": 69.6464,
+        "lon": 18.9599,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #9 (1 records)"
+      }
+    ],
+    "count": 9,
+    "updated_at": "2026-10-24T10:16:23.262Z"
+  },
+  "leucogeranus_leucogeranus": {
+    "species_id": "leucogeranus_leucogeranus",
+    "scientific_name": "Leucogeranus leucogeranus",
+    "targets": [
+      {
+        "lat": 28.9444,
+        "lon": 116.3006,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #1 (30 records)"
+      },
+      {
+        "lat": 32.0979,
+        "lon": 130.2725,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #2 (7 records)"
+      },
+      {
+        "lat": 30.254,
+        "lon": 119.9115,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #3 (4 records)"
+      },
+      {
+        "lat": 26.2562,
+        "lon": 119.4202,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #4 (1 records)"
+      }
+    ],
+    "count": 4,
+    "updated_at": "2026-10-24T10:16:23.264Z"
+  },
+  "ciconia_ciconia": {
+    "species_id": "ciconia_ciconia",
+    "scientific_name": "Ciconia ciconia",
+    "targets": [
+      {
+        "lat": 11.5339,
+        "lon": 15.0338,
+        "source": "tracked_individual_latest",
+        "label": "Individual #1 (latest fix)"
+      },
+      {
+        "lat": 11.3266,
+        "lon": 15.1838,
+        "source": "tracked_individual_latest",
+        "label": "Individual #2 (latest fix)"
+      },
+      {
+        "lat": 10.4341,
+        "lon": 38.1598,
+        "source": "tracked_individual_latest",
+        "label": "Individual #3 (latest fix)"
+      },
+      {
+        "lat": 13.1208,
+        "lon": 18.6272,
+        "source": "tracked_individual_latest",
+        "label": "Individual #4 (latest fix)"
+      },
+      {
+        "lat": 0.739,
+        "lon": 35.2233,
+        "source": "tracked_individual_latest",
+        "label": "Individual #5 (latest fix)"
+      },
+      {
+        "lat": 11.3497,
+        "lon": 15.1476,
+        "source": "tracked_individual_latest",
+        "label": "Individual #6 (latest fix)"
+      },
+      {
+        "lat": 11.3183,
+        "lon": 15.1963,
+        "source": "tracked_individual_latest",
+        "label": "Individual #7 (latest fix)"
+      },
+      {
+        "lat": 10.3312,
+        "lon": 38.1713,
+        "source": "tracked_individual_latest",
+        "label": "Individual #8 (latest fix)"
+      },
+      {
+        "lat": 13.0958,
+        "lon": 18.5805,
+        "source": "tracked_individual_latest",
+        "label": "Individual #9 (latest fix)"
+      },
+      {
+        "lat": 0.7313,
+        "lon": 35.2071,
+        "source": "tracked_individual_latest",
+        "label": "Individual #10 (latest fix)"
+      },
+      {
+        "lat": 11.1241,
+        "lon": 15.1781,
+        "source": "tracked_individual_latest",
+        "label": "Individual #11 (latest fix)"
+      },
+      {
+        "lat": 11.3093,
+        "lon": 15.1938,
+        "source": "tracked_individual_latest",
+        "label": "Individual #12 (latest fix)"
+      },
+      {
+        "lat": 10.4377,
+        "lon": 38.1983,
+        "source": "tracked_individual_latest",
+        "label": "Individual #13 (latest fix)"
+      },
+      {
+        "lat": 13.0938,
+        "lon": 18.58,
+        "source": "tracked_individual_latest",
+        "label": "Individual #14 (latest fix)"
+      },
+      {
+        "lat": 9.1843,
+        "lon": 32.3729,
+        "source": "tracked_individual_latest",
+        "label": "Individual #15 (latest fix)"
+      }
+    ],
+    "count": 15,
+    "updated_at": "2026-10-24T10:16:23.269Z"
+  },
+  "hirundo_rustica": {
+    "species_id": "hirundo_rustica",
+    "scientific_name": "Hirundo rustica",
+    "targets": [
+      {
+        "lat": 31.9783,
+        "lon": 34.898,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #1 (9 records)"
+      },
+      {
+        "lat": 13.0063,
+        "lon": 99.7237,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #2 (6 records)"
+      },
+      {
+        "lat": 37.0581,
+        "lon": -6.1039,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #3 (6 records)"
+      },
+      {
+        "lat": 2.2716,
+        "lon": 111.8311,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #4 (3 records)"
+      },
+      {
+        "lat": -35.6191,
+        "lon": -59.6993,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #5 (3 records)"
+      },
+      {
+        "lat": -35.6804,
+        "lon": -63.6975,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #6 (2 records)"
+      },
+      {
+        "lat": -33.9743,
+        "lon": 21.6683,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #7 (2 records)"
+      },
+      {
+        "lat": -38.6943,
+        "lon": -62.2608,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #8 (2 records)"
+      },
+      {
+        "lat": -26.134,
+        "lon": 28.1342,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #9 (2 records)"
+      },
+      {
+        "lat": 22.6822,
+        "lon": 114.9126,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #10 (2 records)"
+      }
+    ],
+    "count": 10,
+    "updated_at": "2026-10-24T10:16:23.271Z"
+  },
+  "calidris_canutus": {
+    "species_id": "calidris_canutus",
+    "scientific_name": "Calidris canutus",
+    "targets": [
+      {
+        "lat": 51.7242,
+        "lon": 3.828,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #1 (17 records)"
+      },
+      {
+        "lat": 53.2062,
+        "lon": 5.3312,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #2 (8 records)"
+      },
+      {
+        "lat": 51.2414,
+        "lon": 1.7524,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #3 (4 records)"
+      },
+      {
+        "lat": 49.5965,
+        "lon": -3.3282,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #4 (3 records)"
+      },
+      {
+        "lat": 56.1372,
+        "lon": 11.2267,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #5 (3 records)"
+      },
+      {
+        "lat": 43.0869,
+        "lon": 3.097,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #6 (3 records)"
+      },
+      {
+        "lat": 41.225,
+        "lon": -8.7167,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #7 (1 records)"
+      },
+      {
+        "lat": 27.6253,
+        "lon": -82.7097,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #8 (1 records)"
+      },
+      {
+        "lat": 28.6782,
+        "lon": -80.6479,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #9 (1 records)"
+      },
+      {
+        "lat": 28.5713,
+        "lon": -16.3097,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #10 (1 records)"
+      }
+    ],
+    "count": 10,
+    "updated_at": "2026-10-24T10:16:23.273Z"
+  },
+  "anser_indicus": {
+    "species_id": "anser_indicus",
+    "scientific_name": "Anser indicus",
+    "targets": [
+      {
+        "lat": 51.1402,
+        "lon": 4.0061,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #1 (31 records)"
+      },
+      {
+        "lat": 49.6347,
+        "lon": 9.945,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #2 (5 records)"
+      },
+      {
+        "lat": 60.5815,
+        "lon": 10.6256,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #3 (4 records)"
+      },
+      {
+        "lat": 56.0344,
+        "lon": 14.0672,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #4 (1 records)"
+      },
+      {
+        "lat": 53.2,
+        "lon": 6.75,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #5 (1 records)"
+      }
+    ],
+    "count": 5,
+    "updated_at": "2026-10-24T10:16:23.274Z"
+  },
+  "cuculus_canorus": {
+    "species_id": "cuculus_canorus",
+    "scientific_name": "Cuculus canorus",
+    "targets": [
+      {
+        "lat": -24.9987,
+        "lon": 30.4408,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #1 (11 records)"
+      },
+      {
+        "lat": 11.2468,
+        "lon": 76.3344,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #2 (7 records)"
+      },
+      {
+        "lat": -2.9996,
+        "lon": 39.7912,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #3 (2 records)"
+      },
+      {
+        "lat": -16.1246,
+        "lon": 29.5413,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #4 (2 records)"
+      },
+      {
+        "lat": -34.3329,
+        "lon": 21.2496,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #5 (2 records)"
+      },
+      {
+        "lat": 11.6383,
+        "lon": 77.6665,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #6 (2 records)"
+      },
+      {
+        "lat": 51.7212,
+        "lon": -1.8128,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #7 (2 records)"
+      },
+      {
+        "lat": 19.0166,
+        "lon": 73.0059,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #8 (1 records)"
+      },
+      {
+        "lat": 15.49,
+        "lon": 73.93,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #9 (1 records)"
+      },
+      {
+        "lat": -29.6246,
+        "lon": 31.1246,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #10 (1 records)"
+      }
+    ],
+    "count": 10,
+    "updated_at": "2026-10-24T10:16:23.276Z"
+  },
+  "oenanthe_oenanthe": {
+    "species_id": "oenanthe_oenanthe",
+    "scientific_name": "Oenanthe oenanthe",
+    "targets": [
+      {
+        "lat": -0.4909,
+        "lon": 36.7538,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #1 (9 records)"
+      },
+      {
+        "lat": 52.2009,
+        "lon": -6.3992,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #2 (6 records)"
+      },
+      {
+        "lat": 30.1119,
+        "lon": -9.627,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #3 (5 records)"
+      },
+      {
+        "lat": 39.4686,
+        "lon": -6.1878,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #4 (4 records)"
+      },
+      {
+        "lat": 23.1644,
+        "lon": -15.136,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #5 (4 records)"
+      },
+      {
+        "lat": 0.6254,
+        "lon": 37.5829,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #6 (2 records)"
+      },
+      {
+        "lat": -2.7079,
+        "lon": 39.2496,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #7 (2 records)"
+      },
+      {
+        "lat": 4.539,
+        "lon": 38.5672,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #8 (2 records)"
+      },
+      {
+        "lat": 28.7445,
+        "lon": -13.7489,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #9 (2 records)"
+      },
+      {
+        "lat": 59.0277,
+        "lon": 10.1019,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #10 (1 records)"
+      }
+    ],
+    "count": 10,
+    "updated_at": "2026-10-24T10:16:23.277Z"
+  },
+  "numenius_phaeopus": {
+    "species_id": "numenius_phaeopus",
+    "scientific_name": "Numenius phaeopus",
+    "targets": [
+      {
+        "lat": 37.075,
+        "lon": -7.8544,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #1 (11 records)"
+      },
+      {
+        "lat": 28.384,
+        "lon": -15.8612,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #2 (7 records)"
+      },
+      {
+        "lat": 14.2669,
+        "lon": -17.0228,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #3 (5 records)"
+      },
+      {
+        "lat": 36.532,
+        "lon": -6.2792,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #4 (3 records)"
+      },
+      {
+        "lat": 16.6081,
+        "lon": -22.9069,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #5 (3 records)"
+      },
+      {
+        "lat": 1.4472,
+        "lon": 103.7261,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #6 (2 records)"
+      },
+      {
+        "lat": 43.5904,
+        "lon": -5.9301,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #7 (2 records)"
+      },
+      {
+        "lat": 13.147,
+        "lon": 100.0637,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #8 (2 records)"
+      },
+      {
+        "lat": -34.3294,
+        "lon": 18.4272,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #9 (1 records)"
+      },
+      {
+        "lat": -34.0135,
+        "lon": 22.7737,
+        "source": "occurrence_cluster_center",
+        "label": "Month 12 Cluster #10 (1 records)"
+      }
+    ],
+    "count": 10,
+    "updated_at": "2026-10-24T10:16:23.279Z"
+  },
+  "grus_grus": {
+    "species_id": "grus_grus",
+    "scientific_name": "Grus grus",
+    "targets": [
+      {
+        "lat": 47.7087,
+        "lon": 21.2613,
+        "source": "tracked_individual_latest",
+        "label": "Individual #1 (latest fix)"
+      },
+      {
+        "lat": 44.0595,
+        "lon": 15.44,
+        "source": "tracked_individual_latest",
+        "label": "Individual #2 (latest fix)"
+      },
+      {
+        "lat": 36.7363,
+        "lon": 35.615,
+        "source": "tracked_individual_latest",
+        "label": "Individual #3 (latest fix)"
+      },
+      {
+        "lat": 36.3723,
+        "lon": 8.6235,
+        "source": "tracked_individual_latest",
+        "label": "Individual #4 (latest fix)"
+      },
+      {
+        "lat": 36.0915,
+        "lon": 6.9598,
+        "source": "tracked_individual_latest",
+        "label": "Individual #5 (latest fix)"
+      },
+      {
+        "lat": 27.9135,
+        "lon": 34.2327,
+        "source": "tracked_individual_latest",
+        "label": "Individual #6 (latest fix)"
+      },
+      {
+        "lat": 36.2407,
+        "lon": 10.4308,
+        "source": "tracked_individual_latest",
+        "label": "Individual #7 (latest fix)"
+      },
+      {
+        "lat": 51.6952,
+        "lon": 27.842,
+        "source": "tracked_individual_latest",
+        "label": "Individual #8 (latest fix)"
+      },
+      {
+        "lat": 9.2035,
+        "lon": 38.7035,
+        "source": "tracked_individual_latest",
+        "label": "Individual #9 (latest fix)"
+      },
+      {
+        "lat": 9.2418,
+        "lon": 38.7073,
+        "source": "tracked_individual_latest",
+        "label": "Individual #10 (latest fix)"
+      },
+      {
+        "lat": 9.242,
+        "lon": 38.7138,
+        "source": "tracked_individual_latest",
+        "label": "Individual #11 (latest fix)"
+      },
+      {
+        "lat": 15.4,
+        "lon": 35.7,
+        "source": "tracked_individual_latest",
+        "label": "Individual #12 (latest fix)"
+      },
+      {
+        "lat": 45.616,
+        "lon": 20.1432,
+        "source": "tracked_individual_latest",
+        "label": "Individual #13 (latest fix)"
+      },
+      {
+        "lat": 47.659,
+        "lon": 21.098,
+        "source": "tracked_individual_latest",
+        "label": "Individual #14 (latest fix)"
+      },
+      {
+        "lat": 47.4582,
+        "lon": 21.1545,
+        "source": "tracked_individual_latest",
+        "label": "Individual #15 (latest fix)"
+      }
+    ],
+    "count": 15,
+    "updated_at": "2026-10-24T10:16:23.337Z"
+  },
+  "pandion_haliaetus": {
+    "species_id": "pandion_haliaetus",
+    "scientific_name": "Pandion haliaetus",
+    "targets": [
+      {
+        "lat": 0.7567,
+        "lon": 19.0045,
+        "source": "tracked_individual_latest",
+        "label": "Individual #1 (latest fix)"
+      },
+      {
+        "lat": -0.9172,
+        "lon": 17.4763,
+        "source": "tracked_individual_latest",
+        "label": "Individual #2 (latest fix)"
+      },
+      {
+        "lat": 47.3595,
+        "lon": 27.3287,
+        "source": "tracked_individual_latest",
+        "label": "Individual #3 (latest fix)"
+      },
+      {
+        "lat": 55.7498,
+        "lon": 26.8893,
+        "source": "tracked_individual_latest",
+        "label": "Individual #4 (latest fix)"
+      },
+      {
+        "lat": 0.0297,
+        "lon": 17.9978,
+        "source": "tracked_individual_latest",
+        "label": "Individual #5 (latest fix)"
+      },
+      {
+        "lat": 13.033,
+        "lon": 34.9588,
+        "source": "tracked_individual_latest",
+        "label": "Individual #6 (latest fix)"
+      },
+      {
+        "lat": 56.7268,
+        "lon": 27.9345,
+        "source": "tracked_individual_latest",
+        "label": "Individual #7 (latest fix)"
+      },
+      {
+        "lat": 54.8548,
+        "lon": 28.9335,
+        "source": "tracked_individual_latest",
+        "label": "Individual #8 (latest fix)"
+      },
+      {
+        "lat": 53.3533,
+        "lon": 28.6965,
+        "source": "tracked_individual_latest",
+        "label": "Individual #9 (latest fix)"
+      },
+      {
+        "lat": 13.0167,
+        "lon": 34.9603,
+        "source": "tracked_individual_latest",
+        "label": "Individual #10 (latest fix)"
+      },
+      {
+        "lat": 13.0543,
+        "lon": 35.0375,
+        "source": "tracked_individual_latest",
+        "label": "Individual #11 (latest fix)"
+      },
+      {
+        "lat": 11.679,
+        "lon": 34.3138,
+        "source": "tracked_individual_latest",
+        "label": "Individual #12 (latest fix)"
+      },
+      {
+        "lat": 56.295,
+        "lon": 27.999,
+        "source": "tracked_individual_latest",
+        "label": "Individual #13 (latest fix)"
+      },
+      {
+        "lat": 13.0123,
+        "lon": 34.9623,
+        "source": "tracked_individual_latest",
+        "label": "Individual #14 (latest fix)"
+      },
+      {
+        "lat": 54.265,
+        "lon": 28.9975,
+        "source": "tracked_individual_latest",
+        "label": "Individual #15 (latest fix)"
+      }
+    ],
+    "count": 15,
+    "updated_at": "2026-10-24T10:16:23.353Z"
+  },
+  "numenius_arquata": {
+    "species_id": "numenius_arquata",
+    "scientific_name": "Numenius arquata",
+    "targets": [
+      {
+        "lat": 48.8417,
+        "lon": -3.1995,
+        "source": "tracked_individual_latest",
+        "label": "Individual #1 (latest fix)"
+      },
+      {
+        "lat": 37.2188,
+        "lon": -6.9339,
+        "source": "tracked_individual_latest",
+        "label": "Individual #2 (latest fix)"
+      },
+      {
+        "lat": 38.5072,
+        "lon": -8.7632,
+        "source": "tracked_individual_latest",
+        "label": "Individual #3 (latest fix)"
+      },
+      {
+        "lat": 48.5958,
+        "lon": -1.7418,
+        "source": "tracked_individual_latest",
+        "label": "Individual #4 (latest fix)"
+      },
+      {
+        "lat": 51.3359,
+        "lon": 4.2443,
+        "source": "tracked_individual_latest",
+        "label": "Individual #5 (latest fix)"
+      }
+    ],
+    "count": 5,
+    "updated_at": "2026-10-24T10:16:23.355Z"
+  },
+  "circus_pygargus": {
+    "species_id": "circus_pygargus",
+    "scientific_name": "Circus pygargus",
+    "targets": [
+      {
+        "lat": 49.1,
+        "lon": 4.2,
+        "source": "tracked_individual_latest",
+        "label": "Individual #1 (latest fix)"
+      },
+      {
+        "lat": 24.0508,
+        "lon": -1.8213,
+        "source": "tracked_individual_latest",
+        "label": "Individual #2 (latest fix)"
+      },
+      {
+        "lat": 14.3818,
+        "lon": -5.4962,
+        "source": "tracked_individual_latest",
+        "label": "Individual #3 (latest fix)"
+      },
+      {
+        "lat": 39.7587,
+        "lon": -3.3809,
+        "source": "tracked_individual_latest",
+        "label": "Individual #4 (latest fix)"
+      },
+      {
+        "lat": 15.0615,
+        "lon": -9.3502,
+        "source": "tracked_individual_latest",
+        "label": "Individual #5 (latest fix)"
+      },
+      {
+        "lat": 15.1194,
+        "lon": -9.9214,
+        "source": "tracked_individual_latest",
+        "label": "Individual #6 (latest fix)"
+      },
+      {
+        "lat": 15.4139,
+        "lon": -3.8788,
+        "source": "tracked_individual_latest",
+        "label": "Individual #7 (latest fix)"
+      },
+      {
+        "lat": 51.1,
+        "lon": 2.7,
+        "source": "tracked_individual_latest",
+        "label": "Individual #8 (latest fix)"
+      },
+      {
+        "lat": 45.9,
+        "lon": 5.3,
+        "source": "tracked_individual_latest",
+        "label": "Individual #9 (latest fix)"
+      },
+      {
+        "lat": 34.4922,
+        "lon": -4.1723,
+        "source": "tracked_individual_latest",
+        "label": "Individual #10 (latest fix)"
+      }
+    ],
+    "count": 10,
+    "updated_at": "2026-10-24T10:16:23.359Z"
+  },
+  "fregata_magnificens": {
+    "species_id": "fregata_magnificens",
+    "scientific_name": "Fregata magnificens",
+    "targets": [
+      {
+        "lat": 17.6646,
+        "lon": -65.6087,
+        "source": "tracked_individual_latest",
+        "label": "Individual #1 (latest fix)"
+      },
+      {
+        "lat": 18.4215,
+        "lon": -64.809,
+        "source": "tracked_individual_latest",
+        "label": "Individual #2 (latest fix)"
+      },
+      {
+        "lat": 18.7614,
+        "lon": -64.631,
+        "source": "tracked_individual_latest",
+        "label": "Individual #3 (latest fix)"
+      },
+      {
+        "lat": 18.4068,
+        "lon": -64.7421,
+        "source": "tracked_individual_latest",
+        "label": "Individual #4 (latest fix)"
+      },
+      {
+        "lat": 18.4117,
+        "lon": -64.7846,
+        "source": "tracked_individual_latest",
+        "label": "Individual #5 (latest fix)"
+      },
+      {
+        "lat": 18.4071,
+        "lon": -64.7517,
+        "source": "tracked_individual_latest",
+        "label": "Individual #6 (latest fix)"
+      },
+      {
+        "lat": 18.4144,
+        "lon": -64.7951,
+        "source": "tracked_individual_latest",
+        "label": "Individual #7 (latest fix)"
+      },
+      {
+        "lat": 18.3752,
+        "lon": -62.1884,
+        "source": "tracked_individual_latest",
+        "label": "Individual #8 (latest fix)"
+      },
+      {
+        "lat": 18.8535,
+        "lon": -61.8989,
+        "source": "tracked_individual_latest",
+        "label": "Individual #9 (latest fix)"
+      },
+      {
+        "lat": 18.1344,
+        "lon": -63.0753,
+        "source": "tracked_individual_latest",
+        "label": "Individual #10 (latest fix)"
+      },
+      {
+        "lat": 18.3699,
+        "lon": -64.68,
+        "source": "tracked_individual_latest",
+        "label": "Individual #11 (latest fix)"
+      },
+      {
+        "lat": 19.0183,
+        "lon": -65.4777,
+        "source": "tracked_individual_latest",
+        "label": "Individual #12 (latest fix)"
+      },
+      {
+        "lat": 18.4128,
+        "lon": -64.9358,
+        "source": "tracked_individual_latest",
+        "label": "Individual #13 (latest fix)"
+      },
+      {
+        "lat": 18.4004,
+        "lon": -65.002,
+        "source": "tracked_individual_latest",
+        "label": "Individual #14 (latest fix)"
+      },
+      {
+        "lat": 19.0554,
+        "lon": -65.8664,
+        "source": "tracked_individual_latest",
+        "label": "Individual #15 (latest fix)"
+      }
+    ],
+    "count": 15,
+    "updated_at": "2026-10-24T10:16:23.362Z"
+  },
+  "ciconia_nigra": {
+    "species_id": "ciconia_nigra",
+    "scientific_name": "Ciconia nigra",
+    "targets": [
+      {
+        "lat": 57.5046,
+        "lon": 25.7194,
+        "source": "tracked_individual_latest",
+        "label": "Individual #1 (latest fix)"
+      },
+      {
+        "lat": 57.8965,
+        "lon": 24.5462,
+        "source": "tracked_individual_latest",
+        "label": "Individual #2 (latest fix)"
+      },
+      {
+        "lat": 57.8805,
+        "lon": 25.457,
+        "source": "tracked_individual_latest",
+        "label": "Individual #3 (latest fix)"
+      },
+      {
+        "lat": 32.0527,
+        "lon": 35.5513,
+        "source": "tracked_individual_latest",
+        "label": "Individual #4 (latest fix)"
+      },
+      {
+        "lat": 8.5065,
+        "lon": 24.005,
+        "source": "tracked_individual_latest",
+        "label": "Individual #5 (latest fix)"
+      },
+      {
+        "lat": 42.8995,
+        "lon": 26.108,
+        "source": "tracked_individual_latest",
+        "label": "Individual #6 (latest fix)"
+      },
+      {
+        "lat": 57.7008,
+        "lon": 24.7088,
+        "source": "tracked_individual_latest",
+        "label": "Individual #7 (latest fix)"
+      },
+      {
+        "lat": 39.0975,
+        "lon": 27.3331,
+        "source": "tracked_individual_latest",
+        "label": "Individual #8 (latest fix)"
+      },
+      {
+        "lat": 31.0617,
+        "lon": 35.469,
+        "source": "tracked_individual_latest",
+        "label": "Individual #9 (latest fix)"
+      },
+      {
+        "lat": 54.2872,
+        "lon": 26.2172,
+        "source": "tracked_individual_latest",
+        "label": "Individual #10 (latest fix)"
+      },
+      {
+        "lat": 49.0058,
+        "lon": 27.3527,
+        "source": "tracked_individual_latest",
+        "label": "Individual #11 (latest fix)"
+      },
+      {
+        "lat": 38.3202,
+        "lon": 32.8809,
+        "source": "tracked_individual_latest",
+        "label": "Individual #12 (latest fix)"
+      },
+      {
+        "lat": 57.7743,
+        "lon": 25.4925,
+        "source": "tracked_individual_latest",
+        "label": "Individual #13 (latest fix)"
+      },
+      {
+        "lat": 55.6889,
+        "lon": 26.9476,
+        "source": "tracked_individual_latest",
+        "label": "Individual #14 (latest fix)"
+      },
+      {
+        "lat": 24.4161,
+        "lon": 33.0065,
+        "source": "tracked_individual_latest",
+        "label": "Individual #15 (latest fix)"
+      }
+    ],
+    "count": 15,
+    "updated_at": "2026-10-24T10:16:23.369Z"
+  },
+  "circus_cyaneus": {
+    "species_id": "circus_cyaneus",
+    "scientific_name": "Circus cyaneus",
+    "targets": [
+      {
+        "lat": 48.3667,
+        "lon": 1.9869,
+        "source": "tracked_individual_latest",
+        "label": "Individual #1 (latest fix)"
+      },
+      {
+        "lat": 53.2932,
+        "lon": 16.6562,
+        "source": "tracked_individual_latest",
+        "label": "Individual #2 (latest fix)"
+      },
+      {
+        "lat": 52.5582,
+        "lon": 6.6543,
+        "source": "tracked_individual_latest",
+        "label": "Individual #3 (latest fix)"
+      },
+      {
+        "lat": 61.6145,
+        "lon": 12.2188,
+        "source": "tracked_individual_latest",
+        "label": "Individual #4 (latest fix)"
+      },
+      {
+        "lat": 64.6551,
+        "lon": 28.7714,
+        "source": "tracked_individual_latest",
+        "label": "Individual #5 (latest fix)"
+      },
+      {
+        "lat": 50.8417,
+        "lon": 4.7864,
+        "source": "tracked_individual_latest",
+        "label": "Individual #6 (latest fix)"
+      },
+      {
+        "lat": 52.8486,
+        "lon": 15.5348,
+        "source": "tracked_individual_latest",
+        "label": "Individual #7 (latest fix)"
+      },
+      {
+        "lat": 51.6852,
+        "lon": 4.69,
+        "source": "tracked_individual_latest",
+        "label": "Individual #8 (latest fix)"
+      },
+      {
+        "lat": 61.4,
+        "lon": 35.3,
+        "source": "tracked_individual_latest",
+        "label": "Individual #9 (latest fix)"
+      }
+    ],
+    "count": 9,
+    "updated_at": "2026-10-24T10:16:23.373Z"
+  },
+  "circus_aeruginosus": {
+    "species_id": "circus_aeruginosus",
+    "scientific_name": "Circus aeruginosus",
+    "targets": [
+      {
+        "lat": 14.3704,
+        "lon": -16.7533,
+        "source": "tracked_individual_latest",
+        "label": "Individual #1 (latest fix)"
+      },
+      {
+        "lat": 14.9119,
+        "lon": -9.3114,
+        "source": "tracked_individual_latest",
+        "label": "Individual #2 (latest fix)"
+      },
+      {
+        "lat": 51.1,
+        "lon": 2.9,
+        "source": "tracked_individual_latest",
+        "label": "Individual #3 (latest fix)"
+      },
+      {
+        "lat": 14.6195,
+        "lon": -11.7681,
+        "source": "tracked_individual_latest",
+        "label": "Individual #4 (latest fix)"
+      },
+      {
+        "lat": 51.3,
+        "lon": 4.3,
+        "source": "tracked_individual_latest",
+        "label": "Individual #5 (latest fix)"
+      },
+      {
+        "lat": 16.5643,
+        "lon": -15.3212,
+        "source": "tracked_individual_latest",
+        "label": "Individual #6 (latest fix)"
+      },
+      {
+        "lat": 15.938,
+        "lon": -15.9623,
+        "source": "tracked_individual_latest",
+        "label": "Individual #7 (latest fix)"
+      },
+      {
+        "lat": 38.6542,
+        "lon": -3.1713,
+        "source": "tracked_individual_latest",
+        "label": "Individual #8 (latest fix)"
+      },
+      {
+        "lat": 13.3293,
+        "lon": -15.3408,
+        "source": "tracked_individual_latest",
+        "label": "Individual #9 (latest fix)"
+      },
+      {
+        "lat": 50.0584,
+        "lon": 2.3357,
+        "source": "tracked_individual_latest",
+        "label": "Individual #10 (latest fix)"
+      },
+      {
+        "lat": 50.8956,
+        "lon": 2.6187,
+        "source": "tracked_individual_latest",
+        "label": "Individual #11 (latest fix)"
+      },
+      {
+        "lat": 9.2,
+        "lon": -10.2,
+        "source": "tracked_individual_latest",
+        "label": "Individual #12 (latest fix)"
+      }
+    ],
+    "count": 12,
+    "updated_at": "2026-10-24T10:16:23.377Z"
+  },
+  "asio_flammeus": {
+    "species_id": "asio_flammeus",
+    "scientific_name": "Asio flammeus",
+    "targets": [
+      {
+        "lat": 17.9766,
+        "lon": -11.4893,
+        "source": "tracked_individual_latest",
+        "label": "Individual #1 (latest fix)"
+      },
+      {
+        "lat": 51.0285,
+        "lon": 2.7834,
+        "source": "tracked_individual_latest",
+        "label": "Individual #2 (latest fix)"
+      },
+      {
+        "lat": 32.2353,
+        "lon": -9.2528,
+        "source": "tracked_individual_latest",
+        "label": "Individual #3 (latest fix)"
+      },
+      {
+        "lat": 52.9,
+        "lon": 7,
+        "source": "tracked_individual_latest",
+        "label": "Individual #4 (latest fix)"
+      },
+      {
+        "lat": 64,
+        "lon": 20.5,
+        "source": "tracked_individual_latest",
+        "label": "Individual #5 (latest fix)"
+      },
+      {
+        "lat": 50.4988,
+        "lon": 19.9018,
+        "source": "tracked_individual_latest",
+        "label": "Individual #6 (latest fix)"
+      },
+      {
+        "lat": 43.4747,
+        "lon": 3.834,
+        "source": "tracked_individual_latest",
+        "label": "Individual #7 (latest fix)"
+      },
+      {
+        "lat": 53.5045,
+        "lon": 7.0479,
+        "source": "tracked_individual_latest",
+        "label": "Individual #8 (latest fix)"
+      },
+      {
+        "lat": 51.0268,
+        "lon": 2.7648,
+        "source": "tracked_individual_latest",
+        "label": "Individual #9 (latest fix)"
+      }
+    ],
+    "count": 9,
+    "updated_at": "2026-10-24T10:16:23.378Z"
+  }
+}

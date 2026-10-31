@@ -1,0 +1,1275 @@
+{
+  "total_evaluated": 100,
+  "accepted": [
+    {
+      "status": "accepted",
+      "datasetKey": "712dba38-74cc-4704-87c0-63d1bf8484bc",
+      "title": "BirdMap Data - GPS tracking of Storks, Cranes and birds of prey, breeding in Northern and Eastern Europe",
+      "doi": "10.15468/vnwmrx",
+      "citation": "Adojaan K, Sellis U, V\u00e4li \u00dc, Ojaste I, Denac K, L\u00f5hmus A, \u0136uze J. BirdMap Data - GPS tracking of Storks, Cranes and birds of prey, breeding in Northern and Eastern Europe. PlutoF. Occurrence dataset https://doi.org/10.15468/vnwmrx accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 843385,
+      "matched_seed_species": [
+        {
+          "speciesKey": 2474950,
+          "name": "Grus grus",
+          "is_seed": true
+        },
+        {
+          "speciesKey": 2481912,
+          "name": "Ciconia ciconia",
+          "is_seed": true
+        }
+      ],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2481909,
+          "name": "Ciconia nigra",
+          "hwi": 43.1,
+          "migration": 3
+        },
+        {
+          "speciesKey": 2480726,
+          "name": "Pandion haliaetus",
+          "hwi": 44.9,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "ac9b5a09-a1b4-416c-9538-ca85078a7210",
+      "title": "Automatic acoustic detections of four owl species using SILIC in Meishan, Yushan National Park, Taiwan",
+      "doi": "10.15468/pbzc6k",
+      "citation": "Wu S, Ko J C, Tsai W (2025). Automatic acoustic detections of four owl species using SILIC in Meishan, Yushan National Park, Taiwan. Version 1.3. Taiwan Biodiversity Research Institute. Sampling event dataset https://doi.org/10.15468/pbzc6k accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 705512,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 7340187,
+          "name": "Ninox japonica",
+          "hwi": 40.5,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 4
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "e2fb42ca-e408-4aa2-a7bd-a9bb4ddcc83a",
+      "title": "BOP_RODENT - Rodent specialized birds of prey (Circus, Asio, Buteo) in Flanders (Belgium)",
+      "doi": "10.5281/zenodo.23340023",
+      "citation": "Spanoghe G, Janssens K, Klaassen R, Schaub T, Govaert S, Milotic T, Desmet P (2026). BOP_RODENT - Rodent specialized birds of prey (Circus, Asio, Buteo) in Flanders (Belgium). Version 1.6. Research Institute for Nature and Forest (INBO). Occurrence dataset https://doi.org/10.5281/zenodo.23340023 accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 473277,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2480495,
+          "name": "Circus pygargus",
+          "hwi": 52.0,
+          "migration": 3
+        },
+        {
+          "speciesKey": 2480487,
+          "name": "Circus cyaneus",
+          "hwi": 44.7,
+          "migration": 3
+        },
+        {
+          "speciesKey": 2497295,
+          "name": "Asio flammeus",
+          "hwi": 47.5,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 5
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "291e47e6-1cb6-4211-9fbd-4f06accb1c37",
+      "title": "University of Liverpool seabird tracking in Anguilla 2012-2015",
+      "doi": "10.82144/aef3a0fc",
+      "citation": "Soanes, L. 2015. University of Liverpool seabird tracking in Anguilla 2012-2015. Version 1.0.0. Dataset published in OBIS-SEAMAP. https://doi.org/10.82144/aef3a0fc. accessed via GBIF.org on 2025-12-16. accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 270469,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2480189,
+          "name": "Fregata magnificens",
+          "hwi": 64.0,
+          "migration": 3
+        },
+        {
+          "speciesKey": 9743996,
+          "name": "Phaethon aethereus",
+          "hwi": 68.4,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 5
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "5671d3a6-7e75-49ac-b376-1f001fc176eb",
+      "title": "LTSER Lyudao - Terrestrial soundscape monitoring \u2013 bird sound identification",
+      "doi": "10.15468/bxvtxe",
+      "citation": "Eco-Acoustics and Spatial Ecology Lab, Lee C, Tsai-Chen Y, Chao H, Shen F, Lee T, Tsai Y, Cheng Y, Ho Y, Li K (2025). LTSER Lyudao - Terrestrial soundscape monitoring \u2013 bird sound identification. National Science and Technology Council (NSTC). Sampling event dataset https://doi.org/10.15468/bxvtxe accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 243186,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2493071,
+          "name": "Phylloscopus borealis",
+          "hwi": 25.8,
+          "migration": 3
+        },
+        {
+          "speciesKey": 2493095,
+          "name": "Phylloscopus inornatus",
+          "hwi": 19.0,
+          "migration": 3
+        },
+        {
+          "speciesKey": 2480863,
+          "name": "Nycticorax nycticorax",
+          "hwi": 33.1,
+          "migration": 3
+        },
+        {
+          "speciesKey": 2490773,
+          "name": "Turdus pallidus",
+          "hwi": 33.0,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "7f6dd0f7-9ed4-49c0-bb71-b2a9c7fed9f1",
+      "title": "Macaulay Library Audio and Video Collection",
+      "doi": "10.15468/ckcdpy",
+      "citation": "Scholes III, Ph.D. E (2015). Macaulay Library Audio and Video Collection. Cornell Lab of Ornithology. Occurrence dataset https://doi.org/10.15468/ckcdpy accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 122662,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 6092637,
+          "name": "Setophaga chrysoparia",
+          "hwi": 21.4,
+          "migration": 3
+        },
+        {
+          "speciesKey": 9510564,
+          "name": "Turdus migratorius",
+          "hwi": 29.0,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "88216808-1942-44ed-b059-b576bf79a28e",
+      "title": "CURLEW_VLAANDEREN - Eurasian curlews (Numenius arquata, Scolopacidae) breeding in Flanders (Belgium)",
+      "doi": "10.5281/zenodo.15696532",
+      "citation": "Spanoghe G, Janssens K, Nijs G, Govaert S, Milotic T, Desmet P (2026). CURLEW_VLAANDEREN - Eurasian curlews (Numenius arquata, Scolopacidae) breeding in Flanders (Belgium). Version 1.3. Research Institute for Nature and Forest (INBO). Occurrence dataset. https://ipt.inbo.be/resource?r=curlew_vlaanderen&v=1.3 https://doi.org/10.5281/zenodo.15696532 accessed via GBIF.org on 2026-03-12. accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 62955,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2481792,
+          "name": "Numenius arquata",
+          "hwi": 53.2,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 1
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "3a3c40ec-fb9b-4de3-aa32-4c8a2e101d16",
+      "title": "ARMENIAN_GULL - Armenian gulls (Larus armenicus, Laridae) breeding in Sevan National Park and Lake Arpi National Park (Armenia)",
+      "doi": "10.5281/zenodo.21276581",
+      "citation": "Tumanyan S, Matheve H, Allaert R A, Desmet P, Govaert S, Verbruggen F, Lens L (2026). ARMENIAN_GULL - Armenian gulls (Larus armenicus, Laridae) breeding in Sevan National Park and Lake Arpi National Park (Armenia). Version 1.1. Ghent University. Occurrence dataset https://doi.org/10.5281/zenodo.21276581 accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 60464,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2481171,
+          "name": "Larus armenicus",
+          "hwi": 54.5,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 1
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "7d6b90d2-14c0-4ba6-9e45-449b56bab878",
+      "title": "Wildlife inventory in the Azores using camera trapping",
+      "doi": "10.15468/tcmnya",
+      "citation": "Lamelas-L\u00f3pez L, Pardavila X, Amorim I, Borges P A V (2019). Wildlife inventory in the Azores using camera trapping. Version 1.4. Universidade dos A\u00e7ores. Sampling event dataset https://doi.org/10.15468/tcmnya accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 59756,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2492462,
+          "name": "Erithacus rubecula",
+          "hwi": 19.9,
+          "migration": 3
+        },
+        {
+          "speciesKey": 2481700,
+          "name": "Scolopax rusticola",
+          "hwi": 39.4,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "b1047888-ae52-4179-9dd5-5448ea342a24",
+      "title": "Xeno-canto - Bird sounds from around the world",
+      "doi": "10.15468/qv0ksn",
+      "citation": "Vellinga W P, Planqu\u00e9 B, Vellinga W (2026). Xeno-canto - Bird sounds from around the world. Xeno-canto Foundation for Nature Sounds. Occurrence dataset https://doi.org/10.15468/qv0ksn accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 59225,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 7901064,
+          "name": "Turdus philomelos",
+          "hwi": 30.7,
+          "migration": 3
+        },
+        {
+          "speciesKey": 2474156,
+          "name": "Coturnix coturnix",
+          "hwi": 41.0,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "a78e0e05-7ad8-4acb-9601-ced356fd8a24",
+      "title": "Bird observations at Borsele off shore wind farm",
+      "doi": "10.15468/9pxnbm",
+      "citation": "Boersma J (2024). Bird observations at Borsele off shore wind farm. Flanders Marine Institute. Sampling event dataset https://doi.org/10.15468/9pxnbm accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 56631,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2481240,
+          "name": "Thalasseus sandvicensis",
+          "hwi": 69.3,
+          "migration": 3
+        },
+        {
+          "speciesKey": 7982160,
+          "name": "Larus canus",
+          "hwi": 58.6,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "292a71df-588b-48fa-9ab5-29ae868ba88c",
+      "title": "Bird ringing and recovery database (TIPU)",
+      "doi": "10.15468/kht1r3",
+      "citation": "Finnish Museum of Natural History - Zoology Unit (2026). Bird ringing and recovery database (TIPU). Occurrence dataset https://doi.org/10.15468/kht1r3 accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 42172,
+      "matched_seed_species": [
+        {
+          "speciesKey": 2474950,
+          "name": "Grus grus",
+          "is_seed": true
+        }
+      ],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2480726,
+          "name": "Pandion haliaetus",
+          "hwi": 44.9,
+          "migration": 3
+        },
+        {
+          "speciesKey": 5232464,
+          "name": "Branta leucopsis",
+          "hwi": 50.6,
+          "migration": 3
+        },
+        {
+          "speciesKey": 2481685,
+          "name": "Limosa limosa",
+          "hwi": 51.5,
+          "migration": 3
+        },
+        {
+          "speciesKey": 8277073,
+          "name": "Alca torda",
+          "hwi": 56.8,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "22090000-7164-4e20-894e-722f2ce3c44f",
+      "title": "Monitoreo pasivo de fauna silvestre con c\u00e1maras trampa en el Piedemonte Meta,  Colombia - Proyecto FIBRAS",
+      "doi": "10.15472/7ou0si",
+      "citation": "Ecopetrol. S.A., Asociaci\u00f3n GAICA, Instituto de Investigaci\u00f3n de Recursos Biol\u00f3gicos Alexander von Humboldt (2023). Monitoreo pasivo de fauna silvestre con c\u00e1maras trampa en el Piedemonte Meta,  Colombia - Proyecto FIBRAS. Version 2.2. Ecopetrol S.A.. Sampling event dataset https://doi.org/10.15472/7ou0si accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 37227,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2490821,
+          "name": "Catharus ustulatus",
+          "hwi": 30.6,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "8eafd1af-58c2-49cf-b093-6796b9b38c8e",
+      "title": "MammalWeb records Non-Commercial (pre-2024)",
+      "doi": "10.15468/se5ad5",
+      "citation": "MammalWeb (2026). MammalWeb records Non-Commercial (pre-2024). Occurrence dataset https://doi.org/10.15468/se5ad5 accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 30877,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2492462,
+          "name": "Erithacus rubecula",
+          "hwi": 19.9,
+          "migration": 3
+        },
+        {
+          "speciesKey": 7901064,
+          "name": "Turdus philomelos",
+          "hwi": 30.7,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "8e8a18e4-2609-4122-a574-a2fad3945866",
+      "title": "L\u00ednea base general de aves y mam\u00edferos a trav\u00e9s de c\u00e1maras trampa para el valle medio del Magdalena - VMM",
+      "doi": "10.15472/bo1z8z",
+      "citation": "Instituto de Investigaci\u00f3n de Recursos Biol\u00f3gicos Alexander von Humboldt, Agencia Nacional de Hidrocarburos (2022). L\u00ednea base general de aves y mam\u00edferos a trav\u00e9s de c\u00e1maras trampa para el valle medio del Magdalena - VMM. Version 1.1. Instituto de Investigaci\u00f3n de Recursos Biol\u00f3gicos Alexander von Humboldt. Sampling event dataset https://doi.org/10.15472/bo1z8z accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 25170,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2490821,
+          "name": "Catharus ustulatus",
+          "hwi": 30.6,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "4b377669-f4a2-4953-abd9-6628ab9302a5",
+      "title": "EcoCertified: A cameraTrap survey in solar field and control grasslands",
+      "doi": "10.15468/m9b3e4",
+      "citation": "Tavernier C, de Vries S, Marmara A, Willers H, Tavernier D (2025). EcoCertified: A cameraTrap survey in solar field and control grasslands. Wageningen Environmental Research. Occurrence dataset https://doi.org/10.15468/m9b3e4 accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 24129,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2498036,
+          "name": "Anser anser",
+          "hwi": 47.2,
+          "migration": 3
+        },
+        {
+          "speciesKey": 5232464,
+          "name": "Branta leucopsis",
+          "hwi": 50.6,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "9801530f-ab2f-4913-9050-d7239d12aed0",
+      "title": "Seabirds in Norway - Estimated population sizes (SEAPOP)",
+      "doi": "10.15468/vomcvi",
+      "citation": "Fauchald P, Vang R (2023). Seabirds in Norway - Estimated population sizes (SEAPOP). Version 1.1. Norwegian Institute for Nature Research. Occurrence dataset https://doi.org/10.15468/vomcvi accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 20171,
+      "matched_seed_species": [
+        {
+          "speciesKey": 5229230,
+          "name": "Sterna paradisaea",
+          "is_seed": true
+        }
+      ],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 7982160,
+          "name": "Larus canus",
+          "hwi": 58.6,
+          "migration": 3
+        },
+        {
+          "speciesKey": 2481312,
+          "name": "Cepphus grylle",
+          "hwi": 43.1,
+          "migration": 3
+        },
+        {
+          "speciesKey": 2481621,
+          "name": "Stercorarius parasiticus",
+          "hwi": 60.2,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "db98b6db-9646-483b-acbd-f3b419666eaa",
+      "title": "Fauna registrada mediante c\u00e1maras trampa en el marco del proyecto Expedici\u00f3n del Oso Palmero en el departamento del Casanare",
+      "doi": "10.15472/b51vdg",
+      "citation": "Parex Resources (Colombia) AG Sucursal, Fundaci\u00f3n Cunaguaro (2023). Fauna registrada mediante c\u00e1maras trampa en el marco del proyecto Expedici\u00f3n del Oso Palmero en el departamento del Casanare. Version 1.1. Parex Resources Colombia - AG Sucursal. Sampling event dataset https://doi.org/10.15472/b51vdg accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 18580,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2480863,
+          "name": "Nycticorax nycticorax",
+          "hwi": 33.1,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "1290a78f-098c-4336-84e4-74de27a658f1",
+      "title": "Luxembourg farmland bird survey 2020 - 2024",
+      "doi": "10.15468/v4bky9",
+      "citation": "Kayser M, Braun P (2026). Luxembourg farmland bird survey 2020 - 2024. National Museum of Natural History, Luxembourg. Occurrence dataset https://doi.org/10.15468/v4bky9 accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 13624,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 7901064,
+          "name": "Turdus philomelos",
+          "hwi": 30.7,
+          "migration": 3
+        },
+        {
+          "speciesKey": 2492462,
+          "name": "Erithacus rubecula",
+          "hwi": 19.9,
+          "migration": 3
+        },
+        {
+          "speciesKey": 2492943,
+          "name": "Sylvia communis",
+          "hwi": 24.2,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "df12ca07-f133-4550-ab3b-fde13f0e76ba",
+      "title": "Notebook, general observations",
+      "doi": "10.15468/4g56tp",
+      "citation": "Finnish Biodiversity Information Facility (2026). Notebook, general observations. Occurrence dataset https://doi.org/10.15468/4g56tp accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 13012,
+      "matched_seed_species": [
+        {
+          "speciesKey": 2474950,
+          "name": "Grus grus",
+          "is_seed": true
+        }
+      ],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2498347,
+          "name": "Cygnus cygnus",
+          "hwi": 44.8,
+          "migration": 3
+        },
+        {
+          "speciesKey": 2498326,
+          "name": "Bucephala clangula",
+          "hwi": 51.4,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "c9cbc586-660e-4d89-ba14-0000c5770de1",
+      "title": "GMU8_LEUVEN - Camera trap observations in natural habitats south of Leuven (Belgium)",
+      "doi": "10.15468/4u3wm4",
+      "citation": "Casaer J, Boone N, Vercammen J, Devisscher S, Pallemaerts L, Rutten A, Bollen M, Desmet P, Govaert S (2025). GMU8_LEUVEN - Camera trap observations in natural habitats south of Leuven (Belgium). Research Institute for Nature and Forest (INBO). Occurrence dataset https://doi.org/10.15468/4u3wm4 accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 4957,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2492462,
+          "name": "Erithacus rubecula",
+          "hwi": 19.9,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "299e7998-73f0-42ff-9fb7-d8a5a0cc44d1",
+      "title": "CREX_VLAANDEREN - Corn crakes (Crex crex, Rallidae) in Flanders (Belgium)",
+      "doi": "10.5281/zenodo.23097283",
+      "citation": "Spanoghe G, Janssens K, Verstraete H, Milotic T, Govaert S, Desmet P (2026). CREX_VLAANDEREN - Corn crakes (Crex crex, Rallidae) in Flanders (Belgium). Research Institute for Nature and Forest (INBO). Occurrence dataset https://doi.org/10.5281/zenodo.23097283 accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 4890,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 4408498,
+          "name": "Crex crex",
+          "hwi": 34.1,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 1
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "9a0b66df-7535-4f28-9f4e-5bc11b8b096c",
+      "title": "Waarnemingen.be - Non-native animal occurrences in Flanders and the Brussels Capital Region, Belgium",
+      "doi": "10.15468/k2aiak",
+      "citation": "Vanreusel W, Swinnen K, Gielen K, Vercayie D, Driessens G, Veraghtert W, Desmet P, Herremans M (2026). Waarnemingen.be - Non-native animal occurrences in Flanders and the Brussels Capital Region, Belgium. Version 1.236. Natuurpunt. Occurrence dataset https://doi.org/10.15468/k2aiak accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 4692,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 5232437,
+          "name": "Branta canadensis",
+          "hwi": 49.4,
+          "migration": 3
+        },
+        {
+          "speciesKey": 5232452,
+          "name": "Branta hutchinsii",
+          "hwi": 44.6,
+          "migration": 3
+        },
+        {
+          "speciesKey": 2498035,
+          "name": "Anser indicus",
+          "hwi": 50.3,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    },
+    {
+      "status": "accepted",
+      "datasetKey": "e7cbb0ed-04c6-44ce-ac86-ebe49f4efb28",
+      "title": "Waarnemingen.be - Bird occurrences in Flanders and the Brussels Capital Region, Belgium",
+      "doi": "10.15468/0mbhvd",
+      "citation": "Van Asten K, Bouillard N, Driessens G, Dujardin R, Van Dorsselaer P, Vanderydt C, Ghyselen J, Maes K, Vermylen R, Teugels L, Pintens J, Adriaens P, Desmet E, Van De Ginste C, Leirens V, Allein S, Symens P, Faveyts W, Appels D, De Broyer A, Moysons P, Meganck G, De Keersmaecker K, Verbelen D, Hamelinck W, Moreau K, Beckers G, de Vries H, Baeten S, Gielen K, Vanreusel W, Herremans M, Desmet P, Swinnen K (2021). Waarnemingen.be - Bird occurrences in Flanders and the Brussels Capital Region, Belgium. Version 1.4. Natuurpunt. Occurrence dataset https://doi.org/10.15468/0mbhvd accessed via GBIF.org on 2026-10-21.",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 4368,
+      "matched_seed_species": [],
+      "matched_migratory_species": [
+        {
+          "speciesKey": 2492462,
+          "name": "Erithacus rubecula",
+          "hwi": 19.9,
+          "migration": 3
+        },
+        {
+          "speciesKey": 7901064,
+          "name": "Turdus philomelos",
+          "hwi": 30.7,
+          "migration": 3
+        }
+      ],
+      "total_species_in_facet": 10
+    }
+  ],
+  "skipped": [
+    {
+      "status": "skipped",
+      "datasetKey": "0b499d5e-c359-4cce-b817-d6f588988441",
+      "title": "HG_JUVENILE - Juvenile herring gulls (Larus argentatus, Laridae) hatched at the southern North Sea coast (Belgium)",
+      "doi": "10.5281/zenodo.21279427",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 834756,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "882161ab-5a7a-4206-b757-3f3383f4f363",
+      "title": "Griffon Vulture movement on the Balkans",
+      "doi": "10.15468/k68juc",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 973808,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "39ca385b-6f25-402c-aa92-a76c89ecda0a",
+      "title": "DELTATRACK - Herring gulls (Larus argentatus, Laridae) and lesser black-backed gulls (Larus fuscus, Laridae) breeding at Neeltje Jans (Netherlands)",
+      "doi": "10.5281/zenodo.22102508",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 1803286,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 2 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "355b8ff9-7bd9-49c3-92af-f6741b8bd0cb",
+      "title": "LBBG_ZEEBRUGGE - Lesser black-backed gulls (Larus fuscus, Laridae) breeding at the southern North Sea coast (Belgium and the Netherlands)",
+      "doi": "10.5281/zenodo.12336021",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 1801052,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "6c860eb3-83ba-48c3-9328-a7b3c7a3c7b4",
+      "title": "HG_OOSTENDE - Herring gulls (Larus argentatus, Laridae) breeding at the southern North Sea coast (Belgium)",
+      "doi": "10.5281/zenodo.10054230",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 1128644,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "02e621d9-0f35-4d5c-85f0-210f98cfdead",
+      "title": "LBBG_TEXEL - Lesser black-backed gulls (Larus fuscus, Laridae) breeding in Texel (the Netherlands)",
+      "doi": "10.5281/zenodo.20706373",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 1034191,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "df50c722-070a-4c6a-a260-3a186ce72fe1",
+      "title": "LBBG_ADULT - Lesser black-backed gulls (Larus fuscus, Laridae) breeding in Belgium",
+      "doi": "10.5281/zenodo.22083084",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 401089,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "0fbb0a64-f8ae-4cb2-9045-c992f3ea45c9",
+      "title": "HG_TEXEL - Herring gulls (Larus argentatus, Laridae) breeding in Texel (the Netherlands)",
+      "doi": "10.5281/zenodo.22297895",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 371142,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "b6ce735c-bb9c-4026-a317-0e985cf088df",
+      "title": "Griffon Vulture (Gyps fulvus) movement in Serbia and neighbouring countries according to gps-tracker",
+      "doi": "10.15468/uarkf5",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 355853,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "33161db6-23ea-44a9-9e7c-7f1799f5fc38",
+      "title": "LBBG_SCHIERMONNIKOOG - Lesser black-backed gulls (Larus fuscus, Laridae) breeding in Schiermonnikoog (the Netherlands)",
+      "doi": "10.5281/zenodo.22297322",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 331979,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "cd15902d-3ded-41c2-893d-8840e146cbb3",
+      "title": "O_VLIELAND - Eurasian oystercatchers (Haematopus ostralegus, Haematopodidae) breeding and wintering on Vlieland (the Netherlands)",
+      "doi": "10.5281/zenodo.10053988",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 655947,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "83de99ee-92bd-4dc2-a038-a4856f13cd29",
+      "title": "LBBG_JUVENILE - Juvenile lesser black-backed gulls (Larus fuscus, Laridae) and herring gulls (Larus argentatus, Laridae) hatched in Zeebrugge (Belgium)",
+      "doi": "10.5281/zenodo.22083230",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 329854,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 2 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "4519fc60-6362-49a8-b0b5-075b77907fbc",
+      "title": "GPS tracking and dive data from 84 foraging trip tracks of Little Penguins (32 female, 31 male) , Port Campbell, Victoria, Australia (2012-2013)",
+      "doi": "10.15468/sns6er",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 265403,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "4410edca-3bdd-4475-98a2-de823b2266bc",
+      "title": "Acoustic detections of birds using the SILIC in Yushan National Park, Taiwan",
+      "doi": "10.15468/bbr9k7",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 802670,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 7 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "361adb42-c1ea-46ed-979c-281ef027cf8f",
+      "title": "O_SCHIERMONNIKOOG - Eurasian oystercatchers (Haematopus ostralegus, Haematopodidae) breeding on Schiermonnikoog (the Netherlands)",
+      "doi": "10.5281/zenodo.10053970",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 171089,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "ebce3c1f-4307-4539-afb2-3876ec9ae737",
+      "title": "MEDGULL_ANTWERPEN - Mediterranean gulls (Ichthyaetus melanocephalus, Laridae) breeding near Antwerp (Belgium)",
+      "doi": "10.5281/zenodo.22108360",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 236835,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "72577146-ed50-4498-88c1-706bfd566c3a",
+      "title": "LBBG_IJMUIDEN - Lesser black-backed gulls (Larus fuscus, Laridae) breeding in IJmuiden (the Netherlands)",
+      "doi": "10.5281/zenodo.20706437",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 167431,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "698b13ea-c9b5-4f45-9c8f-63f08c695177",
+      "obs_count": 143563,
+      "reason": "GBIF dataset metadata endpoint failed"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "dd593383-505e-4fb4-b182-62d64b1c132f",
+      "title": "Tracking of Little Penguins (Eudyptula minor) from Montague and Bowen Islands, New South Wales coast, Australia (2012 - 2014)",
+      "doi": "10.15468/8yjg5t",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 153360,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 0 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "22c0b11e-f891-442a-8273-9283c986ddc7",
+      "obs_count": 126198,
+      "reason": "GBIF dataset metadata endpoint failed"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "82e6a41e-f762-11e1-a439-00145eb45e9a",
+      "title": "ARGOS Satellite Tracking of animals",
+      "doi": "10.15468/fanqjy",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 199086,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 7 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "a4e8b0ab-0e79-4489-8712-1cf37d0114d6",
+      "title": "Movement patterns of Peruvian Boobies off Isla Lobos de Afuera 2007",
+      "doi": "10.82144/89b7d89f",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 156328,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "6850e626-46fd-4843-a391-2c06b069a940",
+      "title": "SPOONBILL_VLAANDEREN - Eurasian spoonbills (Platalea leucorodia, Threskiornithidae) in Flanders (Belgium)",
+      "doi": "10.5281/zenodo.23103735",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 112455,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "833c03c5-fc23-4e77-8689-4e97fcce96f0",
+      "title": "O_BALGZAND - Eurasian oystercatchers (Haematopus ostralegus, Haematopodidae) wintering on Balgzand (the Netherlands)",
+      "doi": "10.5281/zenodo.10053932",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 109010,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "4a99b94e-0c47-4a0b-bb8f-68248e484806",
+      "title": "GPS locations of Northern Gannets season 2016 / Localisations GPS de fous de Bassan saison 2016",
+      "doi": "10.26071/ogsl-94526867-ee00",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 98320,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "191035ef-3971-4d54-ad69-dcdfcca858f5",
+      "obs_count": 83726,
+      "reason": "GBIF dataset metadata endpoint failed"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "6fe80778-1b03-4f2c-a822-e62a998f321b",
+      "title": "Acoustic monitoring data of avian species inside and outside the evacuation zone of the Fukushima Daiichi power plant accident",
+      "doi": "10.15468/86f83k",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 119726,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 0 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "7a7bfb2c-3af8-461d-95b6-874e9c67f91e",
+      "obs_count": 94566,
+      "reason": "GBIF dataset metadata endpoint failed"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "b86fe411-8e62-4cd0-aab2-914d75401598",
+      "title": "The Retrospective Analysis of Antarctic Tracking (Standardised) Data from the Scientific Committee on Antarctic Research",
+      "doi": "10.4225/15/5afcb927e8162",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 716057,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 10 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "a700359e-a4fa-47d2-9bca-0b8500528cea",
+      "title": "O_AMELAND - Eurasian oystercatchers (Haematopus ostralegus, Haematopodidae) breeding on Ameland (the Netherlands)",
+      "doi": "10.5281/zenodo.10053853",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 80854,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "66e0553e-75f6-49de-b614-22efd9fbf6e9",
+      "title": "MH_WATERLAND - Western marsh harriers (Circus aeruginosus, Accipitridae) breeding near the Belgium-Netherlands border",
+      "doi": "10.5281/zenodo.10053583",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 71821,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "ad33d5cc-613d-4bd3-b33e-c2dd16e75248",
+      "title": "GPS locations of Northern Gannets season 2013 / Localisations GPS de fous de Bassan saison 2013",
+      "doi": "10.26071/ogsl-1388a9ca-e5a7",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 69702,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "5124534e-2d9c-46b7-a857-e0012821526b",
+      "title": "H_GRONINGEN - Western marsh harriers (Circus aeruginosus, Accipitridae) breeding in Groningen (the Netherlands)",
+      "doi": "10.5281/zenodo.10053658",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 65018,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "d3bca1f2-7aec-4503-8716-4baf649db4c0",
+      "title": "Yellow-legged gull locations in South Western Iberian Peninsula 2023",
+      "doi": "10.15470/5ax1rf",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 68395,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "4b3af259-f0a3-438c-ac5a-c61a2ec5e98e",
+      "title": "GPS locations of Northern Gannets season 2017 / Localisations GPS de fous de Bassan saison 2017",
+      "doi": "10.26071/ogsl-8f0da3ad-6ae9",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 61491,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "9e055800-e83e-4769-82c2-a0602bf3d4b9",
+      "title": "nsmk_bird_ob_2019",
+      "doi": "10.15468/0yrzrn",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 52850,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "28fec1d3-0776-4a35-8332-5c909abb9563",
+      "obs_count": 50812,
+      "reason": "GBIF dataset metadata endpoint failed"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "6007ea18-e37b-4557-8703-68d3cce38c65",
+      "obs_count": 49590,
+      "reason": "GBIF dataset metadata endpoint failed"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "3856c01f-5031-4cc1-a5b2-2daa9537411b",
+      "obs_count": 48607,
+      "reason": "GBIF dataset metadata endpoint failed"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "ba19fc1d-670c-426b-b99d-49f003792ac4",
+      "obs_count": 43885,
+      "reason": "GBIF dataset metadata endpoint failed"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "8a5cbaec-2839-4471-9e1d-98df301095dd",
+      "title": "MICA - Muskrat and coypu camera trap observations in Belgium, the Netherlands and Germany",
+      "doi": "10.15468/5tb6ze",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 78178,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 10 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "e347ea47-db3f-4c47-8771-ea562330382c",
+      "title": "MH_ANTWERPEN - Western marsh harriers (Circus aeruginosus, Accipitridae) breeding near Antwerp (Belgium)",
+      "doi": "10.5281/zenodo.10054153",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 42733,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "19729f12-88c3-4e56-a84f-b42a5cf052ad",
+      "title": "AWC Ecological Monitoring Surveys",
+      "doi": "10.15468/h53g6h",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 49680,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 10 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "97b95373-9cb4-4850-b69d-1c2c82403abc",
+      "obs_count": 39875,
+      "reason": "GBIF dataset metadata endpoint failed"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "9f7ed5a4-f73a-4d74-b0be-cef5bd700a37",
+      "title": "Programa de fotomonitoreo de objetos de conservaci\u00f3n y amenazas en el Sistema Nacional de \u00c1reas Protegidas (SNAP)",
+      "doi": "10.15468/gwjq89",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 94052,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 10 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "e737f8ca-6176-4e3a-9ab1-dc5a77d46194",
+      "title": "TOPP Albatrosses 2002-06",
+      "doi": "10.82144/f3b5323e",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 33789,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 2 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "ef835a72-1a73-4a4d-b913-038df224a625",
+      "title": "Home range and core range of little penguins in Port Phillip Bay, Victoria, Australia (2008 - 2012)",
+      "doi": "10.15468/muf6z8",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 22220,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "69e0cd24-c934-45d4-afd3-a28fe3f37e92",
+      "title": "Wildlife camera monitoring of a Norwegian alpine carnivore guild 2011-2020",
+      "doi": "10.15468/rtt7mf",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 27126,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 2 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "ed4b0f29-1e82-4386-80ee-9b9dd863a706",
+      "title": "Monitoreo pasivo de fauna silvestre con c\u00e1maras trampa en el Magdalena Medio, Santander y Cesar, Colombia - Proyecto FIBRAS",
+      "doi": "10.15472/5kyoac",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 34314,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 10 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "5dc9f641-1471-4f41-988c-5b8f85b2b873",
+      "title": "GPS locations of Northern Gannets season 2015 / Localisations GPS de fous de Bassan saison 2015",
+      "doi": "10.26071/ogsl-9f0702d3-fcfa",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 20511,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "0debafd0-6c8a-11de-8225-b8a03c50a862",
+      "title": "Australian National Wildlife Collection provider for OZCAM",
+      "doi": "10.15468/gscnac",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 36479,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 10 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "f4ad96de-6e0c-49aa-8dbc-b805a116c39a",
+      "title": "Audouin's gull locations in Southern Spain and Northern Morocco, 2022",
+      "doi": "10.15470/6tltor",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 16367,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "20bbd36e-d1a1-4169-8663-59feaa2641c0",
+      "title": "O_WESTERSCHELDE - Eurasian oystercatchers (Haematopus ostralegus, Haematopodidae) breeding in East Flanders (Belgium)",
+      "doi": "10.5281/zenodo.10053702",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 15217,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "8762d14a-8bcd-4069-94f0-44f1cf4f33b5",
+      "title": "Foraging behaviour in the Short-Tailed Shearwater (Puffinus tenuirostris) using GPS, Bass Strait, Australia (2012)",
+      "doi": "10.1371/journal.pone.0139351",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 13984,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "438e6744-b15a-4dad-8028-2d08485dff17",
+      "title": "At-sea GPS tracks of little penguins (Eudyptula minor) tagged at three colonies around Storm Bay (Boronia Beach, Wedge Island and Bruny Island Neck), Tasmania, Australia over the 2015/16 summer breeding season.",
+      "doi": "10.15468/u8kym4",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 12665,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "9f6c8cc3-b7c0-4bd5-a3bf-9fb221f73c2c",
+      "title": "GPS locations of Northern Gannets season 2012 / Localisations GPS de fous de Bassan saison 2012",
+      "doi": "10.26071/ogsl-4de875ae-0a15",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 12368,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "13101e81-bc62-4553-9fd9-c5c8eb3fb9ab",
+      "title": "Camera trap based small rodent monitoring: Data from Norwegian alpine tundra",
+      "doi": "10.15468/avmbdq",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 12545,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 0 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "273ee7a0-4b59-4350-b220-3282b533ecde",
+      "obs_count": 9374,
+      "reason": "GBIF dataset metadata endpoint failed"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "80b4ceff-bef0-4c27-84af-f5e62e55e885",
+      "title": "Satellite telemetry of King Eiders from northern Alaska 2002-2009",
+      "doi": "10.82144/0c57670b",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 11666,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 0 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "b34cd173-7e57-421f-9ad7-67c613f1fe32",
+      "obs_count": 10045,
+      "reason": "GBIF dataset metadata endpoint failed"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "f27b41cb-2f1c-4d1a-9b6a-ff64904356b9",
+      "title": "Camera trapping bird data",
+      "doi": "10.15472/qwdszr",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 10786,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 0 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "fc3f505a-05d8-4b3e-908c-8880fc9899f7",
+      "obs_count": 7755,
+      "reason": "GBIF dataset metadata endpoint failed"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "6d1f9651-75a6-4217-9d04-1543e19ece6e",
+      "title": "MammalWeb non-UK records",
+      "doi": "10.15468/5up6nu",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 8300,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 0 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "3b82fc70-e5a5-4af3-a4d6-ec14b215aef8",
+      "title": "The Survey Data of Mianhua and Huaping Islets Wildlife Refuge",
+      "doi": "10.15468/vednhh",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 7547,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 0 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "256134b5-93d9-4928-8a4f-aea0cb5b4182",
+      "title": "TURTUR_VLAANDEREN - European turtle doves (Streptopelia turtur, Columbidae) breeding in Flanders (Belgium)",
+      "doi": "10.5281/zenodo.23097871",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 7389,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 0 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "85c23085-aaea-4b3e-a0d2-0a10820f7f45",
+      "obs_count": 7054,
+      "reason": "GBIF dataset metadata endpoint failed"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "63fbee6f-0865-47ab-a247-98918fea2ea7",
+      "obs_count": 6463,
+      "reason": "GBIF dataset metadata endpoint failed"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "94687f6b-6723-46a3-90d8-5a06b843291c",
+      "title": "Colecci\u00f3n de Sonidos Ambientales del Instituto de Investigaci\u00f3n de Recursos Biol\u00f3gicos Alexander von Humboldt (IAvH-CSA)",
+      "doi": "10.15472/scqpmf",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 18392,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 10 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "e382d777-53d3-43bd-88f6-54478ec0bd18",
+      "title": "Acoustic monitoring in nature travel destinations of Colombia",
+      "doi": "10.15472/kzo6hg",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 8644,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 0 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "7fa446fd-caf6-43a4-83f6-b2cbb06c51c7",
+      "obs_count": 6196,
+      "reason": "GBIF dataset metadata endpoint failed"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "91a26b5b-8cc6-490a-a1bc-bf37e672ac72",
+      "title": "Tern Island Albatrosses - 1999",
+      "doi": "10.82144/ab0fa19c",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 4630,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 2 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "226421f2-1d29-4950-901c-aba9d0e8f2bc",
+      "title": "O_ASSEN - Eurasian oystercatchers (Haematopus ostralegus, Haematopodidae) breeding in Assen (the Netherlands)",
+      "doi": "10.5281/zenodo.10053903",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "obs_count": 5820,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "f575f9e2-cdf8-4507-8fea-9517dc0822e5",
+      "title": "Datos Satelitales de vertebrados marcados por FCA",
+      "doi": "10.15468/rem4sk",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 5966,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "9769d5b6-55a4-450d-8e3b-5c467d7de8a4",
+      "title": "Tracking the common diving petrel (Pelecanoides urinatrix) from 3 sites in the Southern Ocean (2016-2019)",
+      "doi": "10.1098/rsos.200670",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 6093,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 1 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "af2b5fb0-3177-4df2-9a5e-2d776ef5f0a4",
+      "title": "Passive acoustic monitoring observations of birds in Ukrainian Roztochya",
+      "doi": "10.15468/kn8y8x",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "obs_count": 4590,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 0 species"
+    },
+    {
+      "status": "skipped",
+      "datasetKey": "ba745fec-6b40-4edd-b035-5a27a1232760",
+      "title": "Fototrampeo del Departamento de Propuestas, Direcci\u00f3n de Desarrollo y Comercializaci\u00f3n de FONAFIFO",
+      "doi": "10.15468/4s84qm",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "obs_count": 5515,
+      "reason": "No seed species or AVONET category 3 migratory birds in top 10 species"
+    }
+  ]
+}

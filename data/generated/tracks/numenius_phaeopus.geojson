@@ -1,0 +1,16 @@
+{
+  "type": "FeatureCollection",
+  "species_id": "numenius_phaeopus",
+  "scientific_name": "Numenius phaeopus",
+  "evidence_level": "occurrences_only",
+  "individual_count": 0,
+  "total_points": 0,
+  "dataset": {
+    "key": "712dba38-74cc-4704-87c0-63d1bf8484bc",
+    "title": "BirdMap Data - GPS tracking of Storks, Cranes and birds of prey, breeding in Northern and Eastern Europe",
+    "citation": "Adojaan K, Sellis U, Väli Ü, Ojaste I, Denac K, Lõhmus A, Ķuze J. BirdMap Data - GPS tracking of Storks, Cranes and birds of prey, breeding in Northern and Eastern Europe. PlutoF. Occurrence dataset https://doi.org/10.15468/vnwmrx accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+    "doi": "10.15468/vnwmrx"
+  },
+  "features": []
+}

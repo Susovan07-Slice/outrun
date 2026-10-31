@@ -1,0 +1,537 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-10-21T09:52:55.851745+00:00",
+  "species_count": 20,
+  "species": [
+    {
+      "species_id": "falco_amurensis",
+      "gbif_taxon_key": 2480998,
+      "scientific_name": "Falco amurensis",
+      "common_name": "Amur Falcon",
+      "family": "Falconidae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-20T11:57:21.791Z",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 52.9,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 504,
+        "received_records": 504,
+        "short": false
+      },
+      "evidence_level": "occurrences_only",
+      "tracked_individuals": 0,
+      "occurrence_count": 504
+    },
+    {
+      "species_id": "limosa_lapponica",
+      "gbif_taxon_key": 2481681,
+      "scientific_name": "Limosa lapponica",
+      "common_name": "Bar-tailed Godwit",
+      "family": "Scolopacidae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-20T11:58:14.834Z",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 56.6,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 504,
+        "received_records": 504,
+        "short": false
+      },
+      "evidence_level": "occurrences_only",
+      "tracked_individuals": 0,
+      "occurrence_count": 504
+    },
+    {
+      "species_id": "sterna_paradisaea",
+      "gbif_taxon_key": 5229230,
+      "scientific_name": "Sterna paradisaea",
+      "common_name": "Arctic Tern",
+      "family": "Laridae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-20T11:58:59.862Z",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 69.1,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 504,
+        "received_records": 504,
+        "short": false
+      },
+      "evidence_level": "occurrences_only",
+      "tracked_individuals": 0,
+      "occurrence_count": 504
+    },
+    {
+      "species_id": "leucogeranus_leucogeranus",
+      "gbif_taxon_key": 9531123,
+      "scientific_name": "Leucogeranus leucogeranus",
+      "common_name": "Siberian Crane",
+      "family": "Gruidae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-20T11:59:43.448Z",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 44.2,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 504,
+        "received_records": 458,
+        "short": true
+      },
+      "evidence_level": "occurrences_only",
+      "tracked_individuals": 0,
+      "occurrence_count": 458
+    },
+    {
+      "species_id": "ciconia_ciconia",
+      "gbif_taxon_key": 2481912,
+      "scientific_name": "Ciconia ciconia",
+      "common_name": "White Stork",
+      "family": "Ciconiidae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-20T12:00:27.774Z",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 45.9,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 504,
+        "received_records": 504,
+        "short": false
+      },
+      "evidence_level": "tracks",
+      "tracked_individuals": 100,
+      "occurrence_count": 504,
+      "sensitive_coarsened": true,
+      "total_points": 2899
+    },
+    {
+      "species_id": "hirundo_rustica",
+      "gbif_taxon_key": 9515886,
+      "scientific_name": "Hirundo rustica",
+      "common_name": "Barn Swallow",
+      "family": "Hirundinidae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-20T12:01:17.129Z",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 52.6,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 504,
+        "received_records": 504,
+        "short": false
+      },
+      "evidence_level": "occurrences_only",
+      "tracked_individuals": 0,
+      "occurrence_count": 504
+    },
+    {
+      "species_id": "calidris_canutus",
+      "gbif_taxon_key": 2481765,
+      "scientific_name": "Calidris canutus",
+      "common_name": "Red Knot",
+      "family": "Scolopacidae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-20T12:02:12.617Z",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 57.9,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 504,
+        "received_records": 504,
+        "short": false
+      },
+      "evidence_level": "occurrences_only",
+      "tracked_individuals": 0,
+      "occurrence_count": 504
+    },
+    {
+      "species_id": "anser_indicus",
+      "gbif_taxon_key": 2498035,
+      "scientific_name": "Anser indicus",
+      "common_name": "Bar-headed Goose",
+      "family": "Anatidae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-20T12:02:50.376Z",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 50.3,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 504,
+        "received_records": 504,
+        "short": false
+      },
+      "evidence_level": "occurrences_only",
+      "tracked_individuals": 0,
+      "occurrence_count": 504
+    },
+    {
+      "species_id": "cuculus_canorus",
+      "gbif_taxon_key": 5231918,
+      "scientific_name": "Cuculus canorus",
+      "common_name": "Common Cuckoo",
+      "family": "Cuculidae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-20T12:03:30.413Z",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 43.9,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 504,
+        "received_records": 504,
+        "short": false
+      },
+      "evidence_level": "occurrences_only",
+      "tracked_individuals": 0,
+      "occurrence_count": 504
+    },
+    {
+      "species_id": "oenanthe_oenanthe",
+      "gbif_taxon_key": 5231240,
+      "scientific_name": "Oenanthe oenanthe",
+      "common_name": "Northern Wheatear",
+      "family": "Muscicapidae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-20T12:04:22.108Z",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 32.1,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 504,
+        "received_records": 504,
+        "short": false
+      },
+      "evidence_level": "occurrences_only",
+      "tracked_individuals": 0,
+      "occurrence_count": 504
+    },
+    {
+      "species_id": "numenius_phaeopus",
+      "gbif_taxon_key": 2481784,
+      "scientific_name": "Numenius phaeopus",
+      "common_name": "Whimbrel",
+      "family": "Scolopacidae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-20T12:05:06.897Z",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 53.5,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 504,
+        "received_records": 504,
+        "short": false
+      },
+      "evidence_level": "occurrences_only",
+      "tracked_individuals": 0,
+      "occurrence_count": 504
+    },
+    {
+      "species_id": "grus_grus",
+      "gbif_taxon_key": 2474950,
+      "scientific_name": "Grus grus",
+      "common_name": "Common Crane",
+      "family": "Gruidae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-20T12:05:45.254Z",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 43,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 504,
+        "received_records": 504,
+        "short": false
+      },
+      "evidence_level": "tracks",
+      "tracked_individuals": 812,
+      "occurrence_count": 504,
+      "sensitive_coarsened": true
+    },
+    {
+      "species_id": "pandion_haliaetus",
+      "gbif_taxon_key": 2480726,
+      "scientific_name": "Pandion haliaetus",
+      "common_name": "Osprey",
+      "family": "Pandionidae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-20T15:40:54.773Z",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 44.9,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 504,
+        "received_records": 504,
+        "short": false
+      },
+      "evidence_level": "tracks",
+      "tracked_individuals": 842,
+      "occurrence_count": 504,
+      "sensitive_coarsened": true
+    },
+    {
+      "species_id": "numenius_arquata",
+      "gbif_taxon_key": 2481792,
+      "scientific_name": "Numenius arquata",
+      "common_name": "Eurasian Curlew",
+      "family": "Scolopacidae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-21T07:11:14.043554+00:00",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 53.2,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 504,
+        "received_records": 462,
+        "short": true
+      },
+      "evidence_level": "tracks",
+      "movement_type": "migration",
+      "movement_label": "Migratory Corridor",
+      "tracked_individuals": 5,
+      "occurrence_count": 462,
+      "total_points": 464
+    },
+    {
+      "species_id": "circus_pygargus",
+      "gbif_taxon_key": 2480484,
+      "scientific_name": "Circus pygargus",
+      "common_name": "Montagu's Harrier",
+      "family": "Accipitridae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-21T07:11:14.043578+00:00",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 52.0,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 504,
+        "received_records": 462,
+        "short": true
+      },
+      "evidence_level": "tracks",
+      "movement_type": "migration",
+      "movement_label": "Trans-Saharan Migratory Corridor",
+      "tracked_individuals": 10,
+      "occurrence_count": 462,
+      "sensitive_coarsened": true,
+      "total_points": 3779
+    },
+    {
+      "species_id": "fregata_magnificens",
+      "gbif_taxon_key": 2480189,
+      "scientific_name": "Fregata magnificens",
+      "common_name": "Magnificent Frigatebird",
+      "family": "Fregatidae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-21T07:11:14.043586+00:00",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 64.0,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 504,
+        "received_records": 378,
+        "short": true
+      },
+      "evidence_level": "tracks",
+      "movement_type": "foraging",
+      "movement_label": "Tracked Movements (Pelagic Foraging Trips)",
+      "tracked_individuals": 15,
+      "occurrence_count": 378,
+      "total_points": 867
+    },
+    {
+      "species_id": "ciconia_nigra",
+      "gbif_taxon_key": 2481909,
+      "scientific_name": "Ciconia nigra",
+      "common_name": "Black Stork",
+      "family": "Ciconiidae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-21T09:52:55.851645+00:00",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 43.1,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 300,
+        "received_records": 300,
+        "short": false
+      },
+      "evidence_level": "tracks",
+      "movement_type": "migration",
+      "movement_label": "Trans-Saharan Migratory Corridor",
+      "sensitive_coarsened": true,
+      "tracked_individuals": 19,
+      "occurrence_count": 300,
+      "total_points": 7936
+    },
+    {
+      "species_id": "circus_cyaneus",
+      "gbif_taxon_key": 2480487,
+      "scientific_name": "Circus cyaneus",
+      "common_name": "Hen Harrier",
+      "family": "Accipitridae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-21T09:52:55.851689+00:00",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 44.7,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 300,
+        "received_records": 300,
+        "short": false
+      },
+      "evidence_level": "tracks",
+      "movement_type": "migration",
+      "movement_label": "Pan-Eurasian Migratory Corridor",
+      "sensitive_coarsened": true,
+      "tracked_individuals": 9,
+      "occurrence_count": 300,
+      "total_points": 2155
+    },
+    {
+      "species_id": "circus_aeruginosus",
+      "gbif_taxon_key": 2480482,
+      "scientific_name": "Circus aeruginosus",
+      "common_name": "Western Marsh Harrier",
+      "family": "Accipitridae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-21T09:52:55.851711+00:00",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 45.6,
+        "migration_category": 2,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 300,
+        "received_records": 300,
+        "short": false
+      },
+      "evidence_level": "tracks",
+      "movement_type": "migration",
+      "movement_label": "Trans-Saharan Migratory Corridor",
+      "sensitive_coarsened": true,
+      "tracked_individuals": 12,
+      "occurrence_count": 300,
+      "total_points": 3779
+    },
+    {
+      "species_id": "asio_flammeus",
+      "gbif_taxon_key": 2497295,
+      "scientific_name": "Asio flammeus",
+      "common_name": "Short-eared Owl",
+      "family": "Strigidae",
+      "monitoring_group": "review_required",
+      "last_checked_at": "2026-10-21T09:52:55.851728+00:00",
+      "status": null,
+      "traits": {
+        "hand_wing_index": 47.5,
+        "migration_category": 3,
+        "source": "AVONET (Tobias et al. 2022)",
+        "source_version": "AVONET1_BirdLife.csv",
+        "matched": true
+      },
+      "stats": {
+        "requested_records": 300,
+        "received_records": 300,
+        "short": false
+      },
+      "evidence_level": "tracks",
+      "movement_type": "migration",
+      "movement_label": "Nomadic & Irruptive Migratory Corridor",
+      "sensitive_coarsened": true,
+      "tracked_individuals": 9,
+      "occurrence_count": 300,
+      "total_points": 450
+    }
+  ]
+}

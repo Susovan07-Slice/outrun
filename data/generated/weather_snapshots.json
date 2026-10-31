@@ -1,0 +1,197 @@
+[
+  {
+    "species_id": "falco_amurensis",
+    "scientific_name": "Falco amurensis",
+    "latitude": -27.54125,
+    "longitude": 30.04125,
+    "weather": {
+      "time": "2026-10-20T15:30",
+      "interval": 900,
+      "temperature_2m": 21.2,
+      "relative_humidity_2m": 56,
+      "precipitation": 0,
+      "wind_speed_10m": 2
+    },
+    "retrieved_at": "2026-10-20T15:41:57.017Z"
+  },
+  {
+    "species_id": "limosa_lapponica",
+    "scientific_name": "Limosa lapponica",
+    "latitude": -34.859059,
+    "longitude": 150.743262,
+    "weather": {
+      "time": "2026-10-20T15:30",
+      "interval": 900,
+      "temperature_2m": 12.9,
+      "relative_humidity_2m": 95,
+      "precipitation": 0,
+      "wind_speed_10m": 3.2
+    },
+    "retrieved_at": "2026-10-20T15:41:57.513Z"
+  },
+  {
+    "species_id": "sterna_paradisaea",
+    "scientific_name": "Sterna paradisaea",
+    "latitude": -34.06354,
+    "longitude": 22.91616,
+    "weather": {
+      "time": "2026-10-20T15:30",
+      "interval": 900,
+      "temperature_2m": 16.1,
+      "relative_humidity_2m": 78,
+      "precipitation": 0,
+      "wind_speed_10m": 7.9
+    },
+    "retrieved_at": "2026-10-20T15:41:57.993Z"
+  },
+  {
+    "species_id": "leucogeranus_leucogeranus",
+    "scientific_name": "Leucogeranus leucogeranus",
+    "latitude": 26.224158,
+    "longitude": 119.589159,
+    "weather": {
+      "time": "2026-10-20T15:30",
+      "interval": 900,
+      "temperature_2m": 23.9,
+      "relative_humidity_2m": 96,
+      "precipitation": 0,
+      "wind_speed_10m": 5.1
+    },
+    "retrieved_at": "2026-10-20T15:41:58.462Z"
+  },
+  {
+    "species_id": "ciconia_ciconia",
+    "scientific_name": "Ciconia ciconia",
+    "latitude": 45.15242,
+    "longitude": 38.58291,
+    "weather": {
+      "time": "2026-10-20T15:30",
+      "interval": 900,
+      "temperature_2m": 16,
+      "relative_humidity_2m": 91,
+      "precipitation": 0.1,
+      "wind_speed_10m": 6.5
+    },
+    "retrieved_at": "2026-10-20T15:41:58.909Z"
+  },
+  {
+    "species_id": "hirundo_rustica",
+    "scientific_name": "Hirundo rustica",
+    "latitude": 32.700298,
+    "longitude": 34.941398,
+    "weather": {
+      "time": "2026-10-20T15:30",
+      "interval": 900,
+      "temperature_2m": 23.2,
+      "relative_humidity_2m": 60,
+      "precipitation": 0,
+      "wind_speed_10m": 15.2
+    },
+    "retrieved_at": "2026-10-20T15:41:59.371Z"
+  },
+  {
+    "species_id": "calidris_canutus",
+    "scientific_name": "Calidris canutus",
+    "latitude": 53.406081,
+    "longitude": 6.07897,
+    "weather": {
+      "time": "2026-10-20T15:30",
+      "interval": 900,
+      "temperature_2m": 9.3,
+      "relative_humidity_2m": 68,
+      "precipitation": 0,
+      "wind_speed_10m": 22.3
+    },
+    "retrieved_at": "2026-10-20T15:41:59.846Z"
+  },
+  {
+    "species_id": "anser_indicus",
+    "scientific_name": "Anser indicus",
+    "latitude": 51.29528,
+    "longitude": 4.22572,
+    "weather": {
+      "time": "2026-10-20T15:30",
+      "interval": 900,
+      "temperature_2m": 11.5,
+      "relative_humidity_2m": 77,
+      "precipitation": 0,
+      "wind_speed_10m": 15.8
+    },
+    "retrieved_at": "2026-10-20T15:42:00.346Z"
+  },
+  {
+    "species_id": "cuculus_canorus",
+    "scientific_name": "Cuculus canorus",
+    "latitude": 60.5922,
+    "longitude": 12.033131,
+    "weather": {
+      "time": "2026-10-20T15:30",
+      "interval": 900,
+      "temperature_2m": 5.5,
+      "relative_humidity_2m": 96,
+      "precipitation": 0,
+      "wind_speed_10m": 3.6
+    },
+    "retrieved_at": "2026-10-20T15:42:00.812Z"
+  },
+  {
+    "species_id": "oenanthe_oenanthe",
+    "scientific_name": "Oenanthe oenanthe",
+    "latitude": -1.04125,
+    "longitude": 37.124583,
+    "weather": {
+      "time": "2026-10-20T15:30",
+      "interval": 900,
+      "temperature_2m": 24.2,
+      "relative_humidity_2m": 42,
+      "precipitation": 0,
+      "wind_speed_10m": 17.9
+    },
+    "retrieved_at": "2026-10-20T15:42:01.299Z"
+  },
+  {
+    "species_id": "numenius_phaeopus",
+    "scientific_name": "Numenius phaeopus",
+    "latitude": 38.699335,
+    "longitude": -9.250744,
+    "weather": {
+      "time": "2026-10-20T15:30",
+      "interval": 900,
+      "temperature_2m": 18.6,
+      "relative_humidity_2m": 52,
+      "precipitation": 0,
+      "wind_speed_10m": 17.5
+    },
+    "retrieved_at": "2026-10-20T15:42:01.769Z"
+  },
+  {
+    "species_id": "grus_grus",
+    "scientific_name": "Grus grus",
+    "latitude": 31.300627,
+    "longitude": 34.53478,
+    "weather": {
+      "time": "2026-10-20T15:30",
+      "interval": 900,
+      "temperature_2m": 22,
+      "relative_humidity_2m": 65,
+      "precipitation": 0,
+      "wind_speed_10m": 9.3
+    },
+    "retrieved_at": "2026-10-20T15:42:02.226Z"
+  },
+  {
+    "species_id": "pandion_haliaetus",
+    "scientific_name": "Pandion haliaetus",
+    "latitude": 32.703821,
+    "longitude": 34.9403,
+    "weather": {
+      "time": "2026-10-20T15:30",
+      "interval": 900,
+      "temperature_2m": 23.2,
+      "relative_humidity_2m": 60,
+      "precipitation": 0,
+      "wind_speed_10m": 15.2
+    },
+    "retrieved_at": "2026-10-20T15:42:02.683Z"
+  }
+]

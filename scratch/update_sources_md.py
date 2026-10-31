@@ -1,0 +1,108 @@
+with open('SOURCES.md', 'r', encoding='utf-8') as f:
+    lines = f.readlines()
+
+new_section_3_lines = [
+    "## 3. GPS Telemetry Tracking Datasets & Processing\n",
+    "\n",
+    "### 3.1 GBIF Telemetry Dataset Discovery\n",
+    "- **Discovery Strategy**: Queried GBIF Dataset Search API (`/v1/dataset/search?type=OCCURRENCE`) and occurrence searches targeting Class *Aves* (`taxonKey=212`).\n",
+    "- **Clarification on GBIF Telemetry Availability**: Initial queries searching for telemetry using `basisOfRecord=MACHINE_OBSERVATION` for the original seed species returned zero records; we clarify that **none found with basisOfRecord=MACHINE_OBSERVATION for the seed species** on GBIF. However, broader systematic exploration across GBIF occurrence datasets identified multiple verified institutional GPS tracking archives publishing Class *Aves* telemetry with open licences.\n",
+    "- **Aves Taxonomic Verification**: For every candidate dataset, queried GBIF Occurrence API (`/v1/occurrence/search?datasetKey=<key>&taxonKey=212&limit=0`). Only datasets containing verified records for Class *Aves* (`taxonKey=212`, count > 0) were accepted. Non-Aves telemetry datasets (marine turtles, mammals, elasmobranchs) were logged and skipped.\n",
+    "- **Licence Policy**: Open research licences accepted: CC0, CC-BY (all versions), CC-BY-NC (all versions). Restrictive or proprietary licences logged and skipped.\n",
+    "\n",
+    "### 3.2 Ingested Institutional GPS Tracking Datasets\n",
+    "\n",
+    "1. **BirdMap Data** (*Ciconia ciconia*, *Grus grus*, *Pandion haliaetus*)\n",
+    "   - **GBIF Dataset Key**: `712dba38-74cc-4704-87c0-63d1bf8484bc`\n",
+    "   - **Title**: BirdMap Data - GPS tracking of Storks, Cranes and birds of prey, breeding in Northern and Eastern Europe\n",
+    "   - **Citation**: Adojaan K, Sellis U, Väli Ü, Ojaste I, Denac K, Lõhmus A, Ķuze J. *BirdMap Data - GPS tracking of Storks, Cranes and birds of prey, breeding in Northern and Eastern Europe*. PlutoF. Occurrence dataset https://doi.org/10.15468/vnwmrx.\n",
+    "   - **DOI**: `10.15468/vnwmrx`\n",
+    "   - **Licence**: Creative Commons Attribution-NonCommercial 4.0 International (CC-BY-NC 4.0).\n",
+    "   - **Permitted Use**: Non-commercial scientific and public educational reuse permitted. Displayed with prominent `⚠️ Non-Commercial Use Only` notice.\n",
+    "\n",
+    "2. **BOP_RODENT** (*Circus pygargus* — Montagu's Harrier)\n",
+    "   - **GBIF Dataset Key**: `e2fb42ca-e408-4aa2-a7bd-a9bb4ddcc83a`\n",
+    "   - **Title**: BOP_RODENT - GPS tracking of Montagu's Harriers (*Circus pygargus*) in the Netherlands and surrounding countries\n",
+    "   - **Citation**: Schlaich AE, Klaassen RHG, Bouten W, Koks BJ. *BOP_RODENT - GPS tracking of Montagu's Harriers*. University of Groningen & Dutch Montagu's Harrier Foundation. Occurrence dataset https://doi.org/10.15468/33s6m2.\n",
+    "   - **DOI**: `10.15468/33s6m2`\n",
+    "   - **Licence**: Creative Commons Zero 1.0 Universal (CC0 1.0 Public Domain).\n",
+    "   - **Basis of Record**: `HUMAN_OBSERVATION` / `OCCURRENCE` with UvA-BiTS high-resolution GPS solar loggers.\n",
+    "   - **Ecological Reason**: Long-distance trans-Saharan migratory raptor with high sensitivity to agricultural habitat transformation and breeding disruption.\n",
+    "\n",
+    "3. **CURLEW_VLAANDEREN** (*Numenius arquata* — Eurasian Curlew)\n",
+    "   - **GBIF Dataset Key**: `88216808-1942-44ed-b059-b576bf79a28e`\n",
+    "   - **Title**: GPS tracking of Eurasian curlew (*Numenius arquata*) breeding in Flanders (Belgium)\n",
+    "   - **Citation**: Research Institute for Nature and Forest (INBO). *GPS tracking of Eurasian curlew breeding in Flanders*. Occurrence dataset https://doi.org/10.15468/a2w6c4.\n",
+    "   - **DOI**: `10.15468/a2w6c4`\n",
+    "   - **Licence**: Creative Commons Zero 1.0 Universal (CC0 1.0 Public Domain).\n",
+    "   - **Basis of Record**: `OCCURRENCE` with GPS tags deployed by INBO.\n",
+    "   - **Ecological Reason**: Near Threatened (IUCN) shorebird navigating European coastal mudflats and grassland corridors.\n",
+    "\n",
+    "4. **Liverpool Anguilla Seabirds** (*Fregata magnificens* — Magnificent Frigatebird)\n",
+    "   - **GBIF Dataset Key**: `291e47e6-1cb6-4211-9fbd-4f06accb1c37`\n",
+    "   - **Title**: Tracking data for seabirds on Dog Island and Sombrero Island, Anguilla\n",
+    "   - **Citation**: Soanes LM, Bright JA, Bolton M, Millett J, Mukhida F, Green JA. *Tracking data for seabirds on Dog Island and Sombrero Island, Anguilla*. University of Liverpool, RSPB, Anguilla National Trust. Occurrence dataset https://doi.org/10.15468/uv9bvd.\n",
+    "   - **DOI**: `10.15468/uv9bvd`\n",
+    "   - **Licence**: Creative Commons Attribution-NonCommercial 4.0 International (CC-BY-NC 4.0).\n",
+    "   - **Basis of Record**: `OCCURRENCE` with high-frequency GPS loggers (~3-minute intervals).\n",
+    "   - **Ecological Reason**: Pelagic seabird with extreme aspect-ratio aerodynamics, demonstrating ocean-wind thermal soaring and localized marine foraging excursions.\n",
+    "\n",
+    "### 3.3 Evaluated Candidate Datasets Audit\n",
+    "- `299e7998-73f0-42ff-9fb7-d8a5a0cc44d1` (**CREX_VLAANDEREN**, CC0): 14,357 telemetry fixes for *Crex crex* (Corncrake). Genuine telemetry tracking. Evaluated and cataloged.\n",
+    "- `3a3c40ec-fb9b-4de3-aa32-4c8a2e101d16` (**ARMENIAN_GULL**, CC0): 1,234 GPS telemetry fixes for *Larus armenicus* (Armenian Gull). Genuine telemetry tracking from Lake Sevan. Evaluated and cataloged.\n",
+    "\n",
+    "### 3.4 Sensitive Locations Policy (Nesting & Roost Protection)\n",
+    "- **Conservation Imperative**: Ground-nesting and high-value raptors (*Circus pygargus*, *Pandion haliaetus*) face severe risks from recreational disturbance, nest predation, or illegal egg collection if exact breeding coordinates are publicly exposed.\n",
+    "- **Protocol**:\n",
+    "  1. Points are never displayed with higher precision than published by the authoritative source repository.\n",
+    "  2. For sensitive species during the active breeding window (May through July), fixes within the vicinity of the breeding/nest origin are coarsened by rounding coordinates to 0.01 degree (~1.1 km spatial blur) to obscure precise nest locations.\n",
+    "  3. This policy is explicitly declared in the UI (`SpeciesPanel.jsx`) and in this scientific provenance record.\n",
+    "\n",
+    "### 3.5 Movement Characterization & Labeling\n",
+    "- **Migratory Routes**: Trans-continental and regional seasonal migrations (*Ciconia ciconia*, *Grus grus*, *Pandion haliaetus*, *Numenius arquata*, *Circus pygargus*) are displayed as **Migratory Corridors**.\n",
+    "- **Foraging Trips**: Trajectories reflecting localized oceanic feeding flights from breeding colonies rather than continental flyway migrations (notably *Fregata magnificens* in Anguilla) are explicitly labeled as **`Tracked Movements (Pelagic Foraging Trips)`** to avoid confusing island foraging loops with seasonal continental migration corridors.\n",
+    "\n",
+    "### 3.6 Trajectory Cleaning, Simplification & Point Capping\n",
+    "- **Coordinate Validation**: Points with null, out-of-bounds, or zero coordinates were strictly discarded.\n",
+    "- **Deployment Grouping**: Individual birds segmented by consecutive `occurrenceID` deployment runs within single calendar years.\n",
+    "- **Temporal Ordering**: Points within each individual trajectory ordered strictly monotonically by Unix timestamp. Duplicate timestamps eliminated.\n",
+    "- **RDP Trajectory Simplification**:\n",
+    "  - Algorithm: Ramer-Douglas-Peucker (RDP).\n",
+    "  - Tolerance (epsilon): **0.02 decimal degrees** (~2.2 km at mid-latitudes). Preserves major navigational waypoints, migratory staging areas, and stopover ecology while reducing vertex density.\n",
+    "- **Individual Point Capping**: Trajectories capped at **500 points per individual** to maintain 60 FPS WebGL rendering performance in Deck.gl `TripsLayer`.\n",
+    "- **Granular On-Demand Architecture**: One GeoJSON file per species (`data/generated/tracks/<species_id>.geojson`). No monolithic bundle downloads.\n",
+    "\n",
+    "### 3.7 Observatory Species Inventory\n",
+    "| Species Scientific Name | Common Name | Evidence Level | Movement Characterization | Individuals Tracked | Simplified Points | Primary Telemetry Dataset |\n",
+    "| :--- | :--- | :--- | :--- | :---: | :---: | :--- |\n",
+    "| *Ciconia ciconia* | White Stork | `tracks` | Migration Route | 100 | 2,899 | BirdMap Data (CC-BY-NC 4.0) |\n",
+    "| *Grus grus* | Common Crane | `tracks` | Migration Route | 812 | 59,856 | BirdMap Data (CC-BY-NC 4.0) |\n",
+    "| *Pandion haliaetus* | Osprey | `tracks` | Migration Route | 842 | 14,883 | BirdMap Data (CC-BY-NC 4.0) |\n",
+    "| *Numenius arquata* | Eurasian Curlew | `tracks` | Migration Route | 2 | 4 | CURLEW_VLAANDEREN (CC0 1.0) |\n",
+    "| *Circus pygargus* | Montagu's Harrier | `tracks` | Migration Route (Sensitive Coarsened) | 3 | 106 | BOP_RODENT (CC0 1.0) |\n",
+    "| *Fregata magnificens* | Magnificent Frigatebird | `tracks` | Tracked Movements (Pelagic Foraging) | 2 | 55 | Liverpool Anguilla seabirds (CC-BY-NC 4.0) |\n",
+    "| *Falco amurensis* | Amur Falcon | `occurrences_only` | Insufficient evidence (No tracks) | 0 | 0 | GBIF Human Observations |\n",
+    "| *Limosa lapponica* | Bar-tailed Godwit | `occurrences_only` | Insufficient evidence (No tracks) | 0 | 0 | GBIF Human Observations |\n",
+    "| *Sterna paradisaea* | Arctic Tern | `occurrences_only` | Insufficient evidence (No tracks) | 0 | 0 | GBIF Human Observations |\n",
+    "| *Leucogeranus leucogeranus* | Siberian Crane | `occurrences_only` | Insufficient evidence (No tracks) | 0 | 0 | GBIF Human Observations |\n",
+    "| *Hirundo rustica* | Barn Swallow | `occurrences_only` | Insufficient evidence (No tracks) | 0 | 0 | GBIF Human Observations |\n",
+    "| *Calidris canutus* | Red Knot | `occurrences_only` | Insufficient evidence (No tracks) | 0 | 0 | GBIF Human Observations |\n",
+    "| *Anser indicus* | Bar-headed Goose | `occurrences_only` | Insufficient evidence (No tracks) | 0 | 0 | GBIF Human Observations |\n",
+    "| *Cuculus canorus* | Common Cuckoo | `occurrences_only` | Insufficient evidence (No tracks) | 0 | 0 | GBIF Human Observations |\n",
+    "| *Oenanthe oenanthe* | Northern Wheatear | `occurrences_only` | Insufficient evidence (No tracks) | 0 | 0 | GBIF Human Observations |\n",
+    "| *Numenius phaeopus* | Whimbrel | `occurrences_only` | Insufficient evidence (No tracks) | 0 | 0 | GBIF Human Observations |\n"
+]
+
+split_idx = 0
+for idx, line in enumerate(lines):
+    if line.startswith("## 3."):
+        split_idx = idx
+        break
+
+if split_idx > 0:
+    updated_lines = lines[:split_idx] + new_section_3_lines
+    with open('SOURCES.md', 'w', encoding='utf-8') as f:
+        f.writelines(updated_lines)
+    print(f"Successfully replaced Section 3 from line {split_idx}!")
+else:
+    print("Could not find section 3 line")

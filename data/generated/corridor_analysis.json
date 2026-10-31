@@ -1,0 +1,2391 @@
+{
+  "generated_at": "2026-10-24T11:53:35.908Z",
+  "species": {
+    "falco_amurensis": {
+      "species_id": "falco_amurensis",
+      "scientific_name": "Falco amurensis",
+      "race": {
+        "species_id": "falco_amurensis",
+        "scientific_name": "Falco amurensis",
+        "commonName": "Amur Falcon",
+        "breeding_velocity_km_decade": 140.2,
+        "non_breeding_velocity_km_decade": 184.4,
+        "mean_velocity_km_decade": 162.3,
+        "hwi": 52.9,
+        "hwi_rank": 7,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.909Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "falco_amurensis",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "falco_amurensis",
+            "season": "breeding",
+            "p05": 10.41,
+            "p10": 10.42,
+            "p50": 12.53,
+            "p90": 14.63,
+            "p95": 14.63,
+            "sample_size": 4
+          },
+          "cells": [
+            {
+              "lat": -25,
+              "lon": 30,
+              "baseline_suitability": 0.5,
+              "future_suitability_m1": 0.09,
+              "future_suitability_m2": 0.09,
+              "future_ensemble_suitability": 0.09,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": true,
+              "is_suitable_future": false,
+              "suitability_delta": -0.41,
+              "label": "simulated"
+            },
+            {
+              "lat": -25,
+              "lon": 25,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 0.05,
+              "future_suitability_m2": 0.04,
+              "future_ensemble_suitability": 0.04,
+              "uncertainty_spread": 0.01,
+              "is_suitable_baseline": true,
+              "is_suitable_future": false,
+              "suitability_delta": -0.96,
+              "label": "simulated"
+            },
+            {
+              "lat": -30,
+              "lon": 30,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 0.42,
+              "future_suitability_m2": 0.4,
+              "future_ensemble_suitability": 0.41,
+              "uncertainty_spread": 0.02,
+              "is_suitable_baseline": true,
+              "is_suitable_future": false,
+              "suitability_delta": -0.59,
+              "label": "simulated"
+            },
+            {
+              "lat": -30,
+              "lon": 25,
+              "baseline_suitability": 0.5,
+              "future_suitability_m1": 0.16,
+              "future_suitability_m2": 0.13,
+              "future_ensemble_suitability": 0.15,
+              "uncertainty_spread": 0.03,
+              "is_suitable_baseline": true,
+              "is_suitable_future": false,
+              "suitability_delta": -0.35,
+              "label": "simulated"
+            }
+          ],
+          "summary": {
+            "baseline_suitable_cells": 4,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 4,
+            "mean_uncertainty": 0.01
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.910Z"
+        },
+        "non_breeding": {
+          "species_id": "falco_amurensis",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "falco_amurensis",
+            "season": "non_breeding",
+            "p05": 18.34,
+            "p10": 19.57,
+            "p50": 22.55,
+            "p90": 24.85,
+            "p95": 25.27,
+            "sample_size": 7
+          },
+          "cells": [
+            {
+              "lat": -30,
+              "lon": 30,
+              "baseline_suitability": 0.33,
+              "future_suitability_m1": 0.17,
+              "future_suitability_m2": 0.18,
+              "future_ensemble_suitability": 0.17,
+              "uncertainty_spread": 0.01,
+              "is_suitable_baseline": false,
+              "is_suitable_future": false,
+              "suitability_delta": -0.16,
+              "label": "simulated"
+            },
+            {
+              "lat": -25,
+              "lon": 30,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 1,
+              "future_ensemble_suitability": 1,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": true,
+              "is_suitable_future": true,
+              "suitability_delta": 0,
+              "label": "simulated"
+            },
+            {
+              "lat": -35,
+              "lon": 25,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 1,
+              "future_ensemble_suitability": 1,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": true,
+              "is_suitable_future": true,
+              "suitability_delta": 0,
+              "label": "simulated"
+            },
+            {
+              "lat": -25,
+              "lon": 25,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 1,
+              "future_ensemble_suitability": 1,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": true,
+              "is_suitable_future": true,
+              "suitability_delta": 0,
+              "label": "simulated"
+            },
+            {
+              "lat": -20,
+              "lon": 25,
+              "baseline_suitability": 0.43,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 1,
+              "future_ensemble_suitability": 1,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": false,
+              "is_suitable_future": true,
+              "suitability_delta": 0.57,
+              "label": "simulated"
+            },
+            {
+              "lat": -30,
+              "lon": 25,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 0.44,
+              "future_suitability_m2": 0.6,
+              "future_ensemble_suitability": 0.52,
+              "uncertainty_spread": 0.16,
+              "is_suitable_baseline": true,
+              "is_suitable_future": true,
+              "suitability_delta": -0.48,
+              "label": "simulated"
+            },
+            {
+              "lat": -15,
+              "lon": 25,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 1,
+              "future_ensemble_suitability": 1,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": true,
+              "is_suitable_future": true,
+              "suitability_delta": 0,
+              "label": "simulated"
+            }
+          ],
+          "summary": {
+            "baseline_suitable_cells": 5,
+            "future_suitable_cells": 6,
+            "stable_cells": 5,
+            "gained_cells": 1,
+            "lost_cells": 0,
+            "mean_uncertainty": 0.02
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.910Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": [
+          {
+            "node_id": "cell_-15_25",
+            "lat": -15,
+            "lon": 25,
+            "area_km2": 298237,
+            "suitability": 1,
+            "loss_of_reachable_area_km2": 298237,
+            "loss_percent": 17.88,
+            "connected_components_increase": 0,
+            "criticality_score": 298.2,
+            "rank": 1
+          },
+          {
+            "node_id": "cell_-20_25",
+            "lat": -20,
+            "lon": 25,
+            "area_km2": 290138,
+            "suitability": 1,
+            "loss_of_reachable_area_km2": 290138,
+            "loss_percent": 17.39,
+            "connected_components_increase": 0,
+            "criticality_score": 290.1,
+            "rank": 2
+          },
+          {
+            "node_id": "cell_-25_30",
+            "lat": -25,
+            "lon": 30,
+            "area_km2": 279830,
+            "suitability": 1,
+            "loss_of_reachable_area_km2": 279830,
+            "loss_percent": 16.77,
+            "connected_components_increase": 0,
+            "criticality_score": 279.8,
+            "rank": 3
+          },
+          {
+            "node_id": "cell_-25_25",
+            "lat": -25,
+            "lon": 25,
+            "area_km2": 279830,
+            "suitability": 1,
+            "loss_of_reachable_area_km2": 279830,
+            "loss_percent": 16.77,
+            "connected_components_increase": 0,
+            "criticality_score": 279.8,
+            "rank": 4
+          },
+          {
+            "node_id": "cell_-30_25",
+            "lat": -30,
+            "lon": 25,
+            "area_km2": 267392,
+            "suitability": 0.52,
+            "loss_of_reachable_area_km2": 267392,
+            "loss_percent": 16.03,
+            "connected_components_increase": 0,
+            "criticality_score": 267.4,
+            "rank": 5
+          },
+          {
+            "node_id": "cell_-35_25",
+            "lat": -35,
+            "lon": 25,
+            "area_km2": 252920,
+            "suitability": 1,
+            "loss_of_reachable_area_km2": 252920,
+            "loss_percent": 15.16,
+            "connected_components_increase": 0,
+            "criticality_score": 252.9,
+            "rank": 6
+          }
+        ]
+      }
+    },
+    "limosa_lapponica": {
+      "species_id": "limosa_lapponica",
+      "scientific_name": "Limosa lapponica",
+      "race": {
+        "species_id": "limosa_lapponica",
+        "scientific_name": "Limosa lapponica",
+        "commonName": "Bar-tailed Godwit",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": null,
+        "mean_velocity_km_decade": 0,
+        "hwi": 56.6,
+        "hwi_rank": 4,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.912Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "limosa_lapponica",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "limosa_lapponica",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.912Z"
+        },
+        "non_breeding": {
+          "species_id": "limosa_lapponica",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "limosa_lapponica",
+            "season": "non_breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.912Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": []
+      }
+    },
+    "sterna_paradisaea": {
+      "species_id": "sterna_paradisaea",
+      "scientific_name": "Sterna paradisaea",
+      "race": {
+        "species_id": "sterna_paradisaea",
+        "scientific_name": "Sterna paradisaea",
+        "commonName": "Arctic Tern",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": 917.8,
+        "mean_velocity_km_decade": 917.8,
+        "hwi": 69.1,
+        "hwi_rank": 1,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.912Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "sterna_paradisaea",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "sterna_paradisaea",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.912Z"
+        },
+        "non_breeding": {
+          "species_id": "sterna_paradisaea",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "sterna_paradisaea",
+            "season": "non_breeding",
+            "p05": 21.2,
+            "p10": 21.2,
+            "p50": 21.2,
+            "p90": 21.2,
+            "p95": 21.2,
+            "sample_size": 1
+          },
+          "cells": [
+            {
+              "lat": -35,
+              "lon": 25,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 0.34,
+              "future_suitability_m2": 0.35,
+              "future_ensemble_suitability": 0.34,
+              "uncertainty_spread": 0.01,
+              "is_suitable_baseline": true,
+              "is_suitable_future": false,
+              "suitability_delta": -0.66,
+              "label": "simulated"
+            }
+          ],
+          "summary": {
+            "baseline_suitable_cells": 1,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 1,
+            "mean_uncertainty": 0.01
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.912Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": []
+      }
+    },
+    "leucogeranus_leucogeranus": {
+      "species_id": "leucogeranus_leucogeranus",
+      "scientific_name": "Leucogeranus leucogeranus",
+      "race": {
+        "species_id": "leucogeranus_leucogeranus",
+        "scientific_name": "Leucogeranus leucogeranus",
+        "commonName": "Siberian Crane",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": null,
+        "mean_velocity_km_decade": 0,
+        "hwi": 44.2,
+        "hwi_rank": 16,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.912Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "leucogeranus_leucogeranus",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "leucogeranus_leucogeranus",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.912Z"
+        },
+        "non_breeding": {
+          "species_id": "leucogeranus_leucogeranus",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "leucogeranus_leucogeranus",
+            "season": "non_breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.912Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": []
+      }
+    },
+    "ciconia_ciconia": {
+      "species_id": "ciconia_ciconia",
+      "scientific_name": "Ciconia ciconia",
+      "race": {
+        "species_id": "ciconia_ciconia",
+        "scientific_name": "Ciconia ciconia",
+        "commonName": "White Stork",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": 372.8,
+        "mean_velocity_km_decade": 372.8,
+        "hwi": 45.9,
+        "hwi_rank": 12,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.912Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "ciconia_ciconia",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "ciconia_ciconia",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.912Z"
+        },
+        "non_breeding": {
+          "species_id": "ciconia_ciconia",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "ciconia_ciconia",
+            "season": "non_breeding",
+            "p05": 17.53,
+            "p10": 17.94,
+            "p50": 21.2,
+            "p90": 21.81,
+            "p95": 21.88,
+            "sample_size": 3
+          },
+          "cells": [
+            {
+              "lat": -35,
+              "lon": 25,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 1,
+              "future_ensemble_suitability": 1,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": true,
+              "is_suitable_future": true,
+              "suitability_delta": 0,
+              "label": "simulated"
+            },
+            {
+              "lat": -30,
+              "lon": 30,
+              "baseline_suitability": 0.44,
+              "future_suitability_m1": 0.22,
+              "future_suitability_m2": 0.24,
+              "future_ensemble_suitability": 0.23,
+              "uncertainty_spread": 0.02,
+              "is_suitable_baseline": false,
+              "is_suitable_future": false,
+              "suitability_delta": -0.21,
+              "label": "simulated"
+            },
+            {
+              "lat": -25,
+              "lon": 30,
+              "baseline_suitability": 0.49,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 1,
+              "future_ensemble_suitability": 1,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": false,
+              "is_suitable_future": true,
+              "suitability_delta": 0.51,
+              "label": "simulated"
+            }
+          ],
+          "summary": {
+            "baseline_suitable_cells": 1,
+            "future_suitable_cells": 2,
+            "stable_cells": 1,
+            "gained_cells": 1,
+            "lost_cells": 0,
+            "mean_uncertainty": 0.01
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.912Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": [
+          {
+            "node_id": "cell_-35_25",
+            "lat": -35,
+            "lon": 25,
+            "area_km2": 252920,
+            "suitability": 1,
+            "loss_of_reachable_area_km2": 0,
+            "loss_percent": 0,
+            "connected_components_increase": 0,
+            "criticality_score": 0,
+            "rank": 1
+          },
+          {
+            "node_id": "cell_-25_30",
+            "lat": -25,
+            "lon": 30,
+            "area_km2": 279830,
+            "suitability": 1,
+            "loss_of_reachable_area_km2": 0,
+            "loss_percent": 0,
+            "connected_components_increase": 0,
+            "criticality_score": 0,
+            "rank": 2
+          }
+        ]
+      }
+    },
+    "hirundo_rustica": {
+      "species_id": "hirundo_rustica",
+      "scientific_name": "Hirundo rustica",
+      "race": {
+        "species_id": "hirundo_rustica",
+        "scientific_name": "Hirundo rustica",
+        "commonName": "Barn Swallow",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": 372.8,
+        "mean_velocity_km_decade": 372.8,
+        "hwi": 52.6,
+        "hwi_rank": 8,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.913Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "hirundo_rustica",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "hirundo_rustica",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.913Z"
+        },
+        "non_breeding": {
+          "species_id": "hirundo_rustica",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "hirundo_rustica",
+            "season": "non_breeding",
+            "p05": 17.53,
+            "p10": 17.94,
+            "p50": 21.2,
+            "p90": 21.81,
+            "p95": 21.88,
+            "sample_size": 3
+          },
+          "cells": [
+            {
+              "lat": -30,
+              "lon": 30,
+              "baseline_suitability": 0.44,
+              "future_suitability_m1": 0.22,
+              "future_suitability_m2": 0.24,
+              "future_ensemble_suitability": 0.23,
+              "uncertainty_spread": 0.02,
+              "is_suitable_baseline": false,
+              "is_suitable_future": false,
+              "suitability_delta": -0.21,
+              "label": "simulated"
+            },
+            {
+              "lat": -25,
+              "lon": 30,
+              "baseline_suitability": 0.49,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 1,
+              "future_ensemble_suitability": 1,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": false,
+              "is_suitable_future": true,
+              "suitability_delta": 0.51,
+              "label": "simulated"
+            },
+            {
+              "lat": -35,
+              "lon": 25,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 1,
+              "future_ensemble_suitability": 1,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": true,
+              "is_suitable_future": true,
+              "suitability_delta": 0,
+              "label": "simulated"
+            }
+          ],
+          "summary": {
+            "baseline_suitable_cells": 1,
+            "future_suitable_cells": 2,
+            "stable_cells": 1,
+            "gained_cells": 1,
+            "lost_cells": 0,
+            "mean_uncertainty": 0.01
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.913Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": [
+          {
+            "node_id": "cell_-25_30",
+            "lat": -25,
+            "lon": 30,
+            "area_km2": 279830,
+            "suitability": 1,
+            "loss_of_reachable_area_km2": 26910,
+            "loss_percent": 9.62,
+            "connected_components_increase": 0,
+            "criticality_score": 26.9,
+            "rank": 1
+          },
+          {
+            "node_id": "cell_-35_25",
+            "lat": -35,
+            "lon": 25,
+            "area_km2": 252920,
+            "suitability": 1,
+            "loss_of_reachable_area_km2": 0,
+            "loss_percent": 0,
+            "connected_components_increase": 0,
+            "criticality_score": 0,
+            "rank": 2
+          }
+        ]
+      }
+    },
+    "calidris_canutus": {
+      "species_id": "calidris_canutus",
+      "scientific_name": "Calidris canutus",
+      "race": {
+        "species_id": "calidris_canutus",
+        "scientific_name": "Calidris canutus",
+        "commonName": "Red Knot",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": null,
+        "mean_velocity_km_decade": 0,
+        "hwi": 57.9,
+        "hwi_rank": 3,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.913Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "calidris_canutus",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "calidris_canutus",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.913Z"
+        },
+        "non_breeding": {
+          "species_id": "calidris_canutus",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "calidris_canutus",
+            "season": "non_breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.913Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": []
+      }
+    },
+    "anser_indicus": {
+      "species_id": "anser_indicus",
+      "scientific_name": "Anser indicus",
+      "race": {
+        "species_id": "anser_indicus",
+        "scientific_name": "Anser indicus",
+        "commonName": "Bar-headed Goose",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": null,
+        "mean_velocity_km_decade": 0,
+        "hwi": 50.3,
+        "hwi_rank": 10,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.913Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "anser_indicus",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "anser_indicus",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.913Z"
+        },
+        "non_breeding": {
+          "species_id": "anser_indicus",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "anser_indicus",
+            "season": "non_breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.913Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": []
+      }
+    },
+    "cuculus_canorus": {
+      "species_id": "cuculus_canorus",
+      "scientific_name": "Cuculus canorus",
+      "race": {
+        "species_id": "cuculus_canorus",
+        "scientific_name": "Cuculus canorus",
+        "commonName": "Common Cuckoo",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": 157,
+        "mean_velocity_km_decade": 157,
+        "hwi": 43.9,
+        "hwi_rank": 17,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.913Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "cuculus_canorus",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "cuculus_canorus",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.913Z"
+        },
+        "non_breeding": {
+          "species_id": "cuculus_canorus",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "cuculus_canorus",
+            "season": "non_breeding",
+            "p05": 18.09,
+            "p10": 19.06,
+            "p50": 22.55,
+            "p90": 24.51,
+            "p95": 25.1,
+            "sample_size": 5
+          },
+          "cells": [
+            {
+              "lat": -25,
+              "lon": 30,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 1,
+              "future_ensemble_suitability": 1,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": true,
+              "is_suitable_future": true,
+              "suitability_delta": 0,
+              "label": "simulated"
+            },
+            {
+              "lat": -30,
+              "lon": 30,
+              "baseline_suitability": 0.36,
+              "future_suitability_m1": 0.19,
+              "future_suitability_m2": 0.2,
+              "future_ensemble_suitability": 0.2,
+              "uncertainty_spread": 0.01,
+              "is_suitable_baseline": false,
+              "is_suitable_future": false,
+              "suitability_delta": -0.16,
+              "label": "simulated"
+            },
+            {
+              "lat": -15,
+              "lon": 25,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 1,
+              "future_ensemble_suitability": 1,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": true,
+              "is_suitable_future": true,
+              "suitability_delta": 0,
+              "label": "simulated"
+            },
+            {
+              "lat": -20,
+              "lon": 25,
+              "baseline_suitability": 0.41,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 0.73,
+              "future_ensemble_suitability": 0.86,
+              "uncertainty_spread": 0.27,
+              "is_suitable_baseline": false,
+              "is_suitable_future": true,
+              "suitability_delta": 0.45,
+              "label": "simulated"
+            },
+            {
+              "lat": -30,
+              "lon": 25,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 0.48,
+              "future_suitability_m2": 0.75,
+              "future_ensemble_suitability": 0.61,
+              "uncertainty_spread": 0.27,
+              "is_suitable_baseline": true,
+              "is_suitable_future": true,
+              "suitability_delta": -0.39,
+              "label": "simulated"
+            }
+          ],
+          "summary": {
+            "baseline_suitable_cells": 3,
+            "future_suitable_cells": 4,
+            "stable_cells": 3,
+            "gained_cells": 1,
+            "lost_cells": 0,
+            "mean_uncertainty": 0.11
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.913Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": [
+          {
+            "node_id": "cell_-20_25",
+            "lat": -20,
+            "lon": 25,
+            "area_km2": 290138,
+            "suitability": 0.86,
+            "loss_of_reachable_area_km2": 588375,
+            "loss_percent": 51.81,
+            "connected_components_increase": 1,
+            "criticality_score": 838.4,
+            "rank": 1
+          },
+          {
+            "node_id": "cell_-15_25",
+            "lat": -15,
+            "lon": 25,
+            "area_km2": 298237,
+            "suitability": 1,
+            "loss_of_reachable_area_km2": 298237,
+            "loss_percent": 26.26,
+            "connected_components_increase": 0,
+            "criticality_score": 298.2,
+            "rank": 2
+          },
+          {
+            "node_id": "cell_-25_30",
+            "lat": -25,
+            "lon": 30,
+            "area_km2": 279830,
+            "suitability": 1,
+            "loss_of_reachable_area_km2": 279830,
+            "loss_percent": 24.64,
+            "connected_components_increase": 0,
+            "criticality_score": 279.8,
+            "rank": 3
+          },
+          {
+            "node_id": "cell_-30_25",
+            "lat": -30,
+            "lon": 25,
+            "area_km2": 267392,
+            "suitability": 0.61,
+            "loss_of_reachable_area_km2": 267392,
+            "loss_percent": 23.55,
+            "connected_components_increase": 0,
+            "criticality_score": 267.4,
+            "rank": 4
+          }
+        ]
+      }
+    },
+    "oenanthe_oenanthe": {
+      "species_id": "oenanthe_oenanthe",
+      "scientific_name": "Oenanthe oenanthe",
+      "race": {
+        "species_id": "oenanthe_oenanthe",
+        "scientific_name": "Oenanthe oenanthe",
+        "commonName": "Northern Wheatear",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": 2246.1,
+        "mean_velocity_km_decade": 2246.1,
+        "hwi": 32.1,
+        "hwi_rank": 20,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.913Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "oenanthe_oenanthe",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "oenanthe_oenanthe",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.913Z"
+        },
+        "non_breeding": {
+          "species_id": "oenanthe_oenanthe",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "oenanthe_oenanthe",
+            "season": "non_breeding",
+            "p05": 21.96,
+            "p10": 21.96,
+            "p50": 21.96,
+            "p90": 21.96,
+            "p95": 21.96,
+            "sample_size": 1
+          },
+          "cells": [
+            {
+              "lat": -25,
+              "lon": 30,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 0.23,
+              "future_suitability_m2": 0.25,
+              "future_ensemble_suitability": 0.24,
+              "uncertainty_spread": 0.02,
+              "is_suitable_baseline": true,
+              "is_suitable_future": false,
+              "suitability_delta": -0.76,
+              "label": "simulated"
+            }
+          ],
+          "summary": {
+            "baseline_suitable_cells": 1,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 1,
+            "mean_uncertainty": 0.02
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.913Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": []
+      }
+    },
+    "numenius_phaeopus": {
+      "species_id": "numenius_phaeopus",
+      "scientific_name": "Numenius phaeopus",
+      "race": {
+        "species_id": "numenius_phaeopus",
+        "scientific_name": "Numenius phaeopus",
+        "commonName": "Whimbrel",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": 1811.7,
+        "mean_velocity_km_decade": 1811.7,
+        "hwi": 53.5,
+        "hwi_rank": 5,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.913Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "numenius_phaeopus",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "numenius_phaeopus",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.913Z"
+        },
+        "non_breeding": {
+          "species_id": "numenius_phaeopus",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "numenius_phaeopus",
+            "season": "non_breeding",
+            "p05": 17.32,
+            "p10": 17.53,
+            "p50": 19.16,
+            "p90": 20.79,
+            "p95": 21,
+            "sample_size": 2
+          },
+          "cells": [
+            {
+              "lat": -30,
+              "lon": 30,
+              "baseline_suitability": 0.47,
+              "future_suitability_m1": 0.24,
+              "future_suitability_m2": 0.25,
+              "future_ensemble_suitability": 0.24,
+              "uncertainty_spread": 0.01,
+              "is_suitable_baseline": false,
+              "is_suitable_future": false,
+              "suitability_delta": -0.23,
+              "label": "simulated"
+            },
+            {
+              "lat": -35,
+              "lon": 25,
+              "baseline_suitability": 0.47,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 1,
+              "future_ensemble_suitability": 1,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": false,
+              "is_suitable_future": true,
+              "suitability_delta": 0.53,
+              "label": "simulated"
+            }
+          ],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 1,
+            "stable_cells": 0,
+            "gained_cells": 1,
+            "lost_cells": 0,
+            "mean_uncertainty": 0.01
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.913Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": [
+          {
+            "node_id": "cell_-35_25",
+            "lat": -35,
+            "lon": 25,
+            "area_km2": 252920,
+            "suitability": 1,
+            "loss_of_reachable_area_km2": 252920,
+            "loss_percent": 100,
+            "connected_components_increase": 0,
+            "criticality_score": 252.9,
+            "rank": 1
+          }
+        ]
+      }
+    },
+    "grus_grus": {
+      "species_id": "grus_grus",
+      "scientific_name": "Grus grus",
+      "race": {
+        "species_id": "grus_grus",
+        "scientific_name": "Grus grus",
+        "commonName": "Common Crane",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": null,
+        "mean_velocity_km_decade": 0,
+        "hwi": 43,
+        "hwi_rank": 19,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.913Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "grus_grus",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "grus_grus",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.913Z"
+        },
+        "non_breeding": {
+          "species_id": "grus_grus",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "grus_grus",
+            "season": "non_breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.913Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": []
+      }
+    },
+    "pandion_haliaetus": {
+      "species_id": "pandion_haliaetus",
+      "scientific_name": "Pandion haliaetus",
+      "race": {
+        "species_id": "pandion_haliaetus",
+        "scientific_name": "Pandion haliaetus",
+        "commonName": "Osprey",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": null,
+        "mean_velocity_km_decade": 0,
+        "hwi": 44.9,
+        "hwi_rank": 14,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.913Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "pandion_haliaetus",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "pandion_haliaetus",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.913Z"
+        },
+        "non_breeding": {
+          "species_id": "pandion_haliaetus",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "pandion_haliaetus",
+            "season": "non_breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.913Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": []
+      }
+    },
+    "numenius_arquata": {
+      "species_id": "numenius_arquata",
+      "scientific_name": "Numenius arquata",
+      "race": {
+        "species_id": "numenius_arquata",
+        "scientific_name": "Numenius arquata",
+        "commonName": "Eurasian Curlew",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": null,
+        "mean_velocity_km_decade": 0,
+        "hwi": 53.2,
+        "hwi_rank": 6,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.914Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "numenius_arquata",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "numenius_arquata",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.914Z"
+        },
+        "non_breeding": {
+          "species_id": "numenius_arquata",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "numenius_arquata",
+            "season": "non_breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.914Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": []
+      }
+    },
+    "circus_pygargus": {
+      "species_id": "circus_pygargus",
+      "scientific_name": "Circus pygargus",
+      "race": {
+        "species_id": "circus_pygargus",
+        "scientific_name": "Circus pygargus",
+        "commonName": "Montagu's Harrier",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": null,
+        "mean_velocity_km_decade": 0,
+        "hwi": 52,
+        "hwi_rank": 9,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.914Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "circus_pygargus",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "circus_pygargus",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.914Z"
+        },
+        "non_breeding": {
+          "species_id": "circus_pygargus",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "circus_pygargus",
+            "season": "non_breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.914Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": []
+      }
+    },
+    "fregata_magnificens": {
+      "species_id": "fregata_magnificens",
+      "scientific_name": "Fregata magnificens",
+      "race": {
+        "species_id": "fregata_magnificens",
+        "scientific_name": "Fregata magnificens",
+        "commonName": "Magnificent Frigatebird",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": null,
+        "mean_velocity_km_decade": 0,
+        "hwi": 64,
+        "hwi_rank": 2,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.914Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "fregata_magnificens",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "fregata_magnificens",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.914Z"
+        },
+        "non_breeding": {
+          "species_id": "fregata_magnificens",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "fregata_magnificens",
+            "season": "non_breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.914Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": []
+      }
+    },
+    "ciconia_nigra": {
+      "species_id": "ciconia_nigra",
+      "scientific_name": "Ciconia nigra",
+      "race": {
+        "species_id": "ciconia_nigra",
+        "scientific_name": "Ciconia nigra",
+        "commonName": "Black Stork",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": 121.4,
+        "mean_velocity_km_decade": 121.4,
+        "hwi": 43.1,
+        "hwi_rank": 18,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.914Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "ciconia_nigra",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "ciconia_nigra",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.914Z"
+        },
+        "non_breeding": {
+          "species_id": "ciconia_nigra",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "ciconia_nigra",
+            "season": "non_breeding",
+            "p05": 17.94,
+            "p10": 18.75,
+            "p50": 21.96,
+            "p90": 23.59,
+            "p95": 23.93,
+            "sample_size": 5
+          },
+          "cells": [
+            {
+              "lat": -25,
+              "lon": 30,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 1,
+              "future_ensemble_suitability": 1,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": true,
+              "is_suitable_future": true,
+              "suitability_delta": 0,
+              "label": "simulated"
+            },
+            {
+              "lat": -30,
+              "lon": 30,
+              "baseline_suitability": 0.38,
+              "future_suitability_m1": 0.2,
+              "future_suitability_m2": 0.21,
+              "future_ensemble_suitability": 0.21,
+              "uncertainty_spread": 0.01,
+              "is_suitable_baseline": false,
+              "is_suitable_future": false,
+              "suitability_delta": -0.17,
+              "label": "simulated"
+            },
+            {
+              "lat": -30,
+              "lon": 25,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 0.52,
+              "future_suitability_m2": 0.9,
+              "future_ensemble_suitability": 0.71,
+              "uncertainty_spread": 0.38,
+              "is_suitable_baseline": true,
+              "is_suitable_future": true,
+              "suitability_delta": -0.29,
+              "label": "simulated"
+            },
+            {
+              "lat": -35,
+              "lon": 25,
+              "baseline_suitability": 1,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 1,
+              "future_ensemble_suitability": 1,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": true,
+              "is_suitable_future": true,
+              "suitability_delta": 0,
+              "label": "simulated"
+            },
+            {
+              "lat": -25,
+              "lon": 25,
+              "baseline_suitability": 0.44,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 1,
+              "future_ensemble_suitability": 1,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": false,
+              "is_suitable_future": true,
+              "suitability_delta": 0.56,
+              "label": "simulated"
+            }
+          ],
+          "summary": {
+            "baseline_suitable_cells": 3,
+            "future_suitable_cells": 4,
+            "stable_cells": 3,
+            "gained_cells": 1,
+            "lost_cells": 0,
+            "mean_uncertainty": 0.08
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.914Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": [
+          {
+            "node_id": "cell_-25_30",
+            "lat": -25,
+            "lon": 30,
+            "area_km2": 279830,
+            "suitability": 1,
+            "loss_of_reachable_area_km2": 279830,
+            "loss_percent": 25.91,
+            "connected_components_increase": 0,
+            "criticality_score": 279.8,
+            "rank": 1
+          },
+          {
+            "node_id": "cell_-25_25",
+            "lat": -25,
+            "lon": 25,
+            "area_km2": 279830,
+            "suitability": 1,
+            "loss_of_reachable_area_km2": 279830,
+            "loss_percent": 25.91,
+            "connected_components_increase": 0,
+            "criticality_score": 279.8,
+            "rank": 2
+          },
+          {
+            "node_id": "cell_-30_25",
+            "lat": -30,
+            "lon": 25,
+            "area_km2": 267392,
+            "suitability": 0.71,
+            "loss_of_reachable_area_km2": 267392,
+            "loss_percent": 24.76,
+            "connected_components_increase": 0,
+            "criticality_score": 267.4,
+            "rank": 3
+          },
+          {
+            "node_id": "cell_-35_25",
+            "lat": -35,
+            "lon": 25,
+            "area_km2": 252920,
+            "suitability": 1,
+            "loss_of_reachable_area_km2": 252920,
+            "loss_percent": 23.42,
+            "connected_components_increase": 0,
+            "criticality_score": 252.9,
+            "rank": 4
+          }
+        ]
+      }
+    },
+    "circus_cyaneus": {
+      "species_id": "circus_cyaneus",
+      "scientific_name": "Circus cyaneus",
+      "race": {
+        "species_id": "circus_cyaneus",
+        "scientific_name": "Circus cyaneus",
+        "commonName": "Hen Harrier",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": null,
+        "mean_velocity_km_decade": 0,
+        "hwi": 44.7,
+        "hwi_rank": 15,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.914Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "circus_cyaneus",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "circus_cyaneus",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.914Z"
+        },
+        "non_breeding": {
+          "species_id": "circus_cyaneus",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "circus_cyaneus",
+            "season": "non_breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.914Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": []
+      }
+    },
+    "circus_aeruginosus": {
+      "species_id": "circus_aeruginosus",
+      "scientific_name": "Circus aeruginosus",
+      "race": {
+        "species_id": "circus_aeruginosus",
+        "scientific_name": "Circus aeruginosus",
+        "commonName": "Western Marsh Harrier",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": 100.3,
+        "mean_velocity_km_decade": 100.3,
+        "hwi": 45.6,
+        "hwi_rank": 13,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.914Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "circus_aeruginosus",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "circus_aeruginosus",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.914Z"
+        },
+        "non_breeding": {
+          "species_id": "circus_aeruginosus",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "circus_aeruginosus",
+            "season": "non_breeding",
+            "p05": 17.36,
+            "p10": 17.6,
+            "p50": 19.54,
+            "p90": 21.48,
+            "p95": 21.72,
+            "sample_size": 2
+          },
+          "cells": [
+            {
+              "lat": -30,
+              "lon": 30,
+              "baseline_suitability": 0.46,
+              "future_suitability_m1": 0.24,
+              "future_suitability_m2": 0.25,
+              "future_ensemble_suitability": 0.24,
+              "uncertainty_spread": 0.01,
+              "is_suitable_baseline": false,
+              "is_suitable_future": false,
+              "suitability_delta": -0.22,
+              "label": "simulated"
+            },
+            {
+              "lat": -25,
+              "lon": 30,
+              "baseline_suitability": 0.46,
+              "future_suitability_m1": 1,
+              "future_suitability_m2": 1,
+              "future_ensemble_suitability": 1,
+              "uncertainty_spread": 0,
+              "is_suitable_baseline": false,
+              "is_suitable_future": true,
+              "suitability_delta": 0.54,
+              "label": "simulated"
+            }
+          ],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 1,
+            "stable_cells": 0,
+            "gained_cells": 1,
+            "lost_cells": 0,
+            "mean_uncertainty": 0.01
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.914Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": [
+          {
+            "node_id": "cell_-25_30",
+            "lat": -25,
+            "lon": 30,
+            "area_km2": 279830,
+            "suitability": 1,
+            "loss_of_reachable_area_km2": 279830,
+            "loss_percent": 100,
+            "connected_components_increase": 0,
+            "criticality_score": 279.8,
+            "rank": 1
+          }
+        ]
+      }
+    },
+    "asio_flammeus": {
+      "species_id": "asio_flammeus",
+      "scientific_name": "Asio flammeus",
+      "race": {
+        "species_id": "asio_flammeus",
+        "scientific_name": "Asio flammeus",
+        "commonName": "Short-eared Owl",
+        "breeding_velocity_km_decade": null,
+        "non_breeding_velocity_km_decade": null,
+        "mean_velocity_km_decade": 0,
+        "hwi": 47.5,
+        "hwi_rank": 11,
+        "hwi_rank_total": 20,
+        "verdict": "Insufficient evidence for a verdict",
+        "verdict_reason": "The Hand-Wing Index (HWI) is a morphological dispersal proxy, not a physical velocity in km/decade. Sourced literature does not provide an empirical speed conversion threshold.",
+        "label": "projected",
+        "retrieved_at": "2026-10-24T11:53:35.914Z"
+      },
+      "twin": {
+        "breeding": {
+          "species_id": "asio_flammeus",
+          "season": "breeding",
+          "envelope": {
+            "species_id": "asio_flammeus",
+            "season": "breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.914Z"
+        },
+        "non_breeding": {
+          "species_id": "asio_flammeus",
+          "season": "non_breeding",
+          "envelope": {
+            "species_id": "asio_flammeus",
+            "season": "non_breeding",
+            "p05": 10,
+            "p10": 12,
+            "p50": 20,
+            "p90": 28,
+            "p95": 30,
+            "sample_size": 0
+          },
+          "cells": [],
+          "summary": {
+            "baseline_suitable_cells": 0,
+            "future_suitable_cells": 0,
+            "stable_cells": 0,
+            "gained_cells": 0,
+            "lost_cells": 0,
+            "mean_uncertainty": 0
+          },
+          "models": [
+            "EC_Earth3P_HR",
+            "MPI_ESM1_2_XR"
+          ],
+          "label": "simulated",
+          "disclaimer": "Climate-envelope suitability models atmospheric niche compatibility only. It does not account for land cover, human infrastructure, food availability, or wetlands loss.",
+          "retrieved_at": "2026-10-24T11:53:35.914Z"
+        }
+      },
+      "break": {
+        "breeding_critical_links": [],
+        "non_breeding_critical_links": []
+      }
+    }
+  }
+}

@@ -1,0 +1,206 @@
+[
+  {
+    "dataset_key": "906e6978-e292-4a8b-9c39-adf6bb0f3323",
+    "title": "Southern African Bird Atlas Project 2",
+    "citation": "Brooks M, Ryan P (2026). Southern African Bird Atlas Project 2. Version 1.87. FitzPatrick Institute of African Ornithology. Occurrence dataset https://doi.org/10.2989/00306525.2022.2125097 accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+    "dataset_key": "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+    "title": "iNaturalist Research-grade Observations",
+    "citation": "iNaturalist contributors, iNaturalist (2026). iNaturalist Research-grade Observations. iNaturalist.org. Occurrence dataset https://doi.org/10.15468/ab3s5x accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+    "dataset_key": "8a863029-f435-446a-821e-275f4f641165",
+    "title": "Observation.org, Nature data from around the World",
+    "citation": "Observation.org (2026). Observation.org, Nature data from around the World. Occurrence dataset https://doi.org/10.15468/5nilie accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+    "dataset_key": "6ff8b3b0-ef0f-4f79-a310-5a5615c6aa0b",
+    "title": "Birda - Global Observation Dataset",
+    "citation": "Birda (2026). Birda - Global Observation Dataset. Version 1.19. Birda. Occurrence dataset https://doi.org/10.15468/6kud7x accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+    "dataset_key": "ba19fc1d-670c-426b-b99d-49f003792ac4",
+    "title": "RU-BIRDS.RU, Birds observations database from Russia and neighboring regions.  Zoological Museum of M.V. Lomonosov Moscow State University.",
+    "citation": "Ukolov I, Kalyakin M, Voltzit O (2019). RU-BIRDS.RU, Birds observations database from Russia and neighboring regions.  Zoological Museum of M.V. Lomonosov Moscow State University.. Lomonosov Moscow State University. Occurrence dataset https://doi.org/10.15468/5cjx70 accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+    "dataset_key": "1cd0cb6d-d8ab-4e4c-9672-70d22fec96b3",
+    "title": "Kenya Bird Map (Full protocol and Adhoc records)",
+    "citation": "Njoroge P, Brooks M (2026). Kenya Bird Map (Full protocol and Adhoc records). Version 1.70. FitzPatrick Institute of African Ornithology. Occurrence dataset https://doi.org/10.15468/2lrl79 accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+    "dataset_key": "38b4c89f-584c-41bb-bd8f-cd1def33e92f",
+    "title": "Artportalen",
+    "citation": "SLU Swedish Species Information Centre, Liljeblad J (2026). Artportalen. Version 92.492. SLU Artdatabanken. Occurrence dataset. https://www.gbif.se/ipt/resource?r=artdata&v=92.492 https://doi.org/10.15468/kllkyl accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode"
+  },
+  {
+    "dataset_key": "95db4db8-f762-11e1-a439-00145eb45e9a",
+    "title": "DOF/BirdLife Denmark - Observations from DOFbasen",
+    "citation": "Nyegaard T (2026). DOF/BirdLife Denmark - Observations from DOFbasen. Danish Ornithological Society. Occurrence dataset https://doi.org/10.15468/tww7cj accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+    "dataset_key": "b124e1e0-4755-430f-9eab-894f25a9b59c",
+    "title": "Norwegian Species Observation Service",
+    "citation": "The Norwegian Biodiversity Information Centre ., Hoem S (2026). Norwegian Species Observation Service. Version 1.371. Norwegian Biodiversity Information Centre. Occurrence dataset https://doi.org/10.15468/zjbzel accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+    "dataset_key": "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+    "title": "NABU|naturgucker",
+    "citation": "naturgucker.de. NABU|naturgucker. Occurrence dataset https://doi.org/10.15468/uc1apo accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+    "dataset_key": "2fd17f41-80ef-4c15-ac48-63ca89f4bb16",
+    "title": "Coordinated Waterbird Counts",
+    "citation": "Brooks M (2026). Coordinated Waterbird Counts. Version 1.155. FitzPatrick Institute of African Ornithology. Occurrence dataset https://doi.org/10.15468/npx9ow accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+    "dataset_key": "4fa7b334-ce0d-4e88-aaae-2e0c138d049e",
+    "title": "EOD – eBird Observation Dataset",
+    "citation": "Imani J, Audette C, Auer T, Barker S, Barry J, Charnoky M, Crowley C, Curtis J, Davies I, Davis C, Diaz R, Feinberg A, Fink D, Ganger J, Garrett J, Gerbracht J, Hanks C, Hayes M, Hochachka W, Iliff M, Jordan A, Ligocki S, Long T, Morris W, Morrow S, Oldham L, Padilla Obregon F, Robinson O, Rodewald A, Ruiz-Gutierrez V, Schloss M, Smith A, Smith J, Stillman A, Stokowski M, Strimas-Mackey M, Sullivan B, Tedeschi A, Weber D, Wolf H, Wood C (2025). EOD – eBird Observation Dataset. Cornell Lab of Ornithology. Occurrence dataset https://doi.org/10.15468/aomfnb accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+    "dataset_key": "4bf1cca8-832c-4891-9e17-7e7a65b7cc81",
+    "title": "BirdLife Australia, Birdata",
+    "citation": "BirdLife Australia (2026). BirdLife Australia, Birdata. Occurrence dataset https://doi.org/10.15468/dchsnk accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+    "dataset_key": "f85fdc32-486d-4f7d-afc6-858eab003ef3",
+    "title": "Birdex Bird Sightings",
+    "citation": "Birdex (2026). Birdex Bird Sightings. Occurrence dataset https://doi.org/10.15468/xfwud4 accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+    "dataset_key": "e9a67463-71be-473f-8083-0625355bd445",
+    "title": "Birds and other animals from Fuglevennen.no",
+    "citation": "Miljolare.no (2026). Birds and other animals from Fuglevennen.no. Version 1.132. Miljølære.no. Occurrence dataset https://doi.org/10.15468/tzw76a accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+    "dataset_key": "df12ca07-f133-4550-ab3b-fde13f0e76ba",
+    "title": "Notebook, general observations",
+    "citation": "Finnish Biodiversity Information Facility (2026). Notebook, general observations. Occurrence dataset https://doi.org/10.15468/4g56tp accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+    "dataset_key": "74b866a0-6bed-41f0-83be-f52bf16ad77a",
+    "title": "Fourth Finnish Bird Atlas 2022–2025, observations from FinBIF Notebook",
+    "citation": "Finnish Museum of Natural History - Zoology Unit (2026). Fourth Finnish Bird Atlas 2022–2025, observations from FinBIF Notebook. Occurrence dataset https://doi.org/10.15468/ndafsa accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+    "dataset_key": "b1047888-ae52-4179-9dd5-5448ea342a24",
+    "title": "Xeno-canto - Bird sounds from around the world",
+    "citation": "Vellinga W P, Planqué B, Vellinga W (2026). Xeno-canto - Bird sounds from around the world. Xeno-canto Foundation for Nature Sounds. Occurrence dataset https://doi.org/10.15468/qv0ksn accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+    "dataset_key": "4f70108a-dda7-4e8b-8298-babaee5182c3",
+    "title": "Bird Ringing Centre in Sweden (NRM)",
+    "citation": "Lind J (2026). Bird Ringing Centre in Sweden (NRM). Version 19.36. Swedish Museum of Natural History. Occurrence dataset. https://www.gbif.se/ipt/resource?r=nrm-ringedbirds&v=19.36 https://doi.org/10.15468/cghs8p accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode"
+  },
+  {
+    "dataset_key": "6c8d87be-829d-4364-b2bc-578258761cc2",
+    "title": "INPA - Observations",
+    "citation": "Ben-Hur E, Steinitz O (2026). INPA - Observations. Version 1.61. Israel Nature and Parks Authority. Occurrence dataset https://doi.org/10.15468/nqx5dj accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+    "dataset_key": "963a6b96-4d22-4428-86e4-afee52cf4a8e",
+    "title": "Species recordings from the Danish National Portal Arter.dk",
+    "citation": "Arter Project Group (2026). Species recordings from the Danish National Portal Arter.dk. Styrelsen for Grøn Arealomlægning og Vandmiljø/The Danish Agency for Green Land Use and Aquatic Environment (SGAV). Occurrence dataset https://doi.org/10.15468/q3yy4u accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+    "dataset_key": "f6ae547f-2dc3-44be-973d-5839b3de38ff",
+    "title": "Species of flora and fauna in the middle part of the Hirskyi Tikych river basin",
+    "citation": "Bubela O, Ilminska L (2025). Species of flora and fauna in the middle part of the Hirskyi Tikych river basin. Version 1.4. Ukrainian Nature Conservation Group (NGO). Occurrence dataset https://doi.org/10.15468/rp3vme accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+    "dataset_key": "aa6c5ee6-d4d7-4a65-a04f-379cffbf4842",
+    "title": "ArtenFinder",
+    "citation": "ArtenFinder bei der Stiftung Natur und Umwelt RLP und der Stiftung Naturschutz Berlin. ArtenFinder. Occurrence dataset https://doi.org/10.15468/jnnald accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode"
+  },
+  {
+    "dataset_key": "73ee6fdd-97b5-4c2c-bfcc-e09e32a51073",
+    "title": "Nature observations Envineer Oy",
+    "citation": "Finnish Biodiversity Information Facility (2026). Nature observations Envineer Oy. Occurrence dataset https://doi.org/10.15468/9v7xsa accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+    "dataset_key": "acf9b46d-e71a-4ccb-91d2-a021ffda4dd4",
+    "title": "The Finnish Nature Association's Spring monitoring",
+    "citation": "Finnish Biodiversity Information Facility (2026). The Finnish Nature Association's Spring monitoring. Occurrence dataset https://doi.org/10.15468/v6atsx accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+    "dataset_key": "a4d53b24-d61b-4ee5-addd-8b42d54a913f",
+    "title": "Winter Bird Census",
+    "citation": "Finnish Museum of Natural History - Zoology Unit (2026). Winter Bird Census. Occurrence dataset https://doi.org/10.15468/vmdzin accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+    "dataset_key": "9a0b66df-7535-4f28-9f4e-5bc11b8b096c",
+    "title": "Waarnemingen.be - Non-native animal occurrences in Flanders and the Brussels Capital Region, Belgium",
+    "citation": "Vanreusel W, Swinnen K, Gielen K, Vercayie D, Driessens G, Veraghtert W, Desmet P, Herremans M (2026). Waarnemingen.be - Non-native animal occurrences in Flanders and the Brussels Capital Region, Belgium. Version 1.236. Natuurpunt. Occurrence dataset https://doi.org/10.15468/k2aiak accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+    "dataset_key": "04871911-1b00-41f3-8dc6-fc0cea421f96",
+    "title": "DEMNA-DNE : Early warning system on Introduced Species in Wallonia",
+    "citation": "Barbier Y, Coupremanne M, Branquart E, Vanderhoeven S (2026). DEMNA-DNE : Early warning system on Introduced Species in Wallonia. Version 1.1177. Service Public de Wallonie – Département d’Etude du Milieu Naturel et Agricole (SPW – DEMNA). Occurrence dataset https://doi.org/10.15468/dc2dyg accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+    "dataset_key": "2e4cc37b-302e-4f1b-bbbb-1f674ff90e14",
+    "title": "Biofokus",
+    "citation": "Blindheim T (2026). Biofokus. Version 1.3531. Biofokus. Occurrence dataset https://doi.org/10.15468/jxbhqx accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+    "dataset_key": "993982f8-3883-435d-af0a-4b3fdd9a0295",
+    "title": "Nigerian Bird Atlas Project (Adhoc Records)",
+    "citation": "Danmallam B A, Brooks M, Kumdet P S, Iniunam I A, Kazeh N W, Tende T, Chaskda A A, Ottosson U, Ivande S T (2026). Nigerian Bird Atlas Project (Adhoc Records). Version 1.46. A.P. Leventis Ornithological Research Institute (APLORI). Occurrence dataset https://doi.org/10.15468/fcp87c accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  },
+  {
+    "dataset_key": "2600e24b-efe3-421b-8351-7b4557dfa716",
+    "title": "Avifaunal diversity study of Pakhibitan Ecopark from August 2025  to April 2026",
+    "citation": "Samanta T, Chatterjee L, Samrat C, Basu Roy A, Basu Roy R, Barve V (2026). Avifaunal diversity study of Pakhibitan Ecopark from August 2025  to April 2026. Nature Mates-Nature Club. Sampling event dataset https://doi.org/10.15468/9dnp3b accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode"
+  },
+  {
+    "dataset_key": "89563809-11ce-4c60-9331-14fd8a171e87",
+    "title": "InfoFaunaFVG monitoring and surveillance network",
+    "citation": "Tomè P (2025). InfoFaunaFVG monitoring and surveillance network. Version 1.5. University of Udine - DI4A Department. Occurrence dataset https://doi.org/10.15468/ka658u accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  {
+    "dataset_key": "5da85fee-dae9-4c0d-b2d0-6783e5905c70",
+    "title": "Avifaunal diversity study of Pakhibitan Ecopark, 2024 (October-December)",
+    "citation": "Samanta T, Chatterjee L, Basu Roy R, Basu Roy A, Barve V (2025). Avifaunal diversity study of Pakhibitan Ecopark, 2024 (October-December). Version 1.2. Nature Mates-Nature Club. Sampling event dataset https://doi.org/10.15468/4xbu3r accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode"
+  },
+  {
+    "dataset_key": "deb3d777-6e0e-4ff4-93d4-efe1a5de499b",
+    "title": "ACE EIP Winter Farmland Bird Survey 2025/2026",
+    "citation": "Vivien Gulyas. ACE EIP Winter Farmland Bird Survey 2025/2026. National Biodiversity Data Centre. Occurrence dataset https://doi.org/10.15468/kjjaz6 accessed via GBIF.org on 2026-10-20.",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode"
+  }
+]

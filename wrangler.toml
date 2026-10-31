@@ -1,0 +1,13 @@
+name = "outrun-api"
+main = "worker/src/index.ts"
+compatibility_date = "2024-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+ENVIRONMENT = "production"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "outrun-db"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "db"

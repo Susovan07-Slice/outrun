@@ -1,0 +1,495 @@
+{
+  "retrieved_at": "2026-10-20T15:41:37.315Z",
+  "accepted": [
+    {
+      "datasetKey": "712dba38-74cc-4704-87c0-63d1bf8484bc",
+      "title": "BirdMap Data - GPS tracking of Storks, Cranes and birds of prey, breeding in Northern and Eastern Europe",
+      "doi": "10.15468/vnwmrx",
+      "citation": "Adojaan K, Sellis U, Väli Ü, Ojaste I, Denac K, Lõhmus A, Ķuze J. BirdMap Data - GPS tracking of Storks, Cranes and birds of prey, breeding in Northern and Eastern Europe. PlutoF. Occurrence dataset https://doi.org/10.15468/vnwmrx accessed via GBIF.org on 2026-10-20.",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "4519fc60-6362-49a8-b0b5-075b77907fbc",
+      "title": "GPS tracking and dive data from 84 foraging trip tracks of Little Penguins (32 female, 31 male) , Port Campbell, Victoria, Australia (2012-2013)",
+      "doi": "10.15468/sns6er",
+      "citation": "GPS tracking and dive data from 84 foraging trip tracks of Little Penguins (32 female, 31 male) , Port Campbell, Victoria, Australia (2012-2013)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "9e055800-e83e-4769-82c2-a0602bf3d4b9",
+      "title": "nsmk_bird_ob_2019",
+      "doi": "10.15468/0yrzrn",
+      "citation": "nsmk_bird_ob_2019",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "7b940ada-f762-11e1-a439-00145eb45e9a",
+      "title": "ANTAVIA TrackingKing",
+      "doi": "10.15468/4izepl",
+      "citation": "ANTAVIA TrackingKing",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "ebce3c1f-4307-4539-afb2-3876ec9ae737",
+      "title": "MEDGULL_ANTWERPEN - Mediterranean gulls (Ichthyaetus melanocephalus, Laridae) breeding near Antwerp (Belgium)",
+      "doi": "10.5281/zenodo.22108360",
+      "citation": "MEDGULL_ANTWERPEN - Mediterranean gulls (Ichthyaetus melanocephalus, Laridae) breeding near Antwerp (Belgium)",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "df50c722-070a-4c6a-a260-3a186ce72fe1",
+      "title": "LBBG_ADULT - Lesser black-backed gulls (Larus fuscus, Laridae) breeding in Belgium",
+      "doi": "10.5281/zenodo.22083084",
+      "citation": "LBBG_ADULT - Lesser black-backed gulls (Larus fuscus, Laridae) breeding in Belgium",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "b6ce735c-bb9c-4026-a317-0e985cf088df",
+      "title": "Griffon Vulture (Gyps fulvus) movement in Serbia and neighbouring countries according to gps-tracker",
+      "doi": "10.15468/uarkf5",
+      "citation": "Griffon Vulture (Gyps fulvus) movement in Serbia and neighbouring countries according to gps-tracker",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "88216808-1942-44ed-b059-b576bf79a28e",
+      "title": "CURLEW_VLAANDEREN - Eurasian curlews (Numenius arquata, Scolopacidae) breeding in Flanders (Belgium)",
+      "doi": "10.5281/zenodo.15696532",
+      "citation": "CURLEW_VLAANDEREN - Eurasian curlews (Numenius arquata, Scolopacidae) breeding in Flanders (Belgium)",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "83de99ee-92bd-4dc2-a038-a4856f13cd29",
+      "title": "LBBG_JUVENILE - Juvenile lesser black-backed gulls (Larus fuscus, Laridae) and herring gulls (Larus argentatus, Laridae) hatched in Zeebrugge (Belgium)",
+      "doi": "10.5281/zenodo.22083230",
+      "citation": "LBBG_JUVENILE - Juvenile lesser black-backed gulls (Larus fuscus, Laridae) and herring gulls (Larus argentatus, Laridae) hatched in Zeebrugge (Belgium)",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "882161ab-5a7a-4206-b757-3f3383f4f363",
+      "title": "Griffon Vulture movement on the Balkans",
+      "doi": "10.15468/k68juc",
+      "citation": "Griffon Vulture movement on the Balkans",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "6c860eb3-83ba-48c3-9328-a7b3c7a3c7b4",
+      "title": "HG_OOSTENDE - Herring gulls (Larus argentatus, Laridae) breeding at the southern North Sea coast (Belgium)",
+      "doi": "10.5281/zenodo.10054230",
+      "citation": "HG_OOSTENDE - Herring gulls (Larus argentatus, Laridae) breeding at the southern North Sea coast (Belgium)",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "355b8ff9-7bd9-49c3-92af-f6741b8bd0cb",
+      "title": "LBBG_ZEEBRUGGE - Lesser black-backed gulls (Larus fuscus, Laridae) breeding at the southern North Sea coast (Belgium and the Netherlands)",
+      "doi": "10.5281/zenodo.12336021",
+      "citation": "LBBG_ZEEBRUGGE - Lesser black-backed gulls (Larus fuscus, Laridae) breeding at the southern North Sea coast (Belgium and the Netherlands)",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "20bbd36e-d1a1-4169-8663-59feaa2641c0",
+      "title": "O_WESTERSCHELDE - Eurasian oystercatchers (Haematopus ostralegus, Haematopodidae) breeding in East Flanders (Belgium)",
+      "doi": "10.5281/zenodo.10053702",
+      "citation": "O_WESTERSCHELDE - Eurasian oystercatchers (Haematopus ostralegus, Haematopodidae) breeding in East Flanders (Belgium)",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "66e0553e-75f6-49de-b614-22efd9fbf6e9",
+      "title": "MH_WATERLAND - Western marsh harriers (Circus aeruginosus, Accipitridae) breeding near the Belgium-Netherlands border",
+      "doi": "10.5281/zenodo.10053583",
+      "citation": "MH_WATERLAND - Western marsh harriers (Circus aeruginosus, Accipitridae) breeding near the Belgium-Netherlands border",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "256134b5-93d9-4928-8a4f-aea0cb5b4182",
+      "title": "TURTUR_VLAANDEREN - European turtle doves (Streptopelia turtur, Columbidae) breeding in Flanders (Belgium)",
+      "doi": "10.5281/zenodo.23097871",
+      "citation": "TURTUR_VLAANDEREN - European turtle doves (Streptopelia turtur, Columbidae) breeding in Flanders (Belgium)",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "6850e626-46fd-4843-a391-2c06b069a940",
+      "title": "SPOONBILL_VLAANDEREN - Eurasian spoonbills (Platalea leucorodia, Threskiornithidae) in Flanders (Belgium)",
+      "doi": "10.5281/zenodo.23103735",
+      "citation": "SPOONBILL_VLAANDEREN - Eurasian spoonbills (Platalea leucorodia, Threskiornithidae) in Flanders (Belgium)",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "299e7998-73f0-42ff-9fb7-d8a5a0cc44d1",
+      "title": "CREX_VLAANDEREN - Corn crakes (Crex crex, Rallidae) in Flanders (Belgium)",
+      "doi": "10.5281/zenodo.23097283",
+      "citation": "CREX_VLAANDEREN - Corn crakes (Crex crex, Rallidae) in Flanders (Belgium)",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "e2fb42ca-e408-4aa2-a7bd-a9bb4ddcc83a",
+      "title": "BOP_RODENT - Rodent specialized birds of prey (Circus, Asio, Buteo) in Flanders (Belgium)",
+      "doi": "10.5281/zenodo.23340023",
+      "citation": "BOP_RODENT - Rodent specialized birds of prey (Circus, Asio, Buteo) in Flanders (Belgium)",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "f7392b14-71c6-4bbb-9d8a-06335618259a",
+      "title": "Waved Albatross Tracking (aggregated per 1-degree cell)",
+      "doi": "10.82144/0d93cc22",
+      "citation": "Waved Albatross Tracking (aggregated per 1-degree cell)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "d1e71736-59b7-4e35-84dc-eb0ebc577646",
+      "title": "Wood Stork Tracking (aggregated per 1-degree cell)",
+      "doi": "10.82144/8ff0f598",
+      "citation": "Wood Stork Tracking (aggregated per 1-degree cell)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "09a5e148-e146-4536-86ab-541bf26f6928",
+      "title": "Marion Wanderers (aggregated per 1-degree cell)",
+      "doi": "10.82144/5f36983d",
+      "citation": "Marion Wanderers (aggregated per 1-degree cell)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "b848f1f3-3955-4725-8ad8-e711e4a9e0ac",
+      "title": "Rock ptarmigan (Lagopus muta) radio telemetry in Lierne, Norway",
+      "doi": "10.15468/o4zcd3",
+      "citation": "Rock ptarmigan (Lagopus muta) radio telemetry in Lierne, Norway",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "5c508fe3-b4e3-403f-a8b7-1bee24b0a810",
+      "title": "Whimbrel Tracking in the Americas (aggregated per 1-degree cell)",
+      "doi": "10.82144/eff2c57b",
+      "citation": "Whimbrel Tracking in the Americas (aggregated per 1-degree cell)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "91a26b5b-8cc6-490a-a1bc-bf37e672ac72",
+      "title": "Tern Island Albatrosses - 1999",
+      "doi": "10.82144/ab0fa19c",
+      "citation": "Tern Island Albatrosses - 1999",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "00d636a3-e132-44b6-ae77-0b1cadb3e59e",
+      "title": "Migration and foraging ecology of Greater Shearwater (aggregated per 1-degree cell)",
+      "doi": "10.82144/6e2522ae",
+      "citation": "Migration and foraging ecology of Greater Shearwater (aggregated per 1-degree cell)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "d3061efd-17f0-4eab-9580-e01f9d7d93b4",
+      "title": "Gulf of Maine Razorbill Tracking (aggregated per 1-degree cell)",
+      "doi": "10.82144/330c39c3",
+      "citation": "Gulf of Maine Razorbill Tracking (aggregated per 1-degree cell)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "ae1cd68b-da5f-4f51-aeb3-78ac0f72ba41",
+      "title": "Stellwagen Shearwater Tagging 2018 (aggregated per 1-degree cell)",
+      "doi": "10.82144/236fa19d",
+      "citation": "Stellwagen Shearwater Tagging 2018 (aggregated per 1-degree cell)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "de5adc1a-144c-4bc4-99f3-2e137932ae16",
+      "title": "Greater Shearwaters in the Gulf of Maine (aggregated per 1-degree cell)",
+      "doi": "10.82144/10a33e64",
+      "citation": "Greater Shearwaters in the Gulf of Maine (aggregated per 1-degree cell)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "80b4ceff-bef0-4c27-84af-f5e62e55e885",
+      "title": "Satellite telemetry of King Eiders from northern Alaska 2002-2009",
+      "doi": "10.82144/0c57670b",
+      "citation": "Satellite telemetry of King Eiders from northern Alaska 2002-2009",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "291e47e6-1cb6-4211-9fbd-4f06accb1c37",
+      "title": "University of Liverpool seabird tracking in Anguilla 2012-2015",
+      "doi": "10.82144/aef3a0fc",
+      "citation": "University of Liverpool seabird tracking in Anguilla 2012-2015",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "e737f8ca-6176-4e3a-9ab1-dc5a77d46194",
+      "title": "TOPP Albatrosses 2002-06",
+      "doi": "10.82144/f3b5323e",
+      "citation": "TOPP Albatrosses 2002-06",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "767f57dd-bdb8-44cb-bf20-f9aafafa4137",
+      "title": "Tracking of Arctic tern migrations 2007-2008",
+      "doi": "10.82144/f1e7b55e",
+      "citation": "Tracking of Arctic tern migrations 2007-2008",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "698b13ea-c9b5-4f45-9c8f-63f08c695177",
+      "title": "Movement patterns of Peruvian Boobies off Isla Lobos de Tierra 2006",
+      "doi": "10.82144/5d3c666e",
+      "citation": "Movement patterns of Peruvian Boobies off Isla Lobos de Tierra 2006",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": true
+    },
+    {
+      "datasetKey": "b3a9b8c0-8a38-4c9e-87d1-e74801e24e73",
+      "title": "Tracking Red-necked stints (Calidris ruficollis) and Curlew sandpipers (Calidris ferruginea)  along the  East Asian-Australasian Flyway (EAAF)",
+      "doi": "10.15468/qwh83a",
+      "citation": "Tracking Red-necked stints (Calidris ruficollis) and Curlew sandpipers (Calidris ferruginea)  along the  East Asian-Australasian Flyway (EAAF)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": true
+    }
+  ],
+  "skipped": [
+    {
+      "datasetKey": "c07dadbf-f2b9-47b9-8278-bb6f5eb07fbc",
+      "title": "Small Mammal Trapping (2008, all EPs excluding plots with cattle)",
+      "doi": "10.15468/45qiuw",
+      "citation": "Small Mammal Trapping (2008, all EPs excluding plots with cattle)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "79193302-bfe6-410d-91ab-94734bf5f7f8",
+      "title": "BOEM Sperm Whale Seismic Study (SWSS) MPS sperm whale trackings 2004-2005",
+      "doi": "10.82144/636c368f",
+      "citation": "BOEM Sperm Whale Seismic Study (SWSS) MPS sperm whale trackings 2004-2005",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "69acad6f-26e6-4dcc-86b2-9d0336301048",
+      "title": "Bangladesh Sea Turtle Satellite Tracking Project-Marinelife Alliance (aggregated per 1-degree cell)",
+      "doi": "10.82144/85b402ce",
+      "citation": "Bangladesh Sea Turtle Satellite Tracking Project-Marinelife Alliance (aggregated per 1-degree cell)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "8efaf0de-7038-4c5d-91cc-fdd1d06c6c9d",
+      "title": "Cayman Turtle Farm Green Sea Turtle Releases (aggregated per 1-degree cell)",
+      "doi": "10.82144/ce4760d3",
+      "citation": "Cayman Turtle Farm Green Sea Turtle Releases (aggregated per 1-degree cell)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "65f7ea41-568c-49c3-808f-41317daeec99",
+      "title": "Queensland:  K&#039;gari (Fraser Island) turtle tracking 2014-24 (aggregated per 1-degree cell)",
+      "doi": "10.82144/cc7323dd",
+      "citation": "Queensland:  K&#039;gari (Fraser Island) turtle tracking 2014-24 (aggregated per 1-degree cell)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "d18682b1-d702-4ce1-a820-a496d69ac260",
+      "title": "FMA | Released American manatees (Trichechus manatus) in Brazil",
+      "doi": "10.71819/40kdoc",
+      "citation": "FMA | Released American manatees (Trichechus manatus) in Brazil",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "b9792eba-8e09-4119-b497-99b6e0d28b74",
+      "title": "Understanding the effects of climate change on Caribbean hawksbill turtles: satellite tracking hawksbill migrations (aggregated per 1-degree cell)",
+      "doi": "10.82144/d96382dd",
+      "citation": "Understanding the effects of climate change on Caribbean hawksbill turtles: satellite tracking hawksbill migrations (aggregated per 1-degree cell)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "9cddd069-9d94-43fc-83ce-07ea99874346",
+      "title": "Phenology and biological traits of migrating eels sampled by trapping in the Oir river (France).",
+      "doi": "10.15468/zgrb4t",
+      "citation": "Phenology and biological traits of migrating eels sampled by trapping in the Oir river (France).",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "d1d386f4-1c00-48c0-b9b2-5efdec12b159",
+      "title": "Phenology and biological traits of migrating salmon (Salmo salar) sampled by trapping in the Scorff river (France).",
+      "doi": "10.15468/yvcw8n",
+      "citation": "Phenology and biological traits of migrating salmon (Salmo salar) sampled by trapping in the Scorff river (France).",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "199ab955-e1f7-48df-9024-5f94778966b4",
+      "title": "Phenology and biological traits of migrating eels sampled by trapping in the survey in the Bresle river (France)",
+      "doi": "10.15468/l85l3u",
+      "citation": "Phenology and biological traits of migrating eels sampled by trapping in the survey in the Bresle river (France)",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "6ed77238-57aa-4a3a-8a7e-2e5990df7324",
+      "title": "Phenology and biological traits of migrating river lamprey (Lampetra fluviatilis) sampled by trapping in the Bresle river (France).",
+      "doi": "10.15468/7nd8nt",
+      "citation": "Phenology and biological traits of migrating river lamprey (Lampetra fluviatilis) sampled by trapping in the Bresle river (France).",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "593cb5c7-4636-4e1e-8559-2797c4d94041",
+      "title": "Phenology and biological traits of migrating eels sampled by trapping in the survey in the Scorff river (France)",
+      "doi": "10.15468/lthgxs",
+      "citation": "Phenology and biological traits of migrating eels sampled by trapping in the survey in the Scorff river (France)",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "e0294122-6838-4e18-8fdc-756ac24ec6b4",
+      "title": "Phenology and biological traits of migrating brown trouts and sea trouts sampled by trapping in the Nivelle river (France).",
+      "doi": "10.15468/rvphpq",
+      "citation": "Phenology and biological traits of migrating brown trouts and sea trouts sampled by trapping in the Nivelle river (France).",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "49350fa5-9510-4fdb-a657-02a8194c2de3",
+      "title": "Phenology and biological traits of migrating brown trouts and sea trouts sampled by trapping in the Oir river (France).",
+      "doi": "10.15468/n7jh9k",
+      "citation": "Phenology and biological traits of migrating brown trouts and sea trouts sampled by trapping in the Oir river (France).",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "7a8bcb65-021a-4c3d-bab8-0844a381f5b1",
+      "title": "Phenology and biological traits of migrating salmon (Salmo salar) sampled by trapping in the survey in the Bresle river (France)",
+      "doi": "10.15468/rrh3nq",
+      "citation": "Phenology and biological traits of migrating salmon (Salmo salar) sampled by trapping in the survey in the Bresle river (France)",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "a7624b58-657f-444a-a2a8-6fdda79b9aea",
+      "title": "Phenology and biological traits of migrating salmon (Salmo salar) sampled by trapping in the survey in the Oir river (France)",
+      "doi": "10.15468/k6euut",
+      "citation": "Phenology and biological traits of migrating salmon (Salmo salar) sampled by trapping in the survey in the Oir river (France)",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "a4223067-27cf-472b-b834-e6cdfa9ce030",
+      "title": "Phenology and biological traits of adult migrating shad (Alosa alosa) sampled by trapping in the survey in the Scorff river (France).",
+      "doi": "10.15468/djvz3w",
+      "citation": "Phenology and biological traits of adult migrating shad (Alosa alosa) sampled by trapping in the survey in the Scorff river (France).",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "83d90f99-8c19-4df3-88e4-7977ae30c453",
+      "title": "Phenology and biological traits of adult migrating shad (Alosa sp) sampled by trapping in the survey in the Nivelle river (France)",
+      "doi": "10.15468/z88vyw",
+      "citation": "Phenology and biological traits of adult migrating shad (Alosa sp) sampled by trapping in the survey in the Nivelle river (France)",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "2b32cfea-cf4c-4cfb-ba5f-86362629899c",
+      "title": "Phenology and biological traits of adult migrating atlantic salmon (Salmo salar) sampled by trapping in the survey in the Nivelle river (France)",
+      "doi": "10.15468/wf2bg6",
+      "citation": "Phenology and biological traits of adult migrating atlantic salmon (Salmo salar) sampled by trapping in the survey in the Nivelle river (France)",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "1632788f-d8ec-4cfa-acfb-baf7da8e5e74",
+      "title": "Phenology and biological traits of migrating trout and sea trout (Salmo trutta) sampled by trapping in the survey in the Bresle river (France)",
+      "doi": "10.15468/jkpya8",
+      "citation": "Phenology and biological traits of migrating trout and sea trout (Salmo trutta) sampled by trapping in the survey in the Bresle river (France)",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "7fefb4a1-3b39-40b1-b9d3-ed6fe9b0e819",
+      "title": "2004_Gudena: Silver eel migration in the Gudena River, Denmark",
+      "doi": "10.14284/734",
+      "citation": "2004_Gudena: Silver eel migration in the Gudena River, Denmark",
+      "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "4ad666be-a9dc-4af2-bcbe-6826076b0607",
+      "title": "Green turtle tracking in the northern Great Barrier Reef (aggregated per 1-degree cell)",
+      "doi": "10.82144/451dea31",
+      "citation": "Green turtle tracking in the northern Great Barrier Reef (aggregated per 1-degree cell)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "400ec8e1-c8f5-42ed-9890-47bf22efba5a",
+      "title": "Piai Island Green Sea Turtle Tracking (aggregated per 1-degree cell)",
+      "doi": "10.82144/37a262e9",
+      "citation": "Piai Island Green Sea Turtle Tracking (aggregated per 1-degree cell)",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    },
+    {
+      "datasetKey": "e4fbb871-4d1b-47e5-b931-0ca9e1f84bf5",
+      "title": "Green sea turtle satellite tracking in the Nansha and Penghu Archipelagos 2000-2005",
+      "doi": "10.82144/ab98cefd",
+      "citation": "Green sea turtle satellite tracking in the Nansha and Penghu Archipelagos 2000-2005",
+      "license": "http://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "accepted": false,
+      "skip_reason": "Non-Aves dataset: 0 class Aves records on GBIF"
+    }
+  ]
+}

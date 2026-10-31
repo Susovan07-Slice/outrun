@@ -1,75 +1,75 @@
-# Bird tracking map 🦅
+# OUTRUN
 
-An interactive web map showing the migration paths of some GPS-tracked birds between Northern/Eastern Europe and Africa.
+**Global Climate-Pressure and Corridor Platform for MIGRATORY BIRDS ONLY (class Aves)**
 
-![Screenshot of the application](public/imgs/screenshot.png)
+> "Others show where birds are. Outrun shows how fast their climate is moving, where their seasonal habitat is shifting, and which habitat link to protect first."
 
-Demo: https://bbecquet.github.io/bird-tracking/
+Built with:
+- **Frontend**: Vite + React 18 + TypeScript + MapLibre GL JS + Deck.gl TripsLayer
+- **Edge Backend**: Cloudflare Worker (TypeScript, Wrangler) with Workers Cache API
+- **Database**: Cloudflare D1 (Local SQLite Miniflare database)
+- **Data Pipeline**: Node 20 / TypeScript ingestion of real GBIF occurrences & AVONET morphological traits
+- **Atmospheric Data**: Open-Meteo live forecast & historical API
 
-Here is a blog post describing [why and how I created this project](https://bbecquet.net/articles/2022/05/bird-tracking-map/).
+---
 
-## Installing and running
+## Non-Negotiable Rules & Epistemic Framework (`AGENTS.md`)
 
-Requirement: Node 18+.
+1. **No Data Fabrication**: Never fabricate, hand-type, or synthesize records, statuses, traits or citations. Fail loudly on API errors.
+2. **Strict Provenance**: Every occurrence retains `gbifID`, `decimalLatitude`, `decimalLongitude`, `eventDate`, `datasetKey`, `license`, `basisOfRecord`, `countryCode`, `coordinateUncertaintyInMeters`, `retrieved_at`.
+3. **Four Universal Epistemic Labels**:
+   - `observed`: Empirical physical observation (GBIF Human Observation)
+   - `forecast`: Short-term synoptic / weather forecast (Open-Meteo)
+   - `projected`: Mid/long-term climate scenario projections (CMIP6)
+   - `simulated`: Flyway corridors, connectivity twin, and agent-based model
+4. **Honest Missingness**: Missing evidence displays `"Insufficient evidence"`, never an invented or zero-filled value.
+5. **Conservation Status Provenance**: Conservation status comes ONLY from a verified authoritative source (e.g. IUCN Red List API with token). Without it, `status = NULL` and `monitoring_group = 'review_required'`. Absence of threat status never implies "common".
+6. **Worker Limits**: Heavy ingestion runs locally, never in the Worker.
 
-```shell
+---
+
+## Quickstart
+
+### 1. Install Dependencies
+```bash
 npm install
 ```
 
-then, to start a local dev server instance:
+### 2. Run Tests
+The Vitest test suite covers deduplication, AVONET trait joining, mocked GBIF failure handling, and the conservation status provenance rule:
+```bash
+npm test
+```
 
-```shell
+### 3. Run Ingestion Pipeline
+Ingests stratified seasonal occurrences across 12 months for the canonical observatory species registry, resolves AVONET traits, attributes institutional datasets, and populates local D1:
+```bash
+npm run ingest
+```
+
+### 4. Run Cloudflare Worker (Local D1)
+Starts the Worker on `http://127.0.0.1:8787`:
+```bash
+npm run wrangler:dev
+```
+
+### 5. Run Vite Frontend
+Starts the full-screen MapLibre interactive UI on `http://localhost:5173`:
+```bash
 npm run dev
 ```
 
-To build a standalone version:
+---
 
-```shell
-npm run build
-```
+## API Endpoints (Cloudflare Worker)
 
-It will create a `build` directory with all files ready to be hosted anywhere. As everything happens on the client, it doesn't require any app server, just a plain old HTTP server.
+- `GET /api/health` — Worker health and service status
+- `GET /api/species` — Species registry with monitoring group, AVONET traits, occurrence count, short flag, and data freshness
+- `GET /api/species/:id/occurrences` — Deduplicated real GBIF occurrences with coordinate uncertainty, basis of record, and licence
+- `GET /api/weather?latitude=:lat&longitude=:lon` — Live Open-Meteo forecast (temperature, humidity, precipitation, wind speed) labeled `forecast`
 
-⚠️ Please note that the data file (`birds.geojson`) is very large (~15 Mb) and needs to be downloaded by the client when the app starts. This means this server-less architecture will not scale well if you want to work with much larger data sets.
+---
 
-
-## Tech overview
-
-Technically, this app is mostly a [Deck.gl](https://deck.gl) view, using a [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/) instance as mapping library, itself using a freely available basemap by [CARTO](https://carto.com). Everything is wrapped in a [React](https://react.dev) web app, as it's a natural environment for Deck.gl and it simplifies the management of UI.
-
-The hard part (drawing and animating so many things) is handled by [Deck.gl's `TripsLayer`](https://deck.gl/docs/api-reference/geo-layers/trips-layer). Basically, it's a manager for lines with timestamped coordinates. You give it all the coordinates and times, a current timestamp that you update periodically, and voilà!
-
-## Data
-
-Source data is coming from the ["GPS tracking of Storks, Cranes and birds of prey, breeding in Northern and Eastern Europe" dataset](https://www.gbif.org/dataset/712dba38-74cc-4704-87c0-63d1bf8484bc) from the [Global Biodiversity Information Facility](https://www.gbif.org).
-
-After some manual clean-up and simplification in QGIS, I use a Python script to heavily aggregate and transform raw CSV data into a [GeoJSON `FeatureCollection`](https://datatracker.ietf.org/doc/html/rfc7946#section-3.3) that is more fitted for JS manipulation. This script is in the `data` directory, as well as the latest CSV data I used. It takes the CSV file path as argument and prints the resulting GeoJSON on standard output.
-
-So, to overwrite the current GeoJSON file (`public/birds.geosjon`), from the root of the probject:
-
-```shell
-python data/transform_birds.py data/clean_bird_migration.csv > public/birds.geojson
-```
-
-If you want to adapt the app to data formatted differently, you probably won't need this script. You just have to ensure the final GeoJSON format is right. Each GeoJSON `Feature` in the `FeatureCollection` should be:
-
-```
-{
-    "id": <number>, // id of a single bird
-    "type": "Feature",
-    "geometry": {
-        "type": "LineString",
-        "coordinates": <number[][]> // lng/lat pairs for each coordinate of the path of the bird
-    },
-    "properties": {
-        "times": <number[]>, // timestamps for each coordinate
-        "species": <string> // the bird species, used to split birds into groups with different colors
-    }
-}
-```
-
-In doubt, look at the content of `birds.geojson`, it's pretty self-explanatory.
-
-## License
-
-MIT.
+## Base Project & Attribution
+- Route visualizer structure adapted from `github.com/bbecquet/bird-tracking` (MIT Licence).
+- Full attribution and sampling bias documentation in `SOURCES.md`.

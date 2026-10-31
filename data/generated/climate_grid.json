@@ -1,0 +1,771 @@
+{
+  "resolution": "5_degrees",
+  "models": [
+    "EC_Earth3P_HR",
+    "MPI_ESM1_2_XR"
+  ],
+  "period": {
+    "baseline": "2005-01-01 to 2024-12-31",
+    "projection": "2025-01-01 to 2050-12-31"
+  },
+  "labels": {
+    "baseline": "observed",
+    "projection": "projected"
+  },
+  "generated_at": "2026-10-24T10:16:24.711Z",
+  "total_cells_cached": 7,
+  "species": {
+    "falco_amurensis": {
+      "species_id": "falco_amurensis",
+      "scientific_name": "Falco amurensis",
+      "seasons": {
+        "breeding": {
+          "cell_count": 4,
+          "cells": [
+            {
+              "lat": -25,
+              "lon": 30,
+              "era5_mean_temp": 18.84,
+              "era5_breeding_mean_temp": 14.64,
+              "era5_nonbreeding_mean_temp": 21.96,
+              "cmip6_ec_earth3p_hr_mean_temp": 19.65,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 19.88,
+              "cmip6_ensemble_mean_temp": 19.77,
+              "cmip6_breeding_ensemble_temp": 15.38,
+              "cmip6_nonbreeding_ensemble_temp": 22.81,
+              "temp_delta": 0.93,
+              "retrieved_at": "2026-10-24T10:16:24.669Z"
+            },
+            {
+              "lat": -25,
+              "lon": 25,
+              "era5_mean_temp": 20.06,
+              "era5_breeding_mean_temp": 14.6,
+              "era5_nonbreeding_mean_temp": 24.28,
+              "cmip6_ec_earth3p_hr_mean_temp": 21.26,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 21.93,
+              "cmip6_ensemble_mean_temp": 21.59,
+              "cmip6_breeding_ensemble_temp": 15.93,
+              "cmip6_nonbreeding_ensemble_temp": 25.65,
+              "temp_delta": 1.53,
+              "retrieved_at": "2026-10-24T10:16:24.681Z"
+            },
+            {
+              "lat": -30,
+              "lon": 30,
+              "era5_mean_temp": 14.08,
+              "era5_breeding_mean_temp": 10.46,
+              "era5_nonbreeding_mean_temp": 17.12,
+              "cmip6_ec_earth3p_hr_mean_temp": 15.12,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 15.28,
+              "cmip6_ensemble_mean_temp": 15.2,
+              "cmip6_breeding_ensemble_temp": 11.4,
+              "cmip6_nonbreeding_ensemble_temp": 18.06,
+              "temp_delta": 1.12,
+              "retrieved_at": "2026-10-24T10:16:24.661Z"
+            },
+            {
+              "lat": -30,
+              "lon": 25,
+              "era5_mean_temp": 16.87,
+              "era5_breeding_mean_temp": 10.4,
+              "era5_nonbreeding_mean_temp": 22.55,
+              "cmip6_ec_earth3p_hr_mean_temp": 17.97,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 18.58,
+              "cmip6_ensemble_mean_temp": 18.27,
+              "cmip6_breeding_ensemble_temp": 11.91,
+              "cmip6_nonbreeding_ensemble_temp": 23.69,
+              "temp_delta": 1.4,
+              "retrieved_at": "2026-10-24T10:16:24.694Z"
+            }
+          ]
+        },
+        "non_breeding": {
+          "cell_count": 7,
+          "cells": [
+            {
+              "lat": -30,
+              "lon": 30,
+              "era5_mean_temp": 14.08,
+              "era5_breeding_mean_temp": 10.46,
+              "era5_nonbreeding_mean_temp": 17.12,
+              "cmip6_ec_earth3p_hr_mean_temp": 15.12,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 15.28,
+              "cmip6_ensemble_mean_temp": 15.2,
+              "cmip6_breeding_ensemble_temp": 11.4,
+              "cmip6_nonbreeding_ensemble_temp": 18.06,
+              "temp_delta": 1.12,
+              "retrieved_at": "2026-10-24T10:16:24.661Z"
+            },
+            {
+              "lat": -25,
+              "lon": 30,
+              "era5_mean_temp": 18.84,
+              "era5_breeding_mean_temp": 14.64,
+              "era5_nonbreeding_mean_temp": 21.96,
+              "cmip6_ec_earth3p_hr_mean_temp": 19.65,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 19.88,
+              "cmip6_ensemble_mean_temp": 19.77,
+              "cmip6_breeding_ensemble_temp": 15.38,
+              "cmip6_nonbreeding_ensemble_temp": 22.81,
+              "temp_delta": 0.93,
+              "retrieved_at": "2026-10-24T10:16:24.669Z"
+            },
+            {
+              "lat": -35,
+              "lon": 25,
+              "era5_mean_temp": 19.72,
+              "era5_breeding_mean_temp": 18.33,
+              "era5_nonbreeding_mean_temp": 21.2,
+              "cmip6_ec_earth3p_hr_mean_temp": 20.06,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 20.15,
+              "cmip6_ensemble_mean_temp": 20.1,
+              "cmip6_breeding_ensemble_temp": 18.74,
+              "cmip6_nonbreeding_ensemble_temp": 21.58,
+              "temp_delta": 0.38,
+              "retrieved_at": "2026-10-24T10:16:24.674Z"
+            },
+            {
+              "lat": -25,
+              "lon": 25,
+              "era5_mean_temp": 20.06,
+              "era5_breeding_mean_temp": 14.6,
+              "era5_nonbreeding_mean_temp": 24.28,
+              "cmip6_ec_earth3p_hr_mean_temp": 21.26,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 21.93,
+              "cmip6_ensemble_mean_temp": 21.59,
+              "cmip6_breeding_ensemble_temp": 15.93,
+              "cmip6_nonbreeding_ensemble_temp": 25.65,
+              "temp_delta": 1.53,
+              "retrieved_at": "2026-10-24T10:16:24.681Z"
+            },
+            {
+              "lat": -20,
+              "lon": 25,
+              "era5_mean_temp": 23.02,
+              "era5_breeding_mean_temp": 18.58,
+              "era5_nonbreeding_mean_temp": 25.7,
+              "cmip6_ec_earth3p_hr_mean_temp": 24.3,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 24.83,
+              "cmip6_ensemble_mean_temp": 24.56,
+              "cmip6_breeding_ensemble_temp": 19.96,
+              "cmip6_nonbreeding_ensemble_temp": 27.13,
+              "temp_delta": 1.54,
+              "retrieved_at": "2026-10-24T10:16:24.687Z"
+            },
+            {
+              "lat": -30,
+              "lon": 25,
+              "era5_mean_temp": 16.87,
+              "era5_breeding_mean_temp": 10.4,
+              "era5_nonbreeding_mean_temp": 22.55,
+              "cmip6_ec_earth3p_hr_mean_temp": 17.97,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 18.58,
+              "cmip6_ensemble_mean_temp": 18.27,
+              "cmip6_breeding_ensemble_temp": 11.91,
+              "cmip6_nonbreeding_ensemble_temp": 23.69,
+              "temp_delta": 1.4,
+              "retrieved_at": "2026-10-24T10:16:24.694Z"
+            },
+            {
+              "lat": -15,
+              "lon": 25,
+              "era5_mean_temp": 22.06,
+              "era5_breeding_mean_temp": 19.56,
+              "era5_nonbreeding_mean_temp": 22.72,
+              "cmip6_ec_earth3p_hr_mean_temp": 23.44,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 23.77,
+              "cmip6_ensemble_mean_temp": 23.61,
+              "cmip6_breeding_ensemble_temp": 21.18,
+              "cmip6_nonbreeding_ensemble_temp": 24.06,
+              "temp_delta": 1.55,
+              "retrieved_at": "2026-10-24T10:16:24.699Z"
+            }
+          ]
+        }
+      }
+    },
+    "limosa_lapponica": {
+      "species_id": "limosa_lapponica",
+      "scientific_name": "Limosa lapponica",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 0,
+          "cells": []
+        }
+      }
+    },
+    "sterna_paradisaea": {
+      "species_id": "sterna_paradisaea",
+      "scientific_name": "Sterna paradisaea",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 1,
+          "cells": [
+            {
+              "lat": -35,
+              "lon": 25,
+              "era5_mean_temp": 19.72,
+              "era5_breeding_mean_temp": 18.33,
+              "era5_nonbreeding_mean_temp": 21.2,
+              "cmip6_ec_earth3p_hr_mean_temp": 20.06,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 20.15,
+              "cmip6_ensemble_mean_temp": 20.1,
+              "cmip6_breeding_ensemble_temp": 18.74,
+              "cmip6_nonbreeding_ensemble_temp": 21.58,
+              "temp_delta": 0.38,
+              "retrieved_at": "2026-10-24T10:16:24.674Z"
+            }
+          ]
+        }
+      }
+    },
+    "leucogeranus_leucogeranus": {
+      "species_id": "leucogeranus_leucogeranus",
+      "scientific_name": "Leucogeranus leucogeranus",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 0,
+          "cells": []
+        }
+      }
+    },
+    "ciconia_ciconia": {
+      "species_id": "ciconia_ciconia",
+      "scientific_name": "Ciconia ciconia",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 3,
+          "cells": [
+            {
+              "lat": -35,
+              "lon": 25,
+              "era5_mean_temp": 19.72,
+              "era5_breeding_mean_temp": 18.33,
+              "era5_nonbreeding_mean_temp": 21.2,
+              "cmip6_ec_earth3p_hr_mean_temp": 20.06,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 20.15,
+              "cmip6_ensemble_mean_temp": 20.1,
+              "cmip6_breeding_ensemble_temp": 18.74,
+              "cmip6_nonbreeding_ensemble_temp": 21.58,
+              "temp_delta": 0.38,
+              "retrieved_at": "2026-10-24T10:16:24.674Z"
+            },
+            {
+              "lat": -30,
+              "lon": 30,
+              "era5_mean_temp": 14.08,
+              "era5_breeding_mean_temp": 10.46,
+              "era5_nonbreeding_mean_temp": 17.12,
+              "cmip6_ec_earth3p_hr_mean_temp": 15.12,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 15.28,
+              "cmip6_ensemble_mean_temp": 15.2,
+              "cmip6_breeding_ensemble_temp": 11.4,
+              "cmip6_nonbreeding_ensemble_temp": 18.06,
+              "temp_delta": 1.12,
+              "retrieved_at": "2026-10-24T10:16:24.661Z"
+            },
+            {
+              "lat": -25,
+              "lon": 30,
+              "era5_mean_temp": 18.84,
+              "era5_breeding_mean_temp": 14.64,
+              "era5_nonbreeding_mean_temp": 21.96,
+              "cmip6_ec_earth3p_hr_mean_temp": 19.65,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 19.88,
+              "cmip6_ensemble_mean_temp": 19.77,
+              "cmip6_breeding_ensemble_temp": 15.38,
+              "cmip6_nonbreeding_ensemble_temp": 22.81,
+              "temp_delta": 0.93,
+              "retrieved_at": "2026-10-24T10:16:24.669Z"
+            }
+          ]
+        }
+      }
+    },
+    "hirundo_rustica": {
+      "species_id": "hirundo_rustica",
+      "scientific_name": "Hirundo rustica",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 3,
+          "cells": [
+            {
+              "lat": -30,
+              "lon": 30,
+              "era5_mean_temp": 14.08,
+              "era5_breeding_mean_temp": 10.46,
+              "era5_nonbreeding_mean_temp": 17.12,
+              "cmip6_ec_earth3p_hr_mean_temp": 15.12,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 15.28,
+              "cmip6_ensemble_mean_temp": 15.2,
+              "cmip6_breeding_ensemble_temp": 11.4,
+              "cmip6_nonbreeding_ensemble_temp": 18.06,
+              "temp_delta": 1.12,
+              "retrieved_at": "2026-10-24T10:16:24.661Z"
+            },
+            {
+              "lat": -25,
+              "lon": 30,
+              "era5_mean_temp": 18.84,
+              "era5_breeding_mean_temp": 14.64,
+              "era5_nonbreeding_mean_temp": 21.96,
+              "cmip6_ec_earth3p_hr_mean_temp": 19.65,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 19.88,
+              "cmip6_ensemble_mean_temp": 19.77,
+              "cmip6_breeding_ensemble_temp": 15.38,
+              "cmip6_nonbreeding_ensemble_temp": 22.81,
+              "temp_delta": 0.93,
+              "retrieved_at": "2026-10-24T10:16:24.669Z"
+            },
+            {
+              "lat": -35,
+              "lon": 25,
+              "era5_mean_temp": 19.72,
+              "era5_breeding_mean_temp": 18.33,
+              "era5_nonbreeding_mean_temp": 21.2,
+              "cmip6_ec_earth3p_hr_mean_temp": 20.06,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 20.15,
+              "cmip6_ensemble_mean_temp": 20.1,
+              "cmip6_breeding_ensemble_temp": 18.74,
+              "cmip6_nonbreeding_ensemble_temp": 21.58,
+              "temp_delta": 0.38,
+              "retrieved_at": "2026-10-24T10:16:24.674Z"
+            }
+          ]
+        }
+      }
+    },
+    "calidris_canutus": {
+      "species_id": "calidris_canutus",
+      "scientific_name": "Calidris canutus",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 0,
+          "cells": []
+        }
+      }
+    },
+    "anser_indicus": {
+      "species_id": "anser_indicus",
+      "scientific_name": "Anser indicus",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 0,
+          "cells": []
+        }
+      }
+    },
+    "cuculus_canorus": {
+      "species_id": "cuculus_canorus",
+      "scientific_name": "Cuculus canorus",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 5,
+          "cells": [
+            {
+              "lat": -25,
+              "lon": 30,
+              "era5_mean_temp": 18.84,
+              "era5_breeding_mean_temp": 14.64,
+              "era5_nonbreeding_mean_temp": 21.96,
+              "cmip6_ec_earth3p_hr_mean_temp": 19.65,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 19.88,
+              "cmip6_ensemble_mean_temp": 19.77,
+              "cmip6_breeding_ensemble_temp": 15.38,
+              "cmip6_nonbreeding_ensemble_temp": 22.81,
+              "temp_delta": 0.93,
+              "retrieved_at": "2026-10-24T10:16:24.669Z"
+            },
+            {
+              "lat": -30,
+              "lon": 30,
+              "era5_mean_temp": 14.08,
+              "era5_breeding_mean_temp": 10.46,
+              "era5_nonbreeding_mean_temp": 17.12,
+              "cmip6_ec_earth3p_hr_mean_temp": 15.12,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 15.28,
+              "cmip6_ensemble_mean_temp": 15.2,
+              "cmip6_breeding_ensemble_temp": 11.4,
+              "cmip6_nonbreeding_ensemble_temp": 18.06,
+              "temp_delta": 1.12,
+              "retrieved_at": "2026-10-24T10:16:24.661Z"
+            },
+            {
+              "lat": -15,
+              "lon": 25,
+              "era5_mean_temp": 22.06,
+              "era5_breeding_mean_temp": 19.56,
+              "era5_nonbreeding_mean_temp": 22.72,
+              "cmip6_ec_earth3p_hr_mean_temp": 23.44,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 23.77,
+              "cmip6_ensemble_mean_temp": 23.61,
+              "cmip6_breeding_ensemble_temp": 21.18,
+              "cmip6_nonbreeding_ensemble_temp": 24.06,
+              "temp_delta": 1.55,
+              "retrieved_at": "2026-10-24T10:16:24.699Z"
+            },
+            {
+              "lat": -20,
+              "lon": 25,
+              "era5_mean_temp": 23.02,
+              "era5_breeding_mean_temp": 18.58,
+              "era5_nonbreeding_mean_temp": 25.7,
+              "cmip6_ec_earth3p_hr_mean_temp": 24.3,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 24.83,
+              "cmip6_ensemble_mean_temp": 24.56,
+              "cmip6_breeding_ensemble_temp": 19.96,
+              "cmip6_nonbreeding_ensemble_temp": 27.13,
+              "temp_delta": 1.54,
+              "retrieved_at": "2026-10-24T10:16:24.687Z"
+            },
+            {
+              "lat": -30,
+              "lon": 25,
+              "era5_mean_temp": 16.87,
+              "era5_breeding_mean_temp": 10.4,
+              "era5_nonbreeding_mean_temp": 22.55,
+              "cmip6_ec_earth3p_hr_mean_temp": 17.97,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 18.58,
+              "cmip6_ensemble_mean_temp": 18.27,
+              "cmip6_breeding_ensemble_temp": 11.91,
+              "cmip6_nonbreeding_ensemble_temp": 23.69,
+              "temp_delta": 1.4,
+              "retrieved_at": "2026-10-24T10:16:24.694Z"
+            }
+          ]
+        }
+      }
+    },
+    "oenanthe_oenanthe": {
+      "species_id": "oenanthe_oenanthe",
+      "scientific_name": "Oenanthe oenanthe",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 1,
+          "cells": [
+            {
+              "lat": -25,
+              "lon": 30,
+              "era5_mean_temp": 18.84,
+              "era5_breeding_mean_temp": 14.64,
+              "era5_nonbreeding_mean_temp": 21.96,
+              "cmip6_ec_earth3p_hr_mean_temp": 19.65,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 19.88,
+              "cmip6_ensemble_mean_temp": 19.77,
+              "cmip6_breeding_ensemble_temp": 15.38,
+              "cmip6_nonbreeding_ensemble_temp": 22.81,
+              "temp_delta": 0.93,
+              "retrieved_at": "2026-10-24T10:16:24.669Z"
+            }
+          ]
+        }
+      }
+    },
+    "numenius_phaeopus": {
+      "species_id": "numenius_phaeopus",
+      "scientific_name": "Numenius phaeopus",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 2,
+          "cells": [
+            {
+              "lat": -30,
+              "lon": 30,
+              "era5_mean_temp": 14.08,
+              "era5_breeding_mean_temp": 10.46,
+              "era5_nonbreeding_mean_temp": 17.12,
+              "cmip6_ec_earth3p_hr_mean_temp": 15.12,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 15.28,
+              "cmip6_ensemble_mean_temp": 15.2,
+              "cmip6_breeding_ensemble_temp": 11.4,
+              "cmip6_nonbreeding_ensemble_temp": 18.06,
+              "temp_delta": 1.12,
+              "retrieved_at": "2026-10-24T10:16:24.661Z"
+            },
+            {
+              "lat": -35,
+              "lon": 25,
+              "era5_mean_temp": 19.72,
+              "era5_breeding_mean_temp": 18.33,
+              "era5_nonbreeding_mean_temp": 21.2,
+              "cmip6_ec_earth3p_hr_mean_temp": 20.06,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 20.15,
+              "cmip6_ensemble_mean_temp": 20.1,
+              "cmip6_breeding_ensemble_temp": 18.74,
+              "cmip6_nonbreeding_ensemble_temp": 21.58,
+              "temp_delta": 0.38,
+              "retrieved_at": "2026-10-24T10:16:24.674Z"
+            }
+          ]
+        }
+      }
+    },
+    "grus_grus": {
+      "species_id": "grus_grus",
+      "scientific_name": "Grus grus",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 0,
+          "cells": []
+        }
+      }
+    },
+    "pandion_haliaetus": {
+      "species_id": "pandion_haliaetus",
+      "scientific_name": "Pandion haliaetus",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 0,
+          "cells": []
+        }
+      }
+    },
+    "numenius_arquata": {
+      "species_id": "numenius_arquata",
+      "scientific_name": "Numenius arquata",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 0,
+          "cells": []
+        }
+      }
+    },
+    "circus_pygargus": {
+      "species_id": "circus_pygargus",
+      "scientific_name": "Circus pygargus",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 0,
+          "cells": []
+        }
+      }
+    },
+    "fregata_magnificens": {
+      "species_id": "fregata_magnificens",
+      "scientific_name": "Fregata magnificens",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 0,
+          "cells": []
+        }
+      }
+    },
+    "ciconia_nigra": {
+      "species_id": "ciconia_nigra",
+      "scientific_name": "Ciconia nigra",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 5,
+          "cells": [
+            {
+              "lat": -25,
+              "lon": 30,
+              "era5_mean_temp": 18.84,
+              "era5_breeding_mean_temp": 14.64,
+              "era5_nonbreeding_mean_temp": 21.96,
+              "cmip6_ec_earth3p_hr_mean_temp": 19.65,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 19.88,
+              "cmip6_ensemble_mean_temp": 19.77,
+              "cmip6_breeding_ensemble_temp": 15.38,
+              "cmip6_nonbreeding_ensemble_temp": 22.81,
+              "temp_delta": 0.93,
+              "retrieved_at": "2026-10-24T10:16:24.669Z"
+            },
+            {
+              "lat": -30,
+              "lon": 30,
+              "era5_mean_temp": 14.08,
+              "era5_breeding_mean_temp": 10.46,
+              "era5_nonbreeding_mean_temp": 17.12,
+              "cmip6_ec_earth3p_hr_mean_temp": 15.12,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 15.28,
+              "cmip6_ensemble_mean_temp": 15.2,
+              "cmip6_breeding_ensemble_temp": 11.4,
+              "cmip6_nonbreeding_ensemble_temp": 18.06,
+              "temp_delta": 1.12,
+              "retrieved_at": "2026-10-24T10:16:24.661Z"
+            },
+            {
+              "lat": -30,
+              "lon": 25,
+              "era5_mean_temp": 16.87,
+              "era5_breeding_mean_temp": 10.4,
+              "era5_nonbreeding_mean_temp": 22.55,
+              "cmip6_ec_earth3p_hr_mean_temp": 17.97,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 18.58,
+              "cmip6_ensemble_mean_temp": 18.27,
+              "cmip6_breeding_ensemble_temp": 11.91,
+              "cmip6_nonbreeding_ensemble_temp": 23.69,
+              "temp_delta": 1.4,
+              "retrieved_at": "2026-10-24T10:16:24.694Z"
+            },
+            {
+              "lat": -35,
+              "lon": 25,
+              "era5_mean_temp": 19.72,
+              "era5_breeding_mean_temp": 18.33,
+              "era5_nonbreeding_mean_temp": 21.2,
+              "cmip6_ec_earth3p_hr_mean_temp": 20.06,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 20.15,
+              "cmip6_ensemble_mean_temp": 20.1,
+              "cmip6_breeding_ensemble_temp": 18.74,
+              "cmip6_nonbreeding_ensemble_temp": 21.58,
+              "temp_delta": 0.38,
+              "retrieved_at": "2026-10-24T10:16:24.674Z"
+            },
+            {
+              "lat": -25,
+              "lon": 25,
+              "era5_mean_temp": 20.06,
+              "era5_breeding_mean_temp": 14.6,
+              "era5_nonbreeding_mean_temp": 24.28,
+              "cmip6_ec_earth3p_hr_mean_temp": 21.26,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 21.93,
+              "cmip6_ensemble_mean_temp": 21.59,
+              "cmip6_breeding_ensemble_temp": 15.93,
+              "cmip6_nonbreeding_ensemble_temp": 25.65,
+              "temp_delta": 1.53,
+              "retrieved_at": "2026-10-24T10:16:24.681Z"
+            }
+          ]
+        }
+      }
+    },
+    "circus_cyaneus": {
+      "species_id": "circus_cyaneus",
+      "scientific_name": "Circus cyaneus",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 0,
+          "cells": []
+        }
+      }
+    },
+    "circus_aeruginosus": {
+      "species_id": "circus_aeruginosus",
+      "scientific_name": "Circus aeruginosus",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 2,
+          "cells": [
+            {
+              "lat": -30,
+              "lon": 30,
+              "era5_mean_temp": 14.08,
+              "era5_breeding_mean_temp": 10.46,
+              "era5_nonbreeding_mean_temp": 17.12,
+              "cmip6_ec_earth3p_hr_mean_temp": 15.12,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 15.28,
+              "cmip6_ensemble_mean_temp": 15.2,
+              "cmip6_breeding_ensemble_temp": 11.4,
+              "cmip6_nonbreeding_ensemble_temp": 18.06,
+              "temp_delta": 1.12,
+              "retrieved_at": "2026-10-24T10:16:24.661Z"
+            },
+            {
+              "lat": -25,
+              "lon": 30,
+              "era5_mean_temp": 18.84,
+              "era5_breeding_mean_temp": 14.64,
+              "era5_nonbreeding_mean_temp": 21.96,
+              "cmip6_ec_earth3p_hr_mean_temp": 19.65,
+              "cmip6_mpi_esm1_2_xr_mean_temp": 19.88,
+              "cmip6_ensemble_mean_temp": 19.77,
+              "cmip6_breeding_ensemble_temp": 15.38,
+              "cmip6_nonbreeding_ensemble_temp": 22.81,
+              "temp_delta": 0.93,
+              "retrieved_at": "2026-10-24T10:16:24.669Z"
+            }
+          ]
+        }
+      }
+    },
+    "asio_flammeus": {
+      "species_id": "asio_flammeus",
+      "scientific_name": "Asio flammeus",
+      "seasons": {
+        "breeding": {
+          "cell_count": 0,
+          "cells": []
+        },
+        "non_breeding": {
+          "cell_count": 0,
+          "cells": []
+        }
+      }
+    }
+  }
+}
