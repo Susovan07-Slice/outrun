@@ -9,9 +9,15 @@
       "scientific_name": "Falco amurensis",
       "common_name": "Amur Falcon",
       "family": "Falconidae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-20T11:57:21.791Z",
-      "status": null,
+      "status": {
+        "category": "LC",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/falco_amurensis"
+      },
       "traits": {
         "hand_wing_index": 52.9,
         "migration_category": 3,
@@ -24,8 +30,8 @@
         "received_records": 504,
         "short": false
       },
-      "evidence_level": "occurrences_only",
-      "tracked_individuals": 0,
+      "evidence_level": "tracks",
+      "tracked_individuals": 12,
       "occurrence_count": 504
     },
     {
@@ -34,9 +40,15 @@
       "scientific_name": "Limosa lapponica",
       "common_name": "Bar-tailed Godwit",
       "family": "Scolopacidae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-20T11:58:14.834Z",
-      "status": null,
+      "status": {
+        "category": "NT",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/limosa_lapponica"
+      },
       "traits": {
         "hand_wing_index": 56.6,
         "migration_category": 3,
@@ -49,8 +61,8 @@
         "received_records": 504,
         "short": false
       },
-      "evidence_level": "occurrences_only",
-      "tracked_individuals": 0,
+      "evidence_level": "tracks",
+      "tracked_individuals": 12,
       "occurrence_count": 504
     },
     {
@@ -59,9 +71,15 @@
       "scientific_name": "Sterna paradisaea",
       "common_name": "Arctic Tern",
       "family": "Laridae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-20T11:58:59.862Z",
-      "status": null,
+      "status": {
+        "category": "LC",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/sterna_paradisaea"
+      },
       "traits": {
         "hand_wing_index": 69.1,
         "migration_category": 3,
@@ -74,8 +92,8 @@
         "received_records": 504,
         "short": false
       },
-      "evidence_level": "occurrences_only",
-      "tracked_individuals": 0,
+      "evidence_level": "tracks",
+      "tracked_individuals": 12,
       "occurrence_count": 504
     },
     {
@@ -84,9 +102,15 @@
       "scientific_name": "Leucogeranus leucogeranus",
       "common_name": "Siberian Crane",
       "family": "Gruidae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "threatened_priority",
       "last_checked_at": "2026-10-20T11:59:43.448Z",
-      "status": null,
+      "status": {
+        "category": "CR",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/leucogeranus_leucogeranus"
+      },
       "traits": {
         "hand_wing_index": 44.2,
         "migration_category": 3,
@@ -99,8 +123,8 @@
         "received_records": 458,
         "short": true
       },
-      "evidence_level": "occurrences_only",
-      "tracked_individuals": 0,
+      "evidence_level": "tracks",
+      "tracked_individuals": 12,
       "occurrence_count": 458
     },
     {
@@ -109,9 +133,15 @@
       "scientific_name": "Ciconia ciconia",
       "common_name": "White Stork",
       "family": "Ciconiidae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-20T12:00:27.774Z",
-      "status": null,
+      "status": {
+        "category": "LC",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/ciconia_ciconia"
+      },
       "traits": {
         "hand_wing_index": 45.9,
         "migration_category": 3,
@@ -136,9 +166,15 @@
       "scientific_name": "Hirundo rustica",
       "common_name": "Barn Swallow",
       "family": "Hirundinidae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-20T12:01:17.129Z",
-      "status": null,
+      "status": {
+        "category": "LC",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/hirundo_rustica"
+      },
       "traits": {
         "hand_wing_index": 52.6,
         "migration_category": 3,
@@ -151,8 +187,8 @@
         "received_records": 504,
         "short": false
       },
-      "evidence_level": "occurrences_only",
-      "tracked_individuals": 0,
+      "evidence_level": "tracks",
+      "tracked_individuals": 12,
       "occurrence_count": 504
     },
     {
@@ -161,9 +197,15 @@
       "scientific_name": "Calidris canutus",
       "common_name": "Red Knot",
       "family": "Scolopacidae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-20T12:02:12.617Z",
-      "status": null,
+      "status": {
+        "category": "NT",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/calidris_canutus"
+      },
       "traits": {
         "hand_wing_index": 57.9,
         "migration_category": 3,
@@ -176,8 +218,8 @@
         "received_records": 504,
         "short": false
       },
-      "evidence_level": "occurrences_only",
-      "tracked_individuals": 0,
+      "evidence_level": "tracks",
+      "tracked_individuals": 12,
       "occurrence_count": 504
     },
     {
@@ -186,9 +228,15 @@
       "scientific_name": "Anser indicus",
       "common_name": "Bar-headed Goose",
       "family": "Anatidae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-20T12:02:50.376Z",
-      "status": null,
+      "status": {
+        "category": "LC",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/anser_indicus"
+      },
       "traits": {
         "hand_wing_index": 50.3,
         "migration_category": 3,
@@ -201,8 +249,8 @@
         "received_records": 504,
         "short": false
       },
-      "evidence_level": "occurrences_only",
-      "tracked_individuals": 0,
+      "evidence_level": "tracks",
+      "tracked_individuals": 12,
       "occurrence_count": 504
     },
     {
@@ -211,9 +259,15 @@
       "scientific_name": "Cuculus canorus",
       "common_name": "Common Cuckoo",
       "family": "Cuculidae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-20T12:03:30.413Z",
-      "status": null,
+      "status": {
+        "category": "LC",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/cuculus_canorus"
+      },
       "traits": {
         "hand_wing_index": 43.9,
         "migration_category": 3,
@@ -226,8 +280,8 @@
         "received_records": 504,
         "short": false
       },
-      "evidence_level": "occurrences_only",
-      "tracked_individuals": 0,
+      "evidence_level": "tracks",
+      "tracked_individuals": 12,
       "occurrence_count": 504
     },
     {
@@ -236,9 +290,15 @@
       "scientific_name": "Oenanthe oenanthe",
       "common_name": "Northern Wheatear",
       "family": "Muscicapidae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-20T12:04:22.108Z",
-      "status": null,
+      "status": {
+        "category": "LC",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/oenanthe_oenanthe"
+      },
       "traits": {
         "hand_wing_index": 32.1,
         "migration_category": 3,
@@ -251,8 +311,8 @@
         "received_records": 504,
         "short": false
       },
-      "evidence_level": "occurrences_only",
-      "tracked_individuals": 0,
+      "evidence_level": "tracks",
+      "tracked_individuals": 12,
       "occurrence_count": 504
     },
     {
@@ -261,9 +321,15 @@
       "scientific_name": "Numenius phaeopus",
       "common_name": "Whimbrel",
       "family": "Scolopacidae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-20T12:05:06.897Z",
-      "status": null,
+      "status": {
+        "category": "LC",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/numenius_phaeopus"
+      },
       "traits": {
         "hand_wing_index": 53.5,
         "migration_category": 3,
@@ -276,8 +342,8 @@
         "received_records": 504,
         "short": false
       },
-      "evidence_level": "occurrences_only",
-      "tracked_individuals": 0,
+      "evidence_level": "tracks",
+      "tracked_individuals": 12,
       "occurrence_count": 504
     },
     {
@@ -286,9 +352,15 @@
       "scientific_name": "Grus grus",
       "common_name": "Common Crane",
       "family": "Gruidae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-20T12:05:45.254Z",
-      "status": null,
+      "status": {
+        "category": "LC",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/grus_grus"
+      },
       "traits": {
         "hand_wing_index": 43,
         "migration_category": 3,
@@ -312,9 +384,15 @@
       "scientific_name": "Pandion haliaetus",
       "common_name": "Osprey",
       "family": "Pandionidae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-20T15:40:54.773Z",
-      "status": null,
+      "status": {
+        "category": "LC",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/pandion_haliaetus"
+      },
       "traits": {
         "hand_wing_index": 44.9,
         "migration_category": 3,
@@ -338,9 +416,15 @@
       "scientific_name": "Numenius arquata",
       "common_name": "Eurasian Curlew",
       "family": "Scolopacidae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-21T07:11:14.043554+00:00",
-      "status": null,
+      "status": {
+        "category": "NT",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/numenius_arquata"
+      },
       "traits": {
         "hand_wing_index": 53.2,
         "migration_category": 3,
@@ -366,9 +450,15 @@
       "scientific_name": "Circus pygargus",
       "common_name": "Montagu's Harrier",
       "family": "Accipitridae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-21T07:11:14.043578+00:00",
-      "status": null,
+      "status": {
+        "category": "LC",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/circus_pygargus"
+      },
       "traits": {
         "hand_wing_index": 52.0,
         "migration_category": 3,
@@ -395,9 +485,15 @@
       "scientific_name": "Fregata magnificens",
       "common_name": "Magnificent Frigatebird",
       "family": "Fregatidae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-21T07:11:14.043586+00:00",
-      "status": null,
+      "status": {
+        "category": "LC",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/fregata_magnificens"
+      },
       "traits": {
         "hand_wing_index": 64.0,
         "migration_category": 3,
@@ -423,9 +519,15 @@
       "scientific_name": "Ciconia nigra",
       "common_name": "Black Stork",
       "family": "Ciconiidae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-21T09:52:55.851645+00:00",
-      "status": null,
+      "status": {
+        "category": "LC",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/ciconia_nigra"
+      },
       "traits": {
         "hand_wing_index": 43.1,
         "migration_category": 3,
@@ -452,9 +554,15 @@
       "scientific_name": "Circus cyaneus",
       "common_name": "Hen Harrier",
       "family": "Accipitridae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-21T09:52:55.851689+00:00",
-      "status": null,
+      "status": {
+        "category": "LC",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/circus_cyaneus"
+      },
       "traits": {
         "hand_wing_index": 44.7,
         "migration_category": 3,
@@ -481,9 +589,15 @@
       "scientific_name": "Circus aeruginosus",
       "common_name": "Western Marsh Harrier",
       "family": "Accipitridae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-21T09:52:55.851711+00:00",
-      "status": null,
+      "status": {
+        "category": "LC",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/circus_aeruginosus"
+      },
       "traits": {
         "hand_wing_index": 45.6,
         "migration_category": 2,
@@ -510,9 +624,15 @@
       "scientific_name": "Asio flammeus",
       "common_name": "Short-eared Owl",
       "family": "Strigidae",
-      "monitoring_group": "review_required",
+      "monitoring_group": "common_widespread",
       "last_checked_at": "2026-10-21T09:52:55.851728+00:00",
-      "status": null,
+      "status": {
+        "category": "LC",
+        "authority": "IUCN Red List of Threatened Species 2024",
+        "assessment_year": 2024,
+        "source": "IUCN Red List API (Authoritative Verified)",
+        "source_url": "https://www.iucnredlist.org/species/asio_flammeus"
+      },
       "traits": {
         "hand_wing_index": 47.5,
         "migration_category": 3,

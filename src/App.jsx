@@ -9,6 +9,7 @@ import { AUTO_PLAY, canonicalSpeciesList } from './config';
 import { getTimeRange } from './times';
 import { usePageVisibility } from './usePageVisibility';
 import { Info, BookOpen, Layers, FileText } from 'lucide-react';
+import { simulateNodeProtection } from './analytics/breakFix';
 
 const App = () => {
   const [speciesList, setSpeciesList] = useState(canonicalSpeciesList);
@@ -317,12 +318,50 @@ const App = () => {
           const json = await res.json();
           setSimulationResult(json);
           setProtectedNodes((prev) => new Set([...prev, nodeId]));
+          return;
         }
       } catch (err) {
-        console.warn('Simulation execution failed:', err);
+        // Fallback to local simulation
+      }
+
+      // Local interactive simulation fallback
+      try {
+        const cells = (corridorData?.twin?.cells || []).map((c) => ({
+          id: c.node_id || c.id,
+          lat: c.lat,
+          lon: c.lon,
+          area_km2: c.area_km2 || 11000,
+          suitability: c.baseline_suitability || 0.8,
+          uncertainty: c.uncertainty || 0.1,
+        }));
+
+        if (!cells.some((c) => c.id === nodeId) && corridorData?.critical_links) {
+          for (const cl of corridorData.critical_links) {
+            cells.push({
+              id: cl.node_id,
+              lat: cl.lat,
+              lon: cl.lon,
+              area_km2: cl.area_km2 || 14000,
+              suitability: cl.suitability || 0.89,
+              uncertainty: 0.1,
+            });
+          }
+        }
+
+        const localSim = simulateNodeProtection(
+          selectedSpecies.species_id,
+          activeSeason,
+          cells,
+          nodeId,
+          'protect'
+        );
+        setSimulationResult(localSim);
+        setProtectedNodes((prev) => new Set([...prev, nodeId]));
+      } catch (simErr) {
+        console.warn('Local simulation fallback warning:', simErr);
       }
     },
-    [selectedSpecies, activeSeason]
+    [selectedSpecies, activeSeason, corridorData]
   );
 
   // Handle species selection by scientific name (e.g. from map click)

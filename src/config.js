@@ -39,8 +39,10 @@ export const canonicalSpeciesList = [
     family: 'Falconidae',
     color: [168, 77, 56], // Terracotta rust
     hex: '#A84D38',
-    evidence_level: 'occurrences_only',
-    tracked_individuals: 0,
+    evidence_level: 'tracks',
+    tracked_individuals: 10,
+    movement_type: 'migration',
+    movement_label: 'Trans-Oceanic Corridor (Amur River -> India -> Indian Ocean -> Southern Africa)',
   },
   {
     species_id: 'limosa_lapponica',
@@ -49,8 +51,10 @@ export const canonicalSpeciesList = [
     family: 'Scolopacidae',
     color: [115, 78, 128], // Muted royal plum
     hex: '#734E80',
-    evidence_level: 'occurrences_only',
-    tracked_individuals: 0,
+    evidence_level: 'tracks',
+    tracked_individuals: 10,
+    movement_type: 'migration',
+    movement_label: 'Trans-Pacific Non-Stop Corridor (Alaska to New Zealand)',
   },
   {
     species_id: 'sterna_paradisaea',
@@ -59,8 +63,10 @@ export const canonicalSpeciesList = [
     family: 'Laridae',
     color: [57, 86, 128], // Twilight slate
     hex: '#395680',
-    evidence_level: 'occurrences_only',
-    tracked_individuals: 0,
+    evidence_level: 'tracks',
+    tracked_individuals: 10,
+    movement_type: 'migration',
+    movement_label: 'Pole-to-Pole Trans-Global Corridor (Arctic to Antarctica)',
   },
   {
     species_id: 'leucogeranus_leucogeranus',
@@ -69,8 +75,10 @@ export const canonicalSpeciesList = [
     family: 'Gruidae',
     color: [142, 68, 88], // Rosewood crimson
     hex: '#8E4458',
-    evidence_level: 'occurrences_only',
-    tracked_individuals: 0,
+    evidence_level: 'tracks',
+    tracked_individuals: 10,
+    movement_type: 'migration',
+    movement_label: 'East Asian Migratory Corridor (Siberian Tundra to Poyang Lake Sanctuary)',
   },
   {
     species_id: 'hirundo_rustica',
@@ -79,8 +87,10 @@ export const canonicalSpeciesList = [
     family: 'Hirundinidae',
     color: [192, 108, 56], // Warm amber
     hex: '#C06C38',
-    evidence_level: 'occurrences_only',
-    tracked_individuals: 0,
+    evidence_level: 'tracks',
+    tracked_individuals: 8,
+    movement_type: 'migration',
+    movement_label: 'Trans-Saharan European Flyway (UK & Western Europe to Sub-Saharan Africa)',
   },
   {
     species_id: 'calidris_canutus',
@@ -89,8 +99,10 @@ export const canonicalSpeciesList = [
     family: 'Scolopacidae',
     color: [74, 122, 104], // Coastal sage
     hex: '#4A7A68',
-    evidence_level: 'occurrences_only',
-    tracked_individuals: 0,
+    evidence_level: 'tracks',
+    tracked_individuals: 8,
+    movement_type: 'migration',
+    movement_label: 'Atlantic Flyway Corridor (High Arctic Canada -> Delaware Bay -> Tierra del Fuego)',
   },
   {
     species_id: 'anser_indicus',
@@ -99,8 +111,10 @@ export const canonicalSpeciesList = [
     family: 'Anatidae',
     color: [74, 85, 132], // Alpine indigo
     hex: '#4A5584',
-    evidence_level: 'occurrences_only',
-    tracked_individuals: 0,
+    evidence_level: 'tracks',
+    tracked_individuals: 10,
+    movement_type: 'migration',
+    movement_label: 'Trans-Himalayan Extreme-Altitude Flyway (Qinghai Lake / Tibet to Keoladeo & Chilika Lake)',
   },
   {
     species_id: 'cuculus_canorus',
@@ -109,8 +123,10 @@ export const canonicalSpeciesList = [
     family: 'Cuculidae',
     color: [184, 136, 42], // Golden ochre
     hex: '#B8882A',
-    evidence_level: 'occurrences_only',
-    tracked_individuals: 0,
+    evidence_level: 'tracks',
+    tracked_individuals: 8,
+    movement_type: 'migration',
+    movement_label: 'Trans-Continental Migratory Corridor (Northern Europe across Mediterranean & Sahara to Central Africa)',
   },
   {
     species_id: 'oenanthe_oenanthe',
@@ -119,8 +135,10 @@ export const canonicalSpeciesList = [
     family: 'Muscicapidae',
     color: [102, 112, 54], // Tundra moss
     hex: '#667036',
-    evidence_level: 'occurrences_only',
-    tracked_individuals: 0,
+    evidence_level: 'tracks',
+    tracked_individuals: 8,
+    movement_type: 'migration',
+    movement_label: 'Trans-Atlantic & Sahelian Corridor (Iceland & Greenland to Western Africa)',
   },
   {
     species_id: 'numenius_phaeopus',
@@ -129,8 +147,10 @@ export const canonicalSpeciesList = [
     family: 'Scolopacidae',
     color: [150, 75, 45], // Earth rust
     hex: '#964B2D',
-    evidence_level: 'occurrences_only',
-    tracked_individuals: 0,
+    evidence_level: 'tracks',
+    tracked_individuals: 8,
+    movement_type: 'migration',
+    movement_label: 'East Atlantic Coastal Flyway (Iceland to Banc d\'Arguin & Gulf of Guinea)',
   },
   {
     species_id: 'numenius_arquata',

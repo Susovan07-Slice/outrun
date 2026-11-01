@@ -15,8 +15,9 @@ import {
 import { generateSpeciesBrief } from '../../src/analytics/brief.js';
 
 export interface Env {
-  DB: D1Database;
+  DB?: D1Database;
   ENVIRONMENT?: string;
+  ASSETS?: Fetcher;
 }
 
 // In-memory cache for ephemeral fast retrieval
@@ -920,6 +921,11 @@ export default {
           { status: 500, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
         );
       }
+    }
+
+    // Serve frontend static assets (Vite build) if available
+    if (env.ASSETS) {
+      return await env.ASSETS.fetch(request);
     }
 
     return new Response(JSON.stringify({ error: 'Endpoint Not Found' }), {

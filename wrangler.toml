@@ -1,13 +1,17 @@
-name = "outrun-api"
+name = "outrun"
 main = "worker/src/index.ts"
 compatibility_date = "2024-10-01"
 compatibility_flags = ["nodejs_compat"]
 
+# Direct Static Assets configuration: serves the compiled React app (Vite dist) directly
+assets = { directory = "./dist", binding = "ASSETS" }
+
 [vars]
 ENVIRONMENT = "production"
 
-[[d1_databases]]
-binding = "DB"
-database_name = "outrun-db"
-database_id = "00000000-0000-0000-0000-000000000000"
-migrations_dir = "db"
+# Optional: Uncomment and populate with your Cloudflare D1 database ID when ready
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "outrun-db"
+# database_id = "your-d1-database-id-here"
+# migrations_dir = "db"

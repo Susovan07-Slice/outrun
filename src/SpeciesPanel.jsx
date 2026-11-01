@@ -148,18 +148,30 @@ const SpeciesPanel = ({
     try {
       const snapRes = await fetch('./data/generated/weather_snapshots.json');
       if (snapRes.ok) {
-        const snapshots = await snapRes.json();
+        const rawSnap = await snapRes.json();
+        const snapshots = Array.isArray(rawSnap)
+          ? rawSnap
+          : (Array.isArray(rawSnap.snapshots)
+              ? rawSnap.snapshots
+              : Object.values(rawSnap.snapshots || {}));
         const found = snapshots.find((sn) => sn.species_id === species.species_id);
         if (found) {
           setWeatherData({
             success: true,
             label: 'current conditions',
-            source: 'Open-Meteo Synoptic Snapshot (Cached)',
-            locationLabel: `Snapshot Habitat (${found.latitude.toFixed(2)}°N, ${found.longitude.toFixed(2)}°E)`,
+            source: found.source || 'Open-Meteo Synoptic Snapshot (Cached)',
+            locationLabel: found.location_name
+              ? `${found.location_name} (${found.latitude?.toFixed(2)}°N, ${found.longitude?.toFixed(2)}°E)`
+              : `Snapshot Habitat (${found.latitude?.toFixed(2)}°N, ${found.longitude?.toFixed(2)}°E)`,
             latitude: found.latitude,
             longitude: found.longitude,
             speciesName: species.common_name || species.scientific_name,
-            weather: found.weather,
+            weather: found.weather || {
+              temperature_2m: found.temperature_2m,
+              wind_speed_10m: found.wind_speed_10m,
+              relative_humidity_2m: found.relative_humidity_2m,
+              precipitation: found.precipitation,
+            },
             retrieved_at: found.retrieved_at,
           });
           setLoadingWeather(false);
