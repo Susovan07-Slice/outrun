@@ -551,43 +551,54 @@ def generate_smooth_track(corridor_points, num_individuals=8):
     return features
 
 
-def build_twin_cells(center_lat, center_lon, count=36, radius_deg=5.0):
+def build_twin_cells(center_lat, center_lon, count=42, radius_deg=3.8):
     """
-    Generates a realistic spatial grid cluster of climate envelope cells.
+    Generates an organic, ecologically contoured bioclimatic envelope
+    following natural bio-geographic distribution contours (no artificial rectangles).
     """
     cells = []
-    step = 1.0
-    half = int(math.sqrt(count)) // 2
+    golden_angle = 2.399963229728653  # Golden angle in radians (spiral phyllotaxis)
+    cos_lat = max(0.2, math.cos(math.radians(center_lat)))
     
-    for dy in range(-half, half + 1):
-        for dx in range(-half, half + 1):
-            clat = round(center_lat + dy * step, 2)
-            clon = round(center_lon + dx * step, 2)
-            
-            # Distance from cluster center determines base suitability
-            dist = math.sqrt(dy * dy + dx * dx)
-            base_suit = max(0.45, 0.96 - dist * 0.08)
-            # Future climate suitability under CMIP6 SSP3-7.0 (gradual drying/warming degradation)
-            future_suit = max(0.20, round(base_suit * (0.65 + (random.random() * 0.15)), 2))
-            
-            cell_id = f"cell_{clat:.1f}_{clon:.1f}"
-            cells.append({
-                "id": cell_id,
-                "node_id": cell_id,
-                "lat": clat,
-                "lon": clon,
-                "baseline_suitability": round(base_suit, 2),
-                "future_suitability": future_suit,
-                "uncertainty": round(0.08 + random.random() * 0.06, 2),
-                "area_km2": 11000,
-                "climate_velocity_km_decade": round(210.0 + random.random() * 140.0, 1),
-                "temp_anomaly_c": round(2.1 + random.random() * 1.2, 1),
-            })
-            if len(cells) >= count:
-                break
-        if len(cells) >= count:
-            break
-            
+    for i in range(count):
+        # Fractional radial expansion with natural edge falloff
+        norm_idx = (i + 1) / float(count)
+        r = math.sqrt(norm_idx) * radius_deg
+        theta = i * golden_angle
+        
+        # Organic bi-lobed / elliptical natural elongation (reflecting valleys, coastlines, biome contours)
+        elongation = 1.0 + 0.32 * math.cos(2 * theta + 0.7)
+        r_eff = r * elongation + (random.random() - 0.5) * 0.35
+        
+        d_lat = r_eff * math.cos(theta)
+        d_lon = (r_eff * math.sin(theta)) / cos_lat
+        
+        clat = round(center_lat + d_lat, 3)
+        clon = round(center_lon + d_lon, 3)
+        
+        # Normalized distance from ecological core
+        dist_norm = min(1.0, r / radius_deg)
+        
+        # Core habitat has high suitability (0.85 - 0.96), tapering organically toward margins
+        base_suit = max(0.45, min(0.96, 0.94 - (dist_norm ** 1.4) * 0.42 + (random.random() - 0.5) * 0.06))
+        
+        # Future climate suitability under CMIP6 (warming shifts and habitat degradation)
+        future_suit = max(0.20, min(0.85, base_suit * 0.65 - dist_norm * 0.12 + (random.random() - 0.5) * 0.08))
+        
+        cell_id = f"cell_{clat:.2f}_{clon:.2f}"
+        cells.append({
+            "id": cell_id,
+            "node_id": cell_id,
+            "lat": clat,
+            "lon": clon,
+            "baseline_suitability": round(base_suit, 2),
+            "future_suitability": round(future_suit, 2),
+            "uncertainty": round(0.06 + dist_norm * 0.08 + random.random() * 0.04, 2),
+            "area_km2": 11000,
+            "climate_velocity_km_decade": round(210.0 + dist_norm * 120.0 + random.random() * 40.0, 1),
+            "temp_anomaly_c": round(2.0 + dist_norm * 1.2 + random.random() * 0.6, 2),
+        })
+        
     return cells
 
 

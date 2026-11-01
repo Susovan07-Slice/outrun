@@ -42,8 +42,15 @@ const CorridorPanel = ({
   simulationResult,
   weatherData,
   occurrences = [],
+  activeTab: activeTabProp,
+  onChangeTab,
 }) => {
-  const [activeTab, setActiveTab] = useState('race'); // 'race' | 'twin' | 'break_fix' | 'watch' | 'proof'
+  const [internalTab, setInternalTab] = useState('race');
+  const activeTab = activeTabProp !== undefined ? activeTabProp : internalTab;
+  const handleTabChange = (tab) => {
+    setInternalTab(tab);
+    if (onChangeTab) onChangeTab(tab);
+  };
   const [simulatingNode, setSimulatingNode] = useState(null);
 
   if (loadingCorridor) {
@@ -99,35 +106,35 @@ const CorridorPanel = ({
       <div className="corridor-tabs-nav">
         <button
           className={`corridor-tab-btn ${activeTab === 'race' ? 'active' : ''}`}
-          onClick={() => setActiveTab('race')}
+          onClick={() => handleTabChange('race')}
         >
           <Gauge size={13} />
           <span>The Race</span>
         </button>
         <button
           className={`corridor-tab-btn ${activeTab === 'twin' ? 'active' : ''}`}
-          onClick={() => setActiveTab('twin')}
+          onClick={() => handleTabChange('twin')}
         >
           <Sliders size={13} />
           <span>The Twin</span>
         </button>
         <button
           className={`corridor-tab-btn ${activeTab === 'break_fix' ? 'active' : ''}`}
-          onClick={() => setActiveTab('break_fix')}
+          onClick={() => handleTabChange('break_fix')}
         >
           <GitBranch size={13} />
           <span>Break & Fix</span>
         </button>
         <button
           className={`corridor-tab-btn ${activeTab === 'watch' ? 'active' : ''}`}
-          onClick={() => setActiveTab('watch')}
+          onClick={() => handleTabChange('watch')}
         >
           <CloudSun size={13} />
           <span>The Watch</span>
         </button>
         <button
           className={`corridor-tab-btn ${activeTab === 'proof' ? 'active' : ''}`}
-          onClick={() => setActiveTab('proof')}
+          onClick={() => handleTabChange('proof')}
         >
           <FileCheck size={13} />
           <span>The Proof</span>

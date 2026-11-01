@@ -24,6 +24,7 @@ const App = () => {
   const [twinSlider, setTwinSlider] = useState(0.5);
   const [protectedNodes, setProtectedNodes] = useState(new Set());
   const [simulationResult, setSimulationResult] = useState(null);
+  const [activeCorridorTab, setActiveCorridorTab] = useState('race');
 
   // Phase 5: The Brief & Data Freshness State
   const [briefSpecies, setBriefSpecies] = useState(null);
@@ -456,6 +457,7 @@ const App = () => {
               twinSlider={twinSlider}
               protectedNodes={protectedNodes}
               onSimulateProtect={handleSimulateProtect}
+              activeCorridorTab={activeCorridorTab}
             />
           </div>
 
@@ -493,6 +495,8 @@ const App = () => {
             protectedNodes={protectedNodes}
             simulationResult={simulationResult}
             onOpenBrief={(s) => setBriefSpecies(s)}
+            activeCorridorTab={activeCorridorTab}
+            onChangeCorridorTab={setActiveCorridorTab}
           />
         </section>
       </main>

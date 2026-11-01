@@ -29,6 +29,7 @@ const MapView = ({
   twinSlider = 0.5,
   protectedNodes = new Set(),
   onSimulateProtect,
+  activeCorridorTab = 'race',
 }) => {
   const [viewState, setViewState] = useState(GLOBAL_VIEW_STATE);
   const [hoverInfo, setHoverInfo] = useState(null);
@@ -135,28 +136,30 @@ const MapView = ({
   }, [graticulesData]);
 
   // 2. Twin Climate Suitability Envelope Layer (ScatterplotLayer grid)
+  // ONLY displayed when user actively explores "The Twin" tab
   const twinLayer = useMemo(() => {
+    if (activeCorridorTab !== 'twin') return null;
     if (!corridorData?.twin?.cells || corridorData.twin.cells.length === 0) return null;
 
     return new ScatterplotLayer({
       id: 'corridor-twin-envelope',
       data: corridorData.twin.cells,
       getPosition: (d) => [d.lon, d.lat],
-      getRadius: 34000,
-      radiusMinPixels: 3,
-      radiusMaxPixels: 12,
+      getRadius: 48000,
+      radiusMinPixels: 4,
+      radiusMaxPixels: 16,
       getFillColor: (d) => {
         // Interpolate suitability based on projection horizon slider (0 = baseline, 1 = CMIP6 future)
         const suit = d.baseline_suitability * (1 - twinSlider) + d.future_suitability * twinSlider;
         if (suit >= 0.7) {
-          return [34, 139, 104, Math.round(110 + suit * 100)]; // Deep emerald
+          return [16, 185, 129, Math.round(110 + suit * 85)]; // Luminous emerald
         } else if (suit >= 0.4) {
-          return [217, 119, 6, Math.round(90 + suit * 100)]; // Ochre / amber
+          return [245, 158, 11, Math.round(95 + suit * 80)]; // Warm ochre / amber
         } else {
-          return [185, 28, 28, Math.round(70 + suit * 80)]; // Crimson (marginal/declining)
+          return [225, 29, 72, Math.round(80 + suit * 75)]; // Terracotta crimson
         }
       },
-      getLineColor: [255, 255, 255, 45],
+      getLineColor: [255, 255, 255, 35],
       lineWidthMinPixels: 0.5,
       stroked: true,
       pickable: true,
@@ -175,26 +178,28 @@ const MapView = ({
         }
       },
     });
-  }, [corridorData?.twin?.cells, twinSlider]);
+  }, [corridorData?.twin?.cells, twinSlider, activeCorridorTab]);
 
   // 3. Candidate Critical Links / Bottleneck Pinch-Points Layer (The Break & The Fix)
+  // ONLY displayed when user actively explores "Break & Fix" tab
   const bottleneckLayer = useMemo(() => {
+    if (activeCorridorTab !== 'break_fix') return null;
     if (!corridorData?.critical_links || corridorData.critical_links.length === 0) return null;
 
     return new ScatterplotLayer({
       id: 'corridor-critical-links',
       data: corridorData.critical_links,
       getPosition: (d) => [d.lon, d.lat],
-      getRadius: 48000,
+      getRadius: 52000,
       radiusMinPixels: 7,
-      radiusMaxPixels: 18,
+      radiusMaxPixels: 19,
       getFillColor: (d) => {
         const isProt = protectedNodes.has(d.node_id);
-        return isProt ? [16, 185, 129, 150] : [239, 68, 68, 140];
+        return isProt ? [16, 185, 129, 160] : [239, 68, 68, 150];
       },
       getLineColor: (d) => {
         const isProt = protectedNodes.has(d.node_id);
-        return isProt ? [4, 120, 87, 245] : [220, 38, 38, 245];
+        return isProt ? [4, 120, 87, 250] : [220, 38, 38, 250];
       },
       lineWidthMinPixels: 2.2,
       stroked: true,
@@ -216,7 +221,7 @@ const MapView = ({
         }
       },
     });
-  }, [corridorData?.critical_links, protectedNodes, onSimulateProtect]);
+  }, [corridorData?.critical_links, protectedNodes, onSimulateProtect, activeCorridorTab]);
 
   // 4. Empirical GBIF occurrences: rendered in refined muted style
   const occurrenceLayer = useMemo(() => {

@@ -33,6 +33,8 @@ const SpeciesPanel = ({
   protectedNodes,
   simulationResult,
   onOpenBrief,
+  activeCorridorTab,
+  onChangeCorridorTab,
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [evidenceFilter, setEvidenceFilter] = useState('all');
@@ -621,6 +623,8 @@ const SpeciesPanel = ({
                         simulationResult={simulationResult}
                         weatherData={weatherData}
                         occurrences={occurrences}
+                        activeTab={activeCorridorTab}
+                        onChangeTab={onChangeCorridorTab}
                       />
                     )}
                   </div>
