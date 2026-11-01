@@ -3,6 +3,7 @@ import DeckGL from '@deck.gl/react';
 import Map from 'react-map-gl/maplibre';
 import { TripsLayer } from '@deck.gl/geo-layers';
 import { ScatterplotLayer, PathLayer } from '@deck.gl/layers';
+import { HeatmapLayer } from '@deck.gl/aggregation-layers';
 import { Plus, Minus, Compass } from 'lucide-react';
 import { ANIMATION_SPEED, speciesConfig, getGraticules } from './config';
 import { ensureDatelineSafeFeatures } from './dateline';
@@ -135,32 +136,58 @@ const MapView = ({
     });
   }, [graticulesData]);
 
-  // 2. Twin Climate Suitability Envelope Layer (ScatterplotLayer grid)
+  // 2A. Continuous Bio-Climatic Suitability Heat Surface
   // ONLY displayed when user actively explores "The Twin" tab
-  const twinLayer = useMemo(() => {
+  const twinHeatmapLayer = useMemo(() => {
+    if (activeCorridorTab !== 'twin') return null;
+    if (!corridorData?.twin?.cells || corridorData.twin.cells.length === 0) return null;
+
+    return new HeatmapLayer({
+      id: 'corridor-twin-heatmap',
+      data: corridorData.twin.cells,
+      getPosition: (d) => [d.lon, d.lat],
+      getWeight: (d) => {
+        const suit = d.baseline_suitability * (1 - twinSlider) + d.future_suitability * twinSlider;
+        return Math.max(0.05, suit);
+      },
+      radiusPixels: 55,
+      intensity: 1.15,
+      threshold: 0.04,
+      colorRange: [
+        [225, 29, 72, 60],    // Terracotta Crimson (critically degraded/stressed)
+        [245, 158, 11, 120],  // Warm Amber / Ochre (marginal ecotone)
+        [251, 191, 36, 160],  // Golden Amber (moderate suitability)
+        [52, 211, 153, 200],  // Mint Emerald (favorable bioclimatic range)
+        [16, 185, 129, 235],  // Deep Luminous Emerald (prime core habitat)
+      ],
+      opacity: 0.68,
+      parameters: { blend: true },
+      updateTriggers: {
+        getWeight: twinSlider,
+      },
+    });
+  }, [corridorData?.twin?.cells, twinSlider, activeCorridorTab]);
+
+  // 2B. Micro-Station Observation Nodes (crisp pickable nodes for hover inspection)
+  const twinStationLayer = useMemo(() => {
     if (activeCorridorTab !== 'twin') return null;
     if (!corridorData?.twin?.cells || corridorData.twin.cells.length === 0) return null;
 
     return new ScatterplotLayer({
-      id: 'corridor-twin-envelope',
+      id: 'corridor-twin-stations',
       data: corridorData.twin.cells,
       getPosition: (d) => [d.lon, d.lat],
-      getRadius: 48000,
-      radiusMinPixels: 4,
-      radiusMaxPixels: 16,
+      getRadius: 26000,
+      radiusMinPixels: 3.5,
+      radiusMaxPixels: 9,
       getFillColor: (d) => {
-        // Interpolate suitability based on projection horizon slider (0 = baseline, 1 = CMIP6 future)
         const suit = d.baseline_suitability * (1 - twinSlider) + d.future_suitability * twinSlider;
-        if (suit >= 0.7) {
-          return [16, 185, 129, Math.round(110 + suit * 85)]; // Luminous emerald
-        } else if (suit >= 0.4) {
-          return [245, 158, 11, Math.round(95 + suit * 80)]; // Warm ochre / amber
-        } else {
-          return [225, 29, 72, Math.round(80 + suit * 75)]; // Terracotta crimson
-        }
+        if (suit >= 0.7) return [16, 185, 129, 210]; // Emerald
+        if (suit >= 0.4) return [245, 158, 11, 210]; // Amber
+        return [225, 29, 72, 200];                   // Crimson
       },
-      getLineColor: [255, 255, 255, 35],
-      lineWidthMinPixels: 0.5,
+      getLineColor: [255, 255, 255, 220],
+      lineWidthMinPixels: 1.2,
       stroked: true,
       pickable: true,
       parameters: { blend: true },
@@ -176,6 +203,9 @@ const MapView = ({
             suitability: suit,
           });
         }
+      },
+      updateTriggers: {
+        getFillColor: twinSlider,
       },
     });
   }, [corridorData?.twin?.cells, twinSlider, activeCorridorTab]);
@@ -320,7 +350,8 @@ const MapView = ({
   const layers = useMemo(() => {
     return [
       graticuleLayer,
-      twinLayer,
+      twinHeatmapLayer,
+      twinStationLayer,
       occurrenceLayer,
       pathLayer,
       tripLayer,
@@ -328,7 +359,8 @@ const MapView = ({
     ].filter(Boolean);
   }, [
     graticuleLayer,
-    twinLayer,
+    twinHeatmapLayer,
+    twinStationLayer,
     occurrenceLayer,
     pathLayer,
     tripLayer,
