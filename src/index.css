@@ -1264,3 +1264,49 @@ em { font-style: italic; }
 @media (prefers-reduced-motion: reduce) {
   .app-enter * { animation: none !important; }
 }
+
+/* ==========================================================================
+   Angular shapes: no rounded corners, but not every box the same.
+   corner-shape: bevel turns a border-radius into a straight diagonal cut, and borders,
+   shadows and focus rings follow the cut. Browsers without it keep square corners (the
+   radius tokens are 0), so nothing ever falls back to rounded.
+   ========================================================================== */
+@supports (corner-shape: bevel) {
+  /* Panels: opposite corners cut, like a map card. */
+  .o-panel { border-radius: 16px 0 16px 0; corner-shape: bevel; }
+  .topbar { border-radius: 0 0 14px 14px; corner-shape: bevel; }
+  .dock__inner { border-radius: 0 14px 0 14px; corner-shape: bevel; }
+
+  /* Buttons */
+  .o-btn { border-radius: 7px; corner-shape: bevel; }                         /* octagon */
+  .o-btn--primary, .topbar .o-btn--primary { border-radius: 0 12px 0 12px; corner-shape: bevel; } /* ticket */
+  .topbar .o-btn--primary { border-radius: 0 0 14px 0; }
+  .o-iconbtn { border-radius: 9px; corner-shape: bevel; }                      /* octagon */
+  .o-play { border-radius: 30%; corner-shape: bevel; }                         /* octagon instead of a circle */
+  .o-play.is-playing::after { border-radius: 30%; corner-shape: bevel; }
+  .o-chip { border-radius: 999px; corner-shape: bevel; }                       /* hexagonal pill */
+  .layer-bar .o-btn { border-radius: 999px; corner-shape: bevel; }
+  .basemap-switch, .o-seg { border-radius: 8px; corner-shape: bevel; }
+
+  /* Cards: one cut corner each, placed differently per family so they read apart. */
+  .o-stat, .reading { border-radius: 0 0 14px 0; corner-shape: bevel; }      /* bottom-right */
+  .sp-card { border-radius: 0 20px 0 0; corner-shape: bevel; }                 /* top-right */
+  .link-card { border-radius: 14px 0 0 0; corner-shape: bevel; }               /* top-left */
+  .note { border-radius: 0 12px 0 0; corner-shape: bevel; }
+  .doc-card { border-radius: 22px 0 22px 0; corner-shape: bevel; }
+
+  /* Small labels: tag shapes. */
+  .iucn { border-radius: 8px 0 0 8px; corner-shape: bevel; padding-left: 9px; }
+  .o-badge { border-radius: 0 999px 999px 0; corner-shape: bevel; padding-right: 12px; }
+
+  /* Brief sheet */
+  .bf-window { border-radius: 0 22px 0 22px; corner-shape: bevel; }
+  .bf-fact { border-radius: 0 0 14px 0; corner-shape: bevel; }
+  .bf-btn { border-radius: 7px; corner-shape: bevel; }
+
+  /* Phones: the details sheet sits on the bottom edge, so only its top corners are cut. */
+  @media (max-width: 900px) {
+    .inspector, .atlas.right-collapsed .inspector { border-radius: 16px 16px 0 0; }
+    .species-panel { border-radius: 0; }
+  }
+}
