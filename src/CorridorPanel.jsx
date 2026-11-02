@@ -10,7 +10,8 @@
 
 import React, { useState } from 'react';
 import { ShieldAlert, ShieldCheck, Info, Sparkles, ArrowRight, CloudSun, AlertTriangle, ChevronDown } from 'lucide-react';
-import { deriveSeasonalWindow, evaluateForecastRisk } from './analytics/watch';
+import { deriveRangeWindow, evaluateForecastRisk } from './analytics/watch';
+import { rangeName } from './analytics/seasonCalendar';
 
 const INSUFFICIENT = 'Insufficient evidence';
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -268,24 +269,48 @@ const Reading = ({ label, value, unit, limit, min = 0, limitText }) => {
   );
 };
 
-export const WatchTab = ({ species, occurrences, activeSeason, onChangeSeason, weatherData, onFetchWeather, loadingWeather }) => {
-  const seasonalWindow = deriveSeasonalWindow(occurrences || [], activeSeason);
+const SOURCE_TEXT = { live: 'Open-Meteo (live)', cache: 'Open-Meteo (cached ≤30 min)', fallback: 'Open-Meteo (last saved reading)' };
+const PLACE_TEXT = { breeding: 'in its breeding range', non_breeding: 'in its wintering range', migrating: 'on migration' };
+
+export const WatchTab = ({ species, calendar, activeSeason, onChangeSeason, weatherData, onFetchWeather, loadingWeather }) => {
+  if (!calendar) return <div className="loading-block"><div className="spinner" />Working out where it is this month…</div>;
+
+  const seasonalWindow = deriveRangeWindow(calendar.months, activeSeason);
   const watch = evaluateForecastRisk(species.species_id, weatherData?.weather, seasonalWindow);
   const active = seasonalWindow.isCurrentMonthActive;
+  const month = MONTHS[seasonalWindow.currentMonth - 1];
+  const here = rangeName(activeSeason);
+  const now = seasonalWindow.currentPlace;
+  const otherSeason = activeSeason === 'breeding' ? 'non_breeding' : 'breeding';
+  const basis = seasonalWindow.source === 'tracks' ? 'From GPS tracks logged in ' + month + '.' : 'From its usual seasonal cycle.';
 
   return (
     <>
       <SectionHead
         title="Weather risk today"
         badge="forecast"
-        lead="Current weather where this species is now, checked against safe limits for migrating birds."
+        lead="Current weather where this species lives, checked against safe limits for migrating birds."
       />
-      <p className="sec__lead">
-        <CloudSun size={14} style={{ verticalAlign: '-2px' }} />{' '}
-        {active
-          ? `Active now: it is usually seen in ${MONTHS[seasonalWindow.currentMonth - 1]}.`
-          : `Usually not seen in ${MONTHS[seasonalWindow.currentMonth - 1]}, so today's weather matters less.`}
-      </p>
+      <SeasonSwitch value={activeSeason} onChange={onChangeSeason} />
+      <div className={`note ${active ? '' : 'note--warn'}`}>
+        <CloudSun size={16} />
+        <div>
+          {active ? (
+            <strong>{now === 'migrating' ? `On migration in ${month}, arriving at or leaving its ${here}.` : `Here now: it is usually in its ${here} in ${month}.`}</strong>
+          ) : (
+            <strong>Usually not seen in its {here} in {month}, so today's weather here matters less.</strong>
+          )}
+          <div className="cite" style={{ marginTop: 2 }}>
+            {!active && now && now !== 'migrating' && `It is ${PLACE_TEXT[now]} now. `}
+            {basis}
+          </div>
+          {!active && now === otherSeason && (
+            <button className="o-btn o-btn--sm" data-ripple style={{ marginTop: 8 }} onClick={() => onChangeSeason(otherSeason)}>
+              Check its {rangeName(otherSeason)} <ArrowRight size={14} />
+            </button>
+          )}
+        </div>
+      </div>
 
       {weatherData?.weather ? (
         <div className="sec">
@@ -302,7 +327,7 @@ export const WatchTab = ({ species, occurrences, activeSeason, onChangeSeason, w
             <Reading label="Humidity" value={weatherData.weather.relative_humidity_2m} unit="%" limit={100} limitText="context only" />
           </div>
           <p className="cite">
-            {weatherData.place} · {weatherData.source || 'Open-Meteo'}
+            {weatherData.place} · {SOURCE_TEXT[weatherData.source] || weatherData.source || 'Open-Meteo'}
             {weatherData.retrieved_at ? ` · ${new Date(weatherData.retrieved_at).toLocaleString()}` : ''}
           </p>
         </div>
@@ -319,15 +344,21 @@ export const WatchTab = ({ species, occurrences, activeSeason, onChangeSeason, w
       )}
 
       {weatherData?.weather && (
-        <div className={`note ${watch.forecast_risk ? 'note--danger' : 'note--ok'}`}>
-          {watch.forecast_risk ? <AlertTriangle size={16} /> : <ShieldCheck size={16} />}
-          <div>
-            <strong>{watch.forecast_risk ? `Risk to migrating birds: ${watch.risk_level}` : 'All readings are within safe limits'}</strong>
-            {watch.forecast_risk && <div style={{ marginTop: 4 }}>{watch.summary}</div>}
+        active ? (
+          <div className={`note ${watch.forecast_risk ? 'note--danger' : 'note--ok'}`}>
+            {watch.forecast_risk ? <AlertTriangle size={16} /> : <ShieldCheck size={16} />}
+            <div>
+              <strong>{watch.forecast_risk ? `Dangerous for migrating birds (${watch.risk_level})` : 'Safe for migrating birds right now'}</strong>
+              <div style={{ marginTop: 4 }}>{watch.summary}</div>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="note">
+            <Info size={16} />
+            <div>{watch.summary}</div>
+          </div>
+        )
       )}
-
 
       <details className="proof__more">
         <summary>Where the limits come from <ChevronDown size={14} /></summary>

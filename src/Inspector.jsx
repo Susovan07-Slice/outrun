@@ -3,6 +3,7 @@ import { PanelRightClose, FileText, CloudSun, ShieldCheck, ShieldAlert, AlertCir
 import { speciesColorOf, speciesMetaOf } from './config';
 import { RaceTab, TwinTab, NetworkTab, WatchTab } from './CorridorPanel';
 import { loadConcern, THREATENED } from './analytics/concern';
+import { loadSeasonCalendar, rangeName } from './analytics/seasonCalendar';
 
 export const INSPECTOR_TABS = [
   ['overview', 'Overview'],
@@ -66,28 +67,38 @@ const ConcernCard = ({ species }) => {
   );
 };
 
-async function loadWeather(species, occurrences) {
-  let lat = 19.72;
-  let lon = 85.32;
-  let place = 'Chilika Lake flyway hub (default)';
-  if (occurrences?.length) {
-    // Where the species is right now: this month's GBIF sightings (else all of them),
-    // represented by the real sighting closest to their centre.
-    const month = new Date().getUTCMonth() + 1;
-    const thisMonth = occurrences.filter((o) => o.month === month);
-    const pool = thisMonth.length ? thisMonth : occurrences;
-    const cLat = pool.reduce((a, o) => a + o.lat, 0) / pool.length;
-    const cLon = pool.reduce((a, o) => a + o.lon, 0) / pool.length;
-    const pick = pool.reduce((best, o) =>
+// Weather for one range of the species: the centre of its breeding or wintering range
+// (falls back to the centre of its GBIF sightings when the range is unknown).
+async function loadWeather(species, occurrences, season, calendar) {
+  const range = calendar?.ranges?.[season];
+  let lat;
+  let lon;
+  let place;
+  if (range) {
+    lat = range.lat;
+    lon = range.lon;
+    place = `Centre of its ${rangeName(season)}`;
+  } else if (occurrences?.length) {
+    const cLat = occurrences.reduce((a, o) => a + o.lat, 0) / occurrences.length;
+    const cLon = occurrences.reduce((a, o) => a + o.lon, 0) / occurrences.length;
+    const pick = occurrences.reduce((best, o) =>
       (o.lat - cLat) ** 2 + (o.lon - cLon) ** 2 < (best.lat - cLat) ** 2 + (best.lon - cLon) ** 2 ? o : best
     );
     lat = pick.lat;
     lon = pick.lon;
-    place = `${thisMonth.length ? `Centre of this month's ${thisMonth.length} sightings` : 'Centre of all sightings'}${pick.country_code ? ` · ${pick.country_code}` : ''}`;
+    place = `Centre of its sightings${pick.country_code ? ` · ${pick.country_code}` : ''}`;
+  } else {
+    return { error: 'Insufficient evidence: no known range or sightings for this species' };
   }
+  const at = `${place} (${lat.toFixed(1)}°, ${lon.toFixed(1)}°)`;
+  const one = (w) => (Array.isArray(w) ? w[0] : w);
+
   try {
-    const res = await fetch(`/api/weather?species=${species.species_id}&latitude=${lat}&longitude=${lon}`);
-    if (res.ok) return { ...(await res.json()), place, lat, lon };
+    const res = await fetch(`/api/weather?latitude=${lat.toFixed(4)}&longitude=${lon.toFixed(4)}`);
+    if (res.ok) {
+      const json = await res.json();
+      if (json.success !== false && json.weather) return { ...json, weather: one(json.weather), place: at, lat, lon };
+    }
   } catch { /* fall through */ }
   try {
     const res = await fetch(
@@ -95,30 +106,7 @@ async function loadWeather(species, occurrences) {
     );
     if (res.ok) {
       const d = await res.json();
-      return { source: 'Open-Meteo (live)', weather: d.current, retrieved_at: new Date().toISOString(), place, lat, lon };
-    }
-  } catch { /* fall through */ }
-  try {
-    const res = await fetch('./data/generated/weather_snapshots.json');
-    if (res.ok) {
-      const raw = await res.json();
-      const snaps = Array.isArray(raw) ? raw : Array.isArray(raw.snapshots) ? raw.snapshots : Object.values(raw.snapshots || {});
-      const f = snaps.find((s) => s.species_id === species.species_id);
-      if (f) {
-        return {
-          source: f.source || 'Open-Meteo snapshot (cached)',
-          weather: f.weather || {
-            temperature_2m: f.temperature_2m,
-            wind_speed_10m: f.wind_speed_10m,
-            relative_humidity_2m: f.relative_humidity_2m,
-            precipitation: f.precipitation,
-          },
-          retrieved_at: f.retrieved_at,
-          place: f.location_name || 'Cached snapshot',
-          lat: f.latitude,
-          lon: f.longitude,
-        };
-      }
+      return { source: 'Open-Meteo (live)', weather: d.current, retrieved_at: new Date().toISOString(), place: at, lat, lon };
     }
   } catch { /* fall through */ }
   return { error: 'Current conditions unavailable' };
@@ -230,28 +218,38 @@ const Inspector = ({
 }) => {
   const [weatherData, setWeatherData] = useState(null);
   const [loadingWeather, setLoadingWeather] = useState(false);
+  const [calendar, setCalendar] = useState(null);
 
-  useEffect(() => setWeatherData(null), [species?.species_id]);
+  useEffect(() => setWeatherData(null), [species?.species_id, activeSeason]);
+
+  // Where the species is month by month (tracks, else the documented cycle).
+  useEffect(() => {
+    let live = true;
+    setCalendar(null);
+    loadSeasonCalendar(species?.species_id, { tracksSimulated }).then((c) => live && setCalendar(c));
+    return () => { live = false; };
+  }, [species?.species_id, tracksSimulated]);
 
   // The Watch tab is about current conditions, so load them as soon as it opens.
   useEffect(() => {
-    if (activeTab !== 'watch' || !species || weatherData || loadingWeather || !occurrences.length) return;
+    if (activeTab !== 'watch' || !species || !calendar || weatherData) return;
     let live = true;
     setLoadingWeather(true);
-    loadWeather(species, occurrences).then((w) => {
-      if (live) setWeatherData(w);
+    loadWeather(species, occurrences, activeSeason, calendar).then((w) => {
+      if (!live) return;
+      setWeatherData(w);
       setLoadingWeather(false);
     });
     return () => { live = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeTab, species?.species_id, weatherData, occurrences.length]);
+  }, [activeTab, species?.species_id, activeSeason, calendar, weatherData]);
 
   if (!species) return null;
   const { hex } = speciesColorOf(species);
 
   const fetchWeather = async () => {
     setLoadingWeather(true);
-    setWeatherData(await loadWeather(species, occurrences));
+    setWeatherData(await loadWeather(species, occurrences, activeSeason, calendar));
     setLoadingWeather(false);
   };
 
@@ -278,7 +276,7 @@ const Inspector = ({
       />
     );
   } else if (activeTab === 'watch') {
-    body = <WatchTab species={species} occurrences={occurrences} activeSeason={activeSeason} onChangeSeason={onChangeSeason} weatherData={weatherData} onFetchWeather={fetchWeather} loadingWeather={loadingWeather} />;
+    body = <WatchTab species={species} calendar={calendar} activeSeason={activeSeason} onChangeSeason={onChangeSeason} weatherData={weatherData} onFetchWeather={fetchWeather} loadingWeather={loadingWeather} />;
   } else if (activeTab === 'proof') {
     body = <ConcernCard species={species} />;
   }

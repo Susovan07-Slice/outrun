@@ -11,6 +11,13 @@
  * 3. Never invent or synthesize atmospheric measurements.
  */
 
+const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const PLAIN_HAZARD: Record<string, string> = {
+  wind_speed_10m: 'Strong wind',
+  precipitation: 'Heavy rain',
+  temperature_2m: 'Extreme temperature',
+};
+
 export interface WeatherData {
   temperature_2m?: number;
   relative_humidity_2m?: number;
@@ -22,7 +29,9 @@ export interface SeasonalWindow {
   activeMonths: number[]; // 1-indexed months (1 = Jan, 12 = Dec)
   currentMonth: number;
   isCurrentMonthActive: boolean;
-  source: 'occurrences' | 'documented_season';
+  source: 'occurrences' | 'documented_season' | 'tracks';
+  /** Where the species is in the current month, when known from a season calendar. */
+  currentPlace?: 'breeding' | 'non_breeding' | 'migrating';
 }
 
 export interface HazardItem {
@@ -104,6 +113,30 @@ export function deriveSeasonalWindow(
 }
 
 /**
+ * Seasonal window for one range (breeding or wintering) from a month-by-month calendar of
+ * where the species is. A month is active for the range when the birds are there or on
+ * migration (arriving or leaving).
+ */
+export function deriveRangeWindow(
+  months: Record<number, { place: 'breeding' | 'non_breeding' | 'migrating'; source: 'tracks' | 'documented' }>,
+  season: 'breeding' | 'non_breeding',
+  overrideMonth?: number
+): SeasonalWindow {
+  const currentMonth = overrideMonth ?? (new Date().getUTCMonth() + 1);
+  const activeMonths = Object.keys(months)
+    .map(Number)
+    .filter((m) => months[m].place === season || months[m].place === 'migrating')
+    .sort((a, b) => a - b);
+  return {
+    activeMonths,
+    currentMonth,
+    isCurrentMonthActive: activeMonths.includes(currentMonth),
+    source: months[currentMonth]?.source === 'tracks' ? 'tracks' : 'documented_season',
+    currentPlace: months[currentMonth]?.place,
+  };
+}
+
+/**
  * Evaluates synoptic weather against ornithological risk thresholds.
  * Strictly gates evaluation by species seasonal window.
  */
@@ -147,7 +180,7 @@ export function evaluateForecastRisk(
       forecast_risk: false,
       risk_level: 'none',
       status: 'dormant_outside_window',
-      summary: `Species is outside active migratory/breeding seasonal window in current month (Month ${seasonalWindow.currentMonth}). Atmospheric hazards unflagged per seasonal gating protocol.`,
+      summary: `Not usually here in ${MONTH_NAMES[seasonalWindow.currentMonth - 1]}, so no weather risk is flagged for this place.`,
       triggered_hazards: [],
       all_thresholds: standardThresholds,
       retrieved_at: retrievedAt,
@@ -163,7 +196,7 @@ export function evaluateForecastRisk(
       forecast_risk: false,
       risk_level: 'none',
       status: 'favorable',
-      summary: 'Insufficient weather telemetry to evaluate risk thresholds.',
+      summary: 'Insufficient evidence: no current weather reading to check.',
       triggered_hazards: [],
       all_thresholds: standardThresholds,
       retrieved_at: retrievedAt,
@@ -239,8 +272,8 @@ export function evaluateForecastRisk(
     risk_level: riskLevel,
     status: hasRisk ? 'forecast_risk' : 'favorable',
     summary: hasRisk
-      ? `Forecast risk flagged: ${triggered.map((t) => t.hazard).join('; ')} breached during active seasonal window (Month ${seasonalWindow.currentMonth}).`
-      : `Active seasonal window (Month ${seasonalWindow.currentMonth}): all atmospheric parameters within safe transit margins.`,
+      ? triggered.map((t) => `${PLAIN_HAZARD[t.variable] || t.hazard}: ${t.measured_value} ${t.unit} (limit ${t.threshold_value} ${t.unit}).`).join(' ')
+      : 'All readings are within safe limits for migrating birds.',
     triggered_hazards: triggered,
     all_thresholds: standardThresholds,
     retrieved_at: retrievedAt,

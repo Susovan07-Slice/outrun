@@ -269,7 +269,18 @@ export default {
       // Collect coordinates to batch: latest-season positions of tracked individuals or cluster centers
       let coords: Array<{ lat: number; lon: number }> = [];
 
-      if (speciesParam) {
+      // Explicit coordinates (the app sends the range it is showing) win over species targets.
+      if (latParam && lonParam) {
+        const lats = latParam.split(',').map((v) => parseFloat(v.trim()));
+        const lons = lonParam.split(',').map((v) => parseFloat(v.trim()));
+        for (let i = 0; i < Math.min(lats.length, lons.length); i++) {
+          if (!isNaN(lats[i]) && !isNaN(lons[i])) {
+            coords.push({ lat: lats[i], lon: lons[i] });
+          }
+        }
+      }
+
+      if (coords.length === 0 && speciesParam) {
         // 1. Try precomputed verified targets (latest-season tracked individuals or cluster centers)
         const targets = (weatherTargetsData as Record<string, any>)[speciesParam]?.targets;
         if (Array.isArray(targets) && targets.length > 0) {
@@ -292,14 +303,6 @@ export default {
             }
           } catch (e) {
             // Empty if DB query fails
-          }
-        }
-      } else if (latParam && lonParam) {
-        const lats = latParam.split(',').map((v) => parseFloat(v.trim()));
-        const lons = lonParam.split(',').map((v) => parseFloat(v.trim()));
-        for (let i = 0; i < Math.min(lats.length, lons.length); i++) {
-          if (!isNaN(lats[i]) && !isNaN(lons[i])) {
-            coords.push({ lat: lats[i], lon: lons[i] });
           }
         }
       }
@@ -388,8 +391,8 @@ export default {
           }
         }
 
-        // C. Try in-memory ephemeral cache
-        if (lastSuccessfulLiveWeather) {
+        // C. Try in-memory ephemeral cache (never for explicit coordinates: it holds another place)
+        if (lastSuccessfulLiveWeather && !(latParam && lonParam)) {
           const watchEval = await getWatchAssessment(lastSuccessfulLiveWeather.weather);
           return new Response(
             JSON.stringify({
@@ -443,8 +446,11 @@ export default {
         }
 
         const data: any = await res.json();
+        // One location -> one reading object; several -> one per location, in request order.
         const weatherResult = Array.isArray(data)
-          ? data.map((d: any) => d.current)
+          ? data.length === 1
+            ? data[0].current
+            : data.map((d: any) => d.current)
           : data.current;
 
         const retrievedAt = new Date().toISOString();
