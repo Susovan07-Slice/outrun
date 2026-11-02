@@ -755,7 +755,37 @@ em { font-style: italic; }
 }
 .o-species[aria-selected='true'] { background: linear-gradient(90deg, color-mix(in srgb, var(--sp) 14%, var(--bg-2)) 0%, var(--bg-2) 100%); }
 .dock__inner { background: var(--grad-panel); }
-.content-page { background: radial-gradient(1200px 500px at 15% -10%, #f3ecdc 0%, transparent 60%), var(--bg-0); }
+.content-page { background: transparent; z-index: 1; }
+
+/* ---------- Bird watermark behind the Species and Sources pages ---------- */
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(1200px 520px at 12% -12%, #f3ecdc 0%, transparent 60%),
+    radial-gradient(900px 700px at 88% 30%, color-mix(in srgb, var(--teal) 7%, transparent) 0%, transparent 70%),
+    var(--bg-0);
+}
+.backdrop__svg { width: 100%; height: 100%; display: block; }
+.backdrop__grid { stroke: var(--ink); stroke-width: 1; opacity: 0.07; }
+.backdrop__routes { stroke: var(--teal); stroke-width: 2; stroke-dasharray: 2 10; stroke-linecap: round; opacity: 0.22; animation: backdrop-dash 26s linear infinite; }
+.backdrop__bird { fill: var(--ink); opacity: 0.06; }
+.backdrop__flock { fill: var(--ink); opacity: 0.15; animation: backdrop-drift 48s ease-in-out infinite alternate; }
+.backdrop__flock--far { opacity: 0.07; animation-duration: 64s; animation-direction: alternate-reverse; }
+.backdrop--globe .backdrop__grid { opacity: 0.1; }
+.backdrop--globe .backdrop__bird { opacity: 0.05; }
+@keyframes backdrop-dash { to { stroke-dashoffset: -240; } }
+@keyframes backdrop-drift { from { transform: translate(0, 0); } to { transform: translate(90px, -26px); } }
+@media (prefers-reduced-motion: reduce) {
+  .backdrop__routes, .backdrop__flock { animation: none; }
+}
+@media (max-width: 900px) {
+  /* On a phone the composition centres on the big bird and globe. */
+  .backdrop__svg { transform: translateX(-28%); width: 160%; }
+}
 
 /* ---------- Nav bar: floating inset bar ----------
    Aligned to the same 16px gutter as the panels, so the map runs edge to edge underneath

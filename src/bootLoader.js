@@ -1,0 +1,77 @@
+/**
+ * Drives the loading screen defined in index.html (#boot), which is visible from the first
+ * paint, before this bundle has even downloaded. The app reports real readiness steps; the
+ * screen fills its progress ring as each one completes and fades out once every step the
+ * current page needs is done.
+ *
+ * Steps: fonts (document.fonts.ready), registry (species list), tracks (first species'
+ * flight paths), map (basemap style loaded and first frame drawn). Pages without a map skip
+ * 'map'. A safety timeout always reveals the app, so a slow tile server can never trap it.
+ */
+
+const LABELS = {
+  fonts: 'Loading typefaces',
+  registry: 'Loading the species registry',
+  tracks: 'Loading flight paths',
+  map: 'Drawing the map',
+};
+const ORDER = ['fonts', 'registry', 'tracks', 'map'];
+const MIN_VISIBLE_MS = 700; // avoid a flash on fast loads
+const SAFETY_MS = 15000;
+
+const done = new Set();
+const skipped = new Set();
+let finished = false;
+
+const el = (id) => document.getElementById(id);
+
+function render() {
+  const needed = ORDER.filter((s) => !skipped.has(s));
+  const complete = needed.filter((s) => done.has(s)).length;
+  // The bundle itself counts as the first slice, so the ring moves as soon as JS runs.
+  const pct = Math.round(((complete + 1) / (needed.length + 1)) * 100);
+  const next = needed.find((s) => !done.has(s));
+
+  const ring = el('boot-ring');
+  if (ring) ring.style.strokeDashoffset = String(100 - pct);
+  const pctEl = el('boot-pct');
+  if (pctEl) pctEl.textContent = `${pct}%`;
+  const step = el('boot-step');
+  if (step) step.textContent = next ? `${LABELS[next]}…` : 'Ready';
+  const boot = el('boot');
+  if (boot) boot.setAttribute('aria-valuenow', String(pct));
+
+  if (!next) finish();
+}
+
+function finish() {
+  if (finished) return;
+  finished = true;
+  const boot = el('boot');
+  if (!boot) return;
+  const wait = Math.max(0, MIN_VISIBLE_MS - performance.now());
+  setTimeout(() => {
+    boot.classList.add('is-done');
+    document.documentElement.classList.remove('is-booting');
+    boot.addEventListener('transitionend', () => boot.remove(), { once: true });
+    setTimeout(() => boot.remove(), 900);
+  }, wait);
+}
+
+export function markReady(step) {
+  if (finished || done.has(step)) return;
+  done.add(step);
+  render();
+}
+
+export function skipStep(step) {
+  if (finished || skipped.has(step)) return;
+  skipped.add(step);
+  render();
+}
+
+if (typeof document !== 'undefined') {
+  render();
+  (document.fonts?.ready || Promise.resolve()).then(() => markReady('fonts'));
+  setTimeout(finish, SAFETY_MS);
+}

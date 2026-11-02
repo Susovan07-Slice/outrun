@@ -6,6 +6,8 @@ import TimeControl from './TimeControl';
 import SpeciesPage from './SpeciesPage';
 import SourcesPage from './SourcesPage';
 import BriefModal from './BriefModal';
+import BirdBackdrop from './BirdBackdrop';
+import { markReady, skipStep } from './bootLoader';
 import { AUTO_PLAY, canonicalSpeciesList } from './config';
 import { getTimeRange } from './times';
 import { usePageVisibility } from './usePageVisibility';
@@ -221,7 +223,7 @@ const App = () => {
       setSelectedSpecies(canonicalSpeciesList[0]);
     }
 
-    loadSpeciesRegistry();
+    loadSpeciesRegistry().finally(() => markReady('registry'));
   }, []);
 
   // 2. Fetch tracks on demand for selected species
@@ -265,7 +267,7 @@ const App = () => {
       }
     }
 
-    loadTracks();
+    loadTracks().finally(() => markReady('tracks'));
 
     return () => {
       isMounted = false;
@@ -527,6 +529,9 @@ const App = () => {
 
   // Keep camera fits clear of the floating panels so the route lands in the open part of the map.
   const isNarrow = viewport.w <= 900;
+  useEffect(() => {
+    if (route !== '/') skipStep('map');
+  }, [route]);
   // On a phone the species list is a full-screen picker, so it starts (and returns) closed.
   useEffect(() => {
     if (isNarrow) setLeftOpen(false);
@@ -596,6 +601,7 @@ const App = () => {
                 layersOn={layersOn}
                 padding={mapPadding}
                 tracksSimulated={tracksSimulated}
+                onReady={() => markReady('map')}
               />
 
               <div className="float layer-bar" role="group" aria-label="Map layers">
@@ -671,6 +677,8 @@ const App = () => {
             />
           </div>
         )}
+
+        {route !== '/' && <BirdBackdrop variant={route === '/sources' ? 'globe' : 'flock'} />}
 
         {route === '/species' && (
           <SpeciesPage speciesList={speciesList} selectedSpecies={selectedSpecies} onOpenInAtlas={openInAtlas} />

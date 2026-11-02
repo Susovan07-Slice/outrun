@@ -267,6 +267,7 @@ const MapView = ({
   layersOn = { paths: true, trail: true, sightings: false, grid: true },
   padding = { top: 80, bottom: 110, left: 40, right: 40 },
   tracksSimulated = false,
+  onReady,
 }) => {
   const [viewState, setViewState] = useState(GLOBAL_VIEW_STATE);
   const [hover, setHover] = useState(null);
@@ -620,6 +621,11 @@ const MapView = ({
       >
         <Map
           mapStyle={basemapStyle}
+          onLoad={(e) => {
+            // Ready once the style is loaded and the first full frame (tiles included) is drawn.
+            if (onReady) e.target.once('idle', onReady);
+          }}
+          onError={() => onReady?.()}
           renderWorldCopies
           attributionControl={{ compact: true }}
         />
