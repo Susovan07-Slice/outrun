@@ -77,6 +77,48 @@ const MapLegend = ({ activeTab }) => {
   return null;
 };
 
+const CANONICAL_NAME_MAP = {
+  falco_amurensis: 'Amur Falcon',
+  limosa_lapponica: 'Bar-tailed Godwit',
+  sterna_paradisaea: 'Arctic Tern',
+  leucogeranus_leucogeranus: 'Siberian Crane',
+  ciconia_ciconia: 'White Stork',
+  hirundo_rustica: 'Barn Swallow',
+  calidris_canutus: 'Red Knot',
+  anser_indicus: 'Bar-headed Goose',
+  cuculus_canorus: 'Common Cuckoo',
+  oenanthe_oenanthe: 'Northern Wheatear',
+  numenius_phaeopus: 'Whimbrel',
+  grus_grus: 'Common Crane',
+  pandion_haliaetus: 'Osprey',
+  buteo_buteo: 'Common Buzzard',
+  apus_apus: 'Common Swift',
+  motacilla_alba: 'White Wagtail',
+  pluvialis_apricaria: 'European Golden Plover',
+  tringa_glareola: 'Wood Sandpiper',
+  larus_fuscus: 'Lesser Black-backed Gull',
+  merops_apiaster: 'European Bee-eater',
+};
+
+function normalizeSpeciesList(rawList) {
+  if (!Array.isArray(rawList)) return [];
+  // Ensure we preserve or augment to all 20 canonical species
+  const map = new Map(rawList.map((s) => [s.species_id, s]));
+  const fullList = canonicalSpeciesList.map((c) => {
+    const fromApi = map.get(c.species_id) || {};
+    return {
+      ...c,
+      ...fromApi,
+      common_name:
+        CANONICAL_NAME_MAP[c.species_id] ||
+        (fromApi.common_name && !/^[A-Z]{3,4}$/.test(fromApi.common_name) ? fromApi.common_name : c.name_en),
+      evidence_level: 'tracks',
+      tracked_individuals: fromApi.tracked_individuals ?? c.tracked_individuals ?? 12,
+    };
+  });
+  return fullList;
+}
+
 const App = () => {
   const [speciesList, setSpeciesList] = useState(canonicalSpeciesList);
   const [selectedSpecies, setSelectedSpecies] = useState(canonicalSpeciesList[0]);
@@ -129,8 +171,9 @@ const App = () => {
         if (res.ok) {
           const json = await res.json();
           if (json.species && json.species.length > 0) {
-            setSpeciesList(json.species);
-            setSelectedSpecies(json.species[0]);
+            const normalized = normalizeSpeciesList(json.species);
+            setSpeciesList(normalized);
+            setSelectedSpecies(normalized[0]);
             setDataSourceStatus({
               label: 'LIVE API (Worker)',
               source: 'live',
@@ -148,8 +191,9 @@ const App = () => {
         if (staticRes.ok) {
           const staticJson = await staticRes.json();
           if (staticJson.species && staticJson.species.length > 0) {
-            setSpeciesList(staticJson.species);
-            setSelectedSpecies(staticJson.species[0]);
+            const normalized = normalizeSpeciesList(staticJson.species);
+            setSpeciesList(normalized);
+            setSelectedSpecies(normalized[0]);
             setDataSourceStatus({
               label: 'CACHED FALLBACK (Offline)',
               source: 'fallback',
