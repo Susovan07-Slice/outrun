@@ -28,6 +28,7 @@ const SOURCE_TEXT = {
 };
 const MIN_VISIBLE_MS = 700; // avoid a flash on fast loads
 const SAFETY_MS = 15000;
+const ENTER_MS = 2000; // longest entrance animation, delays included
 
 const done = new Set();
 const skipped = new Set();
@@ -62,7 +63,11 @@ function finish() {
   const wait = Math.max(0, MIN_VISIBLE_MS - performance.now());
   setTimeout(() => {
     boot.classList.add('is-done');
-    document.documentElement.classList.remove('is-booting');
+    const root = document.documentElement;
+    root.classList.remove('is-booting');
+    // Panels play their entrance as the loading screen fades (see .app-enter in index.css).
+    root.classList.add('app-enter');
+    setTimeout(() => root.classList.remove('app-enter'), ENTER_MS);
     boot.addEventListener('transitionend', () => boot.remove(), { once: true });
     setTimeout(() => boot.remove(), 900);
   }, wait);
