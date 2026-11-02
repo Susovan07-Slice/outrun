@@ -639,8 +639,12 @@ export default {
         );
       }
 
+      // Keyed by the bundled data version so a redeploy never serves an older cached twin.
+      const corridorCacheKey = new Request(
+        `${url.origin}${pathname}?species=${speciesParam}&season=${seasonParam}&v=${(corridorAnalysisData as any).generated_at || ''}`
+      );
       if (cache) {
-        const cachedResponse = await cache.match(request);
+        const cachedResponse = await cache.match(corridorCacheKey);
         if (cachedResponse) {
           return cachedResponse;
         }
@@ -666,7 +670,12 @@ export default {
           // DB error, fallback
         }
 
-        // 2. Fallback to bundled dataset
+        // 2. Fallback to bundled dataset, also used when the D1 snapshot is older than it
+        const bundled = (corridorAnalysisData as any).species?.[speciesParam];
+        const bundledAt = (corridorAnalysisData as any).generated_at;
+        if (analysis && bundled && bundledAt && !(Date.parse(retrievedAt) > Date.parse(bundledAt))) {
+          analysis = null;
+        }
         if (!analysis) {
           analysis = (corridorAnalysisData as any).species?.[speciesParam];
           retrievedAt = (corridorAnalysisData as any).generated_at || retrievedAt;
@@ -715,7 +724,7 @@ export default {
         });
 
         if (cache) {
-          ctx.waitUntil(cache.put(request, response.clone()));
+          ctx.waitUntil(cache.put(corridorCacheKey, response.clone()));
         }
         return response;
       } catch (err: any) {

@@ -353,7 +353,7 @@ const App = () => {
       // 1. Try Worker endpoint
       try {
         const res = await fetch(
-          `/api/corridor?species=${selectedSpecies.species_id}&season=${activeSeason}`
+          `/api/corridor?species=${selectedSpecies.species_id}&season=${activeSeason}&v=2026-10-31`
         );
         if (res.ok) {
           const json = await res.json();
