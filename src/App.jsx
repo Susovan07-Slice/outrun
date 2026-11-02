@@ -613,12 +613,14 @@ const App = () => {
                     Species
                   </button>
                 )}
-                {LAYER_CHIPS.map(([key, label]) => (
-                  <button key={key} className="o-chip" data-ripple aria-pressed={layersOn[key]} onClick={() => toggleLayer(key)}>
-                    <span className="o-chip__switch" />
-                    {label}
-                  </button>
-                ))}
+                <div className="layer-ribbon" role="group" aria-label="Map layers">
+                  {LAYER_CHIPS.map(([key, label]) => (
+                    <button key={key} className="o-chip" data-ripple aria-pressed={layersOn[key]} onClick={() => toggleLayer(key)}>
+                      <span className="o-chip__switch" />
+                      {label}
+                    </button>
+                  ))}
+                </div>
                 {!rightOpen && (
                   <span className="layer-bar__end">
                     <button className="o-btn" data-ripple onClick={() => setRightOpen(true)} aria-label="Show species details">
