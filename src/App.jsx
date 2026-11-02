@@ -116,6 +116,13 @@ function normalizeSpeciesList(rawList) {
       tracked_individuals: fromApi.tracked_individuals ?? c.tracked_individuals ?? 12,
     };
   });
+  // Sort so maximum number of tracked species are at the bottom (ascending)
+  fullList.sort((a, b) => {
+    const countA = a.tracked_individuals ?? 0;
+    const countB = b.tracked_individuals ?? 0;
+    if (countA !== countB) return countA - countB;
+    return (a.common_name || a.scientific_name || '').localeCompare(b.common_name || b.scientific_name || '');
+  });
   return fullList;
 }
 
@@ -139,6 +146,7 @@ const App = () => {
   const viewport = useViewport();
   const [leftOpen, setLeftOpen] = useState(() => window.innerWidth > 900);
   const [rightOpen, setRightOpen] = useState(true);
+  const [dockOpen, setDockOpen] = useState(true);
   const [layersOn, setLayersOn] = useState({ paths: true, trail: true, sightings: false, grid: true });
 
   // Phase 5: The Brief & Data Freshness State
@@ -533,15 +541,9 @@ const App = () => {
       <header className="topbar">
         <a className="brand" href="#/" aria-label="Outrun atlas">
           <span className="brand__mark" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M4 15l8-7 8 7" />
-              <path d="M7 19l5-4.5 5 4.5" opacity="0.6" />
-            </svg>
+            <img src="./imgs/outrun-logo-mark.png" alt="Outrun bird logo" className="brand__img" />
           </span>
-          <span>
-            <span className="brand__word">OUTRUN</span>
-            <span className="brand__sub" style={{ display: 'block' }}>Migratory flyway observatory</span>
-          </span>
+          <img src="./imgs/outrun-wordmark.png" alt="OUTRUN" className="brand__wordmark" />
         </a>
 
         <nav className="topnav" aria-label="Pages">
@@ -567,7 +569,7 @@ const App = () => {
 
       <main className="page">
         {route === '/' && (
-          <div className={`atlas ${leftOpen ? '' : 'left-collapsed'} ${rightOpen ? '' : 'right-collapsed'}`}>
+          <div className={`atlas ${leftOpen ? '' : 'left-collapsed'} ${rightOpen ? '' : 'right-collapsed'} ${dockOpen ? '' : 'dock-collapsed'}`}>
             <div className="map-frame">
               <MapView
                 time={time}
@@ -649,6 +651,8 @@ const App = () => {
               onSpeedChange={setPlaybackSpeed}
               hasTracks={hasActiveTracks}
               time={time}
+              isOpen={dockOpen}
+              onToggleOpen={() => setDockOpen(!dockOpen)}
             />
           </div>
         )}

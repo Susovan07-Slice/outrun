@@ -600,7 +600,7 @@ const MapView = ({
   ]);
 
   const getCursor = useCallback(
-    ({ isDragging, isHovering }) => (isDragging ? 'grabbing' : isHovering ? 'pointer' : 'grab'),
+    ({ isDragging, isHovering }) => (isDragging ? 'grabbing' : isHovering ? 'pointer' : 'default'),
     []
   );
 
