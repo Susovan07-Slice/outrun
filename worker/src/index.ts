@@ -780,18 +780,31 @@ export default {
 
         const twinData = analysis.twin?.[normalizedSeason];
         const cells = twinData?.cells || [];
+        const criticalLinks = analysis.break?.[`${normalizedSeason}_critical_links`] || [];
 
-        // Build corridor nodes
-        const nodes: CorridorNode[] = cells
-          .filter((c: any) => c.is_suitable_future)
-          .map((c: any) => ({
-            id: `cell_${c.lat}_${c.lon}`,
-            lat: c.lat,
-            lon: c.lon,
-            area_km2: calculateCellAreaKm2(c.lat, 5.0),
-            suitability: c.future_ensemble_suitability,
-            uncertainty: c.uncertainty_spread,
-          }));
+        // Build corridor nodes matching frontend schema
+        const nodes: CorridorNode[] = cells.map((c: any) => ({
+          id: c.node_id || c.id || `cell_${c.lat}_${c.lon}`,
+          lat: c.lat,
+          lon: c.lon,
+          area_km2: c.area_km2 || calculateCellAreaKm2(c.lat, 5.0) || 11000,
+          suitability: c.future_suitability ?? c.baseline_suitability ?? 0.8,
+          uncertainty: c.uncertainty ?? c.uncertainty_spread ?? 0.1,
+        }));
+
+        // Include critical link stopovers so they can be identified and protected
+        for (const cl of ((criticalLinks || []) as any[])) {
+          if (!nodes.some((n) => n.id === cl.node_id)) {
+            nodes.push({
+              id: cl.node_id,
+              lat: cl.lat,
+              lon: cl.lon,
+              area_km2: cl.area_km2 || 14000,
+              suitability: cl.suitability || 0.89,
+              uncertainty: 0.1,
+            });
+          }
+        }
 
         const targetNode = protected_node_id || (nodes.length > 0 ? nodes[0].id : 'cell_0_0');
         const simulation = simulateNodeProtection(
