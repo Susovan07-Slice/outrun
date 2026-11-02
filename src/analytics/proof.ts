@@ -4,16 +4,17 @@
  * Outrun Phase 5: The Proof — Rubric-Based Scientific Confidence Engine
  * 
  * Epistemic Rules:
- * 1. Evaluates 4 transparent methodological dimensions (0 to 10 points):
- *    - Dimension 1: Empirical Occurrence & Tracking Quality (0–3 pts)
- *    - Dimension 2: Temporal & Seasonal Month Coverage (0–3 pts)
- *    - Dimension 3: CMIP6 Multi-Model Climate Spread Agreement (0–2 pts)
- *    - Dimension 4: Taxonomic & Morphological Trait Completeness (0–2 pts)
+ * 1. Evaluates 5 transparent methodological dimensions (0 to 10 points):
+ *    - Movement data: real GPS telemetry vs sightings only (0–3 pts; simulated tracks earn nothing)
+ *    - Year-round coverage: months with sightings (0–2 pts)
+ *    - Climate models agree: CMIP6 multi-model spread (0–2 pts)
+ *    - Climate map detail: range cells behind the thermal envelope (0–1 pt)
+ *    - Wing & migration traits: AVONET join completeness (0–2 pts)
  * 2. Rubric thresholds:
  *    - Score >= 8: Grade A (High Confidence)
- *    - Score 5–7: Grade B (Moderate Confidence)
- *    - Score 3–4: Grade C (Low Confidence)
- *    - Score < 3: "Insufficient evidence"
+ *    - Score 6–7: Grade B (Moderate Confidence)
+ *    - Score 4–5: Grade C (Low Confidence)
+ *    - Score < 4: "Insufficient evidence"
  * 3. Never synthesize missing provenance or claim unverified certainty.
  */
 
@@ -24,6 +25,8 @@ export interface SpeciesRecordProofInput {
   family?: string;
   evidence_level?: 'tracks' | 'occurrences_only' | 'insufficient';
   tracked_individuals?: number;
+  /** True when the tracks shown are simulated corridor twins, not telemetry. */
+  tracks_simulated?: boolean;
   occurrence_count?: number;
   occurrences?: Array<{ month: number }>;
   traits?: {
@@ -38,6 +41,7 @@ export interface SpeciesRecordProofInput {
       summary?: {
         mean_uncertainty?: number;
       };
+      envelope?: { sample_size?: number } | null;
       disclaimer?: string;
     };
     critical_links?: any[];
@@ -81,21 +85,29 @@ export function evaluateProofRubric(input: SpeciesRecordProofInput): ProofAssess
   let dim1Status: RubricDimension['status'] = 'failed';
   let dim1Details = '';
 
-  const hasTracks = input.evidence_level === 'tracks' && (input.tracked_individuals || 0) > 0;
+  // Real telemetry from many birds is the strongest movement evidence; simulated corridor
+  // tracks are not evidence at all, so those species rest on GBIF sightings alone.
+  const realTracks = input.evidence_level === 'tracks' && (input.tracked_individuals || 0) > 0 && !input.tracks_simulated;
+  const birds = input.tracked_individuals || 0;
   const occCount = input.occurrence_count || (input.occurrences ? input.occurrences.length : 0);
+  const simNote = input.tracks_simulated ? ' The routes on the map are simulated, so they earn no points.' : '';
 
-  if (hasTracks) {
+  if (realTracks && birds >= 20) {
     dim1Score = 3;
     dim1Status = 'passed';
-    dim1Details = `Verified onboard GPS telemetry tracking (${input.tracked_individuals} individuals). Monotonic deduplicated fixes.`;
-  } else if (occCount >= 500) {
+    dim1Details = `Real GPS tags on ${birds} birds show how this species actually moves.`;
+  } else if (realTracks) {
     dim1Score = 2;
-    dim1Status = 'passed';
-    dim1Details = `Stratified seasonal human occurrence sampling (count: ${occCount} records, coordinate uncertainty < 10 km).`;
+    dim1Status = 'partial';
+    dim1Details = `Real GPS tags, but on only ${birds} birds: too few to speak for the whole population.`;
+  } else if (occCount >= 500) {
+    dim1Score = 1;
+    dim1Status = 'partial';
+    dim1Details = `No GPS tags. ${occCount} sightings show where it lives, not how it moves.${simNote}`;
   } else if (occCount > 0) {
     dim1Score = 1;
     dim1Status = 'partial';
-    dim1Details = `Restricted occurrence sample (count: ${occCount} records < 500 threshold).`;
+    dim1Details = `No GPS tags, and only ${occCount} sightings.${simNote}`;
   } else {
     dim1Score = 0;
     dim1Status = 'insufficient';
@@ -103,15 +115,15 @@ export function evaluateProofRubric(input: SpeciesRecordProofInput): ProofAssess
   }
 
   dimensions.push({
-    dimension: 'Empirical Evidence Quality',
+    dimension: 'Movement data',
     weight: 3,
     score: dim1Score,
-    criterion: 'Direct GPS telemetry tracking (3 pts) vs robust occurrences >= 500 (2 pts) vs limited sample (1 pt)',
+    criterion: '3 = GPS tags on 20+ birds · 2 = fewer tagged birds · 1 = sightings only',
     status: dim1Status,
     details: dim1Details,
   });
 
-  // 2. Temporal & Seasonal Month Coverage (0-3 pts)
+  // 2. Temporal & Seasonal Month Coverage (0-2 pts)
   let dim2Score = 0;
   let dim2Status: RubricDimension['status'] = 'failed';
   let dim2Details = '';
@@ -120,7 +132,7 @@ export function evaluateProofRubric(input: SpeciesRecordProofInput): ProofAssess
   if (input.occurrences && input.occurrences.length > 0) {
     const months = new Set(input.occurrences.map((o) => o.month).filter((m) => m >= 1 && m <= 12));
     distinctMonths = months.size;
-  } else if (hasTracks) {
+  } else if (realTracks) {
     distinctMonths = 10; // GPS tracking datasets cover full annual cycles
   } else if (occCount > 0) {
     distinctMonths = occCount > 200 ? 8 : 4;
@@ -129,28 +141,28 @@ export function evaluateProofRubric(input: SpeciesRecordProofInput): ProofAssess
   }
 
   if (distinctMonths >= 8) {
-    dim2Score = 3;
-    dim2Status = 'passed';
-    dim2Details = `Multi-seasonal coverage spanning ${distinctMonths} distinct calendar months across annual flyway cycle.`;
-  } else if (distinctMonths >= 4) {
     dim2Score = 2;
-    dim2Status = 'partial';
-    dim2Details = `Seasonal coverage spanning ${distinctMonths} calendar months; partial migration cycle representation.`;
-  } else if (distinctMonths >= 1) {
+    dim2Status = 'passed';
+    dim2Details = `Sightings in ${distinctMonths} of 12 months, so the whole migration year is covered.`;
+  } else if (distinctMonths >= 4) {
     dim2Score = 1;
     dim2Status = 'partial';
-    dim2Details = `Narrow seasonal sampling (${distinctMonths} month). Breeding or wintering bias present.`;
+    dim2Details = `Sightings in only ${distinctMonths} months: part of the year is missing.`;
+  } else if (distinctMonths >= 1) {
+    dim2Score = 0;
+    dim2Status = 'partial';
+    dim2Details = `Sightings in only ${distinctMonths} month(s): mostly one season.`;
   } else {
     dim2Score = 0;
     dim2Status = 'insufficient';
-    dim2Details = 'No verified seasonal observation timestamps available.';
+    dim2Details = 'No dated sightings.';
   }
 
   dimensions.push({
-    dimension: 'Temporal & Seasonal Span',
-    weight: 3,
+    dimension: 'Year-round coverage',
+    weight: 2,
     score: dim2Score,
-    criterion: 'Annual cycle representation: >= 8 distinct months (3 pts), 4–7 months (2 pts), < 4 months (1 pt)',
+    criterion: '2 = sightings in 8+ months · 1 = 4–7 months · 0 = fewer',
     status: dim2Status,
     details: dim2Details,
   });
@@ -162,39 +174,59 @@ export function evaluateProofRubric(input: SpeciesRecordProofInput): ProofAssess
 
   const spread = input.corridorData?.twin?.summary?.mean_uncertainty;
   if (spread != null) {
-    if (spread <= 0.15) {
+    if (spread <= 0.08) {
       dim3Score = 2;
       dim3Status = 'passed';
-      dim3Details = `High multi-model agreement between EC_Earth3P_HR and MPI_ESM1_2_XR (mean uncertainty spread: ±${spread.toFixed(2)} <= 0.15).`;
-    } else if (spread <= 0.3) {
+      dim3Details = `The two climate models agree closely (difference ±${spread.toFixed(2)}).`;
+    } else if (spread <= 0.2) {
       dim3Score = 1;
       dim3Status = 'partial';
-      dim3Details = `Moderate multi-model spread between CMIP6 HighResMIP models (uncertainty spread: ±${spread.toFixed(2)}).`;
+      dim3Details = `The two climate models partly disagree (difference ±${spread.toFixed(2)}).`;
     } else {
       dim3Score = 0;
       dim3Status = 'failed';
-      dim3Details = `High model divergence across projections (spread ±${spread.toFixed(2)} > 0.30).`;
+      dim3Details = `The two climate models disagree a lot (difference ±${spread.toFixed(2)}).`;
     }
-  } else if (input.corridorData) {
-    dim3Score = 1;
-    dim3Status = 'partial';
-    dim3Details = 'Dual-model ensemble evaluated (EC_Earth3P_HR & MPI_ESM1_2_XR) under HighResMIP standard.';
   } else {
     dim3Score = 0;
     dim3Status = 'insufficient';
-    dim3Details = 'No multi-model climate grid projection available.';
+    dim3Details = 'No climate-model projection for this species.';
   }
 
   dimensions.push({
-    dimension: 'Climate Model Agreement',
+    dimension: 'Climate models agree',
     weight: 2,
     score: dim3Score,
-    criterion: 'CMIP6 HighResMIP multi-model agreement: spread <= 0.15 (2 pts), spread 0.15–0.30 (1 pt)',
+    criterion: '2 = models within ±0.08 · 1 = within ±0.20 · 0 = further apart',
     status: dim3Status,
     details: dim3Details,
   });
 
-  // 4. Taxonomic & Morphological Trait Completeness (0-2 pts)
+  // 4. Climate Envelope Resolution (0-1 pt): how finely the species' range is sampled.
+  const envN = input.corridorData?.twin?.envelope?.sample_size;
+  let dimEnvScore = 0;
+  let dimEnvStatus: RubricDimension['status'] = 'insufficient';
+  let dimEnvDetails = 'No climate data for this species range.';
+  if (envN != null) {
+    if (envN >= 20) {
+      dimEnvScore = 1;
+      dimEnvStatus = 'passed';
+      dimEnvDetails = `The climate picture uses ${envN} squares across its range.`;
+    } else {
+      dimEnvStatus = 'failed';
+      dimEnvDetails = `The climate picture uses only ${envN} large squares (about 500 km wide), so local conditions are blurred.`;
+    }
+  }
+  dimensions.push({
+    dimension: 'Climate map detail',
+    weight: 1,
+    score: dimEnvScore,
+    criterion: '1 = range described by 20+ climate squares',
+    status: dimEnvStatus,
+    details: dimEnvDetails,
+  });
+
+  // 5. Taxonomic & Morphological Trait Completeness (0-2 pts)
   let dim4Score = 0;
   let dim4Status: RubricDimension['status'] = 'failed';
   let dim4Details = '';
@@ -205,22 +237,22 @@ export function evaluateProofRubric(input: SpeciesRecordProofInput): ProofAssess
   if (isMatched && traits?.hand_wing_index != null && traits?.migration_category != null) {
     dim4Score = 2;
     dim4Status = 'passed';
-    dim4Details = `Verified AVONET match: HWI = ${traits.hand_wing_index}, Migration Category = ${traits.migration_category}.`;
+    dim4Details = `Wing shape (hand-wing index ${traits.hand_wing_index}) and migration type are both on record.`;
   } else if (isMatched || traits?.hand_wing_index != null) {
     dim4Score = 1;
     dim4Status = 'partial';
-    dim4Details = 'Partial trait record resolved from AVONET; migration category or HWI missing.';
+    dim4Details = 'Only part of the wing and migration record is available.';
   } else {
     dim4Score = 0;
     dim4Status = 'insufficient';
-    dim4Details = 'Species not matched in AVONET 2022 dataset; trait values uninvented per Rule 1.';
+    dim4Details = 'No wing or migration record, so none is assumed.';
   }
 
   dimensions.push({
-    dimension: 'Taxonomic & Trait Completeness',
+    dimension: 'Wing & migration traits',
     weight: 2,
     score: dim4Score,
-    criterion: 'Verified AVONET join with confirmed Hand-Wing Index & Migration Category (2 pts)',
+    criterion: '2 = wing shape and migration type both on record',
     status: dim4Status,
     details: dim4Details,
   });
@@ -233,9 +265,9 @@ export function evaluateProofRubric(input: SpeciesRecordProofInput): ProofAssess
 
   if (totalScore >= 8) {
     confidenceGrade = 'Grade A (High)';
-  } else if (totalScore >= 5) {
+  } else if (totalScore >= 6) {
     confidenceGrade = 'Grade B (Moderate)';
-  } else if (totalScore >= 3) {
+  } else if (totalScore >= 4) {
     confidenceGrade = 'Grade C (Low)';
   } else {
     confidenceGrade = 'Insufficient evidence';

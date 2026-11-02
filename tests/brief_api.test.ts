@@ -86,6 +86,6 @@ describe('Executive Scientific Brief Synthesis', () => {
 
     // The Proof
     expect(brief.the_proof.score).toBeDefined();
-    expect(brief.the_proof.dimensions.length).toBe(4);
+    expect(brief.the_proof.dimensions.length).toBe(5);
   });
 });

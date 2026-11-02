@@ -224,13 +224,13 @@ SPECIES_FLYWAYS = {
         "hwi": 54.3,
         "flyway_corridor": [
             (75.00, -95.00, "High Arctic Canadian Archipelago (Breeding)"),
-            (60.00, -70.00, "Hudson Bay Intertidal Flats"),
-            (47.00, -65.00, "Gulf of St. Lawrence Staging"),
+            (64.00, -84.00, "Southampton Island, Hudson Bay"),
+            (51.50, -80.00, "James Bay Intertidal Flats"),
             (39.05, -75.15, "Delaware Bay, NJ/DE (Horseshoe Crab Egg Staging)"),
-            (28.00, -78.00, "Atlantic Gulf Stream Corridor"),
-            (5.00, -52.00, "Maranhão & French Guiana Mudflats"),
-            (-23.00, -44.00, "Southeast Brazil Lagoons"),
-            (-40.00, -62.00, "San Antonio Oeste, Argentina"),
+            (25.00, -66.00, "Western Atlantic Non-Stop Crossing"),
+            (-1.50, -44.50, "Maranhão Mangrove Mudflats, Brazil"),
+            (-31.20, -51.00, "Lagoa do Peixe, Southern Brazil"),
+            (-40.80, -64.90, "San Antonio Oeste, Argentina"),
             (-53.00, -68.50, "Bahía Lomas, Tierra del Fuego (Winter Sanctuary)"),
         ],
         "bottlenecks": [
@@ -475,64 +475,110 @@ SPECIES_FLYWAYS = {
 START_EPOCH = 1788220800  # Sept 1, 2026 00:00:00 UTC
 END_EPOCH = 1794787200    # Nov 15, 2026 00:00:00 UTC
 
+def _catmull_rom_centreline(corridor_points, points_per_leg=12):
+    """
+    Smooth flyway centreline through the corridor waypoints (centripetal Catmull-Rom, so it
+    curves through every waypoint without loops or overshoot). Longitudes are unwrapped first,
+    so each leg takes the short way across the antimeridian.
+    Returns a list of (lat, lon) with lon possibly outside [-180, 180).
+    """
+    pts = []
+    prev_lon = None
+    for p in corridor_points:
+        lat, lon = p[0], p[1]
+        if prev_lon is not None:
+            while lon - prev_lon > 180.0:
+                lon -= 360.0
+            while lon - prev_lon < -180.0:
+                lon += 360.0
+        pts.append((lat, lon))
+        prev_lon = lon
+
+    # Phantom end points so the first and last legs curve naturally.
+    ext = [(2 * pts[0][0] - pts[1][0], 2 * pts[0][1] - pts[1][1])] + pts +           [(2 * pts[-1][0] - pts[-2][0], 2 * pts[-1][1] - pts[-2][1])]
+
+    def knot(t, a, b):
+        d = math.hypot(b[0] - a[0], b[1] - a[1])
+        return t + max(d, 1e-6) ** 0.5
+
+    def lerp(a, b, ta, tb, t):
+        w = (t - ta) / (tb - ta)
+        return (a[0] + (b[0] - a[0]) * w, a[1] + (b[1] - a[1]) * w)
+
+    out = []
+    for i in range(1, len(ext) - 2):
+        p0, p1, p2, p3 = ext[i - 1], ext[i], ext[i + 1], ext[i + 2]
+        t0 = 0.0
+        t1 = knot(t0, p0, p1)
+        t2 = knot(t1, p1, p2)
+        t3 = knot(t2, p2, p3)
+        for k in range(points_per_leg):
+            t = t1 + (t2 - t1) * k / float(points_per_leg)
+            a1 = lerp(p0, p1, t0, t1, t)
+            a2 = lerp(p1, p2, t1, t2, t)
+            a3 = lerp(p2, p3, t2, t3, t)
+            b1 = lerp(a1, a2, t0, t2, t)
+            b2 = lerp(a2, a3, t1, t3, t)
+            out.append(lerp(b1, b2, t1, t2, t))
+    out.append(pts[-1])
+    return out
+
+
 def generate_smooth_track(corridor_points, num_individuals=8):
     """
-    Interpolates smooth spline-like waypoints between flyway points,
-    producing 8-12 distinct individual tracks with realistic timestamps.
+    Simulated individual tracks along a flyway: a smooth curved centreline through the
+    corridor waypoints, with each bird drifting to either side of it along the way
+    (converging near the breeding and wintering sites), and timestamps paced by distance.
     """
     features = []
-    
+    centre = _catmull_rom_centreline(corridor_points)
+
+    # Unit normals (perpendicular to travel direction, in a locally scaled lon/lat frame).
+    normals = []
+    for i in range(len(centre)):
+        a = centre[max(0, i - 1)]
+        b = centre[min(len(centre) - 1, i + 1)]
+        coslat = max(0.2, math.cos(math.radians(centre[i][0])))
+        dy, dx = b[0] - a[0], (b[1] - a[1]) * coslat
+        n = math.hypot(dx, dy) or 1.0
+        normals.append((dx / n, -dy / n / coslat))  # (dlat, dlon) per degree of offset
+
+    # Cumulative along-track distance drives both the drift profile and the clock.
+    cum = [0.0]
+    for i in range(1, len(centre)):
+        coslat = math.cos(math.radians((centre[i][0] + centre[i - 1][0]) / 2))
+        cum.append(cum[-1] + math.hypot(centre[i][0] - centre[i - 1][0], (centre[i][1] - centre[i - 1][1]) * coslat))
+    total = cum[-1] or 1.0
+    spread = max(0.3, min(1.3, total * 0.009))
+
     for ind_idx in range(num_individuals):
         ind_id = f"ind_{ind_idx + 1:02d}"
-        
+
         # Jitter each individual's departure date by +/- 4 days
         ind_start = START_EPOCH + (ind_idx * 86400 * 2) - 43200
         ind_duration = (END_EPOCH - START_EPOCH) * (0.85 + (ind_idx * 0.03))
-        
+
+        # Bird-specific drift: a steady lean to one side plus at most one gentle swing,
+        # so tracks fan out like a real cohort instead of weaving.
+        bias = (random.random() - 0.5) * 1.6
+        a1, f1, ph1 = random.uniform(0.2, 0.5), random.uniform(0.3, 0.7), random.uniform(0, 2 * math.pi)
+
         coords = []
         times = []
-        
-        # Individual lateral spread offset (gaussian-like divergence around flyway centerline)
-        lat_offset = (random.random() - 0.5) * 0.45
-        lon_offset = (random.random() - 0.5) * 0.45
-        
-        total_legs = len(corridor_points) - 1
-        points_per_leg = 7
-        total_steps = total_legs * points_per_leg
-        
-        step_counter = 0
-        for leg_idx in range(total_legs):
-            p1 = corridor_points[leg_idx]
-            p2 = corridor_points[leg_idx + 1]
-            
-            lat1, lon1 = p1[0], p1[1]
-            lat2, lon2 = p2[0], p2[1]
-            
-            for sub_i in range(points_per_leg):
-                t_ratio = sub_i / float(points_per_leg)
-                
-                # Smooth cosine interpolation
-                mu2 = (1 - math.cos(t_ratio * math.pi)) / 2
-                
-                curr_lat = lat1 * (1 - mu2) + lat2 * mu2 + lat_offset + (random.random() - 0.5) * 0.12
-                curr_lon = lon1 * (1 - mu2) + lon2 * mu2 + lon_offset + (random.random() - 0.5) * 0.12
-                
-                # Ensure coordinate validity
-                curr_lat = max(-85.0, min(85.0, curr_lat))
-                curr_lon = ((curr_lon + 180.0) % 360.0) - 180.0
-                
-                global_ratio = step_counter / float(total_steps)
-                curr_time = int(ind_start + global_ratio * ind_duration)
-                
-                coords.append([round(curr_lon, 5), round(curr_lat, 5)])
-                times.append(curr_time)
-                step_counter += 1
-                
-        # Final destination point
-        last_p = corridor_points[-1]
-        coords.append([round(last_p[1] + lon_offset, 5), round(last_p[0] + lat_offset, 5)])
-        times.append(int(ind_start + ind_duration))
-        
+        for i, (lat, lon) in enumerate(centre):
+            s = cum[i] / total
+            taper = 0.25 + 0.75 * math.sin(math.pi * s)  # birds share breeding/wintering sites
+            off = spread * taper * (bias + a1 * math.sin(2 * math.pi * f1 * s + ph1))
+            curr_lat = lat + normals[i][0] * off + (random.random() - 0.5) * 0.03
+            curr_lon = lon + normals[i][1] * off + (random.random() - 0.5) * 0.03
+
+            # Ensure coordinate validity
+            curr_lat = max(-85.0, min(85.0, curr_lat))
+            curr_lon = ((curr_lon + 180.0) % 360.0) - 180.0
+
+            coords.append([round(curr_lon, 5), round(curr_lat, 5)])
+            times.append(int(ind_start + s * ind_duration))
+
         features.append({
             "type": "Feature",
             "properties": {

@@ -80,3 +80,44 @@ export function ensureDatelineSafeFeatures(features) {
 
   return safeFeatures;
 }
+
+/**
+ * Longitude unwrapper: keeps each path continuous across the antimeridian by
+ * shifting longitudes ±360° so consecutive fixes never jump more than 180°.
+ * Pair with a repeating map view so the unwrapped segment renders on the
+ * neighbouring world copy instead of being cut.
+ */
+export function unwrapDatelineFeatures(features) {
+  if (!features || features.length === 0) return [];
+  const unwrapped = features.map((f) => {
+    const coords = f.geometry?.coordinates;
+    if (!coords || coords.length < 2) return f;
+    let offset = 0;
+    let changed = false;
+    const out = [coords[0]];
+    for (let i = 1; i < coords.length; i++) {
+      const delta = coords[i][0] - coords[i - 1][0];
+      if (delta > 180) offset -= 360;
+      else if (delta < -180) offset += 360;
+      if (offset !== 0) changed = true;
+      out.push(offset === 0 ? coords[i] : [coords[i][0] + offset, coords[i][1], ...coords[i].slice(2)]);
+    }
+    return changed ? { ...f, geometry: { ...f.geometry, coordinates: out } } : f;
+  });
+
+  // Shift whole tracks by ±360° so every individual sits on the same world copy
+  // as the first one (keeps a Pacific flyway together instead of split at both map edges).
+  const meanLon = (f) => {
+    const c = f.geometry?.coordinates || [];
+    return c.length ? c.reduce((sum, p) => sum + p[0], 0) / c.length : 0;
+  };
+  const ref = meanLon(unwrapped[0]);
+  return unwrapped.map((f) => {
+    const k = Math.round((ref - meanLon(f)) / 360);
+    if (k === 0 || !f.geometry?.coordinates) return f;
+    return {
+      ...f,
+      geometry: { ...f.geometry, coordinates: f.geometry.coordinates.map((p) => [p[0] + k * 360, p[1], ...p.slice(2)]) },
+    };
+  });
+}

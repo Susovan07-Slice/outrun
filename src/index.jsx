@@ -1,7 +1,10 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
+import { installRipple } from './ripple';
 import './index.css';
+
+installRipple();
 
 const container = document.getElementById('root');
 if (container) {

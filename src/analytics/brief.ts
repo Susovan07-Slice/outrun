@@ -21,6 +21,8 @@ export interface BriefSpeciesInput {
   monitoring_group?: string;
   evidence_level?: 'tracks' | 'occurrences_only' | 'insufficient';
   tracked_individuals?: number;
+  /** True when the species' tracks are simulated corridor twins, not telemetry. */
+  tracks_simulated?: boolean;
   occurrence_count?: number;
   occurrences?: Array<{ lat: number; lon: number; month: number }>;
   status?: {
@@ -131,6 +133,7 @@ export function generateSpeciesBrief(input: BriefSpeciesInput): SpeciesBrief {
     family: input.family,
     evidence_level: input.evidence_level,
     tracked_individuals: input.tracked_individuals,
+    tracks_simulated: input.tracks_simulated,
     occurrence_count: input.occurrence_count,
     occurrences: input.occurrences,
     traits: input.traits,

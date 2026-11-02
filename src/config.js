@@ -1,4 +1,4 @@
-// Canonical 13-Species Registry & Color Palette
+// Canonical Species Registry & Luminous Path Palette
 // Outrun — Migratory Birds Observatory (Class Aves Only)
 
 export const canonicalSpeciesList = [
@@ -7,8 +7,8 @@ export const canonicalSpeciesList = [
     name: 'Ciconia ciconia',
     name_en: 'White Stork',
     family: 'Ciconiidae',
-    color: [42, 111, 125], // Muted deep teal
-    hex: '#2A6F7D',
+    color: [224, 72, 43], // Vermilion (path hue legible on light and satellite basemaps)
+    hex: '#E0482B',
     evidence_level: 'tracks',
     tracked_individuals: 100,
   },
@@ -17,8 +17,8 @@ export const canonicalSpeciesList = [
     name: 'Pandion haliaetus',
     name_en: 'Osprey',
     family: 'Pandionidae',
-    color: [175, 124, 48], // Warm ochre / bronze
-    hex: '#AF7C30',
+    color: [201, 138, 0], // Ochre (path hue legible on light and satellite basemaps)
+    hex: '#C98A00',
     evidence_level: 'tracks',
     tracked_individuals: 842,
   },
@@ -27,8 +27,8 @@ export const canonicalSpeciesList = [
     name: 'Grus grus',
     name_en: 'Common Crane',
     family: 'Gruidae',
-    color: [61, 112, 77], // Muted forest olive
-    hex: '#3D704D',
+    color: [46, 154, 62], // Meadow green (path hue legible on light and satellite basemaps)
+    hex: '#2E9A3E',
     evidence_level: 'tracks',
     tracked_individuals: 812,
   },
@@ -37,8 +37,8 @@ export const canonicalSpeciesList = [
     name: 'Falco amurensis',
     name_en: 'Amur Falcon',
     family: 'Falconidae',
-    color: [168, 77, 56], // Terracotta rust
-    hex: '#A84D38',
+    color: [214, 36, 90], // Rose (path hue legible on light and satellite basemaps)
+    hex: '#D6245A',
     evidence_level: 'tracks',
     tracked_individuals: 10,
     movement_type: 'migration',
@@ -49,8 +49,8 @@ export const canonicalSpeciesList = [
     name: 'Limosa lapponica',
     name_en: 'Bar-tailed Godwit',
     family: 'Scolopacidae',
-    color: [115, 78, 128], // Muted royal plum
-    hex: '#734E80',
+    color: [12, 156, 138], // Teal (path hue legible on light and satellite basemaps)
+    hex: '#0C9C8A',
     evidence_level: 'tracks',
     tracked_individuals: 10,
     movement_type: 'migration',
@@ -61,8 +61,8 @@ export const canonicalSpeciesList = [
     name: 'Sterna paradisaea',
     name_en: 'Arctic Tern',
     family: 'Laridae',
-    color: [57, 86, 128], // Twilight slate
-    hex: '#395680',
+    color: [47, 111, 224], // Cobalt (path hue legible on light and satellite basemaps)
+    hex: '#2F6FE0',
     evidence_level: 'tracks',
     tracked_individuals: 10,
     movement_type: 'migration',
@@ -73,8 +73,8 @@ export const canonicalSpeciesList = [
     name: 'Leucogeranus leucogeranus',
     name_en: 'Siberian Crane',
     family: 'Gruidae',
-    color: [142, 68, 88], // Rosewood crimson
-    hex: '#8E4458',
+    color: [192, 47, 166], // Magenta (path hue legible on light and satellite basemaps)
+    hex: '#C02FA6',
     evidence_level: 'tracks',
     tracked_individuals: 10,
     movement_type: 'migration',
@@ -85,8 +85,8 @@ export const canonicalSpeciesList = [
     name: 'Hirundo rustica',
     name_en: 'Barn Swallow',
     family: 'Hirundinidae',
-    color: [192, 108, 56], // Warm amber
-    hex: '#C06C38',
+    color: [224, 106, 0], // Tangerine (path hue legible on light and satellite basemaps)
+    hex: '#E06A00',
     evidence_level: 'tracks',
     tracked_individuals: 8,
     movement_type: 'migration',
@@ -97,8 +97,8 @@ export const canonicalSpeciesList = [
     name: 'Calidris canutus',
     name_en: 'Red Knot',
     family: 'Scolopacidae',
-    color: [74, 122, 104], // Coastal sage
-    hex: '#4A7A68',
+    color: [198, 40, 40], // Knot red (path hue legible on light and satellite basemaps)
+    hex: '#C62828',
     evidence_level: 'tracks',
     tracked_individuals: 8,
     movement_type: 'migration',
@@ -109,8 +109,8 @@ export const canonicalSpeciesList = [
     name: 'Anser indicus',
     name_en: 'Bar-headed Goose',
     family: 'Anatidae',
-    color: [74, 85, 132], // Alpine indigo
-    hex: '#4A5584',
+    color: [110, 79, 216], // Violet (path hue legible on light and satellite basemaps)
+    hex: '#6E4FD8',
     evidence_level: 'tracks',
     tracked_individuals: 10,
     movement_type: 'migration',
@@ -121,8 +121,8 @@ export const canonicalSpeciesList = [
     name: 'Cuculus canorus',
     name_en: 'Common Cuckoo',
     family: 'Cuculidae',
-    color: [184, 136, 42], // Golden ochre
-    hex: '#B8882A',
+    color: [176, 125, 26], // Mustard (path hue legible on light and satellite basemaps)
+    hex: '#B07D1A',
     evidence_level: 'tracks',
     tracked_individuals: 8,
     movement_type: 'migration',
@@ -133,8 +133,8 @@ export const canonicalSpeciesList = [
     name: 'Oenanthe oenanthe',
     name_en: 'Northern Wheatear',
     family: 'Muscicapidae',
-    color: [102, 112, 54], // Tundra moss
-    hex: '#667036',
+    color: [92, 154, 14], // Olive green (path hue legible on light and satellite basemaps)
+    hex: '#5C9A0E',
     evidence_level: 'tracks',
     tracked_individuals: 8,
     movement_type: 'migration',
@@ -145,8 +145,8 @@ export const canonicalSpeciesList = [
     name: 'Numenius phaeopus',
     name_en: 'Whimbrel',
     family: 'Scolopacidae',
-    color: [150, 75, 45], // Earth rust
-    hex: '#964B2D',
+    color: [217, 101, 59], // Terracotta (path hue legible on light and satellite basemaps)
+    hex: '#D9653B',
     evidence_level: 'tracks',
     tracked_individuals: 8,
     movement_type: 'migration',
@@ -157,8 +157,8 @@ export const canonicalSpeciesList = [
     name: 'Numenius arquata',
     name_en: 'Eurasian Curlew',
     family: 'Scolopacidae',
-    color: [108, 142, 191], // Soft steel blue
-    hex: '#6C8EBF',
+    color: [10, 133, 194], // Cerulean (path hue legible on light and satellite basemaps)
+    hex: '#0A85C2',
     evidence_level: 'tracks',
     movement_type: 'migration',
     movement_label: 'Trans-European Migratory Corridor (Flanders to France, Spain & Portugal)',
@@ -169,8 +169,8 @@ export const canonicalSpeciesList = [
     name: 'Circus pygargus',
     name_en: "Montagu's Harrier",
     family: 'Accipitridae',
-    color: [184, 92, 56], // Deep amber copper
-    hex: '#B85C38',
+    color: [211, 84, 0], // Ember (path hue legible on light and satellite basemaps)
+    hex: '#D35400',
     evidence_level: 'tracks',
     movement_type: 'migration',
     movement_label: 'Trans-Saharan Migratory Corridor (Western Europe to Sahel & Tropical Africa)',
@@ -182,8 +182,8 @@ export const canonicalSpeciesList = [
     name: 'Fregata magnificens',
     name_en: 'Magnificent Frigatebird',
     family: 'Fregatidae',
-    color: [64, 130, 109], // Oceanic emerald
-    hex: '#40826D',
+    color: [19, 138, 99], // Jade (path hue legible on light and satellite basemaps)
+    hex: '#138A63',
     evidence_level: 'tracks',
     movement_type: 'foraging',
     movement_label: 'Tracked Movements (Pelagic Caribbean & Atlantic Foraging Sorties)',
@@ -194,8 +194,8 @@ export const canonicalSpeciesList = [
     name: 'Ciconia nigra',
     name_en: 'Black Stork',
     family: 'Ciconiidae',
-    color: [45, 55, 72], // Slate bronze
-    hex: '#2D3748',
+    color: [74, 90, 120], // Slate (path hue legible on light and satellite basemaps)
+    hex: '#4A5A78',
     evidence_level: 'tracks',
     movement_type: 'migration',
     movement_label: 'Trans-Saharan Migratory Corridor (Eastern Europe to Central/Southern Africa)',
@@ -207,8 +207,8 @@ export const canonicalSpeciesList = [
     name: 'Circus cyaneus',
     name_en: 'Hen Harrier',
     family: 'Accipitridae',
-    color: [74, 107, 130], // Cool silver steel
-    hex: '#4A6B82',
+    color: [61, 125, 216], // Glacier blue (path hue legible on light and satellite basemaps)
+    hex: '#3D7DD8',
     evidence_level: 'tracks',
     movement_type: 'migration',
     movement_label: 'Pan-Eurasian Migratory Corridor (Boreal Taiga to Western Europe)',
@@ -220,8 +220,8 @@ export const canonicalSpeciesList = [
     name: 'Circus aeruginosus',
     name_en: 'Western Marsh Harrier',
     family: 'Accipitridae',
-    color: [140, 80, 50], // Umber chestnut
-    hex: '#8C5032',
+    color: [160, 88, 42], // Sienna (path hue legible on light and satellite basemaps)
+    hex: '#A0582A',
     evidence_level: 'tracks',
     movement_type: 'migration',
     movement_label: 'Trans-Saharan Migratory Corridor (Europe to West Africa)',
@@ -233,8 +233,8 @@ export const canonicalSpeciesList = [
     name: 'Asio flammeus',
     name_en: 'Short-eared Owl',
     family: 'Strigidae',
-    color: [200, 138, 50], // Tawny amber gold
-    hex: '#C88A32',
+    color: [184, 134, 11], // Dark goldenrod (path hue legible on light and satellite basemaps)
+    hex: '#B8860B',
     evidence_level: 'tracks',
     movement_type: 'migration',
     movement_label: 'Nomadic & Irruptive Migratory Corridor (North Sea to Mediterranean & North Africa)',
@@ -284,4 +284,21 @@ export function getGraticules() {
   }
 
   return features;
+}
+
+// Path colour for a species record from the API, the static registry or this file.
+const FALLBACK_COLOR = { rgb: [12, 156, 138], hex: '#0C9C8A' };
+export function speciesColorOf(species) {
+  if (!species) return FALLBACK_COLOR;
+  const conf =
+    speciesConfig[species.scientific_name] ||
+    speciesConfig[species.species_id] ||
+    speciesConfig[species.name];
+  return conf ? { rgb: conf.color, hex: conf.hex } : FALLBACK_COLOR;
+}
+
+// Registry lookup for movement descriptions that the API record may not carry.
+export function speciesMetaOf(species) {
+  if (!species) return {};
+  return speciesConfig[species.scientific_name] || speciesConfig[species.species_id] || {};
 }

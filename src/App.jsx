@@ -1,15 +1,81 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import MapView from './MapView';
-import SpeciesPanel from './SpeciesPanel';
+import SpeciesList from './SpeciesList';
+import Inspector from './Inspector';
 import TimeControl from './TimeControl';
-import Footer from './Footer';
-import Legend from './Legend';
+import SpeciesPage from './SpeciesPage';
+import SourcesPage from './SourcesPage';
 import BriefModal from './BriefModal';
 import { AUTO_PLAY, canonicalSpeciesList } from './config';
 import { getTimeRange } from './times';
 import { usePageVisibility } from './usePageVisibility';
-import { Info, BookOpen, Layers, FileText } from 'lucide-react';
+import { Map as MapIcon, Bird, BookOpen, FileText, PanelLeftOpen, PanelRightOpen } from 'lucide-react';
 import { simulateNodeProtection } from './analytics/breakFix';
+import { enrichTwin } from './analytics/twinEnrich';
+
+const ROUTES = [
+  ['/', 'Atlas', MapIcon],
+  ['/species', 'Species', Bird],
+  ['/sources', 'Sources', BookOpen],
+];
+
+const readRoute = () => {
+  const r = window.location.hash.replace(/^#/, '') || '/';
+  return ROUTES.some(([p]) => p === r) ? r : '/';
+};
+
+function useHashRoute() {
+  const [route, setRoute] = useState(readRoute);
+  useEffect(() => {
+    const on = () => setRoute(readRoute());
+    window.addEventListener('hashchange', on);
+    return () => window.removeEventListener('hashchange', on);
+  }, []);
+  const go = useCallback((path) => {
+    window.location.hash = path;
+  }, []);
+  return [route, go];
+}
+
+function useViewport() {
+  const [vp, setVp] = useState({ w: window.innerWidth, h: window.innerHeight });
+  useEffect(() => {
+    const on = () => setVp({ w: window.innerWidth, h: window.innerHeight });
+    window.addEventListener('resize', on);
+    return () => window.removeEventListener('resize', on);
+  }, []);
+  return vp;
+}
+
+const LAYER_CHIPS = [
+  ['paths', 'Flight paths'],
+  ['trail', 'Live trail'],
+  ['sightings', 'Sightings'],
+  ['grid', 'Grid'],
+];
+
+const MapLegend = ({ activeTab }) => {
+  if (activeTab === 'twin') {
+    return (
+      <div className="float o-panel map-legend">
+        <div className="legend-title"><span className="o-label">Climate suitability</span><span className="o-badge o-badge--simulated">simulated</span></div>
+        <div className="legend-ramp" />
+        <div className="legend-ramp-labels"><span>degraded &lt;40%</span><span>marginal</span><span>prime ≥70%</span></div>
+      </div>
+    );
+  }
+  if (activeTab === 'network') {
+    return (
+      <div className="float o-panel map-legend">
+        <div className="legend-title"><span className="o-label">Corridor network</span><span className="o-badge o-badge--simulated">simulated</span></div>
+        <div className="legend-row" style={{ '--sp': 'var(--danger)' }}><span className="legend-ring" />Candidate bottleneck</div>
+        <div className="legend-row" style={{ '--sp': 'var(--success)' }}><span className="legend-ring" />Protected (simulated)</div>
+      </div>
+    );
+  }
+  // Routes need no legend: the path is the focus, and hovering it explains it.
+  return null;
+};
 
 const App = () => {
   const [speciesList, setSpeciesList] = useState(canonicalSpeciesList);
@@ -24,7 +90,14 @@ const App = () => {
   const [twinSlider, setTwinSlider] = useState(0.5);
   const [protectedNodes, setProtectedNodes] = useState(new Set());
   const [simulationResult, setSimulationResult] = useState(null);
-  const [activeCorridorTab, setActiveCorridorTab] = useState('race');
+  const [activeCorridorTab, setActiveCorridorTab] = useState('overview');
+
+  // Shell & atlas UI state
+  const [route, go] = useHashRoute();
+  const viewport = useViewport();
+  const [leftOpen, setLeftOpen] = useState(() => window.innerWidth > 900);
+  const [rightOpen, setRightOpen] = useState(true);
+  const [layersOn, setLayersOn] = useState({ paths: true, trail: true, sightings: false, grid: true });
 
   // Phase 5: The Brief & Data Freshness State
   const [briefSpecies, setBriefSpecies] = useState(null);
@@ -37,6 +110,8 @@ const App = () => {
   // Trajectory telemetry data
   const [tripsData, setTripsData] = useState([]);
   const [activeTrackDataset, setActiveTrackDataset] = useState(null);
+  // Track files are either real telemetry or labelled 'simulated' corridor twins.
+  const tracksSimulated = activeTrackDataset?.epistemic === 'simulated';
 
   // Normalized Journey Progress State (0.0 to 1.0)
   const [progress, setProgress] = useState(0.2); // Start at 20% like reference screenshot
@@ -44,12 +119,7 @@ const App = () => {
   const [timeRange, setTimeRange] = useState([0, 0]);
   const [isPlaying, setIsPlaying] = useState(AUTO_PLAY);
   const [playbackSpeed, setPlaybackSpeed] = useState(1);
-  const [timeMode, setTimeMode] = useState('progress');
   const isPageVisible = usePageVisibility();
-
-  // Modals state
-  const [showLegend, setShowLegend] = useState(false);
-  const [showSources, setShowSources] = useState(false);
 
   // 1. Fetch species registry from Worker API, fallback to local canonical registry
   useEffect(() => {
@@ -243,8 +313,9 @@ const App = () => {
         );
         if (res.ok) {
           const json = await res.json();
+          const twin = await enrichTwin(json.twin, selectedSpecies.species_id, activeSeason);
           if (isMounted) {
-            setCorridorData(json);
+            setCorridorData({ ...json, twin });
             setLoadingCorridor(false);
             return;
           }
@@ -259,6 +330,7 @@ const App = () => {
         if (staticRes.ok) {
           const staticJson = await staticRes.json();
           const spData = staticJson.species?.[selectedSpecies.species_id];
+          const twin = spData ? await enrichTwin(spData.twin?.[activeSeason], selectedSpecies.species_id, activeSeason) : null;
           if (spData && isMounted) {
             setCorridorData({
               success: true,
@@ -266,7 +338,7 @@ const App = () => {
               scientific_name: spData.scientific_name,
               season: activeSeason,
               race: spData.race,
-              twin: spData.twin?.[activeSeason],
+              twin,
               critical_links:
                 activeSeason === 'breeding'
                   ? spData.break?.breeding_critical_links || []
@@ -385,142 +457,181 @@ const App = () => {
     [tripsData, selectedSpecies]
   );
 
+  // Space toggles playback on the atlas (ignored while typing or on a focused button).
+  useEffect(() => {
+    if (route !== '/') return undefined;
+    const onKey = (e) => {
+      if (e.code !== 'Space') return;
+      const tag = e.target?.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'BUTTON' || e.target?.isContentEditable) return;
+      e.preventDefault();
+      setIsPlaying((p) => !p);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [route]);
+
+  const toggleLayer = (key) => setLayersOn((prev) => ({ ...prev, [key]: !prev[key] }));
+
+  const openInAtlas = useCallback(
+    (s) => {
+      setSelectedSpecies(s);
+      go('/');
+    },
+    [go]
+  );
+
+  // Keep camera fits clear of the floating panels so the route lands in the open part of the map.
+  const isNarrow = viewport.w <= 900;
+  const panelLeft = viewport.w <= 1180 ? 280 : 312;
+  const panelRight = viewport.w <= 1180 ? 380 : 420;
+  const mapPadding = isNarrow
+    ? { top: 130, left: 24, right: 70, bottom: rightOpen ? viewport.h * 0.52 + 80 : 130 }
+    : {
+        top: 150,
+        bottom: 140,
+        left: (leftOpen ? panelLeft + 32 : 0) + 48,
+        right: (rightOpen ? panelRight + 32 : 0) + 80,
+      };
+
   return (
-    <div id="outrun-app">
-      {/* Top Atlas Header Bar */}
-      <header className="atlas-header">
-        <div className="header-brand-group">
-          <div className="observatory-logo-symbol" aria-hidden="true">
-            <span className="logo-spark">✦</span>
-          </div>
-          <div>
-            <h1 className="header-title">OUTRUN</h1>
-            <p className="header-subtitle">
-              Global Climate-Pressure & Corridor Platform for Migratory Birds (Class Aves)
-            </p>
-          </div>
-        </div>
-
-        <div className="header-meta-group">
-          <div className="data-freshness-badge font-mono" title="Data freshness and provenance pipeline status">
-            <span className={`freshness-dot ${dataSourceStatus.source === 'live' ? 'live' : 'fallback'}`} />
-            <span className="freshness-label">{dataSourceStatus.label}</span>
-          </div>
-
-          <span className="canonical-badge">
-            <strong>{speciesList.length}</strong> Species Configured
+    <div className="app">
+      <header className="topbar">
+        <a className="brand" href="#/" aria-label="Outrun atlas">
+          <span className="brand__mark" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 15l8-7 8 7" />
+              <path d="M7 19l5-4.5 5 4.5" opacity="0.6" />
+            </svg>
           </span>
+          <span>
+            <span className="brand__word">OUTRUN</span>
+            <span className="brand__sub" style={{ display: 'block' }}>Migratory flyway observatory</span>
+          </span>
+        </a>
 
-          <button
-            className="header-link-btn highlight"
-            onClick={() => setBriefSpecies(selectedSpecies)}
-            title="Export One-Page Executive Scientific Brief"
-          >
-            <FileText size={14} />
-            <span>Executive Brief</span>
-          </button>
+        <nav className="topnav" aria-label="Pages">
+          {ROUTES.map(([path, label, Icon]) => (
+            <a key={path} className="topnav__link" href={`#${path}`} data-ripple aria-current={route === path ? 'page' : undefined}>
+              <Icon size={16} />
+              <span>{label}</span>
+            </a>
+          ))}
+        </nav>
 
-          <button
-            className="header-link-btn"
-            onClick={() => setShowLegend(!showLegend)}
-            title="Epistemic labels reference"
-          >
-            <Layers size={14} />
-            <span>Labels</span>
-          </button>
-
-          <button
-            className="header-link-btn"
-            onClick={() => setShowSources(true)}
-            title="Data sources, citations and licenses"
-          >
-            <BookOpen size={14} />
-            <span>Sources & Provenance</span>
+        <div className="topbar__right">
+          <span className="status-pill" title={`Data source · ${new Date(dataSourceStatus.timestamp).toLocaleString()}`}>
+            <span className={`status-dot ${dataSourceStatus.source === 'live' ? 'is-live' : ''}`} />
+            {dataSourceStatus.source === 'live' ? 'Live API' : 'Offline cache'}
+          </span>
+          <button className="o-btn o-btn--primary" data-ripple onClick={() => setBriefSpecies(selectedSpecies)} title="One-page scientific brief (print / PDF)">
+            <FileText size={16} />
+            <span>Brief</span>
           </button>
         </div>
       </header>
 
-      {/* Main Observatory Body: 70% Map/Timeline + 30% Species Sidebar */}
-      <main className="observatory-main-layout">
-        {/* Left Column: Map Dominant (68-72% width) + Timeline */}
-        <section className="map-and-timeline-column">
-          {/* Main Map Card */}
-          <div className="map-card-container">
-            <MapView
-              time={time}
-              tripsData={tripsData}
-              highlightedSpecies={selectedSpecies?.scientific_name}
-              occurrences={occurrences}
+      <main className="page">
+        {route === '/' && (
+          <div className={`atlas ${leftOpen ? '' : 'left-collapsed'} ${rightOpen ? '' : 'right-collapsed'}`}>
+            <div className="map-frame">
+              <MapView
+                time={time}
+                timeRange={timeRange}
+                tripsData={tripsData}
+                occurrences={occurrences}
+                selectedSpecies={selectedSpecies}
+                corridorData={corridorData}
+                twinSlider={twinSlider}
+                protectedNodes={protectedNodes}
+                onSimulateProtect={handleSimulateProtect}
+                activeCorridorTab={activeCorridorTab}
+                layersOn={layersOn}
+                padding={mapPadding}
+                tracksSimulated={tracksSimulated}
+              />
+
+              <div className="float layer-bar" role="group" aria-label="Map layers">
+                {!leftOpen && (
+                  <button className="o-btn" data-ripple onClick={() => setLeftOpen(true)} aria-label="Show species list">
+                    <PanelLeftOpen size={16} />
+                    Species
+                  </button>
+                )}
+                {LAYER_CHIPS.map(([key, label]) => (
+                  <button key={key} className="o-chip" data-ripple aria-pressed={layersOn[key]} onClick={() => toggleLayer(key)}>
+                    <span className="o-chip__switch" />
+                    {label}
+                  </button>
+                ))}
+                {!rightOpen && (
+                  <span className="layer-bar__end">
+                    <button className="o-btn" data-ripple onClick={() => setRightOpen(true)} aria-label="Show species details">
+                      <PanelRightOpen size={16} />
+                      Details
+                    </button>
+                  </span>
+                )}
+              </div>
+
+              <MapLegend activeTab={activeCorridorTab} />
+            </div>
+
+            <SpeciesList
+              speciesList={speciesList}
               selectedSpecies={selectedSpecies}
-              onSelectSpeciesByName={handleSelectSpeciesByName}
+              onSelectSpecies={(s) => {
+                setSelectedSpecies(s);
+                if (isNarrow) setLeftOpen(false);
+              }}
+              onCollapse={() => setLeftOpen(false)}
+            />
+
+            <Inspector
+              species={selectedSpecies}
+              occurrences={occurrences}
               corridorData={corridorData}
+              loadingCorridor={loadingCorridor}
+              activeTab={activeCorridorTab}
+              onChangeTab={setActiveCorridorTab}
+              activeSeason={activeSeason}
+              onChangeSeason={setActiveSeason}
               twinSlider={twinSlider}
+              onChangeTwinSlider={setTwinSlider}
               protectedNodes={protectedNodes}
               onSimulateProtect={handleSimulateProtect}
-              activeCorridorTab={activeCorridorTab}
+              simulationResult={simulationResult}
+              onOpenBrief={(s) => setBriefSpecies(s)}
+              onCollapse={() => setRightOpen(false)}
+              tracksSimulated={tracksSimulated}
+            />
+
+            <TimeControl
+              isPlaying={isPlaying}
+              onTogglePlay={() => setIsPlaying(!isPlaying)}
+              progress={progress}
+              onProgressChange={setProgress}
+              speed={playbackSpeed}
+              onSpeedChange={setPlaybackSpeed}
+              hasTracks={hasActiveTracks}
+              time={time}
             />
           </div>
+        )}
 
-          {/* Timeline Panel below map */}
-          <TimeControl
-            isPlaying={isPlaying}
-            onTogglePlay={() => setIsPlaying(!isPlaying)}
-            progress={progress}
-            onProgressChange={setProgress}
-            speed={playbackSpeed}
-            onSpeedChange={setPlaybackSpeed}
-            hasTracks={hasActiveTracks}
-            selectedSpeciesName={selectedSpecies?.common_name || selectedSpecies?.scientific_name}
-            timeMode={timeMode}
-            onTimeModeChange={setTimeMode}
-          />
-        </section>
+        {route === '/species' && (
+          <SpeciesPage speciesList={speciesList} selectedSpecies={selectedSpecies} onOpenInAtlas={openInAtlas} />
+        )}
 
-        {/* Right Column: Species Sidebar & Inspector */}
-        <section className="species-sidebar-column">
-          <SpeciesPanel
-            speciesList={speciesList}
-            selectedSpecies={selectedSpecies}
-            onSelectSpecies={setSelectedSpecies}
-            occurrences={occurrences}
-            loadingOccurrences={loadingOccurrences}
-            onFocusSpecies={(s) => setSelectedSpecies(s)}
-            corridorData={corridorData}
-            loadingCorridor={loadingCorridor}
-            activeSeason={activeSeason}
-            onChangeSeason={setActiveSeason}
-            twinSlider={twinSlider}
-            onChangeTwinSlider={setTwinSlider}
-            onSimulateProtect={handleSimulateProtect}
-            protectedNodes={protectedNodes}
-            simulationResult={simulationResult}
-            onOpenBrief={(s) => setBriefSpecies(s)}
-            activeCorridorTab={activeCorridorTab}
-            onChangeCorridorTab={setActiveCorridorTab}
-          />
-        </section>
+        {route === '/sources' && <SourcesPage activeTrackDataset={activeTrackDataset} />}
       </main>
 
-      {/* Epistemic Labels Float/Drawer */}
-      {showLegend && (
-        <div className="legend-flyout-container">
-          <Legend onClose={() => setShowLegend(false)} />
-        </div>
-      )}
-
-      {/* Sources & Licences Modal & Footer */}
-      <Footer
-        activeTrackDataset={activeTrackDataset}
-        showSourcesModal={showSources}
-        setShowSourcesModal={setShowSources}
-      />
-
-      {/* Executive Scientific Brief Modal (Print-to-PDF) */}
       {briefSpecies && (
         <BriefModal
           species={briefSpecies}
           corridorData={corridorData}
           occurrences={occurrences}
+          tracksSimulated={tracksSimulated}
           onClose={() => setBriefSpecies(null)}
         />
       )}

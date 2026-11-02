@@ -1,25 +1,29 @@
 /**
  * src/EvidencePanel.jsx
- * 
- * Outrun Phase 5: The Proof — Interactive Evidence & Confidence Rubric Inspector
+ *
+ * The Proof: how far the numbers shown for a species can be trusted, in plain language.
+ * The score comes from the rubric in analytics/proof.ts; sources and limitations are
+ * folded away so the panel reads as a summary first.
  */
 
 import React from 'react';
-import {
-  ShieldCheck,
-  ShieldAlert,
-  AlertCircle,
-  FileCheck,
-  Database,
-  Calendar,
-  Layers,
-  Info,
-  CheckCircle2,
-  HelpCircle,
-} from 'lucide-react';
+import { CheckCircle2, HelpCircle, AlertCircle, ChevronDown } from 'lucide-react';
 import { evaluateProofRubric } from './analytics/proof';
 
-const EvidencePanel = ({ species, corridorData, occurrences }) => {
+const GRADE_WORDS = {
+  'Grade A (High)': ['High confidence', 'var(--success)'],
+  'Grade B (Moderate)': ['Moderate confidence', 'var(--teal)'],
+  'Grade C (Low)': ['Low confidence', 'var(--warn)'],
+  'Insufficient evidence': ['Insufficient evidence', 'var(--danger)'],
+};
+
+// One sentence on what most limits confidence: the lowest-scoring part, relative to its weight.
+function weakestPoint(dims) {
+  const weakest = [...dims].sort((a, b) => a.score / a.weight - b.score / b.weight)[0];
+  return weakest && weakest.score < weakest.weight ? weakest : null;
+}
+
+const EvidencePanel = ({ species, corridorData, occurrences, tracksSimulated = false }) => {
   if (!species) return null;
 
   const assessment = evaluateProofRubric({
@@ -29,122 +33,72 @@ const EvidencePanel = ({ species, corridorData, occurrences }) => {
     family: species.family,
     evidence_level: species.evidence_level,
     tracked_individuals: species.tracked_individuals,
+    tracks_simulated: tracksSimulated,
     occurrence_count: species.occurrence_count,
     occurrences: occurrences || [],
     traits: species.traits,
     corridorData,
   });
 
-  const getGradeColor = (grade) => {
-    if (grade.includes('Grade A')) return '#047857';
-    if (grade.includes('Grade B')) return '#2563EB';
-    if (grade.includes('Grade C')) return '#D97706';
-    return '#DC2626';
-  };
+  const [gradeWords, gradeColor] = GRADE_WORDS[assessment.confidence_grade] || ['', 'var(--ink)'];
+  const weakest = weakestPoint(assessment.dimensions);
 
   return (
-    <div className="evidence-panel-wrapper">
-      {/* Rubric Score Top Banner */}
-      <div className="proof-banner-card">
-        <div className="proof-banner-left">
-          <div className="proof-score-circle" style={{ borderColor: getGradeColor(assessment.confidence_grade) }}>
-            <span className="score-num font-mono">{assessment.total_score}</span>
-            <span className="score-den">/ {assessment.max_score}</span>
-          </div>
-          <div>
-            <div className="proof-grade-title" style={{ color: getGradeColor(assessment.confidence_grade) }}>
-              {assessment.confidence_grade}
-            </div>
-            <p className="proof-rubric-desc">
-              Rubric-based scientific confidence derived from empirical sample density, multi-model agreement, and trait join completeness.
-            </p>
-          </div>
+    <div className="proof">
+      <div className="proof__summary">
+        <div className="proof__score" style={{ borderColor: gradeColor }}>
+          <span className="proof__num">{assessment.total_score}</span>
+          <span className="proof__den">/ {assessment.max_score}</span>
         </div>
-
-        <div className="proof-rubric-version font-mono">
-          {assessment.rubric_version}
+        <div>
+          <div className="proof__grade" style={{ color: gradeColor }}>{gradeWords}</div>
+          <p className="proof__lead">
+            Scored from the data behind this species.
+            {weakest && <> Main limit: <strong>{weakest.dimension.toLowerCase()}</strong>.</>}
+          </p>
         </div>
       </div>
 
-      {/* 4 Rubric Dimensions */}
-      <div className="proof-dimensions-list">
-        <div className="section-small-title">EVALUATED METHODOLOGICAL DIMENSIONS (METHODS.md Section 6)</div>
-        {assessment.dimensions.map((dim, i) => {
-          const isPassed = dim.status === 'passed';
-          const isPartial = dim.status === 'partial';
-
+      <ul className="proof__dims">
+        {assessment.dimensions.map((dim) => {
+          const Icon = dim.status === 'passed' ? CheckCircle2 : dim.status === 'partial' ? HelpCircle : AlertCircle;
+          const tone = dim.status === 'passed' ? 'var(--success)' : dim.status === 'partial' ? 'var(--warn)' : 'var(--danger)';
           return (
-            <div key={i} className={`proof-dim-card ${dim.status}`}>
-              <div className="dim-head-row">
-                <div className="dim-name-group">
-                  {isPassed ? (
-                    <CheckCircle2 size={16} color="#047857" />
-                  ) : isPartial ? (
-                    <HelpCircle size={16} color="#D97706" />
-                  ) : (
-                    <AlertCircle size={16} color="#DC2626" />
-                  )}
-                  <span className="dim-title">{dim.dimension}</span>
-                </div>
-                <span className="dim-score-pill font-mono">
-                  {dim.score} / {dim.weight} pts
+            <li key={dim.dimension} className="proof__dim" title={`Scoring: ${dim.criterion}`}>
+              <div className="proof__dim-head">
+                <Icon size={15} color={tone} />
+                <span className="proof__dim-name">{dim.dimension}</span>
+                <span className="proof__dots" aria-label={`${dim.score} of ${dim.weight} points`}>
+                  {Array.from({ length: dim.weight }, (_, i) => (
+                    <span key={i} className={i < dim.score ? 'is-on' : ''} />
+                  ))}
                 </span>
               </div>
-
-              <div className="dim-criterion">{dim.criterion}</div>
-              <p className="dim-details">{dim.details}</p>
-            </div>
+              <p className="proof__dim-text">{dim.details}</p>
+            </li>
           );
         })}
-      </div>
+      </ul>
 
-      {/* Provenance Manifest & Primary Data Sources */}
-      <div className="proof-sources-box">
-        <div className="section-small-title">PRIMARY DATA SOURCES & ATTRIBUTION</div>
-        <div className="sources-table-responsive">
-          <table className="proof-table">
-            <thead>
-              <tr>
-                <th>Dataset</th>
-                <th>Type</th>
-                <th>Licence</th>
-                <th>Formal Citation</th>
-              </tr>
-            </thead>
-            <tbody>
-              {assessment.provenance_manifest.primary_sources.map((src, i) => (
-                <tr key={i}>
-                  <td className="src-name font-mono">{src.name}</td>
-                  <td>{src.type}</td>
-                  <td><span className="licence-badge">{src.license}</span></td>
-                  <td className="src-cite font-mono">{src.citation}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <details className="proof__more">
+        <summary>Data sources <ChevronDown size={14} /></summary>
+        <ul className="proof__sources">
+          {assessment.provenance_manifest.primary_sources.map((src) => (
+            <li key={src.name}>
+              <strong>{src.name}</strong> · <span className="licence-badge">{src.license}</span>
+              <div className="cite">{src.citation}</div>
+            </li>
+          ))}
+        </ul>
+      </details>
 
-      {/* Assumptions & Limitations (Transparent Science) */}
-      <div className="proof-limits-grid">
-        <div className="proof-limit-box">
-          <span className="limit-title">Documented Assumptions</span>
-          <ul>
-            {assessment.methodological_assumptions.map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="proof-limit-box warning">
-          <span className="limit-title">Honest Sourced Limitations</span>
-          <ul>
-            {assessment.honest_limitations.map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <details className="proof__more">
+        <summary>Assumptions & limits <ChevronDown size={14} /></summary>
+        <ul className="proof__list">
+          {assessment.honest_limitations.map((item) => <li key={item}>{item}</li>)}
+          {assessment.methodological_assumptions.map((item) => <li key={item}>{item}</li>)}
+        </ul>
+      </details>
     </div>
   );
 };

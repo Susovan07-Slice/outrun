@@ -1,0 +1,58 @@
+/* Outrun design system — tokens (Day print theme). Source of truth: the design system's tokens.json. */
+:root {
+  --bg-0: #e9e2d3;
+  --bg-1: #f5f0e6;
+  --bg-2: #ede6d8;
+  --bg-3: #e2d9c6;
+  --bg-glass: rgba(245, 240, 230, 0.88);
+  --line: #d9cfbc;
+  --line-strong: #c3b69d;
+  --ink: #16181d;
+  --ink-muted: #4e5563;
+  --ink-faint: #7b8191;
+  --accent: #16181d;
+  --accent-strong: #2c3039;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(22, 24, 29, 0.1);
+  --accent-glow: rgba(22, 24, 29, 0.28);
+  --accent-line: rgba(22, 24, 29, 0.35);
+  --brand: #f5b544;
+  --teal: #0f766e;
+  --success: #1e8e4f;
+  --danger: #d23f3f;
+  --warn: #b7791f;
+  --epi-observed: #0f7d6f;
+  --epi-forecast: #b26b00;
+  --epi-projected: #5b49c9;
+  --epi-simulated: #c4551f;
+  --suit-high: #16a34a;
+  --suit-mid: #eab308;
+  --suit-low: #dc2626;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Square corners throughout: boxes, buttons, chips and panels. Only dots stay round. */
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-pill: 0;
+
+  /* Warm surface gradients so panels read as tinted paper, not flat white. */
+  --grad-panel: linear-gradient(180deg, rgba(248, 244, 235, 0.93) 0%, rgba(236, 228, 212, 0.9) 100%);
+  --grad-bar: linear-gradient(90deg, #f3ede1 0%, #e9e1cf 100%);
+  --grad-card: linear-gradient(155deg, #f7f2e8 0%, #ebe3d2 100%);
+
+  --shadow-panel: 0 1px 2px rgba(22, 24, 29, 0.06), 0 8px 24px rgba(22, 24, 29, 0.08);
+  --focus-ring: 0 0 0 2px #f5f0e6, 0 0 0 4px #16181d;
+
+  --font-display: Outfit, Inter, system-ui, sans-serif;
+  --font-sans: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+  color-scheme: light;
+}

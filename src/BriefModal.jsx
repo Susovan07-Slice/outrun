@@ -24,7 +24,7 @@ import {
 } from 'lucide-react';
 import { generateSpeciesBrief } from './analytics/brief';
 
-const BriefModal = ({ species, corridorData, weatherData, occurrences, onClose }) => {
+const BriefModal = ({ species, corridorData, weatherData, occurrences, tracksSimulated = false, onClose }) => {
   const [brief, setBrief] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -60,6 +60,7 @@ const BriefModal = ({ species, corridorData, weatherData, occurrences, onClose }
         monitoring_group: species.monitoring_group,
         evidence_level: species.evidence_level,
         tracked_individuals: species.tracked_individuals,
+        tracks_simulated: tracksSimulated,
         occurrence_count: species.occurrence_count,
         occurrences: occurrences || [],
         status: species.status,
