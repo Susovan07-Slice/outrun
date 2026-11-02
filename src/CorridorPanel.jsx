@@ -156,6 +156,12 @@ export const TwinTab = ({ twin, twinSlider, onChangeTwinSlider, activeSeason, on
   );
 };
 
+// Reachable habitat as a share of the whole flyway, e.g. "12% of flyway".
+const flywayShare = (m) =>
+  m.total_suitable_area_km2 > 0
+    ? `${Math.round((m.reachable_suitable_area_km2 / m.total_suitable_area_km2) * 100)}% of flyway`
+    : `${m.reachable_suitable_area_km2.toLocaleString()} km²`;
+
 export const NetworkTab = ({ species, criticalLinks = [], protectedNodes, onSimulateProtect, simulationResult, activeSeason, onChangeSeason }) => {
   const [busy, setBusy] = useState(null);
   const protect = async (id) => {
@@ -169,7 +175,7 @@ export const NetworkTab = ({ species, criticalLinks = [], protectedNodes, onSimu
       <SectionHead
         title="Key stopovers"
         badge="simulated"
-        lead="Red rings on the map are stopovers whose loss would cut off the most habitat. Tap Protect to see what saving one does."
+        lead="Red rings on the map are stopovers whose loss would cut off the most habitat. Tap Protect on one or more to see what saving them does; tap again to undo."
       />
       <SeasonSwitch value={activeSeason} onChange={onChangeSeason} />
 
@@ -177,23 +183,25 @@ export const NetworkTab = ({ species, criticalLinks = [], protectedNodes, onSimu
         <div className="note note--ok" style={{ flexDirection: 'column', gap: 10 }}>
           <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
             <ShieldCheck size={16} />
-            <strong>Protection simulated</strong>
+            <strong>
+              {simulationResult.difference.protected_count} of {criticalLinks.length} stopover{criticalLinks.length === 1 ? '' : 's'} protected
+            </strong>
             <span className="o-badge o-badge--simulated" style={{ marginLeft: 'auto' }}>simulated</span>
           </div>
           <div className="diff">
             <div className="diff__row">
-              <span className="o-label">Habitat birds can reach</span>
+              <span className="o-label">Habitat birds can reach: all stopovers lost → with these protected</span>
               <div className="diff__vals">
-                <span className="old">{simulationResult.baseline.reachable_suitable_area_km2.toLocaleString()} km²</span>
+                <span className="old">{flywayShare(simulationResult.baseline)}</span>
                 <ArrowRight size={13} />
-                <span className="new">{simulationResult.result.reachable_suitable_area_km2.toLocaleString()} km²</span>
+                <span className="new">{flywayShare(simulationResult.result)}</span>
               </div>
               <span className="diff__delta">
-                +{simulationResult.difference.reachable_area_delta_km2.toLocaleString()} km² (+{simulationResult.difference.reachable_area_percent_change}%)
+                +{simulationResult.difference.reachable_area_delta_km2.toLocaleString()} km² reachable again
               </span>
             </div>
             <div className="diff__row">
-              <span className="o-label">Separate pieces of the network</span>
+              <span className="o-label">Separate pieces of the flyway</span>
               <div className="diff__vals">
                 <span className="old">{simulationResult.baseline.connected_components}</span>
                 <ArrowRight size={13} />

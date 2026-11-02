@@ -326,3 +326,60 @@ export function simulateNodeProtection(
     ],
   };
 }
+
+export interface StopoverLink {
+  node_id: string;
+  loss_percent?: number;
+  connected_components_increase?: number;
+}
+
+/**
+ * THE FIX (stopovers): cumulative protection of a flyway's key stopovers.
+ *
+ * Starting point: every listed stopover is lost. Each lost stopover keeps (1 - loss_percent/100)
+ * of the habitat still reachable, so overlapping losses compound instead of being added twice.
+ * Protecting a stopover removes its factor. Reachable area therefore rises with each stopover
+ * protected, never exceeds the flyway total, and returns to the starting point when all are
+ * unprotected. Fragments: one connected flyway plus the pieces each lost stopover splits off.
+ */
+export function simulateStopoverProtection(
+  speciesId: string,
+  season: 'breeding' | 'non_breeding',
+  totalAreaKm2: number,
+  links: StopoverLink[],
+  protectedIds: string[]
+) {
+  const isProtected = new Set(protectedIds);
+  const keep = (l: StopoverLink) => 1 - Math.min(100, Math.max(0, l.loss_percent || 0)) / 100;
+  const split = (l: StopoverLink) => l.connected_components_increase || 0;
+
+  const baselineArea = Math.round(links.reduce((a, l) => a * keep(l), totalAreaKm2));
+  const resultArea = Math.round(
+    links.reduce((a, l) => (isProtected.has(l.node_id) ? a : a * keep(l)), totalAreaKm2)
+  );
+  const baselineParts = 1 + links.reduce((n, l) => n + split(l), 0);
+  const resultParts = 1 + links.reduce((n, l) => n + (isProtected.has(l.node_id) ? 0 : split(l)), 0);
+  const delta = resultArea - baselineArea;
+
+  return {
+    success: true,
+    species_id: speciesId,
+    season,
+    target_node_ids: links.filter((l) => isProtected.has(l.node_id)).map((l) => l.node_id),
+    action: 'protect' as const,
+    label: 'simulated' as const,
+    baseline: { reachable_suitable_area_km2: baselineArea, connected_components: baselineParts, total_suitable_area_km2: Math.round(totalAreaKm2) },
+    result: { reachable_suitable_area_km2: resultArea, connected_components: resultParts, total_suitable_area_km2: Math.round(totalAreaKm2) },
+    difference: {
+      reachable_area_delta_km2: delta,
+      reachable_area_percent_change: baselineArea > 0 ? Number(((delta / baselineArea) * 100).toFixed(1)) : 0,
+      components_delta: resultParts - baselineParts,
+      protected_count: isProtected.size,
+    },
+    assumptions: [
+      'Starting point: all listed key stopovers lost; each keeps (1 - its loss share) of the reachable habitat.',
+      'Flyway total and per-stopover loss shares come from the precomputed corridor analysis.',
+      'Protection simulation models habitat connectivity only and does NOT estimate bird survival or claim species saved.',
+    ],
+  };
+}

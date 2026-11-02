@@ -10,7 +10,7 @@ import { AUTO_PLAY, canonicalSpeciesList } from './config';
 import { getTimeRange } from './times';
 import { usePageVisibility } from './usePageVisibility';
 import { Map as MapIcon, Bird, BookOpen, FileText, PanelLeftOpen, PanelRightOpen } from 'lucide-react';
-import { simulateNodeProtection } from './analytics/breakFix';
+import { simulateStopoverProtection } from './analytics/breakFix';
 import { enrichTwin } from './analytics/twinEnrich';
 
 const ROUTES = [
@@ -348,6 +348,7 @@ const App = () => {
     let isMounted = true;
     setLoadingCorridor(true);
     setSimulationResult(null); // Reset simulation for new species/season
+    setProtectedNodes(new Set());
 
     async function fetchCorridor() {
       // 1. Try Worker endpoint
@@ -387,6 +388,7 @@ const App = () => {
                 activeSeason === 'breeding'
                   ? spData.break?.breeding_critical_links || []
                   : spData.break?.non_breeding_critical_links || [],
+              total_reachable_area_km2: spData.break?.total_reachable_area_km2,
               labels: {
                 race: 'projected',
                 twin: 'simulated',
@@ -415,70 +417,58 @@ const App = () => {
     };
   }, [selectedSpecies, activeSeason]);
 
-  // Handler for The Fix: simulate protection of a critical link
+  // Handler for The Fix: simulate protection of critical stopovers (interactive toggle & cumulative multi-site modeling)
   const handleSimulateProtect = useCallback(
     async (nodeId) => {
       if (!selectedSpecies) return;
+
+      // 1. Interactive toggle: protect or unprotect
+      const nextProtected = new Set(protectedNodes);
+      if (nextProtected.has(nodeId)) {
+        nextProtected.delete(nodeId);
+      } else {
+        nextProtected.add(nodeId);
+      }
+      setProtectedNodes(nextProtected);
+
+      // If all stopovers are unprotected, reset the simulation card
+      if (nextProtected.size === 0) {
+        setSimulationResult(null);
+        return;
+      }
+
+      // 2. Cumulative stopover protection, from this species' own corridor analysis
+      const cells = corridorData?.twin?.cells || [];
+      const totalFlywayArea =
+        corridorData?.total_reachable_area_km2 || cells.reduce((sum, c) => sum + (c.area_km2 || 0), 0);
+      const localSim = simulateStopoverProtection(
+        selectedSpecies.species_id,
+        activeSeason,
+        totalFlywayArea,
+        corridorData?.critical_links || [],
+        Array.from(nextProtected)
+      );
+
+      setSimulationResult(localSim);
+
+      // Optionally notify worker API for parity
       try {
-        const res = await fetch('/api/simulate', {
+        await fetch('/api/simulate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             species: selectedSpecies.species_id,
             season: activeSeason,
             protected_node_id: nodeId,
+            protected_node_ids: Array.from(nextProtected),
             action: 'protect',
           }),
         });
-
-        if (res.ok) {
-          const json = await res.json();
-          setSimulationResult(json);
-          setProtectedNodes((prev) => new Set([...prev, nodeId]));
-          return;
-        }
       } catch (err) {
-        // Fallback to local simulation
-      }
-
-      // Local interactive simulation fallback
-      try {
-        const cells = (corridorData?.twin?.cells || []).map((c) => ({
-          id: c.node_id || c.id,
-          lat: c.lat,
-          lon: c.lon,
-          area_km2: c.area_km2 || 11000,
-          suitability: c.baseline_suitability || 0.8,
-          uncertainty: c.uncertainty || 0.1,
-        }));
-
-        if (!cells.some((c) => c.id === nodeId) && corridorData?.critical_links) {
-          for (const cl of corridorData.critical_links) {
-            cells.push({
-              id: cl.node_id,
-              lat: cl.lat,
-              lon: cl.lon,
-              area_km2: cl.area_km2 || 14000,
-              suitability: cl.suitability || 0.89,
-              uncertainty: 0.1,
-            });
-          }
-        }
-
-        const localSim = simulateNodeProtection(
-          selectedSpecies.species_id,
-          activeSeason,
-          cells,
-          nodeId,
-          'protect'
-        );
-        setSimulationResult(localSim);
-        setProtectedNodes((prev) => new Set([...prev, nodeId]));
-      } catch (simErr) {
-        console.warn('Local simulation fallback warning:', simErr);
+        // Local simulation state is already live and responsive
       }
     },
-    [selectedSpecies, activeSeason, corridorData]
+    [selectedSpecies, activeSeason, corridorData, protectedNodes]
   );
 
   // Handle species selection by scientific name (e.g. from map click)

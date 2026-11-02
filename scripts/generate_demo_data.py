@@ -15,6 +15,7 @@ import os
 import json
 import math
 import random
+import zlib
 
 # Seed for deterministic, repeatable demo generation
 random.seed(42)
@@ -597,6 +598,11 @@ def generate_smooth_track(corridor_points, num_individuals=8):
     return features
 
 
+def _stable_hash(text):
+    """Deterministic across runs, unlike hash(), which Python randomises per process."""
+    return zlib.crc32(text.encode("utf-8"))
+
+
 def build_twin_cells_for_species(sp_id, season, terminal_point, count=48):
     """
     Constructs an authentic bioclimatic habitat suitability envelope directly anchored
@@ -668,6 +674,8 @@ def build_twin_cells_for_species(sp_id, season, terminal_point, count=48):
         future_suit = round(max(0.18, min(0.84, base_suit * (0.62 + random.random() * 0.12) - dist_norm * 0.15)), 2)
         
         cell_id = f"cell_{sp_id}_{season}_{avg_lat:.2f}_{avg_lon:.2f}"
+        cos_cell = max(0.25, math.cos(math.radians(avg_lat)))
+        calc_area = int(round(111.139 * 111.139 * (0.6**2) * cos_cell * 2.3, -1))
         cells.append({
             "id": cell_id,
             "node_id": cell_id,
@@ -676,7 +684,7 @@ def build_twin_cells_for_species(sp_id, season, terminal_point, count=48):
             "baseline_suitability": base_suit,
             "future_suitability": future_suit,
             "uncertainty": round(0.06 + dist_norm * 0.08 + random.random() * 0.03, 2),
-            "area_km2": 11000,
+            "area_km2": calc_area,
             "climate_velocity_km_decade": round(190.0 + dist_norm * 140.0 + random.random() * 30.0, 1),
             "temp_anomaly_c": round(1.9 + dist_norm * 1.3 + random.random() * 0.5, 2),
         })
@@ -797,22 +805,34 @@ def generate_all_demo_data():
         breeding_cells = build_twin_cells_for_species(sp_id, "breeding", breeding_point, count=48)
         non_breeding_cells = build_twin_cells_for_species(sp_id, "non_breeding", non_breeding_point, count=48)
         
-        # Candidate Critical Links (The Break)
+        # Candidate Critical Links (The Break) - Lat-specific and species-specific
+        tot_cells_area = sum(c.get("area_km2", 8000) for c in breeding_cells)
+        sp_flyway_area = max(180000, tot_cells_area)
+        bottlenecks_list = info.get("bottlenecks", [])
+        num_b = max(1, len(bottlenecks_list))
+
         critical_links = []
-        for b_idx, (b_name, b_lat, b_lon) in enumerate(info.get("bottlenecks", [])):
-            loss_pct = round(32.5 + b_idx * 5.4 + (random.random() * 4.0), 1)
+        for b_idx, (b_name, b_lat, b_lon) in enumerate(bottlenecks_list):
+            cos_b = max(0.25, math.cos(math.radians(b_lat)))
+            b_area = int(round(111.139 * 111.139 * (0.8**2) * cos_b * (1.5 + ((_stable_hash(b_name) % 7) * 0.14)), -2))
+            
+            # Loss percentage varies by bottleneck rank and site significance
+            loss_pct = round(26.0 + (num_b - b_idx) * 5.2 + ((_stable_hash(b_name) % 9) * 0.5), 1)
+            loss_km2 = int(round(sp_flyway_area * (loss_pct / 100.0), -2))
+            b_suit = round(0.82 + (_stable_hash(b_name) % 11) * 0.01, 2)
+            
             critical_links.append({
                 "node_id": f"bottleneck_{sp_id}_{b_idx+1}",
                 "name": b_name,
                 "label": b_name,
                 "lat": b_lat,
                 "lon": b_lon,
-                "area_km2": 14000,
-                "suitability": 0.89,
-                "loss_of_reachable_area_km2": int(loss_pct * 850),
+                "area_km2": b_area,
+                "suitability": b_suit,
+                "loss_of_reachable_area_km2": loss_km2,
                 "loss_percent": loss_pct,
                 "connected_components_increase": 2 if b_idx == 0 else 1,
-                "criticality_score": round(65.0 + (4 - b_idx) * 8.5, 1),
+                "criticality_score": round(52.0 + loss_pct * 0.75, 1),
                 "rank": b_idx + 1,
                 "is_protected": False,
             })
@@ -856,6 +876,7 @@ def generate_all_demo_data():
             "break": {
                 "breeding_critical_links": critical_links,
                 "non_breeding_critical_links": critical_links,
+                "total_reachable_area_km2": sp_flyway_area,
                 "label": "simulated",
             },
         }

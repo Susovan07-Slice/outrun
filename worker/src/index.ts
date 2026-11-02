@@ -4,8 +4,7 @@ import climateGridData from '../../data/generated/climate_grid.json';
 import corridorAnalysisData from '../../data/generated/corridor_analysis.json';
 import registryData from '../../data/generated/registry.json';
 import {
-  simulateNodeProtection,
-  calculateCellAreaKm2,
+  simulateStopoverProtection,
   CorridorNode,
 } from '../../src/analytics/breakFix.js';
 import {
@@ -707,6 +706,7 @@ export default {
             normalizedSeason === 'breeding'
               ? analysis.break?.breeding_critical_links || []
               : analysis.break?.non_breeding_critical_links || [],
+          total_reachable_area_km2: analysis.break?.total_reachable_area_km2,
           labels: {
             race: 'projected',
             twin: 'simulated',
@@ -781,38 +781,17 @@ export default {
         const twinData = analysis.twin?.[normalizedSeason];
         const cells = twinData?.cells || [];
         const criticalLinks = analysis.break?.[`${normalizedSeason}_critical_links`] || [];
+        const targetIds: string[] = body.protected_node_ids || (protected_node_id ? [protected_node_id] : []);
 
-        // Build corridor nodes matching frontend schema
-        const nodes: CorridorNode[] = cells.map((c: any) => ({
-          id: c.node_id || c.id || `cell_${c.lat}_${c.lon}`,
-          lat: c.lat,
-          lon: c.lon,
-          area_km2: c.area_km2 || calculateCellAreaKm2(c.lat, 5.0) || 11000,
-          suitability: c.future_suitability ?? c.baseline_suitability ?? 0.8,
-          uncertainty: c.uncertainty ?? c.uncertainty_spread ?? 0.1,
-        }));
-
-        // Include critical link stopovers so they can be identified and protected
-        for (const cl of ((criticalLinks || []) as any[])) {
-          if (!nodes.some((n) => n.id === cl.node_id)) {
-            nodes.push({
-              id: cl.node_id,
-              lat: cl.lat,
-              lon: cl.lon,
-              area_km2: cl.area_km2 || 14000,
-              suitability: cl.suitability || 0.89,
-              uncertainty: 0.1,
-            });
-          }
-        }
-
-        const targetNode = protected_node_id || (nodes.length > 0 ? nodes[0].id : 'cell_0_0');
-        const simulation = simulateNodeProtection(
+        const spFlywayArea =
+          analysis.break?.total_reachable_area_km2 ||
+          cells.reduce((sum: number, c: any) => sum + (c.area_km2 || 0), 0);
+        const simulation = simulateStopoverProtection(
           species,
           normalizedSeason,
-          nodes,
-          targetNode,
-          action
+          spFlywayArea,
+          criticalLinks,
+          targetIds
         );
 
         return new Response(JSON.stringify(simulation), {
