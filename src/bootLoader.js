@@ -1,21 +1,31 @@
 /**
  * Drives the loading screen defined in index.html (#boot), which is visible from the first
  * paint, before this bundle has even downloaded. The app reports real readiness steps; the
- * screen fills its progress ring as each one completes and fades out once every step the
+ * screen draws in its flight line as each one completes and fades out once every step the
  * current page needs is done.
  *
- * Steps: fonts (document.fonts.ready), registry (species list), tracks (first species'
- * flight paths), map (basemap style loaded and first frame drawn). Pages without a map skip
- * 'map'. A safety timeout always reveals the app, so a slow tile server can never trap it.
+ * Steps follow the real requests the app makes on start-up, so on the deployed site they
+ * track the Worker API: registry (GET /api/species), occurrences (the first species' GBIF
+ * sightings), corridor (GET /api/corridor: race, twin, stopovers), tracks (flight paths),
+ * map (basemap style loaded and first frame drawn), plus fonts. Each request reports done
+ * whether it succeeded or fell back to the bundled offline data; the screen then says which
+ * source answered. Pages without a map skip 'map'. A safety timeout always reveals the app,
+ * so a slow API or tile server can never trap it.
  */
 
 const LABELS = {
   fonts: 'Loading typefaces',
-  registry: 'Loading the species registry',
+  registry: 'Contacting the observatory API',
+  occurrences: 'Fetching GBIF sightings',
+  corridor: 'Fetching climate & corridor analysis',
   tracks: 'Loading flight paths',
   map: 'Drawing the map',
 };
-const ORDER = ['fonts', 'registry', 'tracks', 'map'];
+const ORDER = ['fonts', 'registry', 'occurrences', 'corridor', 'tracks', 'map'];
+const SOURCE_TEXT = {
+  live: '● Live API connected',
+  offline: '○ Live API unavailable: using offline cache',
+};
 const MIN_VISIBLE_MS = 700; // avoid a flash on fast loads
 const SAFETY_MS = 15000;
 
@@ -62,6 +72,13 @@ export function markReady(step) {
   if (finished || done.has(step)) return;
   done.add(step);
   render();
+}
+
+export function setBootSource(source) {
+  const src = el('boot-src');
+  if (!src || finished) return;
+  src.textContent = SOURCE_TEXT[source] || '';
+  src.classList.toggle('is-live', source === 'live');
 }
 
 export function skipStep(step) {

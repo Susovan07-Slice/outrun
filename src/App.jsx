@@ -7,7 +7,7 @@ import SpeciesPage from './SpeciesPage';
 import SourcesPage from './SourcesPage';
 import BriefModal from './BriefModal';
 import BirdBackdrop from './BirdBackdrop';
-import { markReady, skipStep } from './bootLoader';
+import { markReady, skipStep, setBootSource } from './bootLoader';
 import { AUTO_PLAY, canonicalSpeciesList } from './config';
 import { getTimeRange } from './times';
 import { usePageVisibility } from './usePageVisibility';
@@ -186,6 +186,7 @@ const App = () => {
             const normalized = normalizeSpeciesList(json.species);
             setSpeciesList(normalized);
             setSelectedSpecies(normalized[0]);
+            setBootSource('live');
             setDataSourceStatus({
               label: 'LIVE API (Worker)',
               source: 'live',
@@ -206,6 +207,7 @@ const App = () => {
             const normalized = normalizeSpeciesList(staticJson.species);
             setSpeciesList(normalized);
             setSelectedSpecies(normalized[0]);
+            setBootSource('offline');
             setDataSourceStatus({
               label: 'CACHED FALLBACK (Offline)',
               source: 'fallback',
@@ -346,7 +348,7 @@ const App = () => {
       }
     }
 
-    fetchOccurrences();
+    fetchOccurrences().finally(() => markReady('occurrences'));
 
     return () => {
       isMounted = false;
@@ -422,7 +424,7 @@ const App = () => {
       }
     }
 
-    fetchCorridor();
+    fetchCorridor().finally(() => markReady('corridor'));
 
     return () => {
       isMounted = false;
