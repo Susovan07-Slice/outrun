@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { PanelRightClose, FileText, CloudSun, ShieldCheck, ShieldAlert, AlertCircle, ExternalLink, ArrowRight } from 'lucide-react';
+import { PanelRightClose, ChevronUp, ChevronDown, List, FileText, CloudSun, ShieldCheck, ShieldAlert, AlertCircle, ExternalLink, ArrowRight } from 'lucide-react';
 import { speciesColorOf, speciesMetaOf } from './config';
 import { RaceTab, TwinTab, NetworkTab, WatchTab } from './CorridorPanel';
 import { loadConcern, THREATENED } from './analytics/concern';
 import { loadSeasonCalendar, rangeName } from './analytics/seasonCalendar';
+import { useBottomSheet } from './useBottomSheet';
 
 export const INSPECTOR_TABS = [
   ['overview', 'Overview'],
@@ -215,8 +216,13 @@ const Inspector = ({
   onOpenBrief,
   onCollapse,
   tracksSimulated = false,
+  isNarrow = false,
+  sheet = 'peek',
+  onSheetChange,
+  onOpenSpecies,
 }) => {
   const [weatherData, setWeatherData] = useState(null);
+  const { sheetRef, handleProps } = useBottomSheet(sheet, onSheetChange, isNarrow);
   const [loadingWeather, setLoadingWeather] = useState(false);
   const [calendar, setCalendar] = useState(null);
 
@@ -282,30 +288,68 @@ const Inspector = ({
   }
 
   return (
-    <aside className="float o-panel inspector" style={{ '--sp': hex }} aria-label={`${species.common_name} inspector`}>
-      <div className="insp-head">
-        <span className="insp-swatch" />
-        <div style={{ minWidth: 0 }}>
-          <h2 className="insp-title">{species.common_name || species.scientific_name}</h2>
-          <div className="insp-sci">
-            {species.scientific_name}
-            {species.status?.category && <span className={`iucn iucn--${species.status.category}`} style={{ marginLeft: 8, height: 18, fontSize: 10 }}>{species.status.category}</span>}
+    <aside ref={sheetRef} className="float o-panel inspector" style={{ '--sp': hex }} aria-label={`${species.common_name} inspector`}>
+      <div className="insp-grab" {...handleProps}>
+        {isNarrow && (
+          <button
+            className="sheet-handle"
+            onClick={() => onSheetChange(sheet === 'peek' ? 'half' : 'peek')}
+            aria-label={sheet === 'peek' ? 'Expand details' : 'Collapse details'}
+          >
+            <span />
+          </button>
+        )}
+        <div className="insp-head">
+          <span className="insp-swatch" />
+          <div style={{ minWidth: 0 }}>
+            <h2 className="insp-title">{species.common_name || species.scientific_name}</h2>
+            <div className="insp-sci">
+              {species.scientific_name}
+              {species.status?.category && <span className={`iucn iucn--${species.status.category}`} style={{ marginLeft: 8, height: 18, fontSize: 10 }}>{species.status.category}</span>}
+            </div>
+          </div>
+          <div className="insp-head__actions">
+            {isNarrow ? (
+              <>
+                <button className="o-btn o-btn--sm sheet-species-btn" data-ripple onClick={onOpenSpecies} aria-label="Choose species">
+                  <List size={15} />
+                  Species
+                </button>
+                <button
+                  className="o-iconbtn"
+                  data-ripple
+                  onClick={() => onSheetChange(sheet === 'full' ? 'peek' : 'full')}
+                  aria-label={sheet === 'full' ? 'Show map' : 'Expand details'}
+                >
+                  {sheet === 'full' ? <ChevronDown size={18} /> : <ChevronUp size={18} />}
+                </button>
+              </>
+            ) : (
+              <button className="o-iconbtn panel-collapse-btn" data-ripple onClick={onCollapse} title="Hide panel" aria-label="Hide inspector">
+                <PanelRightClose size={17} />
+              </button>
+            )}
           </div>
         </div>
-        <div className="insp-head__actions">
-          <button className="o-iconbtn panel-collapse-btn" data-ripple onClick={onCollapse} title="Hide panel" aria-label="Hide inspector">
-            <PanelRightClose size={17} />
-          </button>
-        </div>
-      </div>
 
-      <div className="insp-tabs">
-        <div className="o-seg" role="tablist" aria-label="Analysis layers">
-          {INSPECTOR_TABS.map(([key, label]) => (
-            <button key={key} className="o-seg__btn" role="tab" aria-selected={activeTab === key} data-ripple onClick={() => onChangeTab(key)}>
-              {label}
-            </button>
-          ))}
+        <div className="insp-tabs">
+          <div className="o-seg" role="tablist" aria-label="Analysis layers">
+            {INSPECTOR_TABS.map(([key, label]) => (
+              <button
+                key={key}
+                className="o-seg__btn"
+                role="tab"
+                aria-selected={activeTab === key}
+                data-ripple
+                onClick={() => {
+                  onChangeTab(key);
+                  if (isNarrow && sheet === 'peek') onSheetChange('half');
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 

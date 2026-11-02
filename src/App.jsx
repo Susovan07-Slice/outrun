@@ -146,6 +146,8 @@ const App = () => {
   const viewport = useViewport();
   const [leftOpen, setLeftOpen] = useState(() => window.innerWidth > 900);
   const [rightOpen, setRightOpen] = useState(true);
+  // Phone layout: the details panel is a bottom sheet that rests at 'peek' so the map stays visible.
+  const [sheet, setSheet] = useState('peek');
   const [dockOpen, setDockOpen] = useState(true);
   const [layersOn, setLayersOn] = useState({ paths: true, trail: true, sightings: false, grid: true });
 
@@ -525,10 +527,15 @@ const App = () => {
 
   // Keep camera fits clear of the floating panels so the route lands in the open part of the map.
   const isNarrow = viewport.w <= 900;
+  // On a phone the species list is a full-screen picker, so it starts (and returns) closed.
+  useEffect(() => {
+    if (isNarrow) setLeftOpen(false);
+  }, [isNarrow]);
   const panelLeft = viewport.w <= 1180 ? 280 : 312;
   const panelRight = viewport.w <= 1180 ? 380 : 420;
+  // Phone: clear of the nav + layer chips at the top and the peeking sheet + journey bar below.
   const mapPadding = isNarrow
-    ? { top: 130, left: 24, right: 70, bottom: rightOpen ? viewport.h * 0.52 + 80 : 130 }
+    ? { top: 128, left: 20, right: 64, bottom: 236 }
     : {
         top: 150,
         bottom: 140,
@@ -569,7 +576,11 @@ const App = () => {
 
       <main className="page">
         {route === '/' && (
-          <div className={`atlas ${leftOpen ? '' : 'left-collapsed'} ${rightOpen ? '' : 'right-collapsed'} ${dockOpen ? '' : 'dock-collapsed'}`}>
+          <div
+            className={`atlas ${leftOpen ? '' : 'left-collapsed'} ${rightOpen || isNarrow ? '' : 'right-collapsed'} ${dockOpen ? '' : 'dock-collapsed'} ${
+              isNarrow ? `is-narrow sheet-${sheet}` : ''
+            }`}
+          >
             <div className="map-frame">
               <MapView
                 time={time}
@@ -640,6 +651,10 @@ const App = () => {
               onOpenBrief={(s) => setBriefSpecies(s)}
               onCollapse={() => setRightOpen(false)}
               tracksSimulated={tracksSimulated}
+              isNarrow={isNarrow}
+              sheet={sheet}
+              onSheetChange={setSheet}
+              onOpenSpecies={() => setLeftOpen(true)}
             />
 
             <TimeControl

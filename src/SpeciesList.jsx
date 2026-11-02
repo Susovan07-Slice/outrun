@@ -40,7 +40,8 @@ const SpeciesList = ({ speciesList = [], selectedSpecies, onSelectSpecies, onCol
           Species<span className="count">{filtered.length}/{speciesList.length}</span>
         </h2>
         <button className="o-iconbtn panel-collapse-btn" data-ripple onClick={onCollapse} title="Hide species list" aria-label="Hide species list">
-          <PanelLeftClose size={17} />
+          <PanelLeftClose size={17} className="only-wide" />
+          <X size={20} className="only-narrow" />
         </button>
       </div>
 
