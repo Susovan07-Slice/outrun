@@ -293,7 +293,7 @@ const Inspector = ({
           </div>
         </div>
         <div className="insp-head__actions">
-          <button className="o-iconbtn" data-ripple onClick={onCollapse} title="Hide panel" aria-label="Hide inspector">
+          <button className="o-iconbtn panel-collapse-btn" data-ripple onClick={onCollapse} title="Hide panel" aria-label="Hide inspector">
             <PanelRightClose size={17} />
           </button>
         </div>

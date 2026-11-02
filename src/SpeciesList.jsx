@@ -6,7 +6,7 @@ export const isThreatened = (s) => ['CR', 'EN', 'VU', 'NT'].includes(s.status?.c
 
 export function filterSpecies(list, query, status) {
   const q = query.toLowerCase().trim();
-  return list.filter((s) => {
+  const matched = list.filter((s) => {
     if (status === 'threatened' && !isThreatened(s)) return false;
     if (status === 'lc' && s.status?.category !== 'LC') return false;
     if (!q) return true;
@@ -15,6 +15,14 @@ export function filterSpecies(list, query, status) {
       s.common_name?.toLowerCase().includes(q) ||
       s.family?.toLowerCase().includes(q)
     );
+  });
+
+  // Sort species with the maximum number of tracked birds on the bottom (ascending order)
+  return [...matched].sort((a, b) => {
+    const countA = a.tracked_individuals ?? 0;
+    const countB = b.tracked_individuals ?? 0;
+    if (countA !== countB) return countA - countB;
+    return (a.common_name || a.scientific_name || '').localeCompare(b.common_name || b.scientific_name || '');
   });
 }
 
@@ -31,7 +39,7 @@ const SpeciesList = ({ speciesList = [], selectedSpecies, onSelectSpecies, onCol
         <h2>
           Species<span className="count">{filtered.length}/{speciesList.length}</span>
         </h2>
-        <button className="o-iconbtn" data-ripple onClick={onCollapse} title="Hide species list" aria-label="Hide species list" style={{ width: 32, height: 32, background: 'transparent', border: 0 }}>
+        <button className="o-iconbtn panel-collapse-btn" data-ripple onClick={onCollapse} title="Hide species list" aria-label="Hide species list">
           <PanelLeftClose size={17} />
         </button>
       </div>

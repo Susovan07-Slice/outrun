@@ -18,7 +18,7 @@ const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 const PLAIN_VAR = { wind_speed_10m: 'Wind', precipitation: 'Rain', temperature_2m: 'Temperature' };
 
 export const SeasonSwitch = ({ value, onChange }) => (
-  <div className="o-seg" role="tablist" aria-label="Seasonal range">
+  <div className="o-seg o-seg--full season-switch" role="tablist" aria-label="Seasonal range">
     {[
       ['breeding', 'Breeding · May–Aug'],
       ['non_breeding', 'Non-breeding · Nov–Feb'],

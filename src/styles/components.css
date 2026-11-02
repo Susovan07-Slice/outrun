@@ -70,7 +70,7 @@
   width: 38px;
   height: 38px;
   border-radius: var(--radius-md);
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line-strong);
   background: var(--bg-glass);
   color: var(--ink);
   cursor: pointer;
@@ -89,47 +89,75 @@
   box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
-/* ---------- Segmented control ---------- */
+/* ---------- Segmented control (sharp rectangular edges, transparent inactive buttons) ---------- */
 .o-seg {
   display: inline-flex;
+  align-items: center;
   padding: 3px;
   gap: 2px;
-  border-radius: var(--radius-md);
+  border-radius: 0 !important;
   background: var(--bg-0);
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   max-width: 100%;
   overflow-x: auto;
   scrollbar-width: none;
+  box-shadow: none;
 }
 .o-seg::-webkit-scrollbar { display: none; }
+
+.o-seg--full {
+  display: flex !important;
+  width: 100% !important;
+}
+.o-seg--full .o-seg__btn {
+  flex: 1 1 0% !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
 .o-seg__btn {
   position: relative;
   overflow: hidden;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   height: 30px;
   padding: 0 12px;
-  border: 0;
-  border-radius: calc(var(--radius-md) - 3px);
-  background: transparent;
-  color: var(--ink-muted);
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--ink);
   font: 600 12px/1 var(--font-sans);
   white-space: nowrap;
   cursor: pointer;
+  box-shadow: none !important;
   transition: background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out),
-    transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+    transform var(--dur-fast) var(--ease-out);
 }
-.o-seg__btn:hover { color: var(--ink); background: var(--bg-2); }
-.o-seg__btn:active { transform: scale(0.95); }
-.o-seg__btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
-.o-seg__btn[aria-selected='true'], .o-seg__btn.is-active {
-  color: var(--accent-ink);
-  background: var(--accent);
-  box-shadow: 0 4px 14px -4px var(--accent-glow);
-  animation: o-pop 260ms var(--ease-spring);
+.o-seg__btn:hover {
+  color: var(--ink);
+  background: var(--bg-2) !important;
+  transform: none;
+  box-shadow: none !important;
 }
-@keyframes o-pop { 0% { transform: scale(0.9); } 100% { transform: scale(1); } }
+.o-seg__btn:active {
+  transform: scale(0.97);
+}
+.o-seg__btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+.o-seg__btn[aria-selected='true'],
+.o-seg__btn.is-active,
+.o-seg__btn[aria-checked='true'] {
+  color: var(--accent-ink) !important;
+  background: var(--accent) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: 0 2px 6px -2px var(--accent-glow) !important;
+  transform: none;
+}
 
 /* ---------- Layer chip (toggle with switch) ---------- */
 .o-chip {
@@ -141,7 +169,7 @@
   height: 34px;
   padding: 0 12px 0 10px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line-strong);
   background: var(--bg-glass);
   color: var(--ink-muted);
   font: 600 12px/1 var(--font-sans);
@@ -201,7 +229,7 @@
 /* ---------- Panel ---------- */
 .o-panel {
   background: var(--bg-glass);
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line-strong);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-panel);
   backdrop-filter: blur(18px) saturate(140%);
@@ -217,7 +245,7 @@
   padding: 12px;
   border-radius: var(--radius-md);
   background: var(--bg-2);
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line-strong);
   min-width: 0;
 }
 .o-stat__label { font: 600 10.5px/1.3 var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); }
@@ -266,27 +294,47 @@
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 6px;
-  border-radius: var(--radius-pill);
+  height: 8px;
+  border-radius: 8px;
   background: linear-gradient(to right, var(--accent) 0%, var(--accent) var(--fill, 0%), var(--line-strong) var(--fill, 0%));
+  border: 1px solid var(--line-strong);
   outline: none;
   cursor: pointer;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 .o-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: var(--bg-1);
-  border: 3px solid var(--accent);
-  box-shadow: 0 0 0 0 var(--accent-soft);
+  background: #ffffff;
+  border: 4px solid var(--accent);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  cursor: grab;
   transition: box-shadow var(--dur-base) var(--ease-out), transform var(--dur-fast) var(--ease-out);
 }
-.o-slider:hover::-webkit-slider-thumb { box-shadow: 0 0 0 6px var(--accent-soft); }
-.o-slider:active::-webkit-slider-thumb { transform: scale(1.15); }
-.o-slider::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--bg-1); border: 3px solid var(--accent); }
+.o-slider:hover::-webkit-slider-thumb {
+  transform: scale(1.18);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45), 0 0 0 4px var(--accent-soft);
+}
+.o-slider:active::-webkit-slider-thumb {
+  cursor: grabbing;
+  transform: scale(1.22);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.55), 0 0 0 6px var(--accent-soft);
+}
+.o-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 4px solid var(--accent);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+  transition: box-shadow var(--dur-base) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+.o-slider::-moz-range-thumb:hover { transform: scale(1.18); }
 .o-slider:disabled { opacity: 0.4; cursor: not-allowed; }
-.o-slider:focus-visible::-webkit-slider-thumb { box-shadow: var(--focus-ring); }
+.o-slider:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 3px #f5f0e6, 0 0 0 5px var(--accent); }
 
 /* ---------- Play button ---------- */
 .o-play {
