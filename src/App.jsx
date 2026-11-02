@@ -676,6 +676,7 @@ const App = () => {
           corridorData={corridorData}
           occurrences={occurrences}
           tracksSimulated={tracksSimulated}
+          activeSeason={activeSeason}
           onClose={() => setBriefSpecies(null)}
         />
       )}
