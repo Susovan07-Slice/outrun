@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { PanelRightClose, ChevronUp, ChevronDown, List, Search, Radar, Handshake, FileText, CloudSun, ShieldCheck, ShieldAlert, AlertCircle, ExternalLink, ArrowRight } from 'lucide-react';
+import { PanelRightClose, ChevronUp, ChevronDown, List, FileText, CloudSun, ShieldCheck, ShieldAlert, AlertCircle, ExternalLink, ArrowRight } from 'lucide-react';
 import { speciesColorOf, speciesMetaOf } from './config';
 import { RaceTab, TwinTab, NetworkTab, WatchTab, isFigure } from './CorridorPanel';
-import { loadConcern, THREATENED, pressureLevel, suggestActions } from './analytics/concern';
+import { loadConcern, THREATENED, pressureLevel, suggestActions, actionsParagraph } from './analytics/concern';
 import { loadSeasonCalendar, rangeName } from './analytics/seasonCalendar';
 import { useBottomSheet } from './useBottomSheet';
 import { IucnTag, Abbr, iucnDefinition } from './iucn';
@@ -26,7 +26,6 @@ const LEVEL_TEXT = {
   moderate: 'Moderate climate pressure',
 };
 const SEVERITY_STEPS = { low: 1, medium: 2, high: 3 };
-const ACTION_ICON = { Protect: ShieldCheck, Research: Search, Monitor: Radar, Partner: Handshake };
 
 const ConcernCard = ({ species, tracksSimulated }) => {
   const [concern, setConcern] = useState(null);
@@ -109,23 +108,7 @@ const ConcernCard = ({ species, tracksSimulated }) => {
           <div className="concern__actions-head">
             <span className="o-label">Suggested actions</span>
           </div>
-          <ol>
-            {actions.map((a, i) => {
-              const Icon = ACTION_ICON[a.type] || Search;
-              return (
-                <li key={i} className={`concern__action is-${a.type.toLowerCase()}`}>
-                  <span className="concern__action-icon" aria-hidden="true"><Icon size={15} /></span>
-                  <div>
-                    <div className="concern__action-title">
-                      <span>{a.title}</span>
-                      <span className="concern__action-type">{a.type}</span>
-                    </div>
-                    <p>{a.why}</p>
-                  </div>
-                </li>
-              );
-            })}
-          </ol>
+          <p className="concern__plan">{actionsParagraph(actions)}</p>
         </div>
       )}
 

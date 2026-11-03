@@ -160,7 +160,7 @@ export function pressureLevel(pressures = []) {
 /**
  * Suggested next steps for a bird research team, each tied to a pressure or data gap
  * measured for this species. These are recommendations, not data.
- * @returns {Array<{ type: 'Protect'|'Monitor'|'Research'|'Partner', title: string, why: string }>}
+ * @returns {Array<{ type: 'Protect'|'Monitor'|'Research'|'Partner', title: string, text: string }>}
  */
 export function suggestActions(concern, species, { tracksSimulated = false } = {}) {
   if (!concern) return [];
@@ -171,19 +171,20 @@ export function suggestActions(concern, species, { tracksSimulated = false } = {
     actions.push({
       type: 'Protect',
       title: `Protect ${p.data.name}`,
-      why: `Cuts off ${p.data.lossPct}% of habitat if lost. Count birds there each passage.`,
+      text: `Start by protecting ${p.data.name}: losing it would cut off ${p.data.lossPct}% of the habitat the birds can reach, so regular counts during each passage would show early whether numbers are falling.`,
     });
   }
 
   const worst = find('climate').sort((a, b) => b.data.lostShare - a.data.lostShare)[0];
   if (worst && worst.data.lostShare >= 0.2) {
+    const keep = 100 - Math.round(worst.data.lostShare * 100);
     actions.push({
       type: 'Research',
       title: 'Map climate refuges',
-      why:
+      text:
         worst.data.lostShare >= 0.95
-          ? `All of its ${worst.data.where} turns unsuitable by 2050. Survey nearby areas that could replace it.`
-          : `${Math.round(worst.data.lostShare * 100)}% of its ${worst.data.where} turns unsuitable by 2050. Protect the parts that stay green in the Twin tab.`,
+          ? `Its whole ${worst.data.where} turns unsuitable by 2050, so surveying nearby areas that could replace it is a priority.`
+          : `Mapping the ${keep}% of its ${worst.data.where} that stays suitable in 2050 would show where to focus long-term protection.`,
     });
   }
 
@@ -192,25 +193,25 @@ export function suggestActions(concern, species, { tracksSimulated = false } = {
     actions.push({
       type: 'Protect',
       title: 'Secure stepping-stone habitat',
-      why: `Climate moves ${race.data.velocity} km per decade. Protect wetlands along the shift so it can follow.`,
+      text: `Because suitable climate is moving about ${race.data.velocity} km per decade, securing stepping-stone wetlands and feeding sites along that shift would help the birds follow it.`,
     });
   }
 
   const tracked = species?.evidence_level === 'tracks' ? species.tracked_individuals || 0 : 0;
   if (tracksSimulated || !tracked) {
-    actions.push({ type: 'Monitor', title: 'Start GPS tracking', why: 'Routes here are modelled. Tag 20+ birds to confirm them.' });
+    actions.push({ type: 'Monitor', title: 'Start GPS tracking', text: 'Its routes here are modelled, so GPS tags on 20 or more birds would confirm the real routes, stopovers and timing.' });
   } else if (tracked < 20) {
-    actions.push({ type: 'Monitor', title: 'Tag more birds', why: `Only ${tracked} tracked. 20+ would firm up routes and timing.` });
+    actions.push({ type: 'Monitor', title: 'Tag more birds', text: `With only ${tracked} birds tracked, tagging more across both seasons would firm up its routes and timing.` });
   } else {
-    actions.push({ type: 'Monitor', title: 'Keep long-term tracking', why: 'Watch for shifts in timing and stopovers as it warms.' });
+    actions.push({ type: 'Monitor', title: 'Keep long-term tracking', text: `Its ${tracked} tracked birds should keep being followed to spot shifts in timing and stopovers as the climate warms.` });
   }
 
-  actions.push({ type: 'Monitor', title: 'Time field checks to weather', why: 'Use the Watch tab during migration months.' });
+  actions.push({ type: 'Monitor', title: 'Time field checks to weather', text: 'Field checks are best timed to risky weather during migration, using the Watch tab.' });
 
   if (concern.atRisk) {
-    actions.push({ type: 'Partner', title: 'Share with flyway partners', why: 'IUCN assessors and Convention on Migratory Species (CMS) flyway agreements.' });
+    actions.push({ type: 'Partner', title: 'Share with flyway partners', text: 'Findings should go to IUCN assessors and to the flyway agreements under the Convention on Migratory Species (CMS).' });
   } else if (pressureLevel(concern.pressures).level === 'high') {
-    actions.push({ type: 'Partner', title: 'Flag for IUCN reassessment', why: 'Listed Least Concern, but climate pressure is high.' });
+    actions.push({ type: 'Partner', title: 'Flag for IUCN reassessment', text: 'Although it is listed Least Concern, this level of climate pressure could support a request for IUCN reassessment.' });
   }
 
   // Five at most, so the list stays readable; the weather check is the first to go.
@@ -218,3 +219,6 @@ export function suggestActions(concern, species, { tracksSimulated = false } = {
   const rank = { Protect: 0, Research: 1, Monitor: 2, Partner: 3 };
   return list.slice(0, 5).sort((a, b) => rank[a.type] - rank[b.type]);
 }
+
+/** The suggested actions as one short paragraph, in priority order. */
+export const actionsParagraph = (actions = []) => actions.map((a) => a.text).join(' ');

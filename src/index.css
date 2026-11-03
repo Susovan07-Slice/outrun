@@ -1729,3 +1729,4 @@ em { font-style: italic; }
   .concern__level { border-radius: 0 12px 0 0; corner-shape: bevel; }
   .concern__action-icon { border-radius: 8px; corner-shape: bevel; }
 }
+.concern__plan { margin: 0; padding: 12px 14px; font-size: 13.5px; line-height: 1.6; color: var(--ink); background: var(--bg-1); border: 1px solid var(--line); border-left: 4px solid var(--success); }
