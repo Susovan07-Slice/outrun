@@ -9,6 +9,7 @@
  * 5. GET /api/climate-grid Endpoint (Models, resolution, period, retrieved_at, epistemic labels)
  */
 
+import climateGridFile from '../data/generated/climate_grid.json';
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -268,8 +269,9 @@ describe('Worker Endpoints: /api/climate-grid', () => {
     expect(data.period.baseline).toBe('2005-01-01 to 2024-12-31');
     expect(data.period.projection).toBe('2025-01-01 to 2050-12-31');
     expect(data.models).toEqual(['EC_Earth3P_HR', 'MPI_ESM1_2_XR']);
-    expect(data.labels.baseline).toBe('observed');
-    expect(data.labels.projection).toBe('projected');
+    // Labels come from the grid file itself: 'simulated' while it holds demo data.
+    expect(data.labels).toEqual(climateGridFile.labels);
+    expect(['observed', 'simulated']).toContain(data.labels.baseline);
     expect(data.retrieved_at).toBeDefined();
     expect(data.cells.length).toBeGreaterThan(0);
 

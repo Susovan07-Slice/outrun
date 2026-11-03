@@ -132,27 +132,27 @@ const BriefModal = ({ species, corridorData, occurrences, tracksSimulated = fals
               value={keptPct != null ? `${keptPct}%` : null}
               sub={summary ? `${summary.future_suitable_cells} of ${summary.baseline_suitable_cells} areas, ${seasonName}` : null}
               tone={keptPct == null ? null : keptPct < 50 ? 'danger' : keptPct < 80 ? 'warn' : 'ok'}
-              kind="projected"
+              kind="simulated"
             />
             <KeyFact
               label="Climate shift speed"
               value={race?.mean_velocity_km_decade != null ? `${race.mean_velocity_km_decade} km` : null}
               sub="per decade, across its range"
-              kind="projected"
+              kind="simulated"
             />
             <KeyFact
               label="Can it keep up?"
               value={verdict ? (verdict.tone === 'ok' ? 'Likely' : verdict.tone === 'danger' ? 'No' : 'Partly') : null}
               sub={race?.hwi_rank != null ? `Flight ability #${race.hwi_rank} of ${race.hwi_rank_total}` : null}
               tone={verdict?.tone}
-              kind="projected"
+              kind="simulated"
             />
           </section>
 
           <section className="bf-section">
             <h2>
               {concern?.atRisk ? 'Why it is of concern' : 'Pressures'}
-              {level && <span className={`bf-level is-${level.level}`}> · {level.level} climate pressure ({level.score}/100)</span>}
+              {level && <span className={`bf-level is-${level.level}`}> · {level.level} climate exposure, demo data ({level.score}/100)</span>}
             </h2>
             {pressures.length ? (
               <ul className="bf-pressures">
@@ -198,8 +198,9 @@ const BriefModal = ({ species, corridorData, occurrences, tracksSimulated = fals
 
           <footer className="bf-foot">
             <p>
-              <strong>Data:</strong> GBIF sightings and GPS tracks, AVONET wing traits, ERA5 climate 2005–2024, CMIP6
-              climate models for 2050, IUCN Red List{concern?.year ? ` (${concern.year})` : ''}.
+              <strong>Data:</strong> GBIF sightings and GPS tracks, AVONET wing traits, IUCN Red List
+              {concern?.year ? ` (${concern.year})` : ''}. Climate, climate-shift and stopover figures are demo values, not yet
+              ERA5 or CMIP6 output.
             </p>
             <p>
               <strong>Labels:</strong> observed = measured; projected = climate-model outlook; simulated = Outrun model

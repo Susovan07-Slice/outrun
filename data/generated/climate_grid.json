@@ -10,8 +10,8 @@
     "projection": "2025-01-01 to 2050-12-31"
   },
   "labels": {
-    "baseline": "observed",
-    "projection": "projected"
+    "baseline": "simulated",
+    "projection": "simulated"
   },
   "generated_at": "2026-10-31T17:00:00Z",
   "total_cells_cached": 286,
@@ -7666,5 +7666,6 @@
         }
       }
     }
-  }
+  },
+  "data_note": "Demo placeholder temperatures from scripts/generate_demo_data.py, not ERA5 or CMIP6 output. Replace by running npm run precompute:climate."
 }

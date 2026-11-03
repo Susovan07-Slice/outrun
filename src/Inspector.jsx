@@ -21,9 +21,9 @@ const MIGRATION = { 1: 'Sedentary', 2: 'Partially migratory', 3: 'Long-distance 
 // Why a species is of concern: its IUCN listing, the climate pressure Outrun measures for it,
 // and what a bird research team could do about each pressure.
 const LEVEL_TEXT = {
-  high: 'High climate pressure',
-  elevated: 'Elevated climate pressure',
-  moderate: 'Moderate climate pressure',
+  high: 'High climate exposure',
+  elevated: 'Elevated climate exposure',
+  moderate: 'Moderate climate exposure',
 };
 const SEVERITY_STEPS = { low: 1, medium: 2, high: 3 };
 const ACTION_ICON = { Protect: ShieldCheck, Research: Search, Monitor: Radar, Partner: Handshake };
@@ -65,7 +65,7 @@ const ConcernCard = ({ species, tracksSimulated }) => {
             <span className="concern__level-name">{LEVEL_TEXT[level.level]}</span>
             <span
               className="concern__score"
-              title={`Range loss ${level.parts.range}/55 + keeping pace ${level.parts.pace}/25 + key stopover ${level.parts.stopover}/20. Outrun projection, not part of the IUCN listing.`}
+              title={`Range loss ${level.parts.range}/55 + keeping pace ${level.parts.pace}/25 + key stopover ${level.parts.stopover}/20. Demo data, not part of the IUCN listing.`}
             >
               <b>{level.score}</b>/100
             </span>
@@ -77,7 +77,10 @@ const ConcernCard = ({ species, tracksSimulated }) => {
           </div>
           <p>
             {level.high > 0 ? `${level.high} of ${level.total} pressures severe` : 'No severe pressure yet'}
-            {!concern.atRisk && level.level === 'high' && ' · higher than its IUCN listing'}
+          </p>
+          <p className="demo-note">
+            Demo data: built from placeholder climate and corridor values to show the method, not a real finding. IUCN
+            status measures extinction risk from population size and trends; this measures projected climate change in its range.
           </p>
         </div>
       )}
@@ -139,7 +142,7 @@ const ConcernCard = ({ species, tracksSimulated }) => {
             </a>
           </>
         )}
-        {' · '}Pressures and actions are Outrun estimates.
+        {' · '}Pressures use demo data; actions are suggestions.
       </p>
     </div>
   );

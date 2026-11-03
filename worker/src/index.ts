@@ -589,10 +589,9 @@ export default {
             projection: '2025-01-01 to 2050-12-31',
           },
           models: ['EC_Earth3P_HR', 'MPI_ESM1_2_XR'],
-          labels: {
-            baseline: 'observed',
-            projection: 'projected',
-          },
+          // The grid file carries its own labels: 'simulated' for demo data, 'observed' /
+          // 'projected' once scripts/precompute/climate-grid.ts has written real ERA5 / CMIP6.
+          labels: (climateGridData as any).labels || { baseline: 'observed', projection: 'projected' },
           cell_count: gridData.cell_count || gridData.cells.length,
           cells: gridData.cells,
           source,
@@ -714,7 +713,7 @@ export default {
               : analysis.break?.non_breeding_critical_links || [],
           total_reachable_area_km2: analysis.break?.total_reachable_area_km2,
           labels: {
-            race: 'projected',
+            race: 'simulated',
             twin: 'simulated',
             critical_links: 'simulated',
           },

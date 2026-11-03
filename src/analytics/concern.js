@@ -77,7 +77,7 @@ export async function loadConcern(species) {
     pressures.push({
       kind: 'climate',
       data: { season, where: p.where, warming: p.warming, lostShare: p.lostShare },
-      label: 'projected',
+      label: 'simulated',
       title: `${p.where[0].toUpperCase()}${p.where.slice(1)} warms ${p.warming >= 0 ? '+' : ''}${p.warming}°C by 2050`,
       detail:
         p.lostShare > 0
@@ -93,7 +93,7 @@ export async function loadConcern(species) {
     pressures.push({
       kind: 'race',
       data: { velocity: race.mean_velocity_km_decade, rank: race.hwi_rank, total: race.hwi_rank_total, tone: plain.tone },
-      label: 'projected',
+      label: 'simulated',
       title: plain.title,
       detail: `Climate shifts ${race.mean_velocity_km_decade} km per decade; flight ability #${race.hwi_rank} of ${race.hwi_rank_total}.`,
       severity: plain.tone === 'danger' ? 'high' : plain.tone === 'warn' ? 'medium' : 'low',
@@ -133,7 +133,7 @@ export async function loadConcern(species) {
 }
 
 /**
- * Overall climate pressure (0-100) from Outrun's own measurements, separate from the IUCN
+ * Demo climate exposure (0-100) from Outrun's demo climate and corridor data, separate from the IUCN
  * listing. Weights: range loss 55 (mean share of breeding and wintering range pushed out of
  * the species' temperature range by 2050), keeping pace 25 (no = 25, partly = 12.5, yes = 0)
  * and key stopover 20 (reachable habitat cut off by its loss, scaled from 30% to 55%).
@@ -229,12 +229,6 @@ export function suggestActions(concern, species, { tracksSimulated = false } = {
       type: 'Partner',
       title: 'Share with flyway partners',
       why: 'Send tracking and climate results to IUCN assessors and the flyway agreements under the Convention on Migratory Species (CMS). Joint plans matter because these birds cross many borders.',
-    });
-  } else if (pressureLevel(concern.pressures).level === 'high') {
-    actions.push({
-      type: 'Partner',
-      title: 'Flag for IUCN reassessment',
-      why: 'It is listed Least Concern, but its climate pressure score is high. New tracking and climate evidence could support a request for IUCN reassessment.',
     });
   }
 

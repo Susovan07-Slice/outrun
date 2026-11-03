@@ -41,6 +41,11 @@ const Stat = ({ label, value, sub, accent }) => (
   </div>
 );
 
+// Shown wherever a figure comes from Outrun's demo climate data rather than ERA5/CMIP6.
+export const DemoClimateNote = () => (
+  <p className="demo-note">Demo climate data: these temperatures and speeds are placeholders, not ERA5 or CMIP6 output yet.</p>
+);
+
 const SectionHead = ({ title, badge, lead }) => (
   <div className="sec">
     <div className="sec__head">
@@ -67,9 +72,10 @@ export const RaceTab = ({ race }) => {
     <>
       <SectionHead
         title="Can it keep up with climate change?"
-        badge="projected"
+        badge="simulated"
         lead="How fast suitable climate is shifting across its range, compared with how well this bird is built for long flights."
       />
+      <DemoClimateNote />
       <div className={`note note--${verdict.tone}`}>
         <ShieldAlert size={16} />
         <div><strong>{verdict.title}</strong></div>
@@ -101,6 +107,7 @@ export const TwinTab = ({ twin, twinSlider, onChangeTwinSlider, activeSeason, on
         badge="simulated"
         lead="Coloured areas on the map show how well the climate suits this species. Move the slider to see 2050."
       />
+      <DemoClimateNote />
       <SeasonSwitch value={activeSeason} onChange={onChangeSeason} />
       {!twin ? (
         <div className="empty-note">{INSUFFICIENT} for this season.</div>

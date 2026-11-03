@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "generated_at": "2026-10-31T17:00:00Z",
   "labels": {
-    "race": "projected",
+    "race": "simulated",
     "twin": "simulated",
     "critical_links": "simulated"
   },
@@ -23,7 +23,7 @@
         "hwi_rank_total": 20,
         "verdict": "Marginal tracking under high emissions",
         "verdict_reason": "Aspect ratio HWI of 45.9 (Rank #17/20) offers adequate dispersal, but non-breeding climate velocity (312.0 km/decade) creates spatial tracking drag.",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -1342,7 +1342,7 @@
         "hwi_rank_total": 20,
         "verdict": "Marginal tracking under high emissions",
         "verdict_reason": "Aspect ratio HWI of 49.3 (Rank #11/20) offers adequate dispersal, but non-breeding climate velocity (245.0 km/decade) creates spatial tracking drag.",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -2631,7 +2631,7 @@
         "hwi_rank_total": 20,
         "verdict": "Dispersal deficit: velocity exceeds adaptation rate",
         "verdict_reason": "Compact wing morphology (HWI 42.1, Rank #19/20) implies high energetic cost during range relocations relative to the intense climate displacement (307.0 km/decade).",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -3716,7 +3716,7 @@
         "hwi_rank_total": 20,
         "verdict": "High dispersal capacity outpaces velocity",
         "verdict_reason": "With a Hand-Wing Index of 52.9 (Rank #5/20), long-distance aspect-ratio aeromechanics support range-shift velocities exceeding projected local climate shifts (267.0 km/decade).",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -5005,7 +5005,7 @@
         "hwi_rank_total": 20,
         "verdict": "High dispersal capacity outpaces velocity",
         "verdict_reason": "With a Hand-Wing Index of 56.6 (Rank #3/20), long-distance aspect-ratio aeromechanics support range-shift velocities exceeding projected local climate shifts (275.0 km/decade).",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -5826,7 +5826,7 @@
         "hwi_rank_total": 20,
         "verdict": "High dispersal capacity outpaces velocity",
         "verdict_reason": "With a Hand-Wing Index of 69.1 (Rank #1/20), long-distance aspect-ratio aeromechanics support range-shift velocities exceeding projected local climate shifts (266.0 km/decade).",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -6635,7 +6635,7 @@
         "hwi_rank_total": 20,
         "verdict": "Dispersal deficit: velocity exceeds adaptation rate",
         "verdict_reason": "Compact wing morphology (HWI 44.8, Rank #18/20) implies high energetic cost during range relocations relative to the intense climate displacement (223.0 km/decade).",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -7672,7 +7672,7 @@
         "hwi_rank_total": 20,
         "verdict": "Marginal tracking under high emissions",
         "verdict_reason": "Aspect ratio HWI of 48.2 (Rank #14/20) offers adequate dispersal, but non-breeding climate velocity (188.0 km/decade) creates spatial tracking drag.",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -8613,7 +8613,7 @@
         "hwi_rank_total": 20,
         "verdict": "High dispersal capacity outpaces velocity",
         "verdict_reason": "With a Hand-Wing Index of 54.3 (Rank #4/20), long-distance aspect-ratio aeromechanics support range-shift velocities exceeding projected local climate shifts (277.0 km/decade).",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -9902,7 +9902,7 @@
         "hwi_rank_total": 20,
         "verdict": "Dispersal deficit: velocity exceeds adaptation rate",
         "verdict_reason": "Compact wing morphology (HWI 40.5, Rank #20/20) implies high energetic cost during range relocations relative to the intense climate displacement (259.0 km/decade).",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -11221,7 +11221,7 @@
         "hwi_rank_total": 20,
         "verdict": "Marginal tracking under high emissions",
         "verdict_reason": "Aspect ratio HWI of 49.7 (Rank #10/20) offers adequate dispersal, but non-breeding climate velocity (288.0 km/decade) creates spatial tracking drag.",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -12402,7 +12402,7 @@
         "hwi_rank_total": 20,
         "verdict": "Marginal tracking under high emissions",
         "verdict_reason": "Aspect ratio HWI of 46.4 (Rank #16/20) offers adequate dispersal, but non-breeding climate velocity (311.0 km/decade) creates spatial tracking drag.",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -13319,7 +13319,7 @@
         "hwi_rank_total": 20,
         "verdict": "High dispersal capacity outpaces velocity",
         "verdict_reason": "With a Hand-Wing Index of 52.1 (Rank #6/20), long-distance aspect-ratio aeromechanics support range-shift velocities exceeding projected local climate shifts (225.0 km/decade).",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -14224,7 +14224,7 @@
         "hwi_rank_total": 20,
         "verdict": "Marginal tracking under high emissions",
         "verdict_reason": "Aspect ratio HWI of 49.8 (Rank #9/20) offers adequate dispersal, but non-breeding climate velocity (288.0 km/decade) creates spatial tracking drag.",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -15285,7 +15285,7 @@
         "hwi_rank_total": 20,
         "verdict": "High dispersal capacity outpaces velocity",
         "verdict_reason": "With a Hand-Wing Index of 51.2 (Rank #7/20), long-distance aspect-ratio aeromechanics support range-shift velocities exceeding projected local climate shifts (338.0 km/decade).",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -16550,7 +16550,7 @@
         "hwi_rank_total": 20,
         "verdict": "High dispersal capacity outpaces velocity",
         "verdict_reason": "With a Hand-Wing Index of 64.8 (Rank #2/20), long-distance aspect-ratio aeromechanics support range-shift velocities exceeding projected local climate shifts (328.0 km/decade).",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -17839,7 +17839,7 @@
         "hwi_rank_total": 20,
         "verdict": "Marginal tracking under high emissions",
         "verdict_reason": "Aspect ratio HWI of 47.6 (Rank #15/20) offers adequate dispersal, but non-breeding climate velocity (300.0 km/decade) creates spatial tracking drag.",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -19128,7 +19128,7 @@
         "hwi_rank_total": 20,
         "verdict": "Marginal tracking under high emissions",
         "verdict_reason": "Aspect ratio HWI of 49.1 (Rank #12/20) offers adequate dispersal, but non-breeding climate velocity (193.0 km/decade) creates spatial tracking drag.",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -20069,7 +20069,7 @@
         "hwi_rank_total": 20,
         "verdict": "Marginal tracking under high emissions",
         "verdict_reason": "Aspect ratio HWI of 48.7 (Rank #13/20) offers adequate dispersal, but non-breeding climate velocity (318.0 km/decade) creates spatial tracking drag.",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -21358,7 +21358,7 @@
         "hwi_rank_total": 20,
         "verdict": "High dispersal capacity outpaces velocity",
         "verdict_reason": "With a Hand-Wing Index of 50.8 (Rank #8/20), long-distance aspect-ratio aeromechanics support range-shift velocities exceeding projected local climate shifts (321.0 km/decade).",
-        "label": "projected"
+        "label": "simulated"
       },
       "twin": {
         "breeding": {
@@ -22619,5 +22619,6 @@
         "label": "simulated"
       }
     }
-  }
+  },
+  "data_note": "Race velocities, twin cells and stopover losses are demo values from scripts/generate_demo_data.py."
 }

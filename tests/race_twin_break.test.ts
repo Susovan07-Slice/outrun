@@ -265,7 +265,7 @@ describe('The Fix & Worker API Endpoints: /api/corridor & POST /api/simulate', (
     expect(data.race).toBeDefined();
     expect(data.race.verdict).toBe('Insufficient evidence for a verdict');
     expect(data.twin).toBeDefined();
-    expect(data.labels.race).toBe('projected');
+    expect(data.labels.race).toBe('simulated');
     expect(data.labels.twin).toBe('simulated');
     expect(data.labels.critical_links).toBe('simulated');
   });

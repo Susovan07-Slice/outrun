@@ -753,7 +753,8 @@ def generate_all_demo_data():
         "version": "1.0.0",
         "generated_at": "2026-10-31T17:00:00Z",
         "labels": {
-            "race": "projected",
+            # Demo values: labelled simulated, never projected or observed.
+            "race": "simulated",
             "twin": "simulated",
             "critical_links": "simulated",
         },
@@ -853,7 +854,7 @@ def generate_all_demo_data():
                 "hwi_rank_total": total_sp,
                 "verdict": verdict,
                 "verdict_reason": reason,
-                "label": "projected",
+                "label": "simulated",
             },
             "twin": {
                 "breeding": {
@@ -932,8 +933,9 @@ def generate_all_demo_data():
             "projection": "2025-01-01 to 2050-12-31"
         },
         "labels": {
-            "baseline": "observed",
-            "projection": "projected"
+            # Demo placeholder temperatures, not ERA5/CMIP6: labelled simulated.
+            "baseline": "simulated",
+            "projection": "simulated"
         },
         "generated_at": "2026-10-31T17:00:00Z",
         "total_cells_cached": 286,

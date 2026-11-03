@@ -1735,3 +1735,7 @@ em { font-style: italic; }
 .concern__action-icon { width: 36px; height: 36px; }
 .concern__action-title { font-size: 14.5px; }
 .concern__action p { margin-top: 6px; font-size: 13.5px; line-height: 1.6; color: var(--ink-muted); }
+
+/* Demo-data notice: shown wherever figures come from placeholder data. */
+.demo-note { margin: 0; padding: 7px 10px; font-size: 12px; line-height: 1.45; color: var(--ink-muted); background: color-mix(in srgb, var(--epi-simulated) 8%, transparent); border-left: 3px solid var(--epi-simulated); }
+.concern__level .demo-note { margin-top: 4px; }

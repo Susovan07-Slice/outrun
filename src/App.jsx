@@ -404,7 +404,7 @@ const App = () => {
                   : spData.break?.non_breeding_critical_links || [],
               total_reachable_area_km2: spData.break?.total_reachable_area_km2,
               labels: {
-                race: 'projected',
+                race: 'simulated',
                 twin: 'simulated',
                 critical_links: 'simulated',
               },

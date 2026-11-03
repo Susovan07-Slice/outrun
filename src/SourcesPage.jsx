@@ -3,6 +3,7 @@ import { IucnTag, IUCN_ORDER, iucnDefinition } from './iucn';
 
 const SECTIONS = [
   ['labels', 'How we label evidence'],
+  ['demo', 'Real vs demo data'],
   ['telemetry', 'GPS telemetry'],
   ['gbif', 'GBIF occurrences'],
   ['avonet', 'AVONET traits'],
@@ -47,6 +48,13 @@ const SourcesPage = ({ activeTrackDataset }) => (
               <div className="epi-item"><span className="o-badge o-badge--projected">projected</span><p>Medium to long-term CMIP6 climate scenario projections.</p></div>
               <div className="epi-item"><span className="o-badge o-badge--simulated">simulated</span><p>Corridor connectivity graphs, protection scenarios and the climate twin.</p></div>
             </div>
+          </section>
+
+          <section className="doc-card" id="demo">
+            <h2>Real vs demo data</h2>
+            <p><strong>Real:</strong> GBIF sightings, GPS tracks where a species shows <em>observed</em>, AVONET wing traits, IUCN Red List statuses and the live Open-Meteo weather in the Watch tab.</p>
+            <p><strong>Demo (labelled <span className="o-badge o-badge--simulated">simulated</span>):</strong> the climate grid temperatures behind the Twin and Concern tabs, the climate-shift speeds in the Race tab, the stopover losses in the Network tab, modelled routes for species without public GPS data, and the climate exposure score built from them. These are placeholder values that show how the method works; they are not ERA5 or CMIP6 output and are not real findings.</p>
+            <p>Running <code>npm run precompute:climate</code> and <code>npm run precompute:corridor</code> replaces the demo climate and corridor values with real ERA5 and CMIP6 data from Open-Meteo.</p>
           </section>
 
           <section className="doc-card" id="telemetry">
