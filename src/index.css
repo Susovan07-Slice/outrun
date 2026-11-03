@@ -1683,3 +1683,7 @@ em { font-style: italic; }
 .iucn-defs > div { display: grid; grid-template-columns: 190px 1fr; gap: 12px; align-items: baseline; }
 .iucn-defs dd { margin: 0; color: var(--ink-muted); font-size: 13.5px; line-height: 1.5; }
 @media (max-width: 600px) { .iucn-defs > div { grid-template-columns: 1fr; gap: 4px; } }
+
+/* Species list: every row now carries its IUCN tag, so long names wrap instead of clipping. */
+.o-species__common { white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; }
+.o-species__meta { display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0; }

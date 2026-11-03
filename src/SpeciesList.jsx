@@ -105,7 +105,7 @@ const SpeciesList = ({ speciesList = [], selectedSpecies, onSelectSpecies, onCol
                   <span className="o-species__sci">{s.scientific_name}</span>
                 </span>
                 <span className="o-species__meta">
-                  {isThreatened(s) && <IucnTag cat={s.status.category} />}
+                  <IucnTag cat={s.status?.category} />
                   {s.evidence_level === 'tracks' ? `${s.tracked_individuals ?? '–'} birds` : 'sightings'}
                 </span>
               </button>
