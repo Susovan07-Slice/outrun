@@ -1540,3 +1540,35 @@ em { font-style: italic; }
     radial-gradient(120% 80% at 50% 0%, color-mix(in srgb, var(--sp) 22%, transparent) 0%, transparent 65%),
     linear-gradient(180deg, color-mix(in srgb, var(--sp) 12%, transparent) 0%, color-mix(in srgb, var(--sp) 3%, transparent) 100%); }
 }
+
+/* ==========================================================================
+   One type system on every page
+   Headings: Bricolage Grotesque. Prominent figures: Fraunces (lining, tabular so columns
+   line up). Interface text: Figtree. Small data and labels: IBM Plex Mono.
+   ========================================================================== */
+.panel-head h2,
+.sec__title,
+.concern__head strong,
+.doc-card h3,
+.bf-pressure__title,
+.empty-note strong { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.01em; }
+.sec__title { font-size: 16px; }
+.panel-head h2 { font-size: 16px; }
+.concern__head strong { font-size: 16px; }
+
+.o-stat__value.is-figure,
+.reading__value,
+.diff__vals,
+.proof__num,
+.spx-facts dd,
+.horizon__value {
+  font-family: var(--font-figure);
+  font-variant-numeric: lining-nums tabular-nums;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.o-stat__value.is-figure { font-size: 21px; line-height: 1.15; }
+.reading__value { font-size: 18px; }
+.spx-facts dd { font-size: 16px; }
+.diff__vals { font-size: 14px; }
+.dock__value { font-family: var(--font-figure); font-variant-numeric: lining-nums tabular-nums; font-size: 14px; font-weight: 700; }

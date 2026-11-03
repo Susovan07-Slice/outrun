@@ -30,10 +30,13 @@ export const SeasonSwitch = ({ value, onChange }) => (
   </div>
 );
 
+// Figures (e.g. "235 km/decade", "#17 of 20", "+1.4°C") get the figure face; words stay in the UI face.
+export const isFigure = (v) => typeof v === 'number' || (typeof v === 'string' && /^[\s+\-−–#±~]*\d/.test(v));
+
 const Stat = ({ label, value, sub, accent }) => (
   <div className={`o-stat ${accent ? 'o-stat--accent' : ''}`}>
     <span className="o-stat__label">{label}</span>
-    <span className="o-stat__value">{value ?? INSUFFICIENT}</span>
+    <span className={`o-stat__value ${isFigure(value) ? 'is-figure' : ''}`}>{value ?? INSUFFICIENT}</span>
     {sub && <span className="o-stat__sub">{sub}</span>}
   </div>
 );

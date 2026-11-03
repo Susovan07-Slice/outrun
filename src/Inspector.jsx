@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { PanelRightClose, ChevronUp, ChevronDown, List, FileText, CloudSun, ShieldCheck, ShieldAlert, AlertCircle, ExternalLink, ArrowRight } from 'lucide-react';
 import { speciesColorOf, speciesMetaOf } from './config';
-import { RaceTab, TwinTab, NetworkTab, WatchTab } from './CorridorPanel';
+import { RaceTab, TwinTab, NetworkTab, WatchTab, isFigure } from './CorridorPanel';
 import { loadConcern, THREATENED } from './analytics/concern';
 import { loadSeasonCalendar, rangeName } from './analytics/seasonCalendar';
 import { useBottomSheet } from './useBottomSheet';
@@ -126,19 +126,19 @@ const Overview = ({ species, occurrences, onOpenBrief, weatherData, loadingWeath
       <div className="stat-grid">
         <div className="o-stat o-stat--accent">
           <span className="o-stat__label">{tracksSimulated ? 'Simulated birds' : 'Tracked birds'}</span>
-          <span className="o-stat__value">{species.evidence_level === 'tracks' ? species.tracked_individuals ?? meta.tracked_individuals ?? '–' : 'None'}</span>
+          <span className={`o-stat__value ${species.evidence_level === 'tracks' ? 'is-figure' : ''}`}>{species.evidence_level === 'tracks' ? species.tracked_individuals ?? meta.tracked_individuals ?? '–' : 'None'}</span>
           <span className="o-stat__sub">
             {tracksSimulated ? <span className="o-badge o-badge--simulated">simulated</span> : <span className="o-badge o-badge--observed">observed</span>}
           </span>
         </div>
         <div className="o-stat">
           <span className="o-stat__label">Sightings</span>
-          <span className="o-stat__value">{occurrences.length.toLocaleString()}</span>
+          <span className="o-stat__value is-figure">{occurrences.length.toLocaleString()}</span>
           <span className="o-stat__sub">From GBIF</span>
         </div>
         <div className="o-stat">
           <span className="o-stat__label">Wing shape score</span>
-          <span className="o-stat__value">{hwi ?? 'Insufficient evidence'}</span>
+          <span className={`o-stat__value ${isFigure(hwi) ? 'is-figure' : ''}`}>{hwi ?? 'Insufficient evidence'}</span>
           <span className="o-stat__sub">Higher flies farther</span>
         </div>
         <div className="o-stat">
