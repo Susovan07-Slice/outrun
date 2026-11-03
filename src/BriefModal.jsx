@@ -9,7 +9,7 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Printer, X } from 'lucide-react';
-import { loadConcern, IUCN_MEANING, pressureLevel, suggestActions, actionsParagraph } from './analytics/concern';
+import { loadConcern, IUCN_MEANING, pressureLevel, suggestActions } from './analytics/concern';
 import { plainRaceVerdict } from './CorridorPanel';
 
 const INSUFFICIENT = 'Insufficient evidence';
@@ -66,8 +66,8 @@ const BriefModal = ({ species, corridorData, occurrences, tracksSimulated = fals
   // The stopover pressure has its own section below, so it is not repeated here.
   const pressures = (concern?.pressures || []).filter((p) => !p.title.startsWith('Depends on')).slice(0, 4);
   const level = concern ? pressureLevel(concern.pressures) : null;
-  // Next steps for a research team, as a short paragraph (suggestions, not data).
-  const actions = concern ? suggestActions(concern, species, { tracksSimulated }) : [];
+  // The four most useful next steps for a research team (suggestions, not data).
+  const actions = concern ? suggestActions(concern, species, { tracksSimulated }).slice(0, 4) : [];
 
   // The "in short" paragraph: one sentence per finding, skipping anything we have no data for.
   const inShort = [
@@ -186,7 +186,13 @@ const BriefModal = ({ species, corridorData, occurrences, tracksSimulated = fals
           {actions.length > 0 && (
             <section className="bf-section">
               <h2>Suggested actions</h2>
-              <p className="bf-plan">{actionsParagraph(actions)}</p>
+              <ol className="bf-actions">
+                {actions.map((a, i) => (
+                  <li key={i}>
+                    <strong>{a.title}.</strong> <span className="bf-muted">{a.type}</span>
+                  </li>
+                ))}
+              </ol>
             </section>
           )}
 

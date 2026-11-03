@@ -1729,4 +1729,9 @@ em { font-style: italic; }
   .concern__level { border-radius: 0 12px 0 0; corner-shape: bevel; }
   .concern__action-icon { border-radius: 8px; corner-shape: bevel; }
 }
-.concern__plan { margin: 0; padding: 12px 14px; font-size: 13.5px; line-height: 1.6; color: var(--ink); background: var(--bg-1); border: 1px solid var(--line); border-left: 4px solid var(--success); }
+/* Larger action cards: room for the two-sentence explanation. */
+.concern__actions ol { gap: 10px; }
+.concern__action { grid-template-columns: 36px 1fr; gap: 12px; padding: 14px 16px; }
+.concern__action-icon { width: 36px; height: 36px; }
+.concern__action-title { font-size: 14.5px; }
+.concern__action p { margin-top: 6px; font-size: 13.5px; line-height: 1.6; color: var(--ink-muted); }

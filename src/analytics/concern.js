@@ -160,7 +160,7 @@ export function pressureLevel(pressures = []) {
 /**
  * Suggested next steps for a bird research team, each tied to a pressure or data gap
  * measured for this species. These are recommendations, not data.
- * @returns {Array<{ type: 'Protect'|'Monitor'|'Research'|'Partner', title: string, text: string }>}
+ * @returns {Array<{ type: 'Protect'|'Monitor'|'Research'|'Partner', title: string, why: string }>}
  */
 export function suggestActions(concern, species, { tracksSimulated = false } = {}) {
   if (!concern) return [];
@@ -171,7 +171,7 @@ export function suggestActions(concern, species, { tracksSimulated = false } = {
     actions.push({
       type: 'Protect',
       title: `Protect ${p.data.name}`,
-      text: `Start by protecting ${p.data.name}: losing it would cut off ${p.data.lossPct}% of the habitat the birds can reach, so regular counts during each passage would show early whether numbers are falling.`,
+      why: `This stopover holds the flyway together: losing it would cut off ${p.data.lossPct}% of the habitat the birds can reach. Work with site managers on protection and disturbance limits, and count birds during every passage to catch declines early.`,
     });
   }
 
@@ -181,10 +181,10 @@ export function suggestActions(concern, species, { tracksSimulated = false } = {
     actions.push({
       type: 'Research',
       title: 'Map climate refuges',
-      text:
+      why:
         worst.data.lostShare >= 0.95
-          ? `Its whole ${worst.data.where} turns unsuitable by 2050, so surveying nearby areas that could replace it is a priority.`
-          : `Mapping the ${keep}% of its ${worst.data.where} that stays suitable in 2050 would show where to focus long-term protection.`,
+          ? `All of its ${worst.data.where} turns too warm or cold by 2050. Survey nearby areas with a suitable future climate that could replace it, and start protecting the best of them.`
+          : `Only ${keep}% of its ${worst.data.where} stays within its temperature range in 2050: the green areas in the Twin tab. Survey those areas now and prioritise them for long-term protection.`,
     });
   }
 
@@ -193,25 +193,49 @@ export function suggestActions(concern, species, { tracksSimulated = false } = {
     actions.push({
       type: 'Protect',
       title: 'Secure stepping-stone habitat',
-      text: `Because suitable climate is moving about ${race.data.velocity} km per decade, securing stepping-stone wetlands and feeding sites along that shift would help the birds follow it.`,
+      why: `Suitable climate is moving about ${race.data.velocity} km per decade, ${race.data.tone === 'danger' ? 'faster than it can follow' : 'close to the limit of what it can follow'}. Protect wetlands and feeding sites along the direction of the shift so the birds have places to stop as their range moves.`,
     });
   }
 
   const tracked = species?.evidence_level === 'tracks' ? species.tracked_individuals || 0 : 0;
   if (tracksSimulated || !tracked) {
-    actions.push({ type: 'Monitor', title: 'Start GPS tracking', text: 'Its routes here are modelled, so GPS tags on 20 or more birds would confirm the real routes, stopovers and timing.' });
+    actions.push({
+      type: 'Monitor',
+      title: 'Start GPS tracking',
+      why: 'Its routes here are modelled rather than tracked. GPS tags on 20 or more birds across both seasons would confirm the real routes, stopovers and timing.',
+    });
   } else if (tracked < 20) {
-    actions.push({ type: 'Monitor', title: 'Tag more birds', text: `With only ${tracked} birds tracked, tagging more across both seasons would firm up its routes and timing.` });
+    actions.push({
+      type: 'Monitor',
+      title: 'Tag more birds',
+      why: `Only ${tracked} birds carry GPS tags, which leaves its routes and timing uncertain. Tagging 20 or more across both seasons would make these estimates much firmer.`,
+    });
   } else {
-    actions.push({ type: 'Monitor', title: 'Keep long-term tracking', text: `Its ${tracked} tracked birds should keep being followed to spot shifts in timing and stopovers as the climate warms.` });
+    actions.push({
+      type: 'Monitor',
+      title: 'Keep long-term tracking',
+      why: `${tracked} tracked birds already give solid routes. Following them for several more years would show whether timing and stopovers shift as the climate warms.`,
+    });
   }
 
-  actions.push({ type: 'Monitor', title: 'Time field checks to weather', text: 'Field checks are best timed to risky weather during migration, using the Watch tab.' });
+  actions.push({
+    type: 'Monitor',
+    title: 'Time field checks to weather',
+    why: 'Gales, heavy rain and heat at stopovers are when losses and delays are most likely. Use the Watch tab to time field checks during migration months.',
+  });
 
   if (concern.atRisk) {
-    actions.push({ type: 'Partner', title: 'Share with flyway partners', text: 'Findings should go to IUCN assessors and to the flyway agreements under the Convention on Migratory Species (CMS).' });
+    actions.push({
+      type: 'Partner',
+      title: 'Share with flyway partners',
+      why: 'Send tracking and climate results to IUCN assessors and the flyway agreements under the Convention on Migratory Species (CMS). Joint plans matter because these birds cross many borders.',
+    });
   } else if (pressureLevel(concern.pressures).level === 'high') {
-    actions.push({ type: 'Partner', title: 'Flag for IUCN reassessment', text: 'Although it is listed Least Concern, this level of climate pressure could support a request for IUCN reassessment.' });
+    actions.push({
+      type: 'Partner',
+      title: 'Flag for IUCN reassessment',
+      why: 'It is listed Least Concern, but its climate pressure score is high. New tracking and climate evidence could support a request for IUCN reassessment.',
+    });
   }
 
   // Five at most, so the list stays readable; the weather check is the first to go.
@@ -219,6 +243,3 @@ export function suggestActions(concern, species, { tracksSimulated = false } = {
   const rank = { Protect: 0, Research: 1, Monitor: 2, Partner: 3 };
   return list.slice(0, 5).sort((a, b) => rank[a.type] - rank[b.type]);
 }
-
-/** The suggested actions as one short paragraph, in priority order. */
-export const actionsParagraph = (actions = []) => actions.map((a) => a.text).join(' ');

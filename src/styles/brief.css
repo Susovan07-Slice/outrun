@@ -187,5 +187,3 @@
 .bf-actions { margin: 0; padding-left: 20px; display: grid; gap: 4px; font-size: 14px; }
 .bf-actions .bf-muted { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
 @media print { .bf-actions { font-size: 12.5px; } }
-.bf-plan { font-size: 14px; line-height: 1.6; }
-@media print { .bf-plan { font-size: 12.5px; } }
