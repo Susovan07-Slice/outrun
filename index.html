@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>Outrun — Global Climate-Pressure & Corridor Platform for Migratory Birds</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#e6edf0" />
+    <meta name="theme-color" content="#e8ebd8" />
     <meta
       name="description"
       content="Outrun: A global climate-pressure and corridor platform for migratory birds (class Aves). Tracking climate velocity, seasonal habitat shifts, and critical migratory corridors."
@@ -23,8 +23,8 @@
       #boot {
         position: fixed; inset: 0; z-index: 10000;
         display: grid; place-items: center;
-        background: radial-gradient(900px 600px at 50% 40%, #fbfdfd 0%, #eaf1f3 55%, #dbe6ea 100%);
-        color: #0d1b2a;
+        background: radial-gradient(900px 600px at 50% 40%, #fbfcf4 0%, #ecefdd 55%, #dde2c6 100%);
+        color: #1a251e;
         font-family: Figtree, system-ui, -apple-system, 'Segoe UI', sans-serif;
         transition: opacity 560ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 560ms;
       }
@@ -36,8 +36,8 @@
          language as the app's icons. Fills match the backdrop so the near wing hides the body. */
       #boot .boot__sky { position: relative; width: min(320px, 78vw); aspect-ratio: 240 / 170; }
       #boot .boot__sky svg { width: 100%; height: 100%; overflow: visible; }
-      #boot .ink { fill: none; stroke: #0d1b2a; stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
-      #boot .paper { fill: #f3f8f9; }
+      #boot .ink { fill: none; stroke: #1a251e; stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
+      #boot .paper { fill: #f4f6ea; }
       #boot .boot__bird { animation: boot-bob 0.84s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
       #boot .boot__wing {
         transform-box: view-box;
@@ -63,7 +63,7 @@
          the body; a short dash travels along each one and fades at both ends. */
       #boot .boot__air path {
         fill: none;
-        stroke: #0d1b2a;
+        stroke: #1a251e;
         stroke-width: 2.4;
         stroke-linecap: round;
         stroke-dasharray: 22 300;
@@ -77,7 +77,7 @@
       #boot .boot__air path:nth-child(5) { animation-duration: 1.1s; animation-delay: -0.7s; stroke-width: 1.8; }
       #boot .boot__wake path {
         fill: none;
-        stroke: #0d1b2a;
+        stroke: #1a251e;
         stroke-width: 2.2;
         stroke-linecap: round;
         stroke-dasharray: 40 100;
@@ -100,15 +100,15 @@
 
       /* ---- Title + progress line ---- */
       #boot .boot__title { margin-top: 4px; font: 750 23px/1 'Bricolage Grotesque', system-ui, sans-serif; letter-spacing: 0.3em; padding-left: 0.3em; }
-      #boot .boot__sub { font-size: 13px; color: #4a5f72; }
+      #boot .boot__sub { font-size: 13px; color: #525d4b; }
       #boot .boot__line { width: min(300px, 76vw); height: 22px; margin-top: 12px; overflow: visible; }
       #boot .boot__line path { fill: none; stroke-linecap: round; stroke-width: 3; }
       #boot .boot__line .track { stroke: rgba(22, 24, 29, 0.14); stroke-dasharray: 2 7; }
-      #boot #boot-ring { stroke: #0d1b2a; stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset 520ms cubic-bezier(0.22, 1, 0.36, 1); }
-      #boot .boot__status { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 18px; font: 500 12px/1.3 'IBM Plex Mono', ui-monospace, Consolas, monospace; color: #4a5f72; }
-      #boot #boot-pct { color: #0d1b2a; font-weight: 600; }
-      #boot #boot-src { min-height: 16px; font: 500 11px/1.3 'IBM Plex Mono', ui-monospace, Consolas, monospace; color: #6b7f8f; }
-      #boot #boot-src.is-live { color: #0a7083; }
+      #boot #boot-ring { stroke: #1a251e; stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset 520ms cubic-bezier(0.22, 1, 0.36, 1); }
+      #boot .boot__status { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 18px; font: 500 12px/1.3 'IBM Plex Mono', ui-monospace, Consolas, monospace; color: #525d4b; }
+      #boot #boot-pct { color: #1a251e; font-weight: 600; }
+      #boot #boot-src { min-height: 16px; font: 500 11px/1.3 'IBM Plex Mono', ui-monospace, Consolas, monospace; color: #6c7563; }
+      #boot #boot-src.is-live { color: #2a6a55; }
       @media (prefers-reduced-motion: reduce) {
         #boot .boot__bird, #boot .boot__wing { animation: none; }
         #boot .boot__air, #boot .boot__wake { display: none; }
@@ -147,7 +147,7 @@
               <path class="paper ink" d="M62 88 C 84 76, 122 70, 152 73 C 166 74, 178 70, 188 66 C 196 63, 203 66, 206 70 C 202 79, 190 85, 172 88 C 142 94, 104 98, 72 95 Z" />
               <path class="ink" d="M62 88 L 34 76 L 46 91 L 32 104 L 72 95" />
               <path class="ink" d="M206 69 L 224 72 L 205 75" />
-              <circle cx="194" cy="70" r="2.6" fill="#0d1b2a" />
+              <circle cx="194" cy="70" r="2.6" fill="#1a251e" />
 
               <!-- Near wing (over the body) -->
               <g class="boot__wing">
