@@ -274,7 +274,7 @@ em { font-style: italic; }
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--sp) 22%, transparent), 0 0 16px var(--sp);
   flex-shrink: 0;
 }
-.insp-title { font: 600 22px/1.2 var(--font-display); }
+.insp-title { font: 700 22px/1.15 var(--font-display); letter-spacing: -0.01em; }
 .insp-sci { font: italic 400 13px/1.4 var(--font-sans); color: var(--ink-muted); margin-top: 2px; }
 .insp-head__actions { margin-left: auto; display: flex; gap: 6px; }
 .insp-head__actions .o-iconbtn { width: 34px; height: 34px; background: transparent; border-color: transparent; backdrop-filter: none; }
@@ -606,7 +606,7 @@ em { font-style: italic; }
 .content-page { position: absolute; inset: 0; overflow-y: auto; }
 .content-wrap { max-width: 1180px; margin: 0 auto; padding: var(--space-8) var(--space-6) 64px; }
 .hero { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; margin-bottom: var(--space-6); }
-.hero h1 { font: 600 46px/1.05 var(--font-display); letter-spacing: -0.015em; }
+.hero h1 { font: 750 48px/1.02 var(--font-display); letter-spacing: -0.025em; }
 .hero p { margin-top: 10px; color: var(--ink); font-weight: 500; font-size: 15px; line-height: 1.6; max-width: 620px; }
 .hero__tools { display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap; }
 .hero__tools .search { margin: 0; width: 280px; }
@@ -653,7 +653,7 @@ em { font-style: italic; }
 .doc-toc a:hover { background: var(--bg-2); color: var(--ink); }
 .doc-sections { display: flex; flex-direction: column; gap: var(--space-4); }
 .doc-card { padding: var(--space-6); border-radius: var(--radius-lg); background: var(--bg-1); border: 1px solid var(--line); scroll-margin-top: var(--space-6); }
-.doc-card h2 { font: 600 20px/1.3 var(--font-display); margin-bottom: 12px; }
+.doc-card h2 { font: 700 21px/1.25 var(--font-display); letter-spacing: -0.01em; margin-bottom: 12px; }
 .doc-card p { color: var(--ink-muted); line-height: 1.65; font-size: 13.5px; margin-top: 8px; }
 .doc-card p strong { color: var(--ink); }
 .epi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-3); margin-top: 12px; }
@@ -1388,7 +1388,7 @@ em { font-style: italic; }
 .spx-stats > div { padding: 12px 18px; border-left: 1px solid var(--line-strong); }
 .spx-stats > div:first-child { border-left: 0; }
 .spx-stats dt { font: 600 10.5px/1 var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); }
-.spx-stats dd { margin: 6px 0 0; font: 700 24px/1 var(--font-display); }
+.spx-stats dd { margin: 6px 0 0; font: 700 26px/1 var(--font-figure); font-variant-numeric: lining-nums tabular-nums; }
 .spx-stats .is-risk dd { color: var(--danger); }
 
 /* Toolbar sticks under the floating nav while the grid scrolls. */
@@ -1466,7 +1466,7 @@ em { font-style: italic; }
 
 /* Text column */
 .spx-body { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px 14px; min-width: 0; }
-.spx-name { margin: 0; font: 600 19px/1.2 var(--font-display); }
+.spx-name { margin: 0; font: 700 20px/1.15 var(--font-display); letter-spacing: -0.01em; }
 .spx-hit { all: unset; cursor: pointer; }
 .spx-hit::after { content: ''; position: absolute; inset: 0; z-index: 1; } /* stretched: whole card opens the atlas */
 .spx-hit:focus-visible::after { outline: 2px solid var(--ink); outline-offset: -3px; }
@@ -1519,4 +1519,24 @@ em { font-style: italic; }
 @media (min-width: 901px) {
   .insp-tabs .o-seg__btn { flex: 1 1 auto; padding: 0 6px; }
   .filter-row .o-seg__btn { flex: 1 1 auto; padding: 0 8px; }
+}
+
+/* Species cards: each card is washed in its own route colour, strongest at the photo
+   seam and fading across the text, like the atlas details panel. */
+.spx-body {
+  position: relative;
+  background:
+    radial-gradient(120% 90% at 0% 0%, color-mix(in srgb, var(--sp) 24%, transparent) 0%, transparent 60%),
+    linear-gradient(100deg, color-mix(in srgb, var(--sp) 16%, transparent) 0%, color-mix(in srgb, var(--sp) 6%, transparent) 55%, color-mix(in srgb, var(--sp) 2%, transparent) 100%);
+  transition: background-color var(--dur-base) var(--ease-out);
+}
+.spx-card { border-color: color-mix(in srgb, var(--sp) 30%, var(--line-strong)); }
+.spx-card:hover { border-color: color-mix(in srgb, var(--sp) 60%, var(--ink-muted)); }
+.spx-card:hover .spx-body { background-color: color-mix(in srgb, var(--sp) 5%, transparent); }
+.spx-facts > div { background: color-mix(in srgb, var(--bg-1) 72%, transparent); border-color: color-mix(in srgb, var(--sp) 22%, var(--line)); }
+.spx-route li + li::before { opacity: 0.9; }
+@media (max-width: 520px) {
+  .spx-body { background:
+    radial-gradient(120% 80% at 50% 0%, color-mix(in srgb, var(--sp) 22%, transparent) 0%, transparent 65%),
+    linear-gradient(180deg, color-mix(in srgb, var(--sp) 12%, transparent) 0%, color-mix(in srgb, var(--sp) 3%, transparent) 100%); }
 }
