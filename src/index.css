@@ -606,7 +606,7 @@ em { font-style: italic; }
 .content-page { position: absolute; inset: 0; overflow-y: auto; }
 .content-wrap { max-width: 1180px; margin: 0 auto; padding: var(--space-8) var(--space-6) 64px; }
 .hero { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; margin-bottom: var(--space-6); }
-.hero h1 { font: 700 44px/1.08 var(--font-display); letter-spacing: -0.02em; }
+.hero h1 { font: 600 46px/1.05 var(--font-display); letter-spacing: -0.015em; }
 .hero p { margin-top: 10px; color: var(--ink); font-weight: 500; font-size: 15px; line-height: 1.6; max-width: 620px; }
 .hero__tools { display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap; }
 .hero__tools .search { margin: 0; width: 280px; }
@@ -1512,4 +1512,11 @@ em { font-style: italic; }
 @media (prefers-reduced-motion: reduce) {
   .spx-photo img, .spx-card { transition: none; }
   .spx-photo.is-loading { animation: none; }
+}
+
+/* Segmented rows size each option to its label (Instrument Sans), sharing spare width.
+   Desktop only: on phones the tabs scroll sideways with their own spacing. */
+@media (min-width: 901px) {
+  .insp-tabs .o-seg__btn { flex: 1 1 auto; padding: 0 6px; }
+  .filter-row .o-seg__btn { flex: 1 1 auto; padding: 0 8px; }
 }

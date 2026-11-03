@@ -50,9 +50,12 @@
   --shadow-panel: 0 1px 2px rgba(22, 24, 29, 0.06), 0 8px 24px rgba(22, 24, 29, 0.08);
   --focus-ring: 0 0 0 2px #f5f0e6, 0 0 0 4px #16181d;
 
-  --font-display: Outfit, Inter, system-ui, sans-serif;
-  --font-sans: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+  /* Fraunces: editorial serif for headings, names and big figures (field-guide feel).
+     Instrument Sans: compact UI sans, about Inter's width so controls keep their size.
+     IBM Plex Mono: data, labels and coordinates. */
+  --font-display: Fraunces, Georgia, 'Times New Roman', serif;
+  --font-sans: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
 
   color-scheme: light;
 }
