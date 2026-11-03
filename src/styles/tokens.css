@@ -1,29 +1,29 @@
-/* Outrun design system — tokens (Twilight Iris light theme). Source of truth: the design system's tokens.json. */
+/* Outrun design system — tokens (Apricot & Espresso light theme). Source of truth: the design system's tokens.json. */
 :root {
-  /* Twilight Iris: lavender-iris mist surfaces, deep indigo ink, indigo-violet controls
-     and an electric-mint highlight. Deliberately cool and chromatic (no paper, black or
-     gold). Every text colour stays at or above WCAG AA on every surface. */
-  --bg-0: #e4e2f3;
-  --bg-1: #f5f4fc;
-  --bg-2: #ecebf8;
-  --bg-3: #d9d6ee;
-  --bg-glass: rgba(245, 244, 252, 0.88);
-  --line: #c6c2e2;
-  --line-strong: #7e77ad;
-  --ink: #1a1540;
-  --ink-muted: #2d2763;
-  --ink-faint: #534e7c;
-  --accent: #2b2380;
-  --accent-strong: #3a31a3;
+  /* Apricot & Espresso: apricot surfaces, espresso ink and controls, a tomato-red
+     highlight and rust accents; no blue or purple in the page chrome. Every text colour
+     stays at or above WCAG AA on every surface. */
+  --bg-0: #f5dcc7;
+  --bg-1: #fdf1e6;
+  --bg-2: #f9e6d6;
+  --bg-3: #efcfb4;
+  --bg-glass: rgba(253, 241, 230, 0.88);
+  --line: #e4bd9c;
+  --line-strong: #a57756;
+  --ink: #2b1b12;
+  --ink-muted: #45301f;
+  --ink-faint: #664a37;
+  --accent: #2b1b12;
+  --accent-strong: #4a2f1f;
   --accent-ink: #ffffff;
-  --accent-soft: rgba(43, 35, 128, 0.1);
-  --accent-glow: rgba(43, 35, 128, 0.3);
-  --accent-line: rgba(43, 35, 128, 0.38);
-  --brand: #3ee0a1;
-  --teal: #0b635a;
-  --success: #13693f;
-  --danger: #b0253f;
-  --warn: #8a4d00;
+  --accent-soft: rgba(43, 27, 18, 0.1);
+  --accent-glow: rgba(43, 27, 18, 0.28);
+  --accent-line: rgba(43, 27, 18, 0.36);
+  --brand: #ff5b3d;
+  --teal: #8a3a1f;
+  --success: #2d6326;
+  --danger: #a3261b;
+  --warn: #7a4600;
   --epi-observed: #0f7d6f;
   --epi-forecast: #b26b00;
   --epi-projected: #5b49c9;
@@ -45,13 +45,13 @@
   --radius-lg: 0;
   --radius-pill: 0;
 
-  /* Iris surface gradients: panels read as lit lavender glass, not flat white. */
-  --grad-panel: linear-gradient(180deg, rgba(248, 247, 253, 0.94) 0%, rgba(226, 223, 244, 0.9) 100%);
-  --grad-bar: linear-gradient(90deg, #f7f6fd 0%, #dfdcf2 100%);
-  --grad-card: linear-gradient(155deg, #f8f7fd 0%, #e3e0f4 100%);
+  /* Apricot surface gradients: panels read as sun-warmed paper, not flat white. */
+  --grad-panel: linear-gradient(180deg, rgba(254, 244, 235, 0.94) 0%, rgba(244, 219, 198, 0.9) 100%);
+  --grad-bar: linear-gradient(90deg, #fef3e9 0%, #f1d4bb 100%);
+  --grad-card: linear-gradient(155deg, #fef4eb 0%, #f2d7c0 100%);
 
-  --shadow-panel: 0 1px 2px rgba(26, 21, 64, 0.07), 0 10px 28px rgba(43, 35, 128, 0.12);
-  --focus-ring: 0 0 0 2px #f5f4fc, 0 0 0 4px #2b2380;
+  --shadow-panel: 0 1px 2px rgba(43, 27, 18, 0.07), 0 10px 28px rgba(120, 60, 25, 0.12);
+  --focus-ring: 0 0 0 2px #fdf1e6, 0 0 0 4px #2b1b12;
 
   /* Bricolage Grotesque: headings and bird names. Figtree: interface and body text.
      Fraunces: large figures only (stat totals, brief numbers). IBM Plex Mono: data,

@@ -700,7 +700,7 @@ em { font-style: italic; }
   inset: 0;
   z-index: 1;
   overflow: hidden;
-  background: #dfdcf1;
+  background: #f2d8c2;
 }
 .map-frame .layer-bar { top: var(--top-offset); left: 12px; right: 12px; }
 .map-frame .map-legend { top: auto; bottom: 56px; left: 12px; min-width: 0; padding: 10px 12px; font-size: 11.5px; }
@@ -765,7 +765,7 @@ em { font-style: italic; }
   overflow: hidden;
   pointer-events: none;
   background:
-    radial-gradient(1200px 520px at 12% -12%, #d4f7e7 0%, transparent 60%),
+    radial-gradient(1200px 520px at 12% -12%, #ffd8c4 0%, transparent 60%),
     radial-gradient(900px 700px at 88% 30%, color-mix(in srgb, var(--teal) 7%, transparent) 0%, transparent 70%),
     var(--bg-0);
 }
