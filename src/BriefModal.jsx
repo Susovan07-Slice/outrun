@@ -151,7 +151,7 @@ const BriefModal = ({ species, corridorData, occurrences, tracksSimulated = fals
 
           <section className="bf-section">
             <h2>
-              {concern?.atRisk ? 'Why it is of concern' : 'Pressures to watch'}
+              {concern?.atRisk ? 'Why it is of concern' : 'Pressures'}
               {level && <span className={`bf-level is-${level.level}`}> · {level.level} climate pressure ({level.score}/100)</span>}
             </h2>
             {pressures.length ? (
@@ -185,7 +185,7 @@ const BriefModal = ({ species, corridorData, occurrences, tracksSimulated = fals
 
           {actions.length > 0 && (
             <section className="bf-section">
-              <h2>What a research team could do <span className="bf-level">· suggestions, not data</span></h2>
+              <h2>Suggested actions</h2>
               <ol className="bf-actions">
                 {actions.map((a, i) => (
                   <li key={i}>

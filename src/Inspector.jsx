@@ -39,7 +39,6 @@ const ConcernCard = ({ species, tracksSimulated }) => {
 
   if (!concern) return <div className="loading-block"><div className="spinner" />Weighing the pressures…</div>;
   const level = pressureLevel(concern.pressures);
-  const severe = concern.pressures.filter((p) => p.severity === 'high');
   const actions = suggestActions(concern, species, { tracksSimulated });
 
   return (
@@ -47,7 +46,7 @@ const ConcernCard = ({ species, tracksSimulated }) => {
       <div className="concern__head">
         {concern.atRisk ? <ShieldAlert size={18} /> : <ShieldCheck size={18} />}
         <div>
-          <strong>{concern.atRisk ? 'Why it is of conservation concern' : 'Conservation status'}</strong>
+          <strong>{concern.atRisk ? 'Conservation concern' : 'Conservation status'}</strong>
           <div className="concern__listing">
             {concern.category ? (
               <>
@@ -64,7 +63,12 @@ const ConcernCard = ({ species, tracksSimulated }) => {
         <div className={`concern__level is-${level.level}`}>
           <div className="concern__level-head">
             <span className="concern__level-name">{LEVEL_TEXT[level.level]}</span>
-            <span className="concern__score"><b>{level.score}</b>/100</span>
+            <span
+              className="concern__score"
+              title={`Range loss ${level.parts.range}/55 + keeping pace ${level.parts.pace}/25 + key stopover ${level.parts.stopover}/20. Outrun projection, not part of the IUCN listing.`}
+            >
+              <b>{level.score}</b>/100
+            </span>
             <span className="concern__meter" aria-hidden="true">
               {[1, 2, 3].map((i) => (
                 <span key={i} className={i <= ({ moderate: 1, elevated: 2, high: 3 })[level.level] ? 'is-on' : ''} />
@@ -72,21 +76,15 @@ const ConcernCard = ({ species, tracksSimulated }) => {
             </span>
           </div>
           <p>
-            {level.high > 0
-              ? `${level.high} of ${level.total} measured pressures are severe: ${severe.map((p) => p.title.charAt(0).toLowerCase() + p.title.slice(1)).join('; ')}.`
-              : `None of its ${level.total} measured pressures is severe yet.`}
-            {!concern.atRisk && level.level === 'high' && ' Listed Least Concern, but the projections point the other way.'}
+            {level.high > 0 ? `${level.high} of ${level.total} pressures severe` : 'No severe pressure yet'}
+            {!concern.atRisk && level.level === 'high' && ' · higher than its IUCN listing'}
           </p>
-          <span className="cite">
-            Score = range loss {level.parts.range}/55 + keeping pace {level.parts.pace}/25 + key stopover {level.parts.stopover}/20. From
-            Outrun&apos;s projections and corridor model, not part of the IUCN listing.
-          </span>
         </div>
       )}
 
       {concern.pressures.length > 0 && (
         <>
-          <span className="o-label">What it faces</span>
+          <span className="o-label">Pressures</span>
           <ul className="concern__list">
             {concern.pressures.map((p, i) => (
               <li key={i} className={`concern__item is-${p.severity}`}>
@@ -109,8 +107,7 @@ const ConcernCard = ({ species, tracksSimulated }) => {
       {actions.length > 0 && (
         <div className="concern__actions">
           <div className="concern__actions-head">
-            <span className="o-label">What a research team could do</span>
-            <span className="concern__tag">suggestions, not data</span>
+            <span className="o-label">Suggested actions</span>
           </div>
           <ol>
             {actions.map((a, i) => {
@@ -133,13 +130,16 @@ const ConcernCard = ({ species, tracksSimulated }) => {
       )}
 
       <p className="cite">
-        {concern.category && <><Abbr>IUCN</Abbr> Red List{concern.year ? ` ${concern.year}` : ''}.{' '}</>}
+        {concern.category && <><Abbr>IUCN</Abbr> Red List{concern.year ? ` ${concern.year}` : ''}</>}
         {concern.source_url && (
-          <a href={concern.source_url} target="_blank" rel="noreferrer">
-            {concern.atRisk ? 'Documented threats in the assessment' : 'IUCN assessment'} <ExternalLink size={11} style={{ verticalAlign: '-1px' }} />
-          </a>
-        )}{' '}
-        Pressures and actions are Outrun model results and suggestions, not part of the IUCN listing.
+          <>
+            {' · '}
+            <a href={concern.source_url} target="_blank" rel="noreferrer">
+              Assessment <ExternalLink size={11} style={{ verticalAlign: '-1px' }} />
+            </a>
+          </>
+        )}
+        {' · '}Pressures and actions are Outrun estimates.
       </p>
     </div>
   );
