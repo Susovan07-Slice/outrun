@@ -7,6 +7,7 @@ const SECTIONS = [
   ['avonet', 'AVONET traits'],
   ['meteo', 'Open-Meteo weather'],
   ['iucn', 'Conservation status'],
+  ['photos', 'Species photos'],
   ['map', 'Basemap & credits'],
 ];
 
@@ -87,9 +88,15 @@ const SourcesPage = ({ activeTrackDataset }) => (
             <p>Statuses come only from verified IUCN Red List assessments with a source URL. Without one, status stays <code>NULL</code> and reads “Insufficient evidence”. A missing status is never read as least concern.</p>
           </section>
 
+          <section className="doc-card" id="photos">
+            <h2>Species photos</h2>
+            <p>Photos on the Species page come from <a href="https://www.inaturalist.org" target="_blank" rel="noreferrer">iNaturalist</a> contributors. Each is the species&apos; featured photo when it carries an open Creative Commons licence (CC0, CC-BY, CC-BY-SA, CC-BY-NC or CC-BY-NC-SA); otherwise the first openly licensed photo of that species. Photos marked all rights reserved or no-derivatives are never used.</p>
+            <p>Every card credits its photographer and licence and links to the original. Images load from iNaturalist Open Data and are not redistributed.</p>
+          </section>
+
           <section className="doc-card" id="map">
             <h2>Basemap & credits</h2>
-            <p>Map tiles © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a> contributors, © <a href="https://carto.com/attributions" target="_blank" rel="noreferrer">CARTO</a> Dark Matter. Animated trajectory concept adapted from <code>bbecquet/bird-tracking</code> (MIT).</p>
+            <p>Streets: <a href="https://openfreemap.org" target="_blank" rel="noreferrer">OpenFreeMap</a> (OpenMapTiles), data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a> contributors. Satellite: Esri World Imagery, © Esri, Maxar, Earthstar Geographics. Animated trajectory concept adapted from <code>bbecquet/bird-tracking</code> (MIT).</p>
           </section>
         </div>
       </div>

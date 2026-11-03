@@ -1377,3 +1377,139 @@ em { font-style: italic; }
   .layer-ribbon { --slant: 10px; }
   .layer-ribbon .o-chip { padding: 0 calc(var(--slant) + 6px); font-size: 11.5px; gap: 7px; }
 }
+
+/* ==========================================================================
+   Species page: photo cards
+   ========================================================================== */
+.spx-wrap { max-width: 1240px; }
+.spx-hero { align-items: flex-end; }
+.spx-kicker { display: inline-block; margin-bottom: 8px; font: 600 11px/1 var(--font-mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); }
+.spx-stats { display: grid; grid-template-columns: repeat(4, auto); gap: 0; margin: 0; border: 1.5px solid var(--line-strong); background: var(--grad-card); }
+.spx-stats > div { padding: 12px 18px; border-left: 1px solid var(--line-strong); }
+.spx-stats > div:first-child { border-left: 0; }
+.spx-stats dt { font: 600 10.5px/1 var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); }
+.spx-stats dd { margin: 6px 0 0; font: 700 24px/1 var(--font-display); }
+.spx-stats .is-risk dd { color: var(--danger); }
+
+/* Toolbar sticks under the floating nav while the grid scrolls. */
+.spx-toolbar {
+  position: sticky;
+  top: calc(var(--top-offset) - 8px);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin: 0 calc(-1 * var(--space-3)) var(--space-4);
+  padding: 10px var(--space-3);
+  background: color-mix(in srgb, var(--bg-0) 82%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.spx-toolbar .search { margin: 0; width: 300px; }
+.spx-count { margin-left: auto; font: 600 12px/1 var(--font-mono); color: var(--ink-muted); }
+
+.spx-grid.card-grid { grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)); gap: var(--space-4); }
+
+.spx-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  min-height: 236px;
+  overflow: hidden;
+  background: var(--grad-card);
+  border: 1.5px solid var(--line-strong);
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base);
+}
+.spx-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-panel); border-color: var(--ink-muted); }
+.spx-card:focus-within { border-color: var(--ink); }
+.spx-card[aria-current='true'] { border-color: var(--sp); box-shadow: 0 0 0 1.5px var(--sp); }
+.spx-card.is-at-risk { border-left: 4px solid var(--danger); }
+
+/* Photo column: tinted placeholder while loading, then the photo fades in. */
+.spx-media { position: relative; overflow: hidden; background: color-mix(in srgb, var(--sp) 18%, var(--bg-2)); }
+.spx-media::after {
+  /* Species colour seam between photo and text */
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 4px;
+  background: var(--sp);
+}
+.spx-photo { position: absolute; inset: 0; display: grid; place-items: center; }
+.spx-photo img { width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.03); transition: opacity 420ms var(--ease-out), transform 700ms var(--ease-out); }
+.spx-photo.is-loaded img { opacity: 1; transform: scale(1); }
+.spx-card:hover .spx-photo.is-loaded img { transform: scale(1.05); }
+.spx-photo.is-loading { background: linear-gradient(100deg, transparent 30%, color-mix(in srgb, #fff 35%, transparent) 50%, transparent 70%) 0 0 / 200% 100%; animation: spx-shimmer 1.4s linear infinite; }
+.spx-photo__fallback { color: color-mix(in srgb, var(--sp) 70%, var(--ink)); opacity: 0.55; }
+@keyframes spx-shimmer { to { background-position: -200% 0; } }
+
+.spx-iucn { position: absolute; top: 10px; left: 10px; z-index: 2; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18); background: color-mix(in srgb, var(--bg-1) 92%, transparent); }
+.spx-credit {
+  position: absolute;
+  left: 0;
+  right: 4px;
+  bottom: 0;
+  z-index: 2; /* above the card's stretched hit area */
+  padding: 14px 8px 5px;
+  font: 500 9.5px/1.3 var(--font-sans);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.spx-credit:hover { text-decoration: underline; }
+
+/* Text column */
+.spx-body { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px 14px; min-width: 0; }
+.spx-name { margin: 0; font: 600 19px/1.2 var(--font-display); }
+.spx-hit { all: unset; cursor: pointer; }
+.spx-hit::after { content: ''; position: absolute; inset: 0; z-index: 1; } /* stretched: whole card opens the atlas */
+.spx-hit:focus-visible::after { outline: 2px solid var(--ink); outline-offset: -3px; }
+.spx-sci { font-size: 12.5px; color: var(--ink-muted); }
+.spx-corridor { margin-top: 6px; font: 600 12px/1.3 var(--font-sans); letter-spacing: 0.02em; color: var(--ink); }
+.spx-route { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 0; margin: 0; padding: 0; list-style: none; font-size: 12px; color: var(--ink-muted); }
+.spx-route li { display: inline-flex; align-items: center; }
+.spx-route li + li::before { content: ''; width: 14px; height: 1.5px; margin: 0 6px; background: var(--sp); box-shadow: 4px 0 0 -0.5px var(--sp); }
+.spx-route-note { margin: 0; font-size: 12px; color: var(--ink-muted); line-height: 1.45; }
+
+.spx-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: auto 0 0; padding-top: 10px; }
+.spx-facts > div { padding: 7px 8px; background: color-mix(in srgb, var(--sp) 7%, var(--bg-1)); border: 1px solid var(--line); }
+.spx-facts dt { font: 600 9.5px/1 var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); }
+.spx-facts dd { margin: 4px 0 0; font: 600 14px/1 var(--font-mono); color: var(--ink); }
+
+.spx-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 8px; font: 500 12px/1 var(--font-sans); color: var(--ink-muted); }
+.spx-go { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; color: var(--ink); transition: gap var(--dur-base) var(--ease-out); }
+.spx-card:hover .spx-go { gap: 8px; }
+
+.spx-photo-note { margin-top: var(--space-6); font-size: 12px; color: var(--ink-faint); }
+
+@supports (corner-shape: bevel) {
+  .spx-card { border-radius: 0 22px 0 0; corner-shape: bevel; }
+  .spx-stats { border-radius: 0 0 14px 0; corner-shape: bevel; }
+}
+
+@media (max-width: 900px) {
+  .spx-stats { grid-template-columns: repeat(2, 1fr); width: 100%; }
+  .spx-stats > div:nth-child(3) { border-left: 0; }
+  .spx-stats > div:nth-child(n + 3) { border-top: 1px solid var(--line-strong); }
+  .spx-toolbar .search { width: 100%; }
+  .spx-count { margin-left: 0; }
+  .spx-grid.card-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  /* Narrow phones: photo becomes a banner above the text, so neither is squeezed. */
+  .spx-card { grid-template-columns: 1fr; grid-template-rows: 190px auto; min-height: 0; }
+  .spx-media::after { top: auto; left: 0; width: auto; height: 4px; }
+  .spx-credit { right: 0; bottom: 4px; }
+  .spx-body { padding: 14px 14px 12px; }
+  .spx-name { font-size: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spx-photo img, .spx-card { transition: none; }
+  .spx-photo.is-loading { animation: none; }
+}
