@@ -540,11 +540,12 @@ const App = () => {
   }, [isNarrow]);
   const panelLeft = viewport.w <= 1180 ? 280 : 312;
   const panelRight = viewport.w <= 1180 ? 380 : 420;
-  // Phone: clear of the nav + layer chips at the top and the peeking sheet + journey bar below.
+  // The header is docked above the map, so only the layer ribbon sits over its top edge.
+  // Phone: also clear of the peeking sheet + journey bar below.
   const mapPadding = isNarrow
-    ? { top: 128, left: 20, right: 64, bottom: 236 }
+    ? { top: 64, left: 20, right: 64, bottom: 236 }
     : {
-        top: 150,
+        top: 76,
         bottom: 140,
         left: (leftOpen ? panelLeft + 32 : 0) + 48,
         right: (rightOpen ? panelRight + 32 : 0) + 80,

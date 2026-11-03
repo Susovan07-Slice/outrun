@@ -1572,3 +1572,92 @@ em { font-style: italic; }
 .spx-facts dd { font-size: 16px; }
 .diff__vals { font-size: 14px; }
 .dock__value { font-family: var(--font-figure); font-variant-numeric: lining-nums tabular-nums; font-size: 14px; font-weight: 700; }
+
+/* ==========================================================================
+   Docked header
+   The nav no longer floats over the map: it is a slim solid bar in the page flow, and
+   the map, panels and content start below it. --top-offset is now just the inner gap.
+   ========================================================================== */
+.app {
+  --nav-h: 48px;
+  --nav-inset: 0px;
+  --top-offset: var(--space-4);
+}
+.page { flex: 1; height: auto; min-height: 0; }
+
+.topbar {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  flex-shrink: 0;
+  height: var(--nav-h);
+  padding: 0 0 0 var(--space-4);
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  border-radius: 0;
+  corner-shape: initial;
+  background: var(--bg-1);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 6%, transparent);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  grid-template-columns: 1fr auto 1fr;
+}
+.topbar .brand { gap: 10px; padding: 0 var(--space-4) 0 0; border-right: 0; }
+.topbar .brand__mark { width: 30px; height: 30px; }
+.topbar .brand__wordmark { height: 20px; }
+
+/* Page tabs: quiet text tabs with a highlight underline for the current page. */
+.topnav { border-left: 0; gap: 2px; }
+.topnav__link {
+  position: relative;
+  min-width: 0;
+  height: 100%;
+  padding: 0 18px;
+  border-right: 0;
+  color: var(--ink-faint);
+  background: transparent;
+  font-size: 11.5px;
+}
+.topnav__link:hover { color: var(--ink); background: var(--bg-2); }
+.topnav__link[aria-current='page'] { color: var(--ink); background: transparent; }
+.topnav__link[aria-current='page']::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: -1px;
+  height: 3px;
+  background: var(--brand);
+}
+.topnav__link[aria-current='page'] svg { color: var(--brand); }
+
+.topbar__right { align-items: center; gap: var(--space-2); padding-right: var(--space-2); }
+.topbar .status-pill { height: 30px; padding: 0 12px; border: 1px solid var(--line); border-left: 1px solid var(--line); background: var(--bg-2); }
+.topbar .o-btn--primary { height: 34px; padding: 0 16px; }
+@supports (corner-shape: bevel) {
+  .topbar .o-btn--primary { border-radius: 0 10px 0 10px; corner-shape: bevel; }
+}
+
+@media (max-width: 900px) {
+  .app { --nav-h: 46px; --nav-inset: 0px; --top-offset: var(--space-2); }
+  .topbar { padding-left: var(--space-2); }
+  .topbar .brand { padding-right: var(--space-2); }
+  .topnav__link { padding: 0 14px; }
+  .topnav__link[aria-current='page']::after { left: 8px; right: 8px; }
+  .topbar .o-btn--primary { height: 32px; padding: 0 12px; }
+}
+@media (max-width: 900px) {
+  /* Logo | tabs fill the middle | Brief */
+  .topbar { grid-template-columns: auto 1fr auto; }
+  .topnav { justify-self: stretch; display: flex; justify-content: center; }
+}
+@media (max-width: 480px) {
+  .topnav__link { flex: 1; padding: 0; }
+  .topnav__link[aria-current='page']::after { left: 22%; right: 22%; }
+}
+/* Short screens (phones in landscape): after the phone rule so it wins. */
+@media (max-width: 900px) and (max-height: 500px) {
+  .app { --nav-h: 40px; }
+}
