@@ -1687,3 +1687,45 @@ em { font-style: italic; }
 /* Species list: every row now carries its IUCN tag, so long names wrap instead of clipping. */
 .o-species__common { white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; }
 .o-species__meta { display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0; }
+
+/* ---------- Concern tab: pressure level, severity meters, research actions ---------- */
+.concern__level { display: grid; gap: 6px; margin: var(--space-3) 0; padding: 12px 14px; border: 1.5px solid var(--line-strong); border-left-width: 5px; background: var(--grad-card); }
+.concern__level.is-high { border-left-color: var(--danger); }
+.concern__level.is-elevated { border-left-color: var(--warn); }
+.concern__level.is-moderate { border-left-color: var(--teal); }
+.concern__level-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.concern__level-name { font: 700 17px/1.2 var(--font-display); }
+.concern__level.is-high .concern__level-name { color: var(--danger); }
+.concern__level.is-elevated .concern__level-name { color: var(--warn); }
+.concern__level.is-moderate .concern__level-name { color: var(--teal); }
+.concern__level p { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--ink); }
+.concern__meter, .concern__sev { display: inline-flex; gap: 3px; }
+.concern__meter span { width: 18px; height: 7px; background: var(--line); }
+.concern__level.is-high .concern__meter .is-on { background: var(--danger); }
+.concern__level.is-elevated .concern__meter .is-on { background: var(--warn); }
+.concern__level.is-moderate .concern__meter .is-on { background: var(--teal); }
+.concern__score { margin-left: auto; margin-right: 10px; font: 500 12px/1 var(--font-mono); color: var(--ink-faint); }
+.concern__score b { font: 700 18px/1 var(--font-figure); color: var(--ink); }
+.concern__sev { margin-left: auto; }
+.concern__sev span { width: 10px; height: 5px; background: var(--line); }
+.concern__item.is-high .concern__sev .is-on { background: var(--danger); }
+.concern__item.is-medium .concern__sev .is-on { background: var(--warn); }
+.concern__item.is-low .concern__sev .is-on { background: var(--success); }
+.concern__title { display: flex; align-items: center; gap: 8px; }
+
+.concern__actions { margin-top: var(--space-4); }
+.concern__actions-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+.concern__tag { font: 600 10.5px/1 var(--font-mono); color: var(--ink-faint); border: 1px dashed var(--line-strong); padding: 3px 6px; }
+.concern__actions ol { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; counter-reset: act; }
+.concern__action { display: grid; grid-template-columns: 30px 1fr; gap: 10px; padding: 10px 12px; background: var(--bg-1); border: 1px solid var(--line); }
+.concern__action-icon { display: grid; place-items: center; width: 30px; height: 30px; color: var(--accent-ink); background: var(--accent); }
+.concern__action.is-protect .concern__action-icon { background: var(--success); }
+.concern__action.is-research .concern__action-icon { background: var(--teal); }
+.concern__action.is-partner .concern__action-icon { background: var(--warn); }
+.concern__action-title { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font: 600 13.5px/1.3 var(--font-sans); color: var(--ink); }
+.concern__action-type { flex-shrink: 0; font: 600 10px/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); }
+.concern__action p { margin: 4px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--ink-muted); }
+@supports (corner-shape: bevel) {
+  .concern__level { border-radius: 0 12px 0 0; corner-shape: bevel; }
+  .concern__action-icon { border-radius: 8px; corner-shape: bevel; }
+}

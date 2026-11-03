@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { PanelRightClose, ChevronUp, ChevronDown, List, FileText, CloudSun, ShieldCheck, ShieldAlert, AlertCircle, ExternalLink, ArrowRight } from 'lucide-react';
+import { PanelRightClose, ChevronUp, ChevronDown, List, Search, Radar, Handshake, FileText, CloudSun, ShieldCheck, ShieldAlert, AlertCircle, ExternalLink, ArrowRight } from 'lucide-react';
 import { speciesColorOf, speciesMetaOf } from './config';
 import { RaceTab, TwinTab, NetworkTab, WatchTab, isFigure } from './CorridorPanel';
-import { loadConcern, THREATENED } from './analytics/concern';
+import { loadConcern, THREATENED, pressureLevel, suggestActions } from './analytics/concern';
 import { loadSeasonCalendar, rangeName } from './analytics/seasonCalendar';
 import { useBottomSheet } from './useBottomSheet';
-import { IucnTag, Abbr } from './iucn';
+import { IucnTag, Abbr, iucnDefinition } from './iucn';
 
 export const INSPECTOR_TABS = [
   ['overview', 'Overview'],
@@ -18,8 +18,17 @@ export const INSPECTOR_TABS = [
 
 const MIGRATION = { 1: 'Sedentary', 2: 'Partially migratory', 3: 'Long-distance migrant' };
 
-// Why an at-risk species is of concern: its IUCN listing plus the pressures Outrun measures.
-const ConcernCard = ({ species }) => {
+// Why a species is of concern: its IUCN listing, the climate pressure Outrun measures for it,
+// and what a bird research team could do about each pressure.
+const LEVEL_TEXT = {
+  high: 'High climate pressure',
+  elevated: 'Elevated climate pressure',
+  moderate: 'Moderate climate pressure',
+};
+const SEVERITY_STEPS = { low: 1, medium: 2, high: 3 };
+const ACTION_ICON = { Protect: ShieldCheck, Research: Search, Monitor: Radar, Partner: Handshake };
+
+const ConcernCard = ({ species, tracksSimulated }) => {
   const [concern, setConcern] = useState(null);
   useEffect(() => {
     let live = true;
@@ -28,7 +37,11 @@ const ConcernCard = ({ species }) => {
     return () => { live = false; };
   }, [species?.species_id]);
 
-  if (!concern) return null;
+  if (!concern) return <div className="loading-block"><div className="spinner" />Weighing the pressures…</div>;
+  const level = pressureLevel(concern.pressures);
+  const severe = concern.pressures.filter((p) => p.severity === 'high');
+  const actions = suggestActions(concern, species, { tracksSimulated });
+
   return (
     <div className={`concern concern--${concern.category || 'none'}`}>
       <div className="concern__head">
@@ -36,34 +49,97 @@ const ConcernCard = ({ species }) => {
         <div>
           <strong>{concern.atRisk ? 'Why it is of conservation concern' : 'Conservation status'}</strong>
           <div className="concern__listing">
-            {concern.category && <IucnTag cat={concern.category} prefix />} {concern.meaning}
+            {concern.category ? (
+              <>
+                <IucnTag cat={concern.category} full prefix /> {iucnDefinition(concern.category)}
+              </>
+            ) : (
+              concern.meaning
+            )}
           </div>
         </div>
       </div>
-      {concern.pressures.length > 0 && !concern.atRisk && (
-        <span className="o-label">Pressures to watch</span>
-      )}
+
       {concern.pressures.length > 0 && (
-        <ul className="concern__list">
-          {concern.pressures.map((p, i) => (
-            <li key={i} className={`concern__item is-${p.severity}`}>
-              <div className="concern__title">
-                <span>{p.title}</span>
-                <span className={`o-badge o-badge--${p.label}`}>{p.label}</span>
-              </div>
-              <p>{p.detail}</p>
-            </li>
-          ))}
-        </ul>
+        <div className={`concern__level is-${level.level}`}>
+          <div className="concern__level-head">
+            <span className="concern__level-name">{LEVEL_TEXT[level.level]}</span>
+            <span className="concern__score"><b>{level.score}</b>/100</span>
+            <span className="concern__meter" aria-hidden="true">
+              {[1, 2, 3].map((i) => (
+                <span key={i} className={i <= ({ moderate: 1, elevated: 2, high: 3 })[level.level] ? 'is-on' : ''} />
+              ))}
+            </span>
+          </div>
+          <p>
+            {level.high > 0
+              ? `${level.high} of ${level.total} measured pressures are severe: ${severe.map((p) => p.title.charAt(0).toLowerCase() + p.title.slice(1)).join('; ')}.`
+              : `None of its ${level.total} measured pressures is severe yet.`}
+            {!concern.atRisk && level.level === 'high' && ' Listed Least Concern, but the projections point the other way.'}
+          </p>
+          <span className="cite">
+            Score = range loss {level.parts.range}/55 + keeping pace {level.parts.pace}/25 + key stopover {level.parts.stopover}/20. From
+            Outrun&apos;s projections and corridor model, not part of the IUCN listing.
+          </span>
+        </div>
       )}
+
+      {concern.pressures.length > 0 && (
+        <>
+          <span className="o-label">What it faces</span>
+          <ul className="concern__list">
+            {concern.pressures.map((p, i) => (
+              <li key={i} className={`concern__item is-${p.severity}`}>
+                <div className="concern__title">
+                  <span>{p.title}</span>
+                  <span className="concern__sev" title={`Severity: ${p.severity}`} aria-label={`Severity: ${p.severity}`}>
+                    {[1, 2, 3].map((n) => (
+                      <span key={n} className={n <= SEVERITY_STEPS[p.severity] ? 'is-on' : ''} />
+                    ))}
+                  </span>
+                  <span className={`o-badge o-badge--${p.label}`}>{p.label}</span>
+                </div>
+                <p>{p.detail}</p>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      {actions.length > 0 && (
+        <div className="concern__actions">
+          <div className="concern__actions-head">
+            <span className="o-label">What a research team could do</span>
+            <span className="concern__tag">suggestions, not data</span>
+          </div>
+          <ol>
+            {actions.map((a, i) => {
+              const Icon = ACTION_ICON[a.type] || Search;
+              return (
+                <li key={i} className={`concern__action is-${a.type.toLowerCase()}`}>
+                  <span className="concern__action-icon" aria-hidden="true"><Icon size={15} /></span>
+                  <div>
+                    <div className="concern__action-title">
+                      <span>{a.title}</span>
+                      <span className="concern__action-type">{a.type}</span>
+                    </div>
+                    <p>{a.why}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
+      )}
+
       <p className="cite">
-        {concern.category && <>IUCN Red List{concern.year ? ` ${concern.year}` : ''}.{' '}</>}
+        {concern.category && <><Abbr>IUCN</Abbr> Red List{concern.year ? ` ${concern.year}` : ''}.{' '}</>}
         {concern.source_url && (
           <a href={concern.source_url} target="_blank" rel="noreferrer">
             {concern.atRisk ? 'Documented threats in the assessment' : 'IUCN assessment'} <ExternalLink size={11} style={{ verticalAlign: '-1px' }} />
           </a>
         )}{' '}
-        The pressures above are Outrun model results, not part of the IUCN listing.
+        Pressures and actions are Outrun model results and suggestions, not part of the IUCN listing.
       </p>
     </div>
   );
@@ -285,7 +361,7 @@ const Inspector = ({
   } else if (activeTab === 'watch') {
     body = <WatchTab species={species} calendar={calendar} activeSeason={activeSeason} onChangeSeason={onChangeSeason} weatherData={weatherData} onFetchWeather={fetchWeather} loadingWeather={loadingWeather} />;
   } else if (activeTab === 'proof') {
-    body = <ConcernCard species={species} />;
+    body = <ConcernCard species={species} tracksSimulated={tracksSimulated} />;
   }
 
   return (

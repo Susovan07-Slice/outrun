@@ -180,3 +180,10 @@
   }
   .bf-pressure, .bf-fact { break-inside: avoid; }
 }
+
+.bf-level { font-weight: 600; text-transform: none; letter-spacing: 0; color: var(--ink-faint); }
+.bf-level.is-high { color: var(--danger); }
+.bf-level.is-elevated { color: var(--warn); }
+.bf-actions { margin: 0; padding-left: 20px; display: grid; gap: 4px; font-size: 14px; }
+.bf-actions .bf-muted { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+@media print { .bf-actions { font-size: 12.5px; } }

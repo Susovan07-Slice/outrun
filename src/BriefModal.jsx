@@ -9,7 +9,7 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Printer, X } from 'lucide-react';
-import { loadConcern, IUCN_MEANING } from './analytics/concern';
+import { loadConcern, IUCN_MEANING, pressureLevel, suggestActions } from './analytics/concern';
 import { plainRaceVerdict } from './CorridorPanel';
 
 const INSUFFICIENT = 'Insufficient evidence';
@@ -65,6 +65,9 @@ const BriefModal = ({ species, corridorData, occurrences, tracksSimulated = fals
   const sightings = occurrences?.length || species.occurrence_count;
   // The stopover pressure has its own section below, so it is not repeated here.
   const pressures = (concern?.pressures || []).filter((p) => !p.title.startsWith('Depends on')).slice(0, 4);
+  const level = concern ? pressureLevel(concern.pressures) : null;
+  // The four most useful next steps for a research team (suggestions, not data).
+  const actions = concern ? suggestActions(concern, species, { tracksSimulated }).slice(0, 4) : [];
 
   // The "in short" paragraph: one sentence per finding, skipping anything we have no data for.
   const inShort = [
@@ -147,7 +150,10 @@ const BriefModal = ({ species, corridorData, occurrences, tracksSimulated = fals
           </section>
 
           <section className="bf-section">
-            <h2>{concern?.atRisk ? 'Why it is of concern' : 'Pressures to watch'}</h2>
+            <h2>
+              {concern?.atRisk ? 'Why it is of concern' : 'Pressures to watch'}
+              {level && <span className={`bf-level is-${level.level}`}> · {level.level} climate pressure ({level.score}/100)</span>}
+            </h2>
             {pressures.length ? (
               <ul className="bf-pressures">
                 {pressures.map((p, i) => (
@@ -176,6 +182,19 @@ const BriefModal = ({ species, corridorData, occurrences, tracksSimulated = fals
               <p className="bf-muted">No critical stopover found for this season.</p>
             )}
           </section>
+
+          {actions.length > 0 && (
+            <section className="bf-section">
+              <h2>What a research team could do <span className="bf-level">· suggestions, not data</span></h2>
+              <ol className="bf-actions">
+                {actions.map((a, i) => (
+                  <li key={i}>
+                    <strong>{a.title}.</strong> <span className="bf-muted">{a.type}</span>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          )}
 
           <footer className="bf-foot">
             <p>

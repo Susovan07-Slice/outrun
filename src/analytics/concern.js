@@ -75,13 +75,15 @@ export async function loadConcern(species) {
     const p = climatePressure(seasons[season], id, season);
     if (!p) continue;
     pressures.push({
+      kind: 'climate',
+      data: { season, where: p.where, warming: p.warming, lostShare: p.lostShare },
       label: 'projected',
       title: `${p.where[0].toUpperCase()}${p.where.slice(1)} warms ${p.warming >= 0 ? '+' : ''}${p.warming}°C by 2050`,
       detail:
         p.lostShare > 0
           ? `${Math.round(p.lostShare * 100)}% of its ${p.where} becomes too warm or too cold for it by 2050.`
           : `Its ${p.where} stays within the temperatures it lives in today.`,
-      severity: p.lostShare >= 0.5 ? 'high' : p.lostShare >= 0.2 ? 'medium' : 'low',
+      severity: p.lostShare >= 0.7 ? 'high' : p.lostShare >= 0.4 ? 'medium' : 'low',
     });
   }
 
@@ -89,6 +91,8 @@ export async function loadConcern(species) {
   if (race?.verdict) {
     const plain = plainRaceVerdict(race.verdict);
     pressures.push({
+      kind: 'race',
+      data: { velocity: race.mean_velocity_km_decade, rank: race.hwi_rank, total: race.hwi_rank_total, tone: plain.tone },
       label: 'projected',
       title: plain.title,
       detail: `Suitable climate shifts about ${race.mean_velocity_km_decade} km per decade; its flight ability ranks #${race.hwi_rank} of ${race.hwi_rank_total} species here.`,
@@ -103,10 +107,12 @@ export async function loadConcern(species) {
   if (links[0]) {
     const l = links[0];
     pressures.push({
+      kind: 'stopover',
+      data: { name: l.name, lossPct: l.loss_percent },
       label: 'simulated',
       title: `Depends on ${l.name}`,
       detail: `Losing this stopover would cut off ${l.loss_percent}% of the habitat it can reach.`,
-      severity: l.loss_percent >= 30 ? 'high' : 'medium',
+      severity: l.loss_percent >= 48 ? 'high' : l.loss_percent >= 30 ? 'medium' : 'low',
     });
   }
 
@@ -124,4 +130,108 @@ export async function loadConcern(species) {
     source_url: species.status?.source_url,
     pressures,
   };
+}
+
+/**
+ * Overall climate pressure (0-100) from Outrun's own measurements, separate from the IUCN
+ * listing. Weights: range loss 55 (mean share of breeding and wintering range pushed out of
+ * the species' temperature range by 2050), keeping pace 25 (no = 25, partly = 12.5, yes = 0)
+ * and key stopover 20 (reachable habitat cut off by its loss, scaled from 30% to 55%).
+ * High >= 60, Elevated >= 45, otherwise Moderate.
+ */
+export function pressureLevel(pressures = []) {
+  const climate = pressures.filter((p) => p.kind === 'climate');
+  const race = pressures.find((p) => p.kind === 'race');
+  const stop = pressures.find((p) => p.kind === 'stopover');
+  const rangeLoss = climate.length ? climate.reduce((a, p) => a + p.data.lostShare, 0) / climate.length : 0;
+  const pace = race ? { danger: 1, warn: 0.5, ok: 0 }[race.data.tone] ?? 0.5 : 0;
+  const stopShare = stop ? Math.min(1, Math.max(0, (stop.data.lossPct - 30) / 25)) : 0;
+  const parts = {
+    range: Math.round(55 * rangeLoss),
+    pace: Math.round(25 * pace),
+    stopover: Math.round(20 * stopShare),
+  };
+  const score = parts.range + parts.pace + parts.stopover;
+  const level = score >= 60 ? 'high' : score >= 45 ? 'elevated' : 'moderate';
+  const high = pressures.filter((p) => p.severity === 'high').length;
+  return { level, score, parts, high, total: pressures.length };
+}
+
+/**
+ * Suggested next steps for a bird research team, each tied to a pressure or data gap
+ * measured for this species. These are recommendations, not data.
+ * @returns {Array<{ type: 'Protect'|'Monitor'|'Research'|'Partner', title: string, why: string }>}
+ */
+export function suggestActions(concern, species, { tracksSimulated = false } = {}) {
+  if (!concern) return [];
+  const actions = [];
+  const find = (kind) => concern.pressures.filter((p) => p.kind === kind);
+
+  for (const p of find('stopover')) {
+    actions.push({
+      type: 'Protect',
+      title: `Protect and count birds at ${p.data.name}`,
+      why: `Losing it would cut off ${p.data.lossPct}% of reachable habitat. Work with site managers on protection and disturbance limits, and run counts during passage to catch declines early. Try it in the Network tab's Protect simulation.`,
+    });
+  }
+
+  const climate = find('climate').sort((a, b) => b.data.lostShare - a.data.lostShare);
+  const worst = climate[0];
+  if (worst && worst.data.lostShare >= 0.2) {
+    actions.push({
+      type: 'Research',
+      title: `Map climate refuges in its ${worst.data.where}`,
+      why: `${Math.round(worst.data.lostShare * 100)}% of its ${worst.data.where} falls outside its temperature range by 2050. Survey the parts projected to stay suitable (the green areas in the Twin tab) and prioritise them for protection.`,
+    });
+  }
+
+  const race = find('race')[0];
+  if (race && race.data.tone !== 'ok') {
+    actions.push({
+      type: 'Protect',
+      title: 'Secure stepping-stone habitat along the climate shift',
+      why: `Suitable climate moves about ${race.data.velocity} km per decade, and its flight ability ranks #${race.data.rank} of ${race.data.total}. Protecting wetlands and feeding sites in the direction of the shift helps the birds follow it.`,
+    });
+  }
+
+  const tracked = species?.evidence_level === 'tracks' ? species.tracked_individuals || 0 : 0;
+  if (tracksSimulated || tracked < 20) {
+    actions.push({
+      type: 'Monitor',
+      title: tracksSimulated || !tracked ? 'Start GPS tracking' : 'Tag more birds',
+      why: tracksSimulated || !tracked
+        ? 'Its routes here are modelled, not tracked. GPS tags on 20+ birds across both seasons would confirm the real routes, stopovers and timing.'
+        : `Only ${tracked} birds are GPS-tracked. Raising that to 20+ across both seasons would make the route, stopover and timing estimates much firmer.`,
+    });
+  } else {
+    actions.push({
+      type: 'Monitor',
+      title: 'Keep long-term tracking running',
+      why: `${tracked} tracked birds give solid routes. Continuing for several years shows whether timing and stopovers shift as the climate warms.`,
+    });
+  }
+
+  actions.push({
+    type: 'Monitor',
+    title: 'Time field checks to risky weather',
+    why: 'Use the Watch tab during migration months: gales, heavy rain and heat at stopovers are when losses and delays are most likely.',
+  });
+
+  const level = pressureLevel(concern.pressures).level;
+  if (concern.atRisk) {
+    actions.push({
+      type: 'Partner',
+      title: 'Share findings with flyway partners',
+      why: 'Send results to the IUCN assessment team and the flyway agreements under the Convention on Migratory Species (CMS), and check the documented threats in the IUCN assessment.',
+    });
+  } else if (level === 'high') {
+    actions.push({
+      type: 'Partner',
+      title: 'Flag it for reassessment',
+      why: 'It is listed Least Concern, but the projected climate pressure is high. New tracking and climate evidence can support a request for IUCN reassessment.',
+    });
+  }
+
+  const rank = { Protect: 0, Research: 1, Monitor: 2, Partner: 3 };
+  return actions.sort((a, b) => rank[a.type] - rank[b.type]);
 }
