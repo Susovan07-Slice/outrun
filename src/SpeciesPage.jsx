@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Search, X, ArrowRight, Bird } from 'lucide-react';
 import { speciesColorOf, speciesMetaOf } from './config';
 import { filterSpecies, isThreatened } from './SpeciesList';
+import { IucnTag, Abbr, IUCN_ORDER, iucnName } from './iucn';
 
 const MIGRATION = { 1: 'Sedentary', 2: 'Partial migrant', 3: 'Long-distance migrant' };
 
@@ -70,9 +71,7 @@ const SpeciesCard = ({ s, photo, selected, onOpen }) => {
     >
       <div className="spx-media">
         <Photo photo={photo} name={`${name} (${s.scientific_name})`} />
-        <span className={`iucn iucn--${cat || 'none'} spx-iucn`} title={cat ? `IUCN Red List: ${cat}` : 'No verified IUCN assessment'}>
-          {cat || 'n/a'}
-        </span>
+        <IucnTag cat={cat} full className="spx-iucn" />
         {photo && (
           <a className="spx-credit" href={`https://www.inaturalist.org/photos/${photo.photo_id}`} target="_blank" rel="noreferrer">
             {shortCredit(photo.attribution)}
@@ -151,8 +150,8 @@ const SpeciesPage = ({ speciesList = [], selectedSpecies, onOpenInAtlas }) => {
             <span className="spx-kicker">The flock</span>
             <h1>Species</h1>
             <p>
-              Migratory birds with GPS telemetry, GBIF sightings and AVONET wing traits. Pick one to fly its routes on the
-              atlas.
+              Migratory birds with <Abbr>GPS</Abbr> telemetry, <Abbr>GBIF</Abbr> sightings and <Abbr>AVONET</Abbr> wing
+              traits. Pick one to fly its routes on the atlas.
             </p>
           </div>
           <dl className="spx-stats">
@@ -187,6 +186,19 @@ const SpeciesPage = ({ speciesList = [], selectedSpecies, onOpenInAtlas }) => {
           </span>
         </div>
 
+        {/* What the status codes on the cards mean */}
+        <dl className="spx-key" aria-label="IUCN Red List categories">
+          <dt className="spx-key__title">
+            <Abbr>IUCN</Abbr> Red List status
+          </dt>
+          {IUCN_ORDER.map((c) => (
+            <dd key={c}>
+              <IucnTag cat={c} /> {iucnName(c)}
+            </dd>
+          ))}
+          <dd className="spx-key__note">At risk = CR, EN, VU or NT</dd>
+        </dl>
+
         {filtered.length === 0 ? (
           <div className="empty-note">No species match “{query}”.</div>
         ) : (
@@ -204,7 +216,8 @@ const SpeciesPage = ({ speciesList = [], selectedSpecies, onOpenInAtlas }) => {
         )}
 
         <p className="spx-photo-note">
-          Photos: iNaturalist contributors under the Creative Commons licence shown on each photo.
+          Photos: iNaturalist contributors under the Creative Commons licence shown on each photo. Wing score is the
+          hand-wing index from <Abbr>AVONET</Abbr>: higher means longer, narrower wings built for long flights.
         </p>
       </div>
     </div>

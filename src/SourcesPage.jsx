@@ -1,4 +1,5 @@
 import React from 'react';
+import { IucnTag, IUCN_ORDER, iucnDefinition } from './iucn';
 
 const SECTIONS = [
   ['labels', 'How we label evidence'],
@@ -67,6 +68,7 @@ const SourcesPage = ({ activeTrackDataset }) => (
 
           <section className="doc-card" id="gbif">
             <h2>GBIF occurrences</h2>
+            <p className="doc-sub">Global Biodiversity Information Facility</p>
             <p><strong>Taxonomy:</strong> GBIF Species Match restricted to class <code>Aves</code> (taxonKey 212).</p>
             <p><strong>Sampling:</strong> 12 monthly queries (~42 records each) for <code>HUMAN_OBSERVATION</code> records, 2010–2026, with valid coordinates and no geospatial issues. Deduplicated by <code>gbifID</code>, keeping all 10 provenance fields.</p>
             <p><strong>Licences:</strong> CC0 1.0, CC-BY 4.0, CC-BY-NC 4.0. <a href="https://www.gbif.org" target="_blank" rel="noreferrer">gbif.org</a></p>
@@ -74,6 +76,7 @@ const SourcesPage = ({ activeTrackDataset }) => (
 
           <section className="doc-card" id="avonet">
             <h2>AVONET traits</h2>
+            <p className="doc-sub">Global database of bird traits</p>
             <p>Tobias, J. A., Sheard, C., Pigot, A. L., et al. (2022). <em>AVONET: morphological, ecological and geographical data for all birds.</em> Ecology Letters 25(3), 581–597. DOI <a href="https://doi.org/10.1111/ele.13898" target="_blank" rel="noreferrer">10.1111/ele.13898</a> · CC-BY 4.0.</p>
             <p>Hand-wing index is used as a continuous dispersal proxy. Migration category runs 1 sedentary, 2 partial, 3 migratory.</p>
           </section>
@@ -85,7 +88,16 @@ const SourcesPage = ({ activeTrackDataset }) => (
 
           <section className="doc-card" id="iucn">
             <h2>Conservation status</h2>
-            <p>Statuses come only from verified IUCN Red List assessments with a source URL. Without one, status stays <code>NULL</code> and reads “Insufficient evidence”. A missing status is never read as least concern.</p>
+            <p>Statuses come only from verified IUCN (International Union for Conservation of Nature) Red List assessments with a source URL. Without one, status stays <code>NULL</code> and reads “Insufficient evidence”. A missing status is never read as least concern.</p>
+            <dl className="iucn-defs">
+              {IUCN_ORDER.map((c) => (
+                <div key={c}>
+                  <dt><IucnTag cat={c} full /></dt>
+                  <dd>{iucnDefinition(c)}</dd>
+                </div>
+              ))}
+            </dl>
+            <p><strong>At risk</strong> in Outrun means Critically Endangered, Endangered, Vulnerable or Near Threatened. Categories follow IUCN (2012) Red List Categories and Criteria, version 3.1.</p>
           </section>
 
           <section className="doc-card" id="photos">

@@ -5,6 +5,7 @@ import { RaceTab, TwinTab, NetworkTab, WatchTab, isFigure } from './CorridorPane
 import { loadConcern, THREATENED } from './analytics/concern';
 import { loadSeasonCalendar, rangeName } from './analytics/seasonCalendar';
 import { useBottomSheet } from './useBottomSheet';
+import { IucnTag, Abbr } from './iucn';
 
 export const INSPECTOR_TABS = [
   ['overview', 'Overview'],
@@ -35,7 +36,7 @@ const ConcernCard = ({ species }) => {
         <div>
           <strong>{concern.atRisk ? 'Why it is of conservation concern' : 'Conservation status'}</strong>
           <div className="concern__listing">
-            {concern.category && <span className={`iucn iucn--${concern.category}`}>IUCN {concern.category}</span>} {concern.meaning}
+            {concern.category && <IucnTag cat={concern.category} prefix />} {concern.meaning}
           </div>
         </div>
       </div>
@@ -134,7 +135,7 @@ const Overview = ({ species, occurrences, onOpenBrief, weatherData, loadingWeath
         <div className="o-stat">
           <span className="o-stat__label">Sightings</span>
           <span className="o-stat__value is-figure">{occurrences.length.toLocaleString()}</span>
-          <span className="o-stat__sub">From GBIF</span>
+          <span className="o-stat__sub">From <Abbr>GBIF</Abbr></span>
         </div>
         <div className="o-stat">
           <span className="o-stat__label">Wing shape score</span>
@@ -144,7 +145,7 @@ const Overview = ({ species, occurrences, onOpenBrief, weatherData, loadingWeath
         <div className="o-stat">
           <span className="o-stat__label">Migration</span>
           <span className="o-stat__value" style={{ fontSize: 14 }}>{MIGRATION[species.traits?.migration_category] || 'Insufficient evidence'}</span>
-          <span className="o-stat__sub">From AVONET</span>
+          <span className="o-stat__sub">From <Abbr>AVONET</Abbr></span>
         </div>
       </div>
 
@@ -154,8 +155,8 @@ const Overview = ({ species, occurrences, onOpenBrief, weatherData, loadingWeath
           <div className="note">
             <ShieldCheck size={16} style={{ color: 'var(--success)' }} />
             <div>
-              <span className={`iucn iucn--${status}`}>IUCN {status}</span>{' '}
-              <span style={{ marginLeft: 6 }}>IUCN Red List{species.status.assessment_year ? `, assessed ${species.status.assessment_year}` : ''}</span>
+              <IucnTag cat={status} full prefix />{' '}
+              <span style={{ marginLeft: 6 }}><Abbr>IUCN</Abbr> Red List{species.status.assessment_year ? `, assessed ${species.status.assessment_year}` : ''}</span>
               {THREATENED.includes(status) && (
                 <div style={{ marginTop: 8 }}>
                   <button className="o-btn o-btn--sm" data-ripple onClick={onShowConcern}>
@@ -305,7 +306,7 @@ const Inspector = ({
             <h2 className="insp-title">{species.common_name || species.scientific_name}</h2>
             <div className="insp-sci">
               {species.scientific_name}
-              {species.status?.category && <span className={`iucn iucn--${species.status.category}`} style={{ marginLeft: 8, height: 18, fontSize: 10 }}>{species.status.category}</span>}
+              {species.status?.category && <IucnTag cat={species.status.category} style={{ marginLeft: 8, height: 18, fontSize: 10 }} />}
             </div>
           </div>
           <div className="insp-head__actions">
